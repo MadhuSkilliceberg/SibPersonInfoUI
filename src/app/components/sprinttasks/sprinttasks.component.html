@@ -7,30 +7,35 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        InstitutionName :
+                        SprintId :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="sprinttasks.InstitutionName" placeholder="InstitutionName">
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="sprinttasks.SprintId" placeholder="SprintId">
                     </div>
                     <div class="col-md-3">
-                        QualificationtypeId :
+                        TaskId :
                     </div>
                     <div class="col-md-3">
-                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
-                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
-                        </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="sprinttasks.QulificationTypeId" placeholder="QualificationtypeId" />
+                            [(ngModel)]="sprinttasks.TaskId" placeholder="TaskId" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        MediumId :
+                        StatusId :
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="sprinttasks.MediumId" placeholder="MediumId" />
+                            [(ngModel)]="sprinttasks.StatusId" placeholder="StatusId" />
+                    </div>
+
+                    <div class="col-md-3">
+                        Description :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="sprinttasks.Description" placeholder="Description" />
                     </div>
                 </div>
 
@@ -56,9 +61,10 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>InstitutionName</th>
-                                        <th>QualificationtypeId</th>
-                                        <th>MediumId</th>
+                                        <th>SprintId</th>
+                                        <th>TaskId</th>
+                                        <th>StatusId</th>
+                                        <th>Description</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -71,9 +77,10 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.InstitutionName}}</td>
-                                        <td>{{item.QulificationTypeId}}</td>
-                                        <td>{{item.MediumId}}</td>
+                                        <td>{{item.SprintId}}</td>
+                                        <td>{{item.TaskId}}</td>
+                                        <td>{{item.StatusId}}</td>
+                                        <td>{{item.Description}}</td>
                                         <td><button class="btn btn-info" (click)="GetSprintTasksById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteSprintTasks(item.Id)"> Delete

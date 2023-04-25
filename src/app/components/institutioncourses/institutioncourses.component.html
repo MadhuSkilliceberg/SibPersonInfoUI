@@ -54,16 +54,14 @@
             <div class="row " style="padding-bottom: 10px;">
                 <div class="col-md-9"></div>
                 <div class="col-md-1">
-                    <button (click)="AddInstitutionCourses()" class="btn btn-primary"
-                        *ngIf="institutioncourses.Id==0">Save</button>
+                    <button (click)="AddInstitutionCourses()" class="btn btn-primary" *ngIf="institutioncourses.Id==0">Save</button>
                 </div>
             </div>
 
             <div class="row " style="padding-bottom: 10px;">
                 <div class="col-md-9"></div>
                 <div class="col-md-1">
-                    <button (click)=" UpdateInstitutionCourses()" class="btn btn-primary"
-                        *ngIf="institutioncourses.Id>0">Update</button>
+                    <button (click)=" UpdateInstitutionCourses()" class="btn btn-primary" *ngIf="institutioncourses.Id>0">Update</button>
                 </div>
             </div>
 
@@ -78,8 +76,8 @@
                                 <tr style="background-color: #007bff;color: white">
                                     <th>Id</th>
                                     <th>Name</th>
-                                    <th>InstitutionId</th>
-                                    <th>CourseId</th>
+                                    <th>Institution</th>
+                                    <th>Course</th>
                                     <th>IsActive</th>
                                     <th style="text-align: center;" colspan="2">Action</th>
 
@@ -98,10 +96,8 @@
                                     <td>{{item.InstitutionId}}</td>
                                     <td>{{item.CourseId}}</td>
                                     <td>{{item.IsActive}}</td>
-                                    <td><button class="btn btn-primary" (click)="GetInstitutionCourseById(item.Id)">
-                                            EDIT </button></td>
-                                    <td><button class="btn btn-danger" (click)="DeleteInstitutionCourse(item.Id)">
-                                            DELETE </button></td>
+                                    <td><button class="btn btn-primary" (click)="GetInstitutionCourseById(item.Id)"> EDIT </button></td>
+                                    <td><button class="btn btn-danger" (click)="DeleteInstitutionCourse(item.Id)">  DELETE </button></td>
                                 </tr>
                             </tbody>
                         </table>
