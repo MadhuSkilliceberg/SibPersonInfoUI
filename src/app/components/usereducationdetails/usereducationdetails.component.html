@@ -7,30 +7,73 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        InstitutionName :
+                        Id :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="usereducationdetails.InstitutionName" placeholder="InstitutionName">
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="usereducationdetails.Id" placeholder="Id">
                     </div>
                     <div class="col-md-3">
-                        QualificationtypeId :
+                        UserId :
                     </div>
                     <div class="col-md-3">
-                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
-                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
-                        </select> -->
+                        
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="usereducationdetails.QulificationTypeId" placeholder="QualificationtypeId" />
+                            [(ngModel)]="usereducationdetails.UserId" placeholder="UserId" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        MediumId :
+                        QulificationtypeId :
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usereducationdetails.MediumId" placeholder="MediumId" />
+                            [(ngModel)]="usereducationdetails.QulificationtypeId" placeholder="QulificationtypeId" />
+                    </div>
+
+                    <br><br>
+                    <div class="col-md-3">
+                        YearOFPassout :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="usereducationdetails.YearOFPassout" placeholder="YearOFPassout" />
+                    </div>
+
+                    <br><br>
+                    <div class="col-md-3">
+                        StartYear :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="usereducationdetails.StartYear" placeholder="StartYear" />
+                    </div>
+
+                    <br><br>
+                    <div class="col-md-3">
+                        EndYear :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="usereducationdetails.EndYear" placeholder="EndYear" />
+                    </div>
+
+                    <br><br>
+                    <div class="col-md-3">
+                        InstitutionId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="usereducationdetails.InstitutionId" placeholder="InstitutionId" />
+                    </div>
+
+                    <br><br>
+                    <div class="col-md-3">
+                        Percentage :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="usereducationdetails.Percentage" placeholder="Percentage" />
                     </div>
                 </div>
 
@@ -56,9 +99,15 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>InstitutionName</th>
-                                        <th>QualificationtypeId</th>
-                                        <th>MediumId</th>
+                                        <th>Id</th>
+                                        <th>UserId</th>
+                                        <th>QulificationtypeId</th>
+                                        <th>YearOFPassout</th>
+                                        <th>QulificationtypeId</th>
+                                        <th>StartYear</th>
+                                        <th>EndYear</th>
+                                        <th>InstitutionId</th>
+                                        <th>Percentage</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -71,9 +120,15 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.InstitutionName}}</td>
-                                        <td>{{item.QulificationTypeId}}</td>
-                                        <td>{{item.MediumId}}</td>
+                                        <td>{{item.Id}}</td>
+                                        <td>{{item.UserId}}</td>
+                                        <td>{{item.QulificationtypeId}}</td>
+                                        <td>{{item.YearOFPassout}}</td>
+                                        <td>{{item.QulificationtypeId}}</td>
+                                        <td>{{item.StartYear}}</td>
+                                        <td>{{item.EndYear}}</td>
+                                        <td>{{item.InstitutionId}}</td>
+                                        <td>{{item.Percentage}}</td>
                                         <td><button class="btn btn-info" (click)="GetUserEducationDetailsById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteUserEducationDetails(item.Id)"> Delete
