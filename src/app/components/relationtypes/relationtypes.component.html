@@ -7,31 +7,20 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        InstitutionName :
+                        RelationName :
                     </div>
                     <div class="col-md-3">
                         <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="relationtypes.InstitutionName" placeholder="InstitutionName">
+                            [(ngModel)]="relationtypes.RelationName" placeholder="RelationName">
                     </div>
                     <div class="col-md-3">
-                        QualificationtypeId :
+                        Code :
                     </div>
                     <div class="col-md-3">
-                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
-                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
-                        </select> -->
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="relationtypes.QulificationTypeId" placeholder="QualificationtypeId" />
+                        <input type="text" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="relationtypes.Code" placeholder="Code" />
                     </div>
-
                     <br><br>
-                    <div class="col-md-3">
-                        MediumId :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="relationtypes.MediumId" placeholder="MediumId" />
-                    </div>
                 </div>
 
                 <div class="row " style="padding-bottom: 10px;">
@@ -56,9 +45,8 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>InstitutionName</th>
-                                        <th>QualificationtypeId</th>
-                                        <th>MediumId</th>
+                                        <th>RelationName</th>
+                                        <th>Code</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -71,9 +59,8 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.InstitutionName}}</td>
-                                        <td>{{item.QulificationTypeId}}</td>
-                                        <td>{{item.MediumId}}</td>
+                                        <td>{{item.RelationName}}</td>
+                                        <td>{{item.Code}}</td>
                                         <td><button class="btn btn-info" (click)="GetRelationTypesById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteRelationTypes(item.Id)"> Delete
