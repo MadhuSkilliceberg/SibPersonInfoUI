@@ -7,30 +7,30 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        InstitutionName :
+                        Id :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="tasklog.InstitutionName" placeholder="InstitutionName">
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="tasklog.Id" placeholder="Id">
                     </div>
                     <div class="col-md-3">
-                        QualificationtypeId :
+                        TaskId :
                     </div>
                     <div class="col-md-3">
                         <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
                             <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
                         </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="tasklog.QulificationTypeId" placeholder="QualificationtypeId" />
+                            [(ngModel)]="tasklog.TaskId" placeholder="TaskId" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        MediumId :
+                        Description :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="tasklog.MediumId" placeholder="MediumId" />
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="tasklog.Description" placeholder="Description" />
                     </div>
                 </div>
 
@@ -56,9 +56,9 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>InstitutionName</th>
-                                        <th>QualificationtypeId</th>
-                                        <th>MediumId</th>
+                                        <th>Id</th>
+                                        <th>TaskId</th>
+                                        <th>Description</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -71,9 +71,9 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.InstitutionName}}</td>
-                                        <td>{{item.QulificationTypeId}}</td>
-                                        <td>{{item.MediumId}}</td>
+                                        <td>{{item.Id}}</td>
+                                        <td>{{item.TaskId}}</td>
+                                        <td>{{item.Description}}</td>
                                         <td><button class="btn btn-info" (click)="GetTaskLogById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteTaskLog(item.Id)"> Delete

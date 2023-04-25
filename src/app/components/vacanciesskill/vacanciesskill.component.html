@@ -1,96 +1,119 @@
 <div class='dashboard-content'>
     <div class='container'>
         <div class='card'>
-            <div class='card-header'>
-                <h1>VacanciesSkill</h1>
+            <div class='card-header' >
+                <h1 >Vacancies Skill</h1> 
             </div>
             <div class='card-body'>
+  
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        InstitutionName :
+                       <b>Id :</b> 
                     </div>
                     <div class="col-md-3">
-                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="vacanciesskill.InstitutionName" placeholder="InstitutionName">
+                      <input type="number" id="txtskill" Name="txtskill"  class="form-control" [(ngModel)]="vacanciesSkill.Id" placeholder="Id">
                     </div>
                     <div class="col-md-3">
-                        QualificationtypeId :
+                       <b>VacancyId :</b> 
                     </div>
                     <div class="col-md-3">
-                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
-                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
-                        </select> -->
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="vacanciesskill.QulificationTypeId" placeholder="QualificationtypeId" />
+                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancyId.Id" placeholder="VacancyId"/>
                     </div>
-
                     <br><br>
                     <div class="col-md-3">
-                        MediumId :
+                       <b> SkillId :</b>
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="vacanciesskill.MediumId" placeholder="MediumId" />
+                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacanciesSkill.SkillId" placeholder="SkillId"/>
                     </div>
-                </div>
-
+                    
+                    <br><br>
+                    <div class="col-md-3">
+                       <b> IsActive :</b>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacanciesSkill.IsActive" placeholder="IsActive"/>
+                    </div>
+                    
+                
                 <div class="row " style="padding-bottom: 10px;">
+                  <div class="col-md-9"></div>
+                  <div class="col-md-1">
+                    <button (click)="GetVacanciesSkill()" class="btn btn-primary"  >Search</button>
+                  </div>
+              </div>
+  
+  
+                <!-- <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-1">
-                        <button (click)="AddVacanciesSkill()" class="btn btn-primary" *ngIf="isSave">Submit</button>
+                      <button (click)="InsertVacanciesSkill()" class="btn btn-primary" *ngIf="issaved">Save</button>
                     </div>
                 </div>
-
+  
                 <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-3">
-                        <button (click)="UpdateVacanciesSkill()" class="btn btn-primary" *ngIf="isUpdate">Update</button>
+                      <button (click)="UpdateVacaciesSkill()" class="btn btn-primary" *ngIf="isupdate">Update</button>
                     </div>
                 </div>
-
+   -->
+  
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                            <h2>VacanciesSkill Data</h2>
-
+                             <button class="btn btn-primary" style="float: right;" (click)="GetVacanciesSkillById(-1)"> New </button>
+  
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>InstitutionName</th>
-                                        <th>QualificationtypeId</th>
-                                        <th>MediumId</th>
-                                        <th style="text-align: center;" colspan="2">Action</th>
-
+                                        <th>Id</th>
+                                        <th>VacancyId</th>
+                                        <th>SkillId</th>
+                                        <th>IsActive</th>
+                                        
+                                        <th style="text-align: center;" colspan="2" >Action</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of vacanciesskillData | paginate
+                                    <tr *ngFor="let item of VacanciesSkilldata | paginate
                                     : {
                                         itemsPerPage: tableSize,
                                         currentPage: page,
                                         totalItems: count
                                       };
-                                    let i = index">
-                                        <td>{{item.InstitutionName}}</td>
-                                        <td>{{item.QulificationTypeId}}</td>
-                                        <td>{{item.MediumId}}</td>
-                                        <td><button class="btn btn-info" (click)="GetVacanciesSkillById(item.Id)"> Edit
-                                            </button></td>
-                                        <td><button class="btn btn-danger" (click)="DeleteVacanciesSkill(item.Id)"> Delete
-                                            </button></td>
+                                    let i = index"> 
+                                        <td>{{item.Id}}</td>
+                                        <td>{{item.VacancyId}}</td>
+                                        <td>{{item.SkillId}}</td>
+                                        <td>{{item.IsActive}}</td>
+                                       
+  
+                                        <td><button class="btn btn-primary" (click)="GetVacanciesSkillById(item.Id)"> EDIT </button></td>
+                                        <td><button class="btn btn-danger" (click)="VacanciesSkillAddress(item.Id)"> DELETE </button></td>
                                     </tr>
                                 </tbody>
                             </table>
-
+                            <!-- <ul class="pagination" style="float: right;">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul> -->
                             <div class="d-flex justify-content-center">
-                                <pagination-controls previousLabel="Prev" nextLabel="Next"
-                                    (pageChange)="onTableDataChange($event)">
-                                </pagination-controls>
-                            </div>
+                              <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+                              </pagination-controls>
+                          </div>
                         </div>
                     </div>
                 </div>
+  
+  
             </div>
         </div>
     </div>
-</div>
+  </div>
+  
+  

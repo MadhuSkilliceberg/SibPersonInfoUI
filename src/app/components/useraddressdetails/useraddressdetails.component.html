@@ -7,31 +7,78 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        InstitutionName :
+                        Id :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="useraddressdetails.InstitutionName" placeholder="InstitutionName">
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="useraddressdetails.Id" placeholder="Id">
                     </div>
                     <div class="col-md-3">
-                        QualificationtypeId :
+                        FlotNo :
                     </div>
                     <div class="col-md-3">
                         <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
                             <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
                         </select> -->
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="useraddressdetails.QulificationTypeId" placeholder="QualificationtypeId" />
+                        <input type="text" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="useraddressdetails.FlotNo" placeholder="FlotNo" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        MediumId :
+                        Address1 :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="useraddressdetails.MediumId" placeholder="MediumId" />
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="useraddressdetails.Address1" placeholder="Address1" />
                     </div>
+
+                    
+                    <br><br>
+                    <div class="col-md-3">
+                        Address2 :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="useraddressdetails.Address2" placeholder="Address2" />
+                    </div>
+                    
+                    <br><br>
+                    <div class="col-md-3">
+                        City :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="useraddressdetails.City" placeholder="City" />
+                    </div>
+                    
+                    <br><br>
+                    <div class="col-md-3">
+                        StateId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="useraddressdetails.StateId" placeholder="StateId" />
+                    </div>
+                    
+                    <br><br>
+                    <div class="col-md-3">
+                        CountryId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="useraddressdetails.CountryId" placeholder="CountryId" />
+                    </div>
+                    
+                    <br><br>
+                    <div class="col-md-3">
+                        IsPermanent :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="useraddressdetails.IsPermanent" placeholder="IsPermanent" />
+                    </div>
+
                 </div>
 
                 <div class="row " style="padding-bottom: 10px;">
@@ -56,9 +103,16 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>InstitutionName</th>
-                                        <th>QualificationtypeId</th>
-                                        <th>MediumId</th>
+                                        <th>Id</th>
+                                        <th>FlotNo</th>
+                                        <th>Address1</th>
+                                        <th>Address2</th>
+                                        <th>City</th>
+                                        <th>StateId</th>
+                                        <th>CountryId</th>
+                                        <th>UserId</th>
+                                        <th>IsPermanent</th>
+                                        
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -71,9 +125,16 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.InstitutionName}}</td>
-                                        <td>{{item.QulificationTypeId}}</td>
-                                        <td>{{item.MediumId}}</td>
+                                        <td>{{item.Id}}</td>
+                                        <td>{{item.FlotNo}}</td>
+                                        <td>{{item.Address1}}</td>
+                                        <td>{{item.Address2}}</td>
+                                        <td>{{item.City}}</td>
+                                        <td>{{item.StateId}}</td>
+                                        <td>{{item.CountryId}}</td>
+                                        <td>{{item.UserId}}</td>
+                                        <td>{{item.IsPermanent}}</td>
+                                        
                                         <td><button class="btn btn-info" (click)="GetUserAddressDetailsById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteUserAddressDetails(item.Id)"> Delete
