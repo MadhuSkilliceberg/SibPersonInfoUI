@@ -1,0 +1,169 @@
+
+<div class='dashboard-content'>
+    <div class='container'>
+        <div class='card'>
+            <div class='card-header'>
+                <h1>InstitutionAddress</h1>
+            </div>
+            <div class='card-body'>
+
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-3">
+                        <b>Institution :</b>
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="institutionaddress.InstitutionId" class="form-control">
+                            <option *ngFor="let item of institutionsData" value="{{item.Id}}">{{item.InstitutionName}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <b>FlotNo :</b>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="institutionaddress.FlotNo" placeholder="FlotNo" />
+                    </div>
+                    <br><br>
+                    <div class="col-md-3">
+                        <b> Address1 : </b>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="institutionaddress.Address1" placeholder="Address1" />
+                    </div>
+                    <div class="col-md-3">
+                        <b> Address2 :</b>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="institutionaddress.Address2" placeholder="Address2" />
+                    </div>
+                    <br><br>
+                    <div class="col-md-3">
+                        <b> City :</b>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="institutionaddress.City" placeholder="City" />
+                    </div>
+                    <div class="col-md-3">
+                        <b> State :</b>
+                    </div>
+                    <div class="col-md-3">
+                        <select name="State" id="StateId" [(ngModel)]="institutionaddress.StateId" class="form-control">
+                            <option *ngFor="let item of statesData" value="{{item.Id}}" class="form-control">
+                                {{item.StateName}}</option>
+                        </select>
+                    </div>
+                    <br><br>
+                    <div class="col-md-3">
+                        <b> CountryId :</b>
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="institutionaddress.CountryId" class="form-control">
+                            <option *ngFor="let item of countriesData" value="{{item.Id}}">{{item.CountryName}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <b> Medium :</b>
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="institutionaddress.MeduimId" class="form-control">
+                            <option *ngFor="let item of mediumData" value="{{item.Id}}">{{item.Medium}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row " style="padding-bottom: 3px;">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" *ngIf="isSave">Search</button>
+                    </div>
+
+
+                    <div class="row " style="padding-bottom: 5px;">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-1">
+                            <button class="btn btn-primary" *ngIf="isSave">New</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row " style="padding-bottom: 10px;">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-1">
+                        <button (click)="AddInstitutionAddress()" class="btn btn-primary" *ngIf="isSave">Save</button>
+                    </div>
+                </div>
+
+                <div class="row " style="padding-bottom: 10px;">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <button (click)="UpdateInstitutionAddress()" class="btn btn-primary"
+                            *ngIf="isUpdate">Update</button>
+                    </div>
+                </div>
+
+
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-12">
+                        <div class="container mt-3">
+                            <h2>InstitutionAddress</h2>
+
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr style="background-color: #007bff;color: white">
+                                        <th>InstitutionId</th>
+                                        <th>FlotNo</th>
+                                        <th>Address1</th>
+                                        <th>Address2</th>
+                                        <th>City</th>
+                                        <th>StateId</th>
+                                        <th>CountryId</th>
+                                        <th>MediumId</th>
+                                        <th style="text-align: center;" colspan="2">Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of institutionaddressData | paginate
+                                      : {
+                                          itemsPerPage: tableSize,
+                                          currentPage: page,
+                                          totalItems: count
+                                        };
+                                      let i = index">
+                                        <td>{{item.InstitutionName}}</td>
+                                        <td>{{item.FlotNo}}</td>
+                                        <td>{{item.Address1}}</td>
+                                        <td>{{item.Address2}}</td>
+                                        <td>{{item.City}}</td>
+                                        <td>{{item.StateName}}</td>
+                                        <td>{{item.CountryName}}</td>
+                                        <td>{{item.Medium1}}</td>
+
+                                        <td><button class="btn btn-primary"
+                                                (click)="GetInstitutionAddressById(item.Id)"> EDIT </button>
+                                        </td>
+                                        <td><button class="btn btn-danger" (click)="DeleteInstitutionAddress(item.Id)">
+                                                DELETE </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="d-flex justify-content-center">
+                                <pagination-controls previousLabel="Prev" nextLabel="Next"
+                                    (pageChange)="onTableDataChange($event)">
+                                </pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

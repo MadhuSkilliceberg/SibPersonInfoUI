@@ -1,0 +1,96 @@
+<div class='dashboard-content'>
+    <div class='container'>
+        <div class='card'>
+            <div class='card-header'>
+                <h1>States</h1>
+            </div>
+            <div class='card-body'>
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-3">
+                        InstitutionName :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="states.InstitutionName" placeholder="InstitutionName">
+                    </div>
+                    <div class="col-md-3">
+                        QualificationtypeId :
+                    </div>
+                    <div class="col-md-3">
+                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
+                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
+                        </select> -->
+                        <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="states.QulificationTypeId" placeholder="QualificationtypeId" />
+                    </div>
+
+                    <br><br>
+                    <div class="col-md-3">
+                        MediumId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="states.MediumId" placeholder="MediumId" />
+                    </div>
+                </div>
+
+                <div class="row " style="padding-bottom: 10px;">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-1">
+                        <button (click)="AddStates()" class="btn btn-primary" *ngIf="isSave">Submit</button>
+                    </div>
+                </div>
+
+                <div class="row " style="padding-bottom: 10px;">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <button (click)="UpdateStates()" class="btn btn-primary" *ngIf="isUpdate">Update</button>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-12">
+                        <div class="container mt-3">
+                            <h2>States Data</h2>
+
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr style="background-color: #007bff;color: white">
+                                        <th>InstitutionName</th>
+                                        <th>QualificationtypeId</th>
+                                        <th>MediumId</th>
+                                        <th style="text-align: center;" colspan="2">Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of statesData | paginate
+                                    : {
+                                        itemsPerPage: tableSize,
+                                        currentPage: page,
+                                        totalItems: count
+                                      };
+                                    let i = index">
+                                        <td>{{item.InstitutionName}}</td>
+                                        <td>{{item.QulificationTypeId}}</td>
+                                        <td>{{item.MediumId}}</td>
+                                        <td><button class="btn btn-info" (click)="GetStatesById(item.Id)"> Edit
+                                            </button></td>
+                                        <td><button class="btn btn-danger" (click)="DeleteStates(item.Id)"> Delete
+                                            </button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="d-flex justify-content-center">
+                                <pagination-controls previousLabel="Prev" nextLabel="Next"
+                                    (pageChange)="onTableDataChange($event)">
+                                </pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

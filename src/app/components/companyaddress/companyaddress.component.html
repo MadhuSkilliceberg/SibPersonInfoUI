@@ -1,0 +1,135 @@
+<div class='dashboard-content'>
+    <div class='container'>
+        <div class='card'>
+            <div class='card-header'>
+                <h1>CompanyAddress</h1>
+            </div>
+            <div class='card-body'>
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-3">
+                        CompanyId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="companyaddress.CompanyId" placeholder="InstitutionName">
+                    </div>
+                    <div class="col-md-3">
+                        FlotNo :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" class="form-control" id="txtcode" [(ngModel)]="companyaddress.FlotNo" placeholder="QualificationtypeId" />
+                    </div>
+
+                    <br><br>
+                    <div class="col-md-3">
+                        Address1 :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="companyaddress.Address1" placeholder="MediumId" />
+                    </div>
+                    <div class="col-md-3">
+                        Address2 :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="companyaddress.Address2" placeholder="InstitutionName">
+                    </div>
+                    <div class="col-md-3">
+                        City :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" class="form-control" id="txtcode" [(ngModel)]="companyaddress.City" placeholder="QualificationtypeId" />
+                    </div>
+
+                    <br><br>
+                    <div class="col-md-3">
+                        StateId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="companyaddress.StateId" placeholder="InstitutionName">
+                    </div>
+                    <div class="col-md-3">
+                        CountryId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" class="form-control" id="txtcode" [(ngModel)]="companyaddress.CountryId" placeholder="QualificationtypeId" />
+                    </div>
+
+                    <br><br>
+                    
+                </div>
+
+
+
+
+
+                <div class="row " style="padding-bottom: 10px;">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-1">
+                        <button (click)="AddCompanyAddress()" class="btn btn-primary" *ngIf="isSave">Submit</button>
+                    </div>
+                </div>
+
+                <div class="row " style="padding-bottom: 10px;">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <button (click)="UpdateCompanyAddress()" class="btn btn-primary" *ngIf="isUpdate">Update</button>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-12">
+                        <div class="container mt-3">
+                            <h2>CompanyAddress Data</h2>
+
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr style="background-color: #007bff;color: white">
+                                        <th>CompanyId</th>
+                                        <th>FlotNo</th>
+                                        <th>Address1</th>
+                                        <th>Address2</th>
+                                        <th>City</th>
+                                        <th>StateId</th>
+                                        <th>CountryId</th>
+                                        <th style="text-align: center;" colspan="2">Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of companyaddressData | paginate
+                                    : {
+                                        itemsPerPage: tableSize,
+                                        currentPage: page,
+                                        totalItems: count
+                                      };
+                                    let i = index">
+                                        <td>{{item.CompanyId}}</td>
+                                        <td>{{item.FlotNo}}</td>
+                                        <td>{{item.Address1}}</td>
+                                        <td>{{item.Address2}}</td>
+                                        <td>{{item.City}}</td>
+                                        <td>{{item.StateId}}</td>
+                                        <td>{{item.CountryId}}</td>
+                                        <td><button class="btn btn-info" (click)="GetCompanyAddressById(item.Id)"> Edit
+                                            </button></td>
+                                        <td><button class="btn btn-danger" (click)="DeleteCompanyAddress(item.Id)"> Delete
+                                            </button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="d-flex justify-content-center">
+                                <pagination-controls previousLabel="Prev" nextLabel="Next"
+                                    (pageChange)="onTableDataChange($event)">
+                                </pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

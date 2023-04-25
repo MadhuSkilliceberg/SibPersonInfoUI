@@ -1,0 +1,122 @@
+
+
+
+<div class='dashboard-content'>
+    <div class='container'>
+        <div class='card'>
+            <div class='card-header'>
+                <h1>InstitutionCourse</h1>
+            </div>
+            <div class='card-body'>
+
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-3">
+                        Name :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="name1" id="1" class="form-control" [(ngModel)]="institutioncourse.Name"
+                            placeholder="Name">
+                    </div>
+                    <div class="col-md-3">
+                        Institution :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="institutioncourse.InstitutionId" class="form-control">
+                            <option *ngFor="let item of institutiondata" value="{{item.Id}}">{{item.InstitutionName}}</option>
+                        </select> 
+                            
+                    </div><br><br>
+                    <div class="col-md-3">
+                        Course :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id=""  [(ngModel)]="institutioncourse.CourseId" class="form-control" >
+                            <option *ngFor="let item of courses" value="{{item.Id}}">{{item.Name}}</option>
+                        </select>
+                            
+                    </div>
+                    <div class="col-md-3">
+                        IsActive :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="name2" id="3" class="form-check-input" [(ngModel)]="institutioncourse.IsActive" >
+                    </div>
+                </div><br>
+               
+            </div>
+
+
+
+
+
+
+
+            <div class="row " style="padding-bottom: 10px;">
+                <div class="col-md-9"></div>
+                <div class="col-md-1">
+                    <button (click)="AddInstitutionCourses()" class="btn btn-primary"
+                        *ngIf="institutioncourses.Id==0">Save</button>
+                </div>
+            </div>
+
+            <div class="row " style="padding-bottom: 10px;">
+                <div class="col-md-9"></div>
+                <div class="col-md-1">
+                    <button (click)=" UpdateInstitutionCourses()" class="btn btn-primary"
+                        *ngIf="institutioncourses.Id>0">Update</button>
+                </div>
+            </div>
+
+
+            <div class="row" style="padding-bottom: 10px;">
+                <div class="col-md-12">
+                    <div class="container mt-3">
+                        <h2>InstitutionCourse</h2>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr style="background-color: #007bff;color: white">
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>InstitutionId</th>
+                                    <th>CourseId</th>
+                                    <th>IsActive</th>
+                                    <th style="text-align: center;" colspan="2">Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of institutioncoursesData | paginate
+                                    : {
+                                        itemsPerPage: tableSize,
+                                        currentPage: page,
+                                        totalItems: count
+                                      };
+                                    let i = index">
+                                    <td>{{item.Id}}</td>
+                                    <td>{{item.Name}}</td>
+                                    <td>{{item.InstitutionId}}</td>
+                                    <td>{{item.CourseId}}</td>
+                                    <td>{{item.IsActive}}</td>
+                                    <td><button class="btn btn-primary" (click)="GetInstitutionCourseById(item.Id)">
+                                            EDIT </button></td>
+                                    <td><button class="btn btn-danger" (click)="DeleteInstitutionCourse(item.Id)">
+                                            DELETE </button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="d-flex justify-content-center">
+                            <pagination-controls previousLabel="Prev" nextLabel="Next"
+                                (pageChange)="onTableDataChange($event)">
+                            </pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

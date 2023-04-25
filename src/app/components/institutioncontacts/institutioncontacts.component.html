@@ -1,0 +1,124 @@
+
+<div class='dashboard-content'>
+    <div class='container'>
+        <div class='card'>
+            <div class='card-header'>
+                <h1>InstitutionContact</h1>
+            </div>
+            <div class='card-body'>
+
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-3">
+                        <b class="padding-bottom">InstitutionAddress :</b>
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="institutioncontacts.InstitutionAddressId"
+                            class="form-control">
+                            <option *ngFor="let item of institutionaddressData" value="{{item.Id}}">{{item.Address1}}
+                            </option>
+                        </select>
+                        <!-- <input type="number" class="form-control" id="InstitutionAddressId" Name="InstitutionAddressId"[(ngModel)]="institutioncontact.InstitutionAddressId" placeholder="InstitutionAddressId"> -->
+                    </div>
+                    <div class="col-md-3">
+                        <b>MobileNumber :</b>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="tell" class="form-control" name="MobileNumber" id="MobileNumber"
+                            [(ngModel)]="institutioncontacts.MobileNumber" placeholder="MobileNumber" />
+                    </div>
+                    <br><br>
+                    <div class="col-md-3">
+                        <b> IsPrimary :</b>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- <input type="text" name="txtcode" id="txtcode" [(ngModel)]="institutioncontacts.IsPrimary" placeholder="IsPrimary"/> -->
+                        <input type="checkbox" class="form-check-input" name="cdkIsPrimary" id="cdkIsPrimary"
+                            [(ngModel)]="institutioncontacts.IsPrimary" />
+                    </div>
+                    <div class="col-md-3">
+                        <b> OrderId :</b>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="institutioncontacts.OrderId" placeholder="OrderId" />
+                    </div>
+
+                </div>
+
+
+
+
+
+                <div class="row " style="padding-bottom: 10px;">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-1">
+                        <button (click)="AddInstitutionContacts()" class="btn btn-primary" *ngIf="isSave">Save</button>
+                    </div>
+                </div>
+
+                <div class="row " style="padding-bottom: 10px;">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <button (click)="UpdateInstitutionContacts()" class="btn btn-primary"
+                            *ngIf="isUpdate">Update</button>
+                    </div>
+                </div>
+
+
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-12">
+                        <div class="container mt-3">
+                            <h2>InstitutionContact</h2>
+
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr style="background-color: #007bff;color: white">
+                                        <th>InstitutionAddressId</th>
+                                        <th>MobileNumber</th>
+                                        <th>IsPrimary</th>
+                                        <th>OrderId</th>
+                                        <th style="text-align: center;" colspan="2">Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of institutioncontactsData | paginate
+                                    : {
+                                        itemsPerPage: tableSize,
+                                        currentPage: page,
+                                        totalItems: count
+                                      };
+                                    let i = index">
+                                        <td>{{item.InstitutionAddressId}}</td>
+                                        <td>{{item.MobileNumber}}</td>
+                                        <td>{{item.IsPrimary}}</td>
+                                        <td>{{item.OrderId}}</td>
+
+                                        <td><button class="btn btn-primary"
+                                                (click)="GetInstitutionContactsById(item.Id)"> EDIT </button></td>
+                                        <td><button class="btn btn-danger" (click)="DeleteInstitutionContacts(item.Id)">
+                                                DELETE </button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="d-flex justify-content-center">
+                                <pagination-controls previousLabel="Prev" nextLabel="Next"
+                                    (pageChange)="onTableDataChange($event)">
+                                </pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <ngx-spinner
+  bdColor="rgba(0, 0, 0, 1)"
+  template="<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />"
+>
+</ngx-spinner> -->
