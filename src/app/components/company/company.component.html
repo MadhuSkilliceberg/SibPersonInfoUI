@@ -7,37 +7,25 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        InstitutionName :
+                        CompanyName :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="company.InstitutionName" placeholder="InstitutionName">
-                    </div>
-                    <div class="col-md-3">
-                        QualificationtypeId :
-                    </div>
-                    <div class="col-md-3">
-                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
-                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
-                        </select> -->
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="company.QulificationTypeId" placeholder="QualificationtypeId" />
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"[(ngModel)]="company.CompanyName" placeholder="CompanyName">
                     </div>
 
-                    <br><br>
                     <div class="col-md-3">
-                        MediumId :
+                        Code :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="company.MediumId" placeholder="MediumId" />
+                        <input type="number" name="txtcode" class="form-control" id="txtcode" [(ngModel)]="company.Code" placeholder="Code" />
                     </div>
                 </div>
+
 
                 <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-1">
-                        <button (click)="AddCompany()" class="btn btn-primary" *ngIf="isSave">Submit</button>
+                        <button (click)="AddCompany()" class="btn btn-primary" *ngIf="isSave">Save</button>
                     </div>
                 </div>
 
@@ -56,9 +44,8 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>InstitutionName</th>
-                                        <th>QualificationtypeId</th>
-                                        <th>MediumId</th>
+                                        <th>CompanyName</th>
+                                        <th>Code</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -71,9 +58,8 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.InstitutionName}}</td>
-                                        <td>{{item.QulificationTypeId}}</td>
-                                        <td>{{item.MediumId}}</td>
+                                        <td>{{item.CompanyName}}</td>
+                                        <td>{{item.Code}}</td>
                                         <td><button class="btn btn-info" (click)="GetCompanyById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteCompany(item.Id)"> Delete

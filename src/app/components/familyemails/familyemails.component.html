@@ -7,30 +7,37 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        InstitutionName :
+                        InstitutionAddressId :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="familyemails.InstitutionName" placeholder="InstitutionName">
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="familyemails.InstitutionAddressId" placeholder="InstitutionAddressId">
                     </div>
                     <div class="col-md-3">
-                        QualificationtypeId :
+                        Email :
                     </div>
                     <div class="col-md-3">
                         <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
                             <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
                         </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="familyemails.QulificationTypeId" placeholder="QualificationtypeId" />
+                            [(ngModel)]="familyemails.Email" placeholder="Email" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        MediumId :
+                        IsPrimary :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="familyemails.MediumId" placeholder="MediumId" />
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="familyemails.IsPrimary" placeholder="IsPrimary" />
+                    </div>
+                    <div class="col-md-3">
+                        OrderId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="familyemails.OrderId" placeholder="OrderId" />
                     </div>
                 </div>
 
@@ -56,9 +63,10 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>InstitutionName</th>
-                                        <th>QualificationtypeId</th>
-                                        <th>MediumId</th>
+                                        <th>InstitutionAddressId</th>
+                                        <th>Email</th>
+                                        <th>IsPrimary</th>
+                                        <th>OrderId</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -71,9 +79,10 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.InstitutionName}}</td>
-                                        <td>{{item.QulificationTypeId}}</td>
-                                        <td>{{item.MediumId}}</td>
+                                        <td>{{item.InstitutionAddressId}}</td>
+                                        <td>{{item.Email}}</td>
+                                        <td>{{item.IsPrimary}}</td>
+                                        <td>{{item.OrderId}}</td>
                                         <td><button class="btn btn-info" (click)="GetFamilyEmailsById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteFamilyEmails(item.Id)"> Delete

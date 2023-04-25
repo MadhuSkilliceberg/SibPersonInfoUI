@@ -7,31 +7,64 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        InstitutionName :
+                        FamilyId :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="familyeducationdetails.InstitutionName" placeholder="InstitutionName">
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="familyeducationdetails.FamilyId" placeholder="FamilyId">
                     </div>
                     <div class="col-md-3">
-                        QualificationtypeId :
+                        QulificationtypeId :
                     </div>
                     <div class="col-md-3">
                         <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
                             <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
                         </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="familyeducationdetails.QulificationTypeId" placeholder="QualificationtypeId" />
+                            [(ngModel)]="familyeducationdetails.QulificationtypeId" placeholder="QulificationtypeId" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        MediumId :
+                        YearOFPassout :
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="familyeducationdetails.MediumId" placeholder="MediumId" />
+                            [(ngModel)]="familyeducationdetails.YearOFPassout" placeholder="YearOFPassout" />
                     </div>
+                    <div class="col-md-3">
+                        StartYear :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="familyeducationdetails.StartYear" placeholder="StartYear" />
+                    </div>
+                    <br><br>
+
+                    <div class="col-md-3">
+                        EndYear :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="familyeducationdetails.EndYear" placeholder="EndYear" />
+                    </div>
+                    <div class="col-md-3">
+                        InstitutionId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="familyeducationdetails.InstitutionId" placeholder="InstitutionId" />
+                    </div>
+                    <br><br>
+                    <div class="col-md-3">
+                        Percentage :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="familyeducationdetails.Percentage" placeholder="Percentage" />
+                    </div>
+
+
                 </div>
 
                 <div class="row " style="padding-bottom: 10px;">
@@ -56,9 +89,13 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>InstitutionName</th>
-                                        <th>QualificationtypeId</th>
-                                        <th>MediumId</th>
+                                        <th>FamilyId</th>
+                                        <th>QulificationtypeId</th>
+                                        <th>YearOFPassout</th>
+                                        <th>StartYear</th>
+                                        <th>EndYear</th>
+                                        <th>InstitutionId</th>
+                                        <th>Percentage</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -71,9 +108,13 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.InstitutionName}}</td>
-                                        <td>{{item.QulificationTypeId}}</td>
-                                        <td>{{item.MediumId}}</td>
+                                        <td>{{item.FamilyId}}</td>
+                                        <td>{{item.QulificationtypeId}}</td>
+                                        <td>{{item.YearOFPassout}}</td>
+                                        <td>{{item.StartYear}}</td>
+                                        <td>{{item.EndYear}}</td>
+                                        <td>{{item.InstitutionId}}</td>
+                                        <td>{{item.Percentage}}</td>
                                         <td><button class="btn btn-info" (click)="GetFamilyEducationDetailsById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteFamilyEducationDetails(item.Id)"> Delete

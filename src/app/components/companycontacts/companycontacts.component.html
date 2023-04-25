@@ -7,30 +7,38 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        InstitutionName :
+                        CompanyAddressId :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="companycontacts.InstitutionName" placeholder="InstitutionName">
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="companycontacts.CompanyAddressId" placeholder="CompanyAddressId">
                     </div>
                     <div class="col-md-3">
-                        QualificationtypeId :
+                        MobileNumber :
                     </div>
                     <div class="col-md-3">
                         <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
                             <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
                         </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="companycontacts.QulificationTypeId" placeholder="QualificationtypeId" />
+                            [(ngModel)]="companycontacts.MobileNumber" placeholder="MobileNumber" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        MediumId :
+                        IsPrimary :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="companycontacts.MediumId" placeholder="MediumId" />
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="companycontacts.IsPrimary" placeholder="IsPrimary" />
+                    </div>
+
+                    <div class="col-md-3">
+                        OrderId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="companycontacts.OrderId" placeholder="OrderId" />
                     </div>
                 </div>
 
@@ -56,9 +64,10 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>InstitutionName</th>
-                                        <th>QualificationtypeId</th>
-                                        <th>MediumId</th>
+                                        <th>CompanyAddressId</th>
+                                        <th>MobileNumber</th>
+                                        <th>IsPrimary</th>
+                                        <th>OrderId</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -71,9 +80,10 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.InstitutionName}}</td>
-                                        <td>{{item.QulificationTypeId}}</td>
-                                        <td>{{item.MediumId}}</td>
+                                        <td>{{item.CompanyAddressId}}</td>
+                                        <td>{{item.MobileNumber}}</td>
+                                        <td>{{item.IsPrimary}}</td>
+                                        <td>{{item.OrderId}}</td>
                                         <td><button class="btn btn-info" (click)="GetCompanyContactsById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteCompanyContacts(item.Id)"> Delete
