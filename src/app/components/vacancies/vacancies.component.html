@@ -1,211 +1,96 @@
 <div class='dashboard-content'>
     <div class='container'>
         <div class='card'>
-            <div class='card-header' >
-                <h1 >Vacancy</h1> 
+            <div class='card-header'>
+                <h1>Vacancies</h1>
             </div>
             <div class='card-body'>
-  
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                       <b>Id :</b> 
+                        InstitutionName :
                     </div>
                     <div class="col-md-3">
-                      <input type="number" id="txtskill" Name="txtskill"  class="form-control" [(ngModel)]="vacancy.Id" placeholder="Id">
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="vacancies.InstitutionName" placeholder="InstitutionName">
                     </div>
                     <div class="col-md-3">
-                       <b>Name :</b> 
+                        QualificationtypeId :
                     </div>
                     <div class="col-md-3">
-                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancy.Name" placeholder="Name"/>
+                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
+                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
+                        </select> -->
+                        <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="vacancies.QulificationTypeId" placeholder="QualificationtypeId" />
                     </div>
-                    <br><br>
-                    <div class="col-md-3">
-                       <b> Code :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancy.Code" placeholder="Code"/>
-                    </div>
-                    
-                    
-                    <div class="col-md-3">
-                       <b> CompanyId :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancy.CompanyId" placeholder="CompanyId"/>
-                    </div>
-                    
-                    <br><br>
-                    <div class="col-md-3">
-                       <b> Count :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancy.Count" placeholder="Count"/>
-                    </div> 
-                    <div class="col-md-3">
-                       <b> ExperienceFrom  :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancy.ExperienceFrom" placeholder="ExperienceFrom"/>
-                    </div> <br><br>
-                    <div class="col-md-3">
-                       <b> ExperienceTo :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancy.ExperienceTo" placeholder="ExperienceTo"/>
-                    </div> 
-                    <div class="col-md-3">
-                       <b> StatusId :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancy.StatusId" placeholder="StatusId"/>
-                    </div> <br><br>
-                    <div class="col-md-3">
-                       <b> AppliedCount :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancy.AppliedCount" placeholder="AppliedCount"/>
-                    </div> 
-                    <div class="col-md-3">
-                       <b> RoledId :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancy.RoledId" placeholder="RoledId"/>
-                    </div> <br><br>
-                    <div class="col-md-3">
-                       <b> IndustryTypeId :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacanciesSkill.IndustryTypeId" placeholder="IndustryTypeId"/>
-                    </div> 
-                    <div class="col-md-3">
-                       <b> DepartmentId :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancy.DepartmentId" placeholder="DepartmentId"/>
-                    </div> <br><br>
-                    <div class="col-md-3">
-                       <b> EmploymentTypeId :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancy.EmploymentTypeId" placeholder="EmploymentTypeId"/>
-                    </div> 
-                    <div class="col-md-3">
-                       <b> RoleCategoryId :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacanciesSkill.RoleCategoryId" placeholder="RoleCategoryId"/>
-                    </div> <br><br>
-                    <div class="col-md-3">
-                       <b> EducationTypeId :</b>
-                    </div>
-                    <div class="col-md-3">
-                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancy.EducationTypeId" placeholder="EducationTypeId"/>
-                    </div> <br><br>
-                    <div class="col-md-3">
-                      
 
-                
+                    <br><br>
+                    <div class="col-md-3">
+                        MediumId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="vacancies.MediumId" placeholder="MediumId" />
+                    </div>
+                </div>
+
                 <div class="row " style="padding-bottom: 10px;">
-                  <div class="col-md-9"></div>
-                  <div class="col-md-1">
-                    <button (click)="GetVacanciesSkill()" class="btn btn-primary"  >Search</button>
-                  </div>
-              </div>
-  
-  
-                <!-- <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-1">
-                      <button (click)="InsertVacanciesSkill()" class="btn btn-primary" *ngIf="issaved">Save</button>
+                        <button (click)="AddVacancies()" class="btn btn-primary" *ngIf="isSave">Submit</button>
                     </div>
                 </div>
-  
+
                 <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-3">
-                      <button (click)="UpdateVacaciesSkill()" class="btn btn-primary" *ngIf="isupdate">Update</button>
+                        <button (click)="UpdateVacancies()" class="btn btn-primary" *ngIf="isUpdate">Update</button>
                     </div>
                 </div>
-   -->
-  
+
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                             <button class="btn btn-primary" style="float: right;" (click)="GetVacanciesSkillById(-1)"> New </button>
-  
+                            <h2>Vacancies Data</h2>
+
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Code</th>
-                                        <th>CompanyId</th>
-                                        <th>Count</th>
-                                        <th>ExperienceFrom</th>
-                                        <th>ExperienceTo</th>
-                                        <th>StatusId</th>
-                                        <th>AppliedCount</th>
-                                        <th>RoleId</th>
-                                        <th>IndustryTypeId</th>
-                                        <th>DepartmentId</th>
-                                        <th>EmploymentTypeId</th>
-                                        <th>RoleCategoryId</th>
-                                        <th>EducationTypeId</th>
-                                        
-                                        
-                                        <th style="text-align: center;" colspan="2" >Action</th>
-                                        
+                                        <th>InstitutionName</th>
+                                        <th>QualificationtypeId</th>
+                                        <th>MediumId</th>
+                                        <th style="text-align: center;" colspan="2">Action</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of VacanciesSkilldata | paginate
+                                    <tr *ngFor="let item of vacanciesData | paginate
                                     : {
                                         itemsPerPage: tableSize,
                                         currentPage: page,
                                         totalItems: count
                                       };
-                                    let i = index"> 
-                                        <td>{{item.Id}}</td>
-                                        <td>{{item.Name}}</td>
-                                        <td>{{item.Code}}</td>
-                                        <td>{{item.CompanyId}}</td>
-                                        <td>{{item.Count}}</td>
-                                        <td>{{item.ExperienceFrom}}</td>
-                                        <td>{{item.ExperienceTo}}</td>
-                                        <td>{{item.StatusId}}</td>
-                                        <td>{{item.AppliedCount}}</td>
-                                        <td>{{item.RoleId}}</td>
-                                        <td>{{item.IndustryTypeId}}</td>
-                                        <td>{{item.DepartmentId}}</td>
-                                        <td>{{item.EmploymentTypeId}}</td>
-                                        <td>{{item.RoleCategoryId}}</td>
-                                        <td>{{item.EducationTypeId}}</td>
-                                        
-  
-                                        <td><button class="btn btn-primary" (click)="GetVacanciesSkillById(item.Id)"> EDIT </button></td>
-                                        <td><button class="btn btn-danger" (click)="VacanciesSkillAddress(item.Id)"> DELETE </button></td>
+                                    let i = index">
+                                        <td>{{item.InstitutionName}}</td>
+                                        <td>{{item.QulificationTypeId}}</td>
+                                        <td>{{item.MediumId}}</td>
+                                        <td><button class="btn btn-info" (click)="GetVacanciesById(item.Id)"> Edit
+                                            </button></td>
+                                        <td><button class="btn btn-danger" (click)="DeleteVacancies(item.Id)"> Delete
+                                            </button></td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <!-- <ul class="pagination" style="float: right;">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul> -->
+
                             <div class="d-flex justify-content-center">
-                              <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
-                              </pagination-controls>
-                          </div>
+                                <pagination-controls previousLabel="Prev" nextLabel="Next"
+                                    (pageChange)="onTableDataChange($event)">
+                                </pagination-controls>
+                            </div>
                         </div>
                     </div>
                 </div>
-  
-  
             </div>
         </div>
     </div>
-  </div>
-  
+</div>

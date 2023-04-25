@@ -7,101 +7,31 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        Id :
+                        InstitutionName :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="usercompany.Id" placeholder="Id">
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="usercompany.InstitutionName" placeholder="InstitutionName">
                     </div>
                     <div class="col-md-3">
-                        UserId :
+                        QualificationtypeId :
                     </div>
                     <div class="col-md-3">
-                        
+                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
+                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
+                        </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="usercompany.UserId" placeholder="UserId" />
+                            [(ngModel)]="usercompany.QulificationTypeId" placeholder="QualificationtypeId" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        CompanyId :
+                        MediumId :
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.CompanyId" placeholder="CompanyId" />
+                            [(ngModel)]="usercompany.MediumId" placeholder="MediumId" />
                     </div>
-                    <br><br>
-                    <div class="col-md-3">
-                        YearOfPassout :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.YearOfPassout" placeholder="YearOfPassout" />
-                    </div>
-
-                    <br><br>
-                    <div class="col-md-3">
-                        StartYear :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.StartYear" placeholder="StartYear" />
-                    </div>
-
-                    <br><br>
-                    <div class="col-md-3">
-                        EndYear :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.EndYear" placeholder="EndYear" />
-                    </div>
-
-                    <br><br>
-                    <div class="col-md-3">
-                        Salary :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.Salary" placeholder="Salary" />
-                    </div>
-
-                    <br><br>
-                    <div class="col-md-3">
-                        Percentage :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.Percentage" placeholder="Percentage" />
-                    </div>
-
-                    <br><br>
-                    <div class="col-md-3">
-                        DesignationId :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.DesignationId" placeholder="DesignationId" />
-                    </div>
-
-                    <br><br>
-                    <div class="col-md-3">
-                        Email :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.Email" placeholder="Email" />
-                    </div>
-
-                    <br><br>
-                    <div class="col-md-3">
-                        IsActive :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.IsActive" placeholder="IsActive" />
-                    </div>
-
                 </div>
 
                 <div class="row " style="padding-bottom: 10px;">
@@ -126,19 +56,9 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
-                                        <th>UserId</th>
-                                        <th>CompanyId</th>
-                                        <th>YearOfPassout</th>
-                                        <th>StartYear</th>
-                                        <th>EndYear</th>
-                                        <th>Salary</th>
-                                        <th>Percentage</th>
-                                        <th>DesignationId</th>
-                                        <th>Email</th>
-                                        <th>IsActive</th>
-                                       
-
+                                        <th>InstitutionName</th>
+                                        <th>QualificationtypeId</th>
+                                        <th>MediumId</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -151,18 +71,9 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.Id}}</td>
-                                        <td>{{item.UserId}}</td>
-                                        <td>{{item.CompanyId}}</td>
-                                        <td>{{item.YearOfPassout}}</td>
-                                        <td>{{item.StartYear}}</td>
-                                        <td>{{item.EndYear}}</td>
-                                        <td>{{item.Salary}}</td>
-                                        <td>{{item.Percentage}}</td>
-                                        <td>{{item.DesignationId}}</td>
-                                        <td>{{item.Email}}</td>
-                                        <td>{{item.IsActive}}</td>
-                                       
+                                        <td>{{item.InstitutionName}}</td>
+                                        <td>{{item.QulificationTypeId}}</td>
+                                        <td>{{item.MediumId}}</td>
                                         <td><button class="btn btn-info" (click)="GetUserCompanyById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteUserCompany(item.Id)"> Delete

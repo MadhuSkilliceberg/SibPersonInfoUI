@@ -3,60 +3,34 @@
         <div class='card'>
             <div class='card-header'>
                 <h1>UserEmails</h1>
-                
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        Id :
+                        InstitutionName :
                     </div>
                     <div class="col-md-3">
                         <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="useremails.Id" placeholder="Id">
+                            [(ngModel)]="useremails.InstitutionName" placeholder="InstitutionName">
                     </div>
                     <div class="col-md-3">
-                        UserId :
+                        QualificationtypeId :
                     </div>
                     <div class="col-md-3">
-                      
+                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
+                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
+                        </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="useremails.UserId" placeholder="UserId" />
+                            [(ngModel)]="useremails.QulificationTypeId" placeholder="QualificationtypeId" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        Email :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="useremails.Email" placeholder="Email" />
-                    </div>
-
-                    <br><br>
-                    <div class="col-md-3">
-                        IsPrimary :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="useremails.IsPrimary" placeholder="IsPrimary" />
-                    </div>
-
-                    <br><br>
-                    <div class="col-md-3">
-                        OrderId :
+                        MediumId :
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="useremails.OrderId" placeholder="OrderId" />
-                    </div>
-
-                    <br><br>
-                    <div class="col-md-3">
-                        TypeId :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="useremails.TypeId" placeholder="TypeId" />
+                            [(ngModel)]="useremails.MediumId" placeholder="MediumId" />
                     </div>
                 </div>
 
@@ -82,13 +56,9 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
-                                        <th>UserId</th>
-                                        <th>Email</th>
-                                        <th>IsPrimary</th>
-                                        <th>OrderId</th>
-                                        <th>TypeId</th>
-                                        
+                                        <th>InstitutionName</th>
+                                        <th>QualificationtypeId</th>
+                                        <th>MediumId</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -101,13 +71,9 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.Id}}</td>
-                                        <td>{{item.UserId}}</td>
-                                        <td>{{item.Email}}</td>
-                                        <td>{{item.IsPrimary}}</td>
-                                        <td>{{item.OrderId}}</td>
-                                        <td>{{item.TypeId}}</td>
-                                        
+                                        <td>{{item.InstitutionName}}</td>
+                                        <td>{{item.QulificationTypeId}}</td>
+                                        <td>{{item.MediumId}}</td>
                                         <td><button class="btn btn-info" (click)="GetUserEmailsById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteUserEmails(item.Id)"> Delete

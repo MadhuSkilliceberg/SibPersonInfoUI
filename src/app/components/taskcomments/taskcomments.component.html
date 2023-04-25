@@ -7,28 +7,30 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        Id :
+                        InstitutionName :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="taskcomments.Id" placeholder="Id">
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="taskcomments.InstitutionName" placeholder="InstitutionName">
                     </div>
                     <div class="col-md-3">
-                        TaskId :
+                        QualificationtypeId :
                     </div>
                     <div class="col-md-3">
-                        
+                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
+                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
+                        </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="taskcomments.TaskId" placeholder="TaskId" />
+                            [(ngModel)]="taskcomments.QulificationTypeId" placeholder="QualificationtypeId" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        Comments :
+                        MediumId :
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="taskcomments.Comments" placeholder="Comments" />
+                            [(ngModel)]="taskcomments.MediumId" placeholder="MediumId" />
                     </div>
                 </div>
 
@@ -53,11 +55,10 @@
 
                             <table class="table table-bordered">
                                 <thead>
-                                   
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
-                                        <th>TaskId</th>
-                                        <th>Comments</th>
+                                        <th>InstitutionName</th>
+                                        <th>QualificationtypeId</th>
+                                        <th>MediumId</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -69,10 +70,10 @@
                                         currentPage: page,
                                         totalItems: count
                                       };
-                                    let i = index"> 
-                                        <td>{{item.Id}}</td>
-                                        <td>{{item.TaskId}}</td>
-                                        <td>{{item.Comments}}</td>
+                                    let i = index">
+                                        <td>{{item.InstitutionName}}</td>
+                                        <td>{{item.QulificationTypeId}}</td>
+                                        <td>{{item.MediumId}}</td>
                                         <td><button class="btn btn-info" (click)="GetTaskCommentsById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteTaskComments(item.Id)"> Delete

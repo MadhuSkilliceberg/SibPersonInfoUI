@@ -1,109 +1,96 @@
 <div class='dashboard-content'>
     <div class='container'>
         <div class='card'>
-            <div class='card-header' >
-                <h1 >TEMPLATE TYPE</h1> 
+            <div class='card-header'>
+                <h1>TemplateType</h1>
             </div>
             <div class='card-body'>
-  
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                       <b>Templateid :</b> 
+                        InstitutionName :
                     </div>
                     <div class="col-md-3">
-                      <input type="number" id="txtskill" Name="txtskill"  class="form-control" [(ngModel)]="templatetype.Templateid" placeholder="Templateid">
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="templatetype.InstitutionName" placeholder="InstitutionName">
                     </div>
                     <div class="col-md-3">
-                       <b>Name :</b> 
+                        QualificationtypeId :
                     </div>
                     <div class="col-md-3">
-                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="templatetype.Name" placeholder="Name"/>
+                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
+                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
+                        </select> -->
+                        <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="templatetype.QulificationTypeId" placeholder="QualificationtypeId" />
                     </div>
+
                     <br><br>
                     <div class="col-md-3">
-                       <b> Code :</b>
+                        MediumId :
                     </div>
                     <div class="col-md-3">
-                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="templatetype.Code" placeholder="Code"/>
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="templatetype.MediumId" placeholder="MediumId" />
                     </div>
-                    
-  
-                
+                </div>
+
                 <div class="row " style="padding-bottom: 10px;">
-                  <div class="col-md-9"></div>
-                  <div class="col-md-1">
-                    <button (click)="GetInstitutionAddress()" class="btn btn-primary"  >Search</button>
-                  </div>
-              </div>
-  
-  
-                <!-- <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-1">
-                      <button (click)="InsertInstitutionAddress()" class="btn btn-primary" *ngIf="issaved">Save</button>
+                        <button (click)="AddTemplateType()" class="btn btn-primary" *ngIf="isSave">Submit</button>
                     </div>
                 </div>
-  
+
                 <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-3">
-                      <button (click)="UpdateInstitutionAddress()" class="btn btn-primary" *ngIf="isupdate">Update</button>
+                        <button (click)="UpdateTemplateType()" class="btn btn-primary" *ngIf="isUpdate">Update</button>
                     </div>
                 </div>
-   -->
-  
+
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                             <button class="btn btn-primary" style="float: right;" (click)="GetTemplatetypeById(-1)"> New </button>
-  
+                            <h2>TemplateType Data</h2>
+
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Code</th>
-                                        
-                                        <th style="text-align: center;" colspan="2" >Action</th>
-                                        
+                                        <th>InstitutionName</th>
+                                        <th>QualificationtypeId</th>
+                                        <th>MediumId</th>
+                                        <th style="text-align: center;" colspan="2">Action</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of templatetypedata | paginate
+                                    <tr *ngFor="let item of templatetypeData | paginate
                                     : {
                                         itemsPerPage: tableSize,
                                         currentPage: page,
                                         totalItems: count
                                       };
-                                    let i = index"> 
-                                        <td>{{item.Id}}</td>
-                                        <td>{{item.Name}}</td>
-                                        <td>{{item.Code}}</td>
-                                       
-  
-                                        <td><button class="btn btn-primary" (click)="GetTemplatetypeById(item.Id)"> EDIT </button></td>
-                                        <td><button class="btn btn-danger" (click)="TemplatetypeAddress(item.Id)"> DELETE </button></td>
+                                    let i = index">
+                                        <td>{{item.InstitutionName}}</td>
+                                        <td>{{item.QulificationTypeId}}</td>
+                                        <td>{{item.MediumId}}</td>
+                                        <td><button class="btn btn-info" (click)="GetTemplateTypeById(item.Id)"> Edit
+                                            </button></td>
+                                        <td><button class="btn btn-danger" (click)="DeleteTemplateType(item.Id)"> Delete
+                                            </button></td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <!-- <ul class="pagination" style="float: right;">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul> -->
+
                             <div class="d-flex justify-content-center">
-                              <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
-                              </pagination-controls>
-                          </div>
+                                <pagination-controls previousLabel="Prev" nextLabel="Next"
+                                    (pageChange)="onTableDataChange($event)">
+                                </pagination-controls>
+                            </div>
                         </div>
                     </div>
                 </div>
-  
-  
             </div>
         </div>
     </div>
-  </div>
-  
+</div>

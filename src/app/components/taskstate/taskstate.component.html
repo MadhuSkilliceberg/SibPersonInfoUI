@@ -7,37 +7,30 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        Id :
+                        InstitutionName :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="taskstate.Id" placeholder="Id">
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="taskstate.InstitutionName" placeholder="InstitutionName">
                     </div>
                     <div class="col-md-3">
-                        TaskId :
+                        QualificationtypeId :
                     </div>
                     <div class="col-md-3">
-                      
+                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
+                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
+                        </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="taskstate.TaskId" placeholder="TaskId" />
+                            [(ngModel)]="taskstate.QulificationTypeId" placeholder="QualificationtypeId" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        Assigned :
+                        MediumId :
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="taskstate.Assigned" placeholder="Assigned" />
-                    </div>
-
-                    <br><br>
-                    <div class="col-md-3">
-                        Description :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="taskstate.Description" placeholder="Description" />
+                            [(ngModel)]="taskstate.MediumId" placeholder="MediumId" />
                     </div>
                 </div>
 
@@ -63,11 +56,9 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
-                                        <th>TaskId</th>
-                                        <th>Assigned</th>
-                                        <th>Description</th>
-
+                                        <th>InstitutionName</th>
+                                        <th>QualificationtypeId</th>
+                                        <th>MediumId</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -79,12 +70,10 @@
                                         currentPage: page,
                                         totalItems: count
                                       };
-                                    let i = index"> 
-                                        <td>{{item.Id}}</td>
-                                        <td>{{item.TaskId}}</td>
-                                        <td>{{item.Assigned}}</td>
-                                        <td>{{item.Description}}</td>
-
+                                    let i = index">
+                                        <td>{{item.InstitutionName}}</td>
+                                        <td>{{item.QulificationTypeId}}</td>
+                                        <td>{{item.MediumId}}</td>
                                         <td><button class="btn btn-info" (click)="GetTaskStateById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteTaskState(item.Id)"> Delete

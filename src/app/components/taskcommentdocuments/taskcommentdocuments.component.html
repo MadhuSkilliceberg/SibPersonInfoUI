@@ -7,59 +7,31 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        Id :
+                        InstitutionName :
                     </div>
                     <div class="col-md-3">
                         <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="taskcommentdocuments.Id" placeholder="Id">
+                            [(ngModel)]="taskcommentdocuments.InstitutionName" placeholder="InstitutionName">
                     </div>
                     <div class="col-md-3">
-                        TaskCommentId :
+                        QualificationtypeId :
                     </div>
                     <div class="col-md-3">
                         <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
                             <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
                         </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="taskcommentdocuments.QulificationTypeId" placeholder="TaskCommentId" />
+                            [(ngModel)]="taskcommentdocuments.QulificationTypeId" placeholder="QualificationtypeId" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        FileType :
+                        MediumId :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="taskcommentdocuments.FileType" placeholder="FileType" />
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="taskcommentdocuments.MediumId" placeholder="MediumId" />
                     </div>
-
-                    <div class="col-md-3">
-                        FileName :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="taskcommentdocuments.FileName" placeholder="FileName" />
-                    </div>
-
-                    <div class="col-md-3">
-                        File :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="taskcommentdocuments.File" placeholder="File" />
-                    </div>
-
-
-                    <div class="col-md-3">
-                        Description :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="taskcommentdocuments.Description" placeholder="Description" />
-                    </div>
-
-
-                   
                 </div>
 
                 <div class="row " style="padding-bottom: 10px;">
@@ -84,13 +56,9 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
-                                        <th>TaskCommentId</th>
-                                        <th>FileType</th>
-                                        <th>FileName</th>
-                                        <th>File</th>
-                                        <th>Description</th>
-
+                                        <th>InstitutionName</th>
+                                        <th>QualificationtypeId</th>
+                                        <th>MediumId</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -103,13 +71,9 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.Id}}</td>
-                                        <td>{{item.TaskCommentId}}</td>
-                                        <td>{{item.FileType}}</td>
-                                        <td>{{item.FileName}}</td>
-                                        <td>{{item.File}}</td>
-                                        <td>{{item.Description}}</td>
-
+                                        <td>{{item.InstitutionName}}</td>
+                                        <td>{{item.QulificationTypeId}}</td>
+                                        <td>{{item.MediumId}}</td>
                                         <td><button class="btn btn-info" (click)="GetTaskCommentDocumentsById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteTaskCommentDocuments(item.Id)"> Delete

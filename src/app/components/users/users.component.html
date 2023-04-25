@@ -7,108 +7,30 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        Id :
+                        InstitutionName :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="users.Id" placeholder="Id">
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="users.InstitutionName" placeholder="InstitutionName">
                     </div>
                     <div class="col-md-3">
-                        FirstName :
+                        QualificationtypeId :
                     </div>
                     <div class="col-md-3">
-                       
+                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
+                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
+                        </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="users.FirstName" placeholder="FirstName" />
+                            [(ngModel)]="users.QulificationTypeId" placeholder="QualificationtypeId" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        LastName :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.LastName" placeholder="LastName" />
-                    </div>
-
-                    
-                    <br><br>
-                    <div class="col-md-3">
-                        Dob :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="date" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.Dob" placeholder="Dob" />
-                    </div>
-
-                    
-                    <br><br>
-                    <div class="col-md-3">
-                        GenderId :
+                        MediumId :
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.GenderId" placeholder="GenderId" />
-                    </div>
-
-                    
-                    <br><br>
-                    <div class="col-md-3">
-                        MarritalStatusId :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.MarritalStatusId" placeholder="MarritalStatusId" />
-                    </div>
-
-                    
-                    <br><br>
-                    <div class="col-md-3">
-                        MobileNumber :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.MobileNumber" placeholder="MobileNumber" />
-                    </div>
-
-                    
-                    <br><br>
-                    <div class="col-md-3">
-                        AadharNumber :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.AadharNumber" placeholder="AadharNumber" />
-                    </div>
-
-                    
-                    <br><br>
-                    <div class="col-md-3">
-                        VoterId :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.VoterId" placeholder="VoterId" />
-                    </div>
-
-                    
-                    <br><br>
-                    <div class="col-md-3">
-                        PanCardNumber :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.PanCardNumber" placeholder="PanCardNumber" />
-                    </div>
-
-                     
-                    <br><br>
-                    <div class="col-md-3">
-                        UserTypeId :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.UserTypeId" placeholder="UserTypeId" />
+                            [(ngModel)]="users.MediumId" placeholder="MediumId" />
                     </div>
                 </div>
 
@@ -134,17 +56,9 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
-                                        <th>FirstName</th>
-                                        <th>LastName</th>
-                                        <th>Dob</th>
-                                        <th>GenderId</th>
-                                        <th>MarritalStatusId</th>
-                                        <th>VoterId</th>
-                                        <th>AadharNumber</th>
-                                        <th>PanCardNumber</th>
-                                        <th>UserTypeId</th>
-
+                                        <th>InstitutionName</th>
+                                        <th>QualificationtypeId</th>
+                                        <th>MediumId</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -157,17 +71,9 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.Id}}</td>
-                                        <td>{{item.FirstName}}</td>
-                                        <td>{{item.LastName}}</td>
-                                        <td>{{item.Dob}}</td>
-                                        <td>{{item.GenderId}}</td>
-                                        <td>{{item.MarritalStatusId}}</td>
-                                        <td>{{item.MobileNumber}}</td>
-                                        <td>{{item.AadharNumber}}</td>
-                                        <td>{{item.VoterId}}</td>
-                                        <td>{{item.PanCardNumber}}</td>
-                                        <td>{{item.UserTypeId}}</td>
+                                        <td>{{item.InstitutionName}}</td>
+                                        <td>{{item.QulificationTypeId}}</td>
+                                        <td>{{item.MediumId}}</td>
                                         <td><button class="btn btn-info" (click)="GetUsersById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteUsers(item.Id)"> Delete

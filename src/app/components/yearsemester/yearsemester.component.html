@@ -7,37 +7,30 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        Id :
+                        InstitutionName :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="yearsemester.Id" placeholder="Id">
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="yearsemester.InstitutionName" placeholder="InstitutionName">
                     </div>
                     <div class="col-md-3">
-                        CYearsId :
+                        QualificationtypeId :
                     </div>
                     <div class="col-md-3">
-                      
+                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
+                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
+                        </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="yearsemester.CYearsId" placeholder="CYearsId" />
+                            [(ngModel)]="yearsemester.QulificationTypeId" placeholder="QualificationtypeId" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        SemesterId :
+                        MediumId :
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="yearsemester.SemesterId" placeholder="SemesterId" />
-                    </div>
-
-                    <br><br>
-                    <div class="col-md-3">
-                        OrderId :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="yearsemester.OrderId" placeholder="OrderId" />
+                            [(ngModel)]="yearsemester.MediumId" placeholder="MediumId" />
                     </div>
                 </div>
 
@@ -61,12 +54,11 @@
                             <h2>YearSemester Data</h2>
 
                             <table class="table table-bordered">
-                                <thead>	
+                                <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
-                                        <th>CYearsId</th>
-                                        <th>SemesterId</th>
-                                        <th>OrderId</th>
+                                        <th>InstitutionName</th>
+                                        <th>QualificationtypeId</th>
+                                        <th>MediumId</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -79,10 +71,9 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.Id}}</td>
-                                        <td>{{item.CYearsId}}</td>
-                                        <td>{{item.SemesterId}}</td>
-                                        <td>{{item.OrderId}}</td>
+                                        <td>{{item.InstitutionName}}</td>
+                                        <td>{{item.QulificationTypeId}}</td>
+                                        <td>{{item.MediumId}}</td>
                                         <td><button class="btn btn-info" (click)="GetYearSemesterById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteYearSemester(item.Id)"> Delete
