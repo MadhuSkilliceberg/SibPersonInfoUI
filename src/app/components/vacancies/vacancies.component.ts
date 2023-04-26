@@ -1,6 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Vacancies } from 'src/app/Models/Vacancies';
 import { VacanciesService } from './../../services/vacancies/vacancies.service'
+import { Company } from 'src/app/Models/Company';
+import { CompanyService } from 'src/app/services/company/company.service';
+import { StatusService } from 'src/app/services/status/status.service';
+import { Status } from 'src/app/Models/Status';
+import { Roles } from 'src/app/Models/Roles';
+import { RolesService } from 'src/app/services/roles/roles.service';
+import { IndustryTypes } from 'src/app/Models/IndustryTypes';
+import { IndustryTypesService } from 'src/app/services/industrytypes/industrytypes.service';
+import { Departments } from 'src/app/Models/Departments';
+import { DepartmentsService } from 'src/app/services/departments/departments.service';
+import { EmploymentTypes } from 'src/app/Models/EmploymentTypes';
+import { EmploymentTypesService } from 'src/app/services/employmenttypes/employmenttypes.service';
+import { RoleCategory } from 'src/app/Models/RoleCategory';
+import { RoleCategoryService } from 'src/app/services/rolecategory/rolecategory.service';
 
 
 @Component({
@@ -23,13 +37,40 @@ export class VacanciesComponent implements OnInit {
   vacanciesData: Vacancies[] = []
   vacanciesId: number = 0;
 
+  companyData: Company[] = []
+  statusData: Status[] = []
+   rolesData: Roles[] = []
+  industrytypesData: IndustryTypes[] = []
+  departmentsData: Departments[] = []
+  employmenttypesData: EmploymentTypes[] = []
+  rolecategoryData: RoleCategory[] = []
+
+
+
+
   constructor(
     private vacanciesService: VacanciesService,
+    private companyService: CompanyService,
+    private statusService: StatusService,
+    private rolesService: RolesService,
+    private industrytypesService: IndustryTypesService,
+    private departmentsService: DepartmentsService,
+    private employmenttypesService: EmploymentTypesService,
+    private rolecategoryService: RoleCategoryService,
+
+
 
   ) { }
 
   ngOnInit(): any {
     this.GetVacancies();
+    this. GetCompany();
+    this.GetStatus();
+    this.GetRoles();
+    this.GetIndustryTypes();
+    this.GetDepartments();
+    this.GetEmploymentTypes();
+    this.GetRoleCategory();
   }
 
   // By using this method we will get the Vacancies 
@@ -87,5 +128,62 @@ export class VacanciesComponent implements OnInit {
     this.page = 1;
     this.GetVacancies();
   }
+
+    // By using this method we will get the Company 
+    GetCompany(): any {
+      this.companyService.GetCompany().subscribe((res: any) => {
+        this.companyData = res;
+  
+      })
+    }
+
+   // By using this method we will get the Status 
+   GetStatus(): any {
+    this.statusService.GetStatus().subscribe((res: any) => {
+      this.statusData = res;
+
+    })
+  }
+
+    // By using this method we will get the Roles 
+    GetRoles(): any {
+      this.rolesService.GetRoles().subscribe((res: any) => {
+        this.rolesData = res;
+  
+      })
+    }
+
+      // By using this method we will get the IndustryTypes 
+  GetIndustryTypes(): any {
+    this.industrytypesService.GetIndustryTypes().subscribe((res: any) => {
+      this.industrytypesData = res;
+
+    })
+  }
+
+    // By using this method we will get the Departments 
+    GetDepartments(): any {
+      this.departmentsService.GetDepartments().subscribe((res: any) => {
+        this.departmentsData = res;
+  
+      })
+    }
+
+       // By using this method we will get the EmploymentTypes 
+       GetEmploymentTypes(): any {
+        this.employmenttypesService.GetEmploymentTypes().subscribe((res: any) => {
+        this.employmenttypesData = res;
+
+    })
+  }
+    // By using this method we will get the RoleCategory 
+    GetRoleCategory(): any {
+      this.rolecategoryService.GetRoleCategory().subscribe((res: any) => {
+        this.rolecategoryData = res;
+  
+      })
+    }
+
+    
 }
 

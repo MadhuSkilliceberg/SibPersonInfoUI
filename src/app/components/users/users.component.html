@@ -44,11 +44,14 @@
                     
                     <br><br>
                     <div class="col-md-3">
-                        GenderId :
+                        Gender :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.GenderId" placeholder="GenderId" />
+                        <select name="" id="" [(ngModel)]="users.GenderId" class="form-control"> 
+                            <option  *ngFor="let item of genderData" value="{{item.Id}}">{{item.GenderName}}</option>
+                        </select>
+                        <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="users.GenderId" placeholder="GenderId" /> -->
                     </div>
 
                     
@@ -57,8 +60,11 @@
                         MarritalStatusId :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.MarritalStatusId" placeholder="MarritalStatusId" />
+                        <select name="" id="" [(ngModel)]="users.MarritalStatusId" class="form-control"> 
+                            <option  *ngFor="let item of marritalstatusData" value="{{item.Id}}">{{item.StatusName}}</option>
+                        </select>
+                        <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="users.MarritalStatusId" placeholder="MarritalStatusId" /> -->
                     </div>
 
                     
@@ -104,11 +110,14 @@
                      
                     <br><br>
                     <div class="col-md-3">
-                        UserTypeId :
+                        UserType :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.UserTypeId" placeholder="UserTypeId" />
+                        <select name="" id="" [(ngModel)]="users.UserTypeId" class="form-control"> 
+                            <option  *ngFor="let item of usertypesData" value="{{item.Id}}">{{item.Name}}</option>
+                        </select>
+                        <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="users.UserTypeId" placeholder="UserTypeId" /> -->
                     </div>
                 </div>
 

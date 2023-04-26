@@ -14,12 +14,13 @@
                             [(ngModel)]="userskills.Id" placeholder="Id">
                     </div>
                     <div class="col-md-3">
-                        SkillId :
+                        Skill :
                     </div>
                     <div class="col-md-3">
-                       
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="userskills.SkillId" placeholder="SkillId" />
+                        <select name="" id=""  [(ngModel)]="userskills.SkillId" class="form-control"> 
+                            <option  *ngFor="let item of skillsData" value="{{item.Id}}">{{item.SkillName}}</option>
+                        </select>
+                        <!-- <input type="number" name="txtcode" class="form-control" id="txtcode" [(ngModel)]="userskills.SkillId" placeholder="SkillId" /> -->
                     </div>
 
                     <br><br>
@@ -33,11 +34,14 @@
 
                     <br><br>
                     <div class="col-md-3">
-                        UserId :
+                        User :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="userskills.UserId" placeholder="UserId" />
+                        <select name="" id=""  [(ngModel)]="userskills.UserId" class="form-control"> 
+                            <option  *ngFor="let item of usersData" value="{{item.Id}}">{{item.FirstName}}</option>
+                        </select>
+                        <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="userskills.UserId" placeholder="UserId" /> -->
                     </div>
 
                     <br><br>

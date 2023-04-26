@@ -32,7 +32,10 @@
                        <b> CompanyId :</b>
                     </div>
                     <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.CompanyId" placeholder="CompanyId"/>
+                      <select name="" id="" [(ngModel)]="vacancies.CompanyId" class="form-control"> 
+                        <option  *ngFor="let item of companyData" value="{{item.Id}}">{{item.CompanyName}}</option>
+                    </select>
+                      <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.CompanyId" placeholder="CompanyId"/> -->
                     </div>
                     
                     <br><br>
@@ -55,10 +58,13 @@
                       <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.ExperienceTo" placeholder="ExperienceTo"/>
                     </div> 
                     <div class="col-md-3">
-                       <b> StatusId :</b>
+                       <b> Status :</b>
                     </div>
                     <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.StatusId" placeholder="StatusId"/>
+                      <select name="" id="" [(ngModel)]="vacancies.StatusId" class="form-control"> 
+                        <option  *ngFor="let item of statusData" value="{{item.Id}}">{{item.Name}}</option>
+                    </select>
+                      <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.StatusId" placeholder="StatusId"/> -->
                     </div> <br><br>
                     <div class="col-md-3">
                        <b> AppliedCount :</b>
@@ -66,42 +72,70 @@
                     <div class="col-md-3">
                       <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.AppliedCount" placeholder="AppliedCount"/>
                     </div> 
+
                     <div class="col-md-3">
-                       <b> RoledId :</b>
+                       <b> Roled :</b>
                     </div>
                     <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.RoledId" placeholder="RoledId"/>
-                    </div> <br><br>
+                      <select name="" id="" [(ngModel)]="vacancies.RoleId" class="form-control"> 
+                        <option  *ngFor="let item of rolesData" value="{{item.Id}}">{{item.Name}}</option>
+                    </select>
+                      <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.RoledId" placeholder="RoledId"/> -->
+                    </div>
+
+                     <br><br>
+
                     <div class="col-md-3">
-                       <b> IndustryTypeId :</b>
+                       <b> IndustryType :</b>
                     </div>
                     <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.IndustryTypeId" placeholder="IndustryTypeId"/>
+                      <select name="" id="" [(ngModel)]="vacancies.IndustryTypeId" class="form-control"> 
+                        <option  *ngFor="let item of industrytypesData" value="{{item.Id}}">{{item.Name}}</option>
+                    </select>
+
+                      <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.IndustryTypeId" placeholder="IndustryTypeId"/> -->
                     </div> 
                     <div class="col-md-3">
-                       <b> DepartmentId :</b>
+                       <b> Department :</b>
                     </div>
                     <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.DepartmentId" placeholder="DepartmentId"/>
+                      <select name="" id="" [(ngModel)]="vacancies.DepartmentId"class="form-control"> 
+                        <option  *ngFor="let item of departmentsData" value="{{item.Id}}">{{item.Name}}</option>
+                    </select>
+
+                      <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.DepartmentId" placeholder="DepartmentId"/> -->
                     </div> <br><br>
                     <div class="col-md-3">
-                       <b> EmploymentTypeId :</b>
+                       <b> EmploymentType :</b>
                     </div>
                     <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.EmploymentTypeId" placeholder="EmploymentTypeId"/>
+                      <select name="" id="" [(ngModel)]="vacancies.EmploymentTypeId" class="form-control"> 
+                        <option  *ngFor="let item of employmenttypesData" value="{{item.Id}}">{{item.Name}}</option>
+                    </select>
+                      <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control"  [(ngModel)]="vacancies.EmploymentTypeId" placeholder="EmploymentTypeId"/> -->
                     </div> 
                     <div class="col-md-3">
-                       <b> RoleCategoryId :</b>
+                       <b> RoleCategory :</b>
                     </div>
                     <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.RoleCategoryId" placeholder="RoleCategoryId"/>
+                      <select name="" id="" [(ngModel)]="vacancies.RoleCategoryId" class="form-control"> 
+                        <option  *ngFor="let item of rolecategoryData" value="{{item.Id}}">{{item.Name}}</option>
+                    </select>
+                      <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.RoleCategoryId" placeholder="RoleCategoryId"/> -->
                     </div> <br><br>
-                    <div class="col-md-3">
-                       <b> EducationTypeId :</b>
+
+
+                    <!-- <div class="col-md-3">
+                       <b> EducationType :</b>
                     </div>
                     <div class="col-md-3">
-                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.EducationTypeId" placeholder="EducationTypeId"/>
-                    </div> <br><br>
+                      <select name="" id=""  [(ngModel)]="vacancies.EducationTypeId"  class="form-control"> 
+                        <option  *ngFor="let item of rolecategoryData" value="{{item.Id}}">{{item.Name}}</option>
+                    </select>
+                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.EducationTypeId" placeholder="EducationTypeId"/> 
+                    </div> <br><br> -->
+
+
                     <div class="col-md-3">
                       
 

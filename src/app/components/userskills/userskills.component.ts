@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UserSkills } from 'src/app/Models/UserSkills';
 import { UserSkillsService } from './../../services/userskills/userskills.service'
+import { Skills } from 'src/app/Models/Skills';
+import { SkillsService } from 'src/app/services/skills/skills.service';
+import { UsersService } from 'src/app/services/users/users.service';
+import { Users } from 'src/app/Models/Users';
 
 
 @Component({
@@ -22,14 +26,23 @@ export class UserSkillsComponent implements OnInit {
   userskills: UserSkills = new UserSkills();
   userskillsData: UserSkills[] = []
   userskillsId: number = 0;
+  
+  skillsData: Skills[] = []
+  usersData: Users[] = []
+
 
   constructor(
     private userskillsService: UserSkillsService,
+    private skillsService: SkillsService,
+    private usersService: UsersService,
 
+    
   ) { }
 
   ngOnInit(): any {
     this.GetUserSkills();
+    this.GetSkills();
+    this.GetUsers();
   }
 
   // By using this method we will get the UserSkills 
@@ -87,5 +100,22 @@ export class UserSkillsComponent implements OnInit {
     this.page = 1;
     this.GetUserSkills();
   }
+
+   // By using this method we will get the Skills 
+   GetSkills(): any {
+    this.skillsService.GetSkills().subscribe((res: any) => {
+      this.skillsData = res;
+
+    })
+  }
+
+   // By using this method we will get the Users 
+   GetUsers(): any {
+    this.usersService.GetUsers().subscribe((res: any) => {
+      this.usersData = res;
+
+    })
+  }
+
 }
 
