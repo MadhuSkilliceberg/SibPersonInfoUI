@@ -3,6 +3,8 @@ import { CompanyEmails } from 'src/app/Models/CompanyEmails';
 import { CompanyEmailsService } from './../../services/companyemails/companyemails.service'
 import { CompanyAddress } from 'src/app/Models/CompanyAddress';
 import { CompanyAddressService } from 'src/app/services/companyaddress/companyaddress.service';
+import { ContactType } from 'src/app/Models/ContactType';
+import { ContactTypeService } from 'src/app/services/contacttype/contacttype.service';
 
 
 @Component({
@@ -26,11 +28,15 @@ export class CompanyEmailsComponent implements OnInit {
   companyemailsId: number = 0;
 
   companyaddressData: CompanyAddress[] = []
+  contacttypeData: ContactType[] = []
+
  
 
   constructor(
     private companyemailsService: CompanyEmailsService,
     private companyaddressService: CompanyAddressService,
+    private contacttypeService: ContactTypeService,
+
 
 
   ) { }
@@ -38,6 +44,7 @@ export class CompanyEmailsComponent implements OnInit {
   ngOnInit(): any {
     this.GetCompanyEmails();
   this.GetCompanyAddress();
+  this.GetContactType();
   }
 
   // By using this method we will get the CompanyEmails 
@@ -104,6 +111,15 @@ export class CompanyEmailsComponent implements OnInit {
   
       })
     }
+
+    
+  // By using this method we will get the ContactType 
+  GetContactType(): any {
+    this.contacttypeService.GetContactType().subscribe((res: any) => {
+      this.contacttypeData = res;
+
+    })
+  }
   
 }
 

@@ -10,7 +10,7 @@ export class Menu_ListService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Menu_List';
+    this.endpointUrl = environment.baseUrl + 'Menu_List/';
   }
 
    // By using this method we will get the Menu_List 

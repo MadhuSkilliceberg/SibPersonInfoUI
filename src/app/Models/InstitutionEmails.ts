@@ -1,5 +1,5 @@
 export class InstitutionEmails
-{ public Id! :number; 
+{ public Id:number=0; 
  public InstitutionAddressId! :number; 
  public Email! :string; 
  public IsPrimary! :boolean; 

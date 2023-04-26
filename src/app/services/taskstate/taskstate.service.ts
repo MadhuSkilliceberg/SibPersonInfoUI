@@ -10,7 +10,7 @@ export class TaskStateService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'TaskState';
+    this.endpointUrl = environment.baseUrl + 'TaskState/';
   }
 
    // By using this method we will get the TaskState 

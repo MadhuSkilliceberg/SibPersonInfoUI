@@ -44,6 +44,8 @@ export class InstitutionsComponent implements OnInit {
 
   ngOnInit(): any {
     this.GetInstitutions();
+    this.GetMedium();
+    this.GetQulificationType();
   }
 
   // By using this method we will get the Institutions 

@@ -10,7 +10,7 @@ export class MarritalStatusService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'MarritalStatus';
+    this.endpointUrl = environment.baseUrl + 'MarritalStatus/';
   }
 
    // By using this method we will get the MarritalStatus 

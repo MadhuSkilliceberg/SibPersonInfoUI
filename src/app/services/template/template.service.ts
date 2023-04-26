@@ -10,7 +10,7 @@ export class TemplateService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Template';
+    this.endpointUrl = environment.baseUrl + 'Template/';
   }
 
    // By using this method we will get the Template 

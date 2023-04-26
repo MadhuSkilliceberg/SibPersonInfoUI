@@ -2,7 +2,7 @@
     <div class='container'>
         <div class='card'>
             <div class='card-header'>
-                <h1>FamilyEducationDetails</h1>
+                <h1>FAMILY EDUCATION DETAILS</h1>
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
@@ -20,7 +20,7 @@
                         Qulificationtype :
                     </div>
                     <div class="col-md-3">
-                        <select id="" name="QualificationName" [(ngModel)]="familyeducationdetails.QulificationtypeId">
+                        <select id="" name="QualificationName" [(ngModel)]="familyeducationdetails.QulificationtypeId" class="form-control">
                             <option *ngFor="let item of qulificationtypeData" value="{{item.Id}}" > {{item.QulificationName}} </option>
                         </select>
                         <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
@@ -90,7 +90,7 @@
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                            <h2>FamilyEducationDetails Data</h2>
+                            <h2>FAMILY EDUCATION DETAILS DATA</h2>
 
                             <table class="table table-bordered">
                                 <thead>

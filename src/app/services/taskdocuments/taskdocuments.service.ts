@@ -10,7 +10,7 @@ export class TaskDocumentsService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'TaskDocuments';
+    this.endpointUrl = environment.baseUrl + 'TaskDocuments/';
   }
 
    // By using this method we will get the TaskDocuments 

@@ -10,12 +10,12 @@ export class FamilyService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Family';
+    this.endpointUrl = environment.baseUrl + 'Family/';
   }
 
    // By using this method we will get the Family 
   GetFamily(): any {
-    return this.http.get(this.endpointUrl+"GetFamily");
+    return this.http.get(this.endpointUrl+"GetFamilies");
   }
   
   // By using this method we will get the Family based on the Id

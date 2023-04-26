@@ -2,7 +2,7 @@ export class UserEducationDetails
 { public Id! :number; 
  public UserId! :number; 
  public QulificationtypeId! :number; 
- public YearOFPassout! :number; 
+ public YearOfpassout! :number; 
  public StartYear! :number; 
  public EndYear! :number; 
  public InstitutionId! :number; 

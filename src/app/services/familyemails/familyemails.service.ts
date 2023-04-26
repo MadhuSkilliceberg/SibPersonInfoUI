@@ -10,7 +10,7 @@ export class FamilyEmailsService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'FamilyEmails';
+    this.endpointUrl = environment.baseUrl + 'FamilyEmail/';
   }
 
    // By using this method we will get the FamilyEmails 

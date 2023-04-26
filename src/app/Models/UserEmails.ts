@@ -2,7 +2,7 @@ export class UserEmails
 { public Id! :number; 
  public UserId! :number; 
  public Email! :string; 
- public IsPrimary! :boolean; 
+ public IsPrimary :boolean=false; 
  public OrderId! :number; 
  public TypeId! :number; 
  public CreatedOn! :Date; 

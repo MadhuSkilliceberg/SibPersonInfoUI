@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-md-3">
 
-                       <select id="Id" name="Name" [(ngModel)]="templatetype.Id">
+                       <select id="Id" name="Name" [(ngModel)]="templatetype.Id" class="form-control">
                             <option *ngFor="let item of templateData" value="{{item.Id}}" > {{item.Name}} </option>
                         </select>
 
@@ -32,7 +32,7 @@
                     <div class="col-md-3">
                       <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="templatetype.Code" placeholder="Code"/>
                     </div>
-                    
+                    </div>
   
 <!--                 
                 <div class="row " style="padding-bottom: 10px;">
@@ -46,7 +46,7 @@
                 <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-1">
-                      <button (click)="AddTemplateType()" class="btn btn-primary" *ngIf="isSave">Save</button>
+                      <button (click)="AddTemplateType()" class="btn btn-primary" *ngIf="isSave">Submit</button>
                     </div>
                 </div>
   
@@ -62,7 +62,7 @@
                     <div class="col-md-12">
                         <div class="container mt-3">
                              <!-- <button class="btn btn-primary" style="float: right;" (click)="GetTemplateType(-1)"> New </button> -->
-  
+                     <H2>TEMPLATE TYPE DATA</H2>
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">

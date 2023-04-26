@@ -10,7 +10,7 @@ export class UserEmailsService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'UserEmails';
+    this.endpointUrl = environment.baseUrl + 'UserEmail/';
   }
 
    // By using this method we will get the UserEmails 
@@ -30,7 +30,7 @@ export class UserEmailsService {
 
    // By uing this method we will Update the UserEmails based on UserEmails
    UpdateUserEmails(useremails: UserEmails): any {
-    return this.http.put(this.endpointUrl+"UpdateUserEmails", useremails)
+    return this.http.put(this.endpointUrl+"UpdatetUserEmails", useremails)
   }
 
 // By using this method we will delete the UserEmails based on the Id

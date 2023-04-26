@@ -2,7 +2,7 @@
     <div class='container'>
         <div class='card'>
             <div class='card-header'>
-                <h1>SprintTasks</h1>
+                <h1>SPIRNT TASK</h1>
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
@@ -10,7 +10,7 @@
                         Sprint :
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" name="SprintId" [(ngModel)]="sprinttasks.SprintId">
+                        <select name="" id="" name="SprintId" [(ngModel)]="sprinttasks.SprintId" class="form-control">
                             <option *ngFor="let item of sprintData" value="{{item.Id}}" > {{item.Name}} </option>
                            </select>
                         <!-- <input type="number" id="txtskill" class="form-control" Name="txtskill"
@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-md-3">
 
-                        <select name="" id="" name="TaskId" [(ngModel)]="sprinttasks.TaskId">
+                        <select name="" id="" name="TaskId" [(ngModel)]="sprinttasks.TaskId" class="form-control">
                             <option *ngFor="let item of taskData" value="{{item.Id}}" > {{item.Name}} </option>
                            </select>
                         <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
@@ -33,7 +33,7 @@
                         Status :
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" name="StatusId" [(ngModel)]="sprinttasks.StatusId">
+                        <select name="" id="" name="StatusId" [(ngModel)]="sprinttasks.StatusId" class="form-control">
                             <option *ngFor="let item of statusData" value="{{item.Id}}" > {{item.Name}} </option>
                            </select>
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
@@ -66,7 +66,7 @@
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                            <h2>SprintTasks Data</h2>
+                            <h2>SPIRNT TASK DATA</h2>
 
                             <table class="table table-bordered">
                                 <thead>

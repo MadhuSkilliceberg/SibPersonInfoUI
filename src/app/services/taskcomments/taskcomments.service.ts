@@ -10,7 +10,7 @@ export class TaskCommentsService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'TaskComments';
+    this.endpointUrl = environment.baseUrl + 'TaskComments/';
   }
 
    // By using this method we will get the TaskComments 

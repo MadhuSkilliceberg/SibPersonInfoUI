@@ -10,12 +10,12 @@ export class ContactTypeService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'ContactType';
+    this.endpointUrl = environment.baseUrl + 'ContactType/';
   }
 
    // By using this method we will get the ContactType 
   GetContactType(): any {
-    return this.http.get(this.endpointUrl+"GetContactType");
+    return this.http.get(this.endpointUrl+"GetContactTypes");
   }
   
   // By using this method we will get the ContactType based on the Id

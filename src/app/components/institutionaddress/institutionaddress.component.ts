@@ -45,6 +45,7 @@ export class InstitutionAddressComponent implements OnInit {
 
 ngOnInit(): void {
    //this.GetInstitutionAddressList()
+   this.GetInstitutionAddress();
     this.GetInstitution();
     this.GetStates();
     this.GetMedium();

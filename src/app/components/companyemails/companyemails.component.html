@@ -2,7 +2,7 @@
     <div class='container'>
         <div class='card'>
             <div class='card-header'>
-                <h1>CompanyEmails</h1>
+                <h1>COMPANY EMAILS</h1>
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
@@ -39,6 +39,16 @@
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="companyemails.OrderId" placeholder="OrderId" />
                     </div>
+                    <br><br>
+
+                    <div class="col-md-3">
+                        ContactTypeId :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="companyemails.ContactTypeId" class="form-control"> 
+                            <option  *ngFor="let item of contacttypeData" value="{{item.Id}}">{{item.Name}}</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="row " style="padding-bottom: 10px;">
@@ -58,7 +68,7 @@
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                            <h2>CompanyEmails Data</h2>
+                            <h2>COMPANY EMAILS DATA</h2>
 
                             <table class="table table-bordered">
                                 <thead>

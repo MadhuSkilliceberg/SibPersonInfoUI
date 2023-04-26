@@ -2,7 +2,7 @@
     <div class='container'>
         <div class='card'>
             <div class='card-header'>
-                <h1>CoutryStates</h1>
+                <h1>COUNTRY STATES</h1>
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
@@ -10,7 +10,7 @@
                         State :
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" name="" [(ngModel)]="coutrystates.StateId">
+                        <select name="" id="" name="" [(ngModel)]="coutrystates.StateId" class="form-control">
                             <option *ngFor="let item of statesData" value="{{item.Id}}" > {{item.StateName}} </option>
                         </select>
                         
@@ -21,7 +21,7 @@
                         Country :
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" name="" [(ngModel)]="coutrystates.CountryId">
+                        <select name="" id="" name="" [(ngModel)]="coutrystates.CountryId" class="form-control">
                             <option *ngFor="let item of countriesData" value="{{item.Id}}" > {{item.CountryName}} </option>
                         </select>
                         <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
@@ -46,7 +46,7 @@
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                            <h2>CoutryStates Data</h2>
+                            <h2>COUNTRY STATES DATA</h2>
 
                             <table class="table table-bordered">
                                 <thead>

@@ -10,7 +10,7 @@ export class StatesService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'States';
+    this.endpointUrl = environment.baseUrl + 'State/';
   }
 
    // By using this method we will get the States 
@@ -30,7 +30,7 @@ export class StatesService {
 
    // By uing this method we will Update the States based on States
    UpdateStates(states: States): any {
-    return this.http.put(this.endpointUrl+"UpdateStates", states)
+    return this.http.put(this.endpointUrl+"UpdatetStates", states)
   }
 
 // By using this method we will delete the States based on the Id

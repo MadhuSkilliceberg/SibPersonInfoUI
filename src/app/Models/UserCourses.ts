@@ -1,7 +1,7 @@
 export class UserCourses
 { public Id! :number; 
  public CourseId! :number; 
- public IsPrimary! :boolean; 
+ public IsPrimary :boolean=false; 
  public UserId! :number; 
  public OrderId! :number; 
  public CreatedOn! :Date; 

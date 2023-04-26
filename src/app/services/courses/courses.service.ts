@@ -10,7 +10,7 @@ export class CoursesService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Courses';
+    this.endpointUrl = environment.baseUrl + 'Course/';
   }
 
    // By using this method we will get the Courses 
@@ -30,7 +30,7 @@ export class CoursesService {
 
    // By uing this method we will Update the Courses based on Courses
    UpdateCourses(courses: Courses): any {
-    return this.http.put(this.endpointUrl+"UpdateCourses", courses)
+    return this.http.put(this.endpointUrl+"Updatetcourses", courses)
   }
 
 // By using this method we will delete the Courses based on the Id

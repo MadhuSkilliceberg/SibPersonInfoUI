@@ -10,7 +10,7 @@ export class SprintTasksService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'SprintTasks';
+    this.endpointUrl = environment.baseUrl + 'SprintTasks/';
   }
 
    // By using this method we will get the SprintTasks 

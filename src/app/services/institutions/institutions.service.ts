@@ -10,7 +10,7 @@ export class InstitutionsService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Institutions';
+    this.endpointUrl = environment.baseUrl + 'Institution/';
   }
 
    // By using this method we will get the Institutions 
@@ -20,7 +20,7 @@ export class InstitutionsService {
   
   // By using this method we will get the Institutions based on the Id
   GetInstitutionsById(id: number): any {
-    return this.http.get(this.endpointUrl+"GetInstitutionsById/" + id);
+    return this.http.get(this.endpointUrl+"GeInstitutionsById/" + id);
   }
 
   // By uing this method we will Add the Institutions based on Institutions

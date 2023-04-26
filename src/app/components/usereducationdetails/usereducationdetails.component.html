@@ -2,23 +2,17 @@
     <div class='container'>
         <div class='card'>
             <div class='card-header'>
-                <h1>UserEducationDetails</h1>
+                <h1>USER EDUCATION DETAILS</h1>
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
-                    <div class="col-md-3">
-                        Id :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="usereducationdetails.Id" placeholder="Id">
-                    </div>
+                    
                     <div class="col-md-3">
                         User:
                     </div>
                     <div class="col-md-3">
                         
-                        <select id="id"  name="UserName" [(ngModel)]="usereducationdetails.UserId">
+                        <select id="id"  name="UserName" [(ngModel)]="usereducationdetails.UserId" class="form-control">
                             <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
                         </select>
 
@@ -34,22 +28,23 @@
                     </div>
                     <div class="col-md-3">
 
-                    <select id="id"  name="QualificationtypeName" [(ngModel)]="usereducationdetails.Id">
+                    <select id="id"  name="QualificationtypeName" [(ngModel)]="usereducationdetails.QulificationtypeId" class="form-control">
                             <option *ngFor="let item of qulificationtypeData" value="{{item.Id}}" > {{item.QulificationName}} </option>
                         </select>
 
 
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usereducationdetails.QulificationtypeId" placeholder="QulificationtypeId" />
-                    </div> -->
+                            [(ngModel)]="usereducationdetails.QulificationtypeId" placeholder="QulificationtypeId" /> -->
+                           
+                    </div> 
 
-                    <br><br>
+                    
                     <div class="col-md-3">
                         YearOFPassout :
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usereducationdetails.YearOFPassout" placeholder="YearOFPassout" />
+                            [(ngModel)]="usereducationdetails.YearOfpassout" placeholder="YearOFPassout" />
                     </div>
 
                     <br><br>
@@ -61,7 +56,7 @@
                             [(ngModel)]="usereducationdetails.StartYear" placeholder="StartYear" />
                     </div>
 
-                    <br><br>
+                    
                     <div class="col-md-3">
                         EndYear :
                     </div>
@@ -76,7 +71,7 @@
                     </div>
                     <div class="col-md-3">
 
-                        <select id="id"  name="Institution" [(ngModel)]="usereducationdetails.Id">
+                        <select id="id"  name="Institution" [(ngModel)]="usereducationdetails.InstitutionId" class="form-control">
                             <option *ngFor="let item of institutionsData" value="{{item.Id}}" > {{item.InstitutionName}} </option>
                         </select>
 
@@ -85,7 +80,7 @@
                             [(ngModel)]="usereducationdetails.InstitutionId" placeholder="InstitutionId" /> -->
                     </div>
 
-                    <br><br>
+                    
                     <div class="col-md-3">
                         Percentage :
                     </div>
@@ -112,16 +107,14 @@
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                            <h2>UserEducationDetails Data</h2>
+                            <h2>USER EDUCATION DETAILS DATA</h2>
 
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
                                         <th>UserId</th>
                                         <th>QulificationtypeId</th>
                                         <th>YearOFPassout</th>
-                                    
                                         <th>StartYear</th>
                                         <th>EndYear</th>
                                         <th>InstitutionId</th>
@@ -138,11 +131,9 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.Id}}</td>
                                         <td>{{item.UserId}}</td>
                                         <td>{{item.QulificationtypeId}}</td>
-                                        <td>{{item.YearOFPassout}}</td>
-                                        <td>{{item.QulificationtypeId}}</td>
+                                        <td>{{item.YearOfpassout}}</td>
                                         <td>{{item.StartYear}}</td>
                                         <td>{{item.EndYear}}</td>
                                         <td>{{item.InstitutionId}}</td>

@@ -10,7 +10,7 @@ export class UserAddressDetailsService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'UserAddressDetails';
+    this.endpointUrl = environment.baseUrl + 'UserAddressDetail/';
   }
 
    // By using this method we will get the UserAddressDetails 

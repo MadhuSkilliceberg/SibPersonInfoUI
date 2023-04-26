@@ -10,7 +10,7 @@ export class RoleCategoryService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'RoleCategory';
+    this.endpointUrl = environment.baseUrl + 'RoleCategory/';
   }
 
    // By using this method we will get the RoleCategory 

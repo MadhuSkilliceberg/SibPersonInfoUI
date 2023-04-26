@@ -2,17 +2,11 @@
     <div class='container'>
         <div class='card'>
             <div class='card-header'>
-                <h1>UserCompany</h1>
+                <h1>USER COMPANY</h1>
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
-                    <div class="col-md-3">
-                        Id :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="usercompany.Id" placeholder="Id">
-                    </div>
+                    
                     <div class="col-md-3">
                         User :
                     </div>
@@ -22,7 +16,7 @@
                             [(ngModel)]="usercompany.UserId" placeholder="UserId" /> -->
 
 
-                            <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.UserId">
+                            <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.UserId" class="form-control">
                                 <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
                             </select>
                     </div>
@@ -34,7 +28,7 @@
                     <div class="col-md-3">
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usercompany.CompanyId" placeholder="CompanyId" /> -->
-                               <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.CompanyId">
+                               <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.CompanyId" class="form-control">
                             <option *ngFor="let item of companyData" value="{{item.Id}}" > {{item.CompanyName}} </option>
                         </select>
                     </div>
@@ -88,13 +82,15 @@
                         Designation :
                     </div>
                     <div class="col-md-3">
+
+                        <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.DesignationId" class="form-control">
+                            <option *ngFor="let item of designationData" value="{{item.Id}}" > {{item.DesignationName}} </option>
+                        </select>
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usercompany.DesignationId" placeholder="DesignationId" /> -->
                     </div>
 
-                    <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.DesignationId">
-                        <option *ngFor="let item of designationData" value="{{item.Id}}" > {{item.DesignationName}} </option>
-                    </select>
+                  
 
                     <br><br>
                     <div class="col-md-3">
@@ -110,7 +106,7 @@
                         IsActive :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                        <input type="checkbox" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usercompany.IsActive" placeholder="IsActive" />
                     </div>
 
@@ -133,12 +129,11 @@
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                            <h2>UserCompany Data</h2>
+                            <h2>USER COMPANY DATA</h2>
 
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
                                         <th>UserId</th>
                                         <th>CompanyId</th>
                                         <th>YearOfPassout</th>
@@ -163,7 +158,6 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.Id}}</td>
                                         <td>{{item.UserId}}</td>
                                         <td>{{item.CompanyId}}</td>
                                         <td>{{item.YearOfPassout}}</td>

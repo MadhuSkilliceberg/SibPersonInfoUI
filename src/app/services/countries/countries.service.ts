@@ -10,7 +10,7 @@ export class CountriesService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Countries';
+    this.endpointUrl = environment.baseUrl + 'Country/';
   }
 
    // By using this method we will get the Countries 
@@ -30,7 +30,7 @@ export class CountriesService {
 
    // By uing this method we will Update the Countries based on Countries
    UpdateCountries(countries: Countries): any {
-    return this.http.put(this.endpointUrl+"UpdateCountries", countries)
+    return this.http.put(this.endpointUrl+"UpdatetCountries", countries)
   }
 
 // By using this method we will delete the Countries based on the Id

@@ -44,6 +44,7 @@ export class InstitutionCoursesComponent implements OnInit {
   ngOnInit(): any {
     this.GetInstitutionCourses();
     this. GetCourses();
+    this.GetInstitutions();
   }
 
   // By using this method we will get the InstitutionCourses 

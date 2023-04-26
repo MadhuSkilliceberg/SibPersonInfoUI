@@ -10,7 +10,7 @@ export class UserContactsService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'UserContacts';
+    this.endpointUrl = environment.baseUrl + 'UserContact/';
   }
 
    // By using this method we will get the UserContacts 

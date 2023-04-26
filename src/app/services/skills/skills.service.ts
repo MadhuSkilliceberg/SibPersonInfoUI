@@ -10,7 +10,7 @@ export class SkillsService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Skills';
+    this.endpointUrl = environment.baseUrl + 'Skill/';
   }
 
    // By using this method we will get the Skills 

@@ -10,7 +10,7 @@ export class GenderService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Gender';
+    this.endpointUrl = environment.baseUrl + 'Gender/';
   }
 
    // By using this method we will get the Gender 

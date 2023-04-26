@@ -10,7 +10,7 @@ export class TaskLogService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'TaskLog';
+    this.endpointUrl = environment.baseUrl + 'TaskLog/';
   }
 
    // By using this method we will get the TaskLog 

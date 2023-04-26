@@ -10,7 +10,7 @@ export class CompanyService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Company';
+    this.endpointUrl = environment.baseUrl + 'Company/';
   }
 
    // By using this method we will get the Company 

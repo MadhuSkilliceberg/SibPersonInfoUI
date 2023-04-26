@@ -3,13 +3,13 @@
     <div class='container'>
         <div class='card'>
             <div class='card-header'>
-                <h1>InstitutionAddress</h1>
+                <h1>INSTITUTION ADDRESS</h1>
             </div>
             <div class='card-body'>
 
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        <b>InstitutionId :</b>
+                        <b>Institution :</b>
                     </div>
                     <div class="col-md-3">
                         <select name="" id="" [(ngModel)]="institutionaddress.InstitutionId" class="form-control">
@@ -70,48 +70,30 @@
                     </div>
                     <div class="col-md-3">
                         <select name="" id="" [(ngModel)]="institutionaddress.MeduimId" class="form-control">
-                            <option *ngFor="let item of mediumData" value="{{item.Id}}">{{item.Medium}}</option>
+                            <option *ngFor="let item of mediumData" value="{{item.Id}}">{{item.Medium1}}</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="row " style="padding-bottom: 3px;">
+                <div class="row " style="padding-bottom:10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-2">
-                        <button class="btn btn-primary" *ngIf="isSave">Search</button>
+                        <button (click)="AddInstitutionAddress()" class="btn btn-primary" *ngIf="isSave">Submit</button>
                     </div>
 
 
-                    <div class="row " style="padding-bottom: 5px;">
+                    <div class="row " style="padding-bottom: 10px;">
                         <div class="col-md-9"></div>
                         <div class="col-md-1">
-                            <button class="btn btn-primary" *ngIf="isSave">New</button>
+                            <button  (click)="UpdateInstitutionAddress()"  class="btn btn-primary" *ngIf="isUpdate">Update</button>
                         </div>
                     </div>
                 </div>
 
-
-
-                <div class="row " style="padding-bottom: 10px;">
-                    <div class="col-md-9"></div>
-                    <div class="col-md-1">
-                        <button (click)="AddInstitutionAddress()" class="btn btn-primary" *ngIf="isSave">Save</button>
-                    </div>
-                </div>
-
-                <div class="row " style="padding-bottom: 10px;">
-                    <div class="col-md-9"></div>
-                    <div class="col-md-3">
-                        <button (click)="UpdateInstitutionAddress()" class="btn btn-primary"
-                            *ngIf="isUpdate">Update</button>
-                    </div>
-                </div>
-
-
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                            <h2>InstitutionAddress</h2>
+                            <h2>INSTITUTION ADDRESS DATA</h2>
 
                             <table class="table table-bordered">
                                 <thead>
@@ -136,14 +118,14 @@
                                           totalItems: count
                                         };
                                       let i = index">
-                                        <td>{{item.InstitutionName}}</td>
+                                        <td>{{item.InstitutionId}}</td>
                                         <td>{{item.FlotNo}}</td>
                                         <td>{{item.Address1}}</td>
                                         <td>{{item.Address2}}</td>
                                         <td>{{item.City}}</td>
-                                        <td>{{item.StateName}}</td>
-                                        <td>{{item.CountryName}}</td>
-                                        <td>{{item.Medium1}}</td>
+                                        <td>{{item.StateId}}</td>
+                                        <td>{{item.CountryId}}</td>
+                                        <td>{{item.MeduimId}}</td>
 
                                         <td><button class="btn btn-primary"
                                                 (click)="GetInstitutionAddressById(item.Id)"> EDIT </button>

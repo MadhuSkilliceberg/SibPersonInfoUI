@@ -10,17 +10,17 @@ export class UserCompanyService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'UserCompany';
+    this.endpointUrl = environment.baseUrl + 'UserCompany/';
   }
 
    // By using this method we will get the UserCompany 
   GetUserCompany(): any {
-    return this.http.get(this.endpointUrl+"GetUserCompany");
+    return this.http.get(this.endpointUrl+"GetUserCompanys");
   }
   
   // By using this method we will get the UserCompany based on the Id
   GetUserCompanyById(id: number): any {
-    return this.http.get(this.endpointUrl+"GetUserCompanyById/" + id);
+    return this.http.get(this.endpointUrl+"GetByUserCompanyId/" + id);
   }
 
   // By uing this method we will Add the UserCompany based on UserCompany

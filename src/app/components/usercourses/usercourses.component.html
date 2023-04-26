@@ -2,24 +2,17 @@
     <div class='container'>
         <div class='card'>
             <div class='card-header'>
-                <h1>UserCourses</h1>
+                <h1>USER COURSES</h1>
             </div>
            
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        Id :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="usercourses.Id" placeholder="Id">
-                    </div>
-                    <div class="col-md-3">
                         Course :
                     </div>
                     <div class="col-md-3">
 
-                         <select id="id"  name="QualificationName" [(ngModel)]="usercourses.CourseId">
+                         <select id="id"  name="QualificationName" [(ngModel)]="usercourses.CourseId" class="form-control">
                             <option *ngFor="let item of coursesData" value="{{item.Id}}" > {{item.Name}} </option>
                         </select>
 
@@ -32,7 +25,7 @@
                         IsPrimary :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                        <input type="checkbox" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usercourses.IsPrimary" placeholder="IsPrimary" />
                     </div>
 
@@ -42,7 +35,7 @@
                     </div>
                     <div class="col-md-3">
 
-                        <select id="id"  name="UserCourses" [(ngModel)]="usercourses.UserId">
+                        <select id="id"  name="UserCourses" [(ngModel)]="usercourses.UserId" class="form-control">
                             <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
                         </select>
 
@@ -56,7 +49,7 @@
                         OrderId :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usercourses.OrderId" placeholder="OrderId" />
                     </div>
                 </div>
@@ -78,7 +71,7 @@
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                            <h2>UserCourses Data</h2>
+                            <h2>USER COURSES DATA</h2>
 
                             <table class="table table-bordered">
                                 <thead>

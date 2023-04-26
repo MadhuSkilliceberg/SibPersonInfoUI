@@ -45,6 +45,7 @@ export class UserAddressDetailsComponent implements OnInit {
     this.GetStates();
     this.GetCountries();
     this.GetUserAddressDetails();
+    this.GetUsers();
   }
 
   // By using this method we will get the UserAddressDetails 

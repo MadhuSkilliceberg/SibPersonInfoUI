@@ -10,7 +10,7 @@ export class InstitutionCoursesService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'InstitutionCourses';
+    this.endpointUrl = environment.baseUrl + 'InstitutionCourse/';
   }
 
    // By using this method we will get the InstitutionCourses 
@@ -30,7 +30,7 @@ export class InstitutionCoursesService {
 
    // By uing this method we will Update the InstitutionCourses based on InstitutionCourses
    UpdateInstitutionCourses(institutioncourses: InstitutionCourses): any {
-    return this.http.put(this.endpointUrl+"UpdateInstitutionCourses", institutioncourses)
+    return this.http.put(this.endpointUrl+"UpdatetInstitutionCourses", institutioncourses)
   }
 
 // By using this method we will delete the InstitutionCourses based on the Id

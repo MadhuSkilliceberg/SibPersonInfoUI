@@ -10,7 +10,7 @@ export class MediumService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Medium';
+    this.endpointUrl = environment.baseUrl + 'Medium/';
   }
 
    // By using this method we will get the Medium 
@@ -30,7 +30,7 @@ export class MediumService {
 
    // By uing this method we will Update the Medium based on Medium
    UpdateMedium(medium: Medium): any {
-    return this.http.put(this.endpointUrl+"UpdateMedium", medium)
+    return this.http.put(this.endpointUrl+"UpdatetMedium", medium)
   }
 
 // By using this method we will delete the Medium based on the Id

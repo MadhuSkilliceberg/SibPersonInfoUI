@@ -10,7 +10,7 @@ export class QulificationTypeService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'QulificationType';
+    this.endpointUrl = environment.baseUrl + 'Qualificationtype/';
   }
 
    // By using this method we will get the QulificationType 

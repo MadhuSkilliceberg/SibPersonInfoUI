@@ -9,7 +9,7 @@ export class UserCompany
  public Percentage! :number; 
  public DesignationId! :number; 
  public Email! :string; 
- public IsActive! :boolean; 
+ public IsActive :boolean=false; 
  public CreatedOn! :Date; 
  public CreatedBy! :number; 
  public UpdatedOn! :Date; 

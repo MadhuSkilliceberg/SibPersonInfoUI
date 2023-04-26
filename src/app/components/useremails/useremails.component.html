@@ -7,19 +7,13 @@
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
-                    <div class="col-md-3">
-                        Id :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="useremails.Id" placeholder="Id">
-                    </div>
+                    
                     <div class="col-md-3">
                         User :
                     </div>
                     <div class="col-md-3">
 
-                          <select  id="Id" name="UserName" [(ngModel)]="useremails.UserId">
+                          <select  id="Id" name="UserName" [(ngModel)]="useremails.UserId" class="form-control">
                             <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
                         </select>
                       
@@ -41,7 +35,7 @@
                         IsPrimary :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                        <input type="checkbox" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="useremails.IsPrimary" placeholder="IsPrimary" />
                     </div>
 
@@ -59,11 +53,11 @@
                         TypeId :
                     </div>
                     <div class="col-md-3">
-                        <!-- <select  id="Id" name="UserName" [(ngModel)]="useremails.UserId">
-                            <option *ngFor="let item of useremailsData" value="{{item.Id}}" > {{item.FirstName}} </option>
-                        </select> -->
-                    <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="useremails.TypeId" placeholder="TypeId" />
+                        <select  id="Id" name="UserName"  [(ngModel)]="useremails.TypeId" class="form-control">
+                            <option *ngFor="let item of contacttypeData" value="{{item.Id}}" > {{item.Name}} </option>
+                        </select>
+                    <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="useremails.TypeId" placeholder="TypeId" /> -->
                     </div>
                 </div>
 

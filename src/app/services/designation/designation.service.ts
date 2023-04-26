@@ -10,7 +10,7 @@ export class DesignationService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Designation';
+    this.endpointUrl = environment.baseUrl + 'Designation/';
   }
 
    // By using this method we will get the Designation 

@@ -2,23 +2,17 @@
     <div class='container'>
         <div class='card'>
             <div class='card-header'>
-                <h1>UserContacts</h1>
+                <h1>USER CONTACTS</h1>
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
-                    <div class="col-md-3">
-                        Id :
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="usercontacts.Id" placeholder="Id">
-                    </div>
+                   
                     <div class="col-md-3">
                         User :
                     </div>
                     <div class="col-md-3">
 
-                        <select  id="Id" name="UserContacts" [(ngModel)]="usercontacts.Id">
+                        <select  id="Id" name="UserContacts" [(ngModel)]="usercontacts.UserId" class="form-control">
                             <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
                         </select>
 
@@ -41,7 +35,7 @@
                         IsPrimary :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                        <input type="checkbox" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usercontacts.IsPrimary" placeholder="IsPrimary" />
                     </div>
 
@@ -61,8 +55,8 @@
                     </div>
                     <div class="col-md-3">
 
-                        <select  id="Id" name="UserContactType" [(ngModel)]="usercontacts.Id">
-                            <option *ngFor="let item of contacttypeData" value="{{item.Name}}" > {{item.Name}} </option>
+                        <select  id="Id" name="UserContactType" [(ngModel)]="usercontacts.ContactTypeId" class="form-control">
+                            <option *ngFor="let item of contacttypeData" value="{{item.Id}}" > {{item.Name}} </option>
                         </select>
 
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
@@ -88,12 +82,12 @@
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                            <h2>UserContacts Data</h2>
+                            <h2>USER CONTACTS DATA</h2>
 
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
+                                        
                                         <th>UserId</th>
                                         <th>MobileNumber</th>
                                         <th>IsPrimary</th>
@@ -113,12 +107,10 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.Id}}</td>
                                         <td>{{item.UserId}}</td>
                                         <td>{{item.MobileNumber}}</td>
                                         <td>{{item.IsPrimary}}</td>
                                         <td>{{item.MobileNumber}}</td>
-                                        <td>{{item.OrderId}}</td>
                                         <td>{{item.OrderId}}</td>
                                         <td>{{item.ContactTypeId}}</td>
                                         

@@ -2,12 +2,12 @@
     <div class='container'>
         <div class='card'>
             <div class='card-header'>
-                <h1>Family</h1>
+                <h1>FAMILY</h1>
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        UserId :
+                        User :
                     </div>
                     <div class="col-md-3">
                         <select  id="" name="" [(ngModel)]="family.UserId" class="form-control">
@@ -23,7 +23,7 @@
                         <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
                             <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
                         </select> -->
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
+                        <input type="text" name="txtcode" class="form-control" id="txtcode"
                             [(ngModel)]="family.FirstName" placeholder="FirstName" />
                     </div>
 
@@ -32,11 +32,11 @@
                         LastName :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="family.LastName" placeholder="LastName" />
                     </div>
                     <div class="col-md-3">
-                        RelationTypeId :
+                        RelationType :
                     </div>
                     <div class="col-md-3">
                         <select  id="" name="" [(ngModel)]="family.RelationTypeId" class="form-control">
@@ -51,7 +51,7 @@
                         IsGurdian :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                        <input type="checkbox" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="family.IsGurdian" placeholder="IsGurdian" />
                     </div>
 
@@ -74,7 +74,7 @@
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                            <h2>Family Data</h2>
+                            <h2>FAMILY DATA</h2>
 
                             <table class="table table-bordered">
                                 <thead>

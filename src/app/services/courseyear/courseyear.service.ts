@@ -10,7 +10,7 @@ export class CourseYearService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'CourseYear';
+    this.endpointUrl = environment.baseUrl + 'CourseYear/';
   }
 
    // By using this method we will get the CourseYear 

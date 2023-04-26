@@ -1,5 +1,5 @@
 export class Courses
-{ public Id! :number; 
+{ public Id :number=0; 
  public Name! :string; 
  public Code! :number; 
  public OrderId! :number; 

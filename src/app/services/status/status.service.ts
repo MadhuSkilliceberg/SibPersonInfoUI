@@ -10,7 +10,7 @@ export class StatusService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Status';
+    this.endpointUrl = environment.baseUrl + 'Status/';
   }
 
    // By using this method we will get the Status 

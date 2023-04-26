@@ -10,7 +10,7 @@ export class CYearsService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'CYears';
+    this.endpointUrl = environment.baseUrl + 'CYears/';
   }
 
    // By using this method we will get the CYears 

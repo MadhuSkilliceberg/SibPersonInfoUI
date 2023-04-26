@@ -3,6 +3,8 @@ import { UserEmails } from 'src/app/Models/UserEmails';
 import { UserEmailsService } from './../../services/useremails/useremails.service'
 import { UsersService } from 'src/app/services/users/users.service';
 import { Users } from 'src/app/Models/Users';
+import { ContactTypeService } from 'src/app/services/contacttype/contacttype.service';
+import { ContactType } from 'src/app/Models/ContactType';
 
 
 @Component({
@@ -25,16 +27,22 @@ export class UserEmailsComponent implements OnInit {
   useremailsData: UserEmails[] = []
   useremailsId: number = 0;
   usersData: Users[] = []
+  contacttypeData: ContactType[] = []
+
 
   constructor(
     private useremailsService: UserEmailsService,
     private usersService: UsersService,
+    private contacttypeService: ContactTypeService,
+
 
   ) { }
 
   ngOnInit(): any {
     this.GetUserEmails();
-    this.GetUserEmails();
+    this.  GetUsers();
+    this. GetContactType()
+   
   }
 
   // By using this method we will get the UserEmails 
@@ -95,6 +103,13 @@ export class UserEmailsComponent implements OnInit {
   GetUsers(): any {
     this.usersService.GetUsers().subscribe((res: any) => {
       this.usersData = res;
+
+    })
+  }
+
+  GetContactType(): any {
+    this.contacttypeService.GetContactType().subscribe((res: any) => {
+      this.contacttypeData = res;
 
     })
   }

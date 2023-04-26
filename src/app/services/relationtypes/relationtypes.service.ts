@@ -10,7 +10,7 @@ export class RelationTypesService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'RelationTypes';
+    this.endpointUrl = environment.baseUrl + 'RelationType/';
   }
 
    // By using this method we will get the RelationTypes 

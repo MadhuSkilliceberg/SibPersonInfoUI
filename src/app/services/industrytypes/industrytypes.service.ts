@@ -10,7 +10,7 @@ export class IndustryTypesService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'IndustryTypes';
+    this.endpointUrl = environment.baseUrl + 'IndustryTypes/';
   }
 
    // By using this method we will get the IndustryTypes 
