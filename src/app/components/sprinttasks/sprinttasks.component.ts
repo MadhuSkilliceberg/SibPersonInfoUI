@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { SprintTasks } from 'src/app/Models/SprintTasks';
-import { SprintTasksService } from './../../services/sprinttasks/sprinttasks.service'
+import { SprintTasksService } from './../../services/sprinttasks/sprinttasks.service';
+import {TaskService} from './../../services/task/task.service';
+import {SprintService} from './../../services/sprint/sprint.service';
+import {StatusService} from './../../services/status/status.service';
+import {Task} from './../../Models/Task';
+import {Sprint} from './../../Models/Sprint';
+import {Status} from './../../Models/Status';
+
 
 
 @Component({
@@ -23,13 +30,30 @@ export class SprintTasksComponent implements OnInit {
   sprinttasksData: SprintTasks[] = []
   sprinttasksId: number = 0;
 
+  taskData: Task[] = []
+
+  sprintData: Sprint[] = []
+
+  statusData: Status[] = []
+
+
+
   constructor(
     private sprinttasksService: SprintTasksService,
+    private taskService: TaskService,
+    private sprintService: SprintService,
+    private statusService: StatusService,
+
+
 
   ) { }
 
   ngOnInit(): any {
     this.GetSprintTasks();
+    this.GetTask();
+    this.GetSprint();
+    this.GetStatus();
+
   }
 
   // By using this method we will get the SprintTasks 
@@ -75,6 +99,31 @@ export class SprintTasksComponent implements OnInit {
         this.sprinttasks = new SprintTasks();
       })
     }
+  }
+
+//This Get Method is From Task Component
+  GetTask(): any {
+    this.taskService.GetTask().subscribe((res: any) => {
+      this.taskData = res;
+
+    })
+  }
+
+
+//This Get Method is From Sprint Component
+  GetSprint(): any {
+    this.sprintService.GetSprint().subscribe((res: any) => {
+      this.sprintData = res;
+
+    })
+  }
+
+//This Get Method is From Status Component
+  GetStatus(): any {
+    this.statusService.GetStatus().subscribe((res: any) => {
+      this.statusData = res;
+
+    })
   }
 
   // By this methods pagination events

@@ -11,10 +11,8 @@
                         <b class="padding-bottom">InstitutionAddress :</b>
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" [(ngModel)]="institutioncontacts.InstitutionAddressId"
-                            class="form-control">
-                            <option *ngFor="let item of institutionaddressData" value="{{item.Id}}">{{item.Address1}}
-                            </option>
+                        <select name="" id="" [(ngModel)]="institutioncontacts.InstitutionAddressId" class="form-control">
+                            <option *ngFor="let item of institutionaddressData" value="{{item.Id}}"> {{item.Address1}} </option>
                         </select>
                         <!-- <input type="number" class="form-control" id="InstitutionAddressId" Name="InstitutionAddressId"[(ngModel)]="institutioncontact.InstitutionAddressId" placeholder="InstitutionAddressId"> -->
                     </div>
@@ -95,7 +93,8 @@
 
                                         <td><button class="btn btn-primary"
                                                 (click)="GetInstitutionContactsById(item.Id)"> EDIT </button></td>
-                                        <td><button class="btn btn-danger" (click)="DeleteInstitutionContacts(item.Id)"> DELETE </button></td>
+                                        <td><button class="btn btn-danger" (click)="DeleteInstitutionContacts(item.Id)">
+                                                DELETE </button></td>
                                     </tr>
                                 </tbody>
                             </table>

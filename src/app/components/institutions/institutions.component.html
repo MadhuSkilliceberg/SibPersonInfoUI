@@ -14,23 +14,28 @@
                             [(ngModel)]="institutions.InstitutionName" placeholder="InstitutionName">
                     </div>
                     <div class="col-md-3">
-                        QualificationtypeId :
+                        Qualificationtype :
                     </div>
                     <div class="col-md-3">
-                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
-                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
-                        </select> -->
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="institutions.QulificationTypeId" placeholder="QualificationtypeId" />
+
+                        <select name="" id="" name="Qualificationtype" [(ngModel)]="institutions.QulificationTypeId">
+                            <option *ngFor="let item of qulificationtypeData" value="{{item.Id}}" > {{item.QulificationName}} </option>
+                        </select>
+                        <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="institutions.QulificationTypeId" placeholder="QualificationtypeId" /> -->
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        MediumId :
+                        Medium :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="institutions.MediumId" placeholder="MediumId" />
+
+                        <select name="" id="" name="MediumId" [(ngModel)]="institutions.MediumId">
+                            <option *ngFor="let item of mediumData" value="{{item.Id}}" > {{item.Medium}} </option>
+                        </select>
+                        <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="institutions.MediumId" placeholder="MediumId" /> -->
                     </div>
                 </div>
 

@@ -14,15 +14,15 @@
                         Name :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="name1" id="1" class="form-control" [(ngModel)]="institutioncourse.Name"
+                        <input type="text" name="name1" id="1" class="form-control" [(ngModel)]="institutioncourses.Name"
                             placeholder="Name">
                     </div>
                     <div class="col-md-3">
                         Institution :
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" [(ngModel)]="institutioncourse.InstitutionId" class="form-control">
-                            <option *ngFor="let item of institutiondata" value="{{item.Id}}">{{item.InstitutionName}}</option>
+                        <select name="" id="" [(ngModel)]="institutioncourses.InstitutionId" class="form-control">
+                            <option *ngFor="let item of institutionsData" value="{{item.Id}}">{{item.InstitutionName}}</option>
                         </select> 
                             
                     </div><br><br>
@@ -30,8 +30,8 @@
                         Course :
                     </div>
                     <div class="col-md-3">
-                        <select name="" id=""  [(ngModel)]="institutioncourse.CourseId" class="form-control" >
-                            <option *ngFor="let item of courses" value="{{item.Id}}">{{item.Name}}</option>
+                        <select name="" id=""  [(ngModel)]="institutioncourses.CourseId" class="form-control" >
+                            <option *ngFor="let item of coursesData" value="{{item.Id}}">{{item.Name}}</option>
                         </select>
                             
                     </div>
@@ -39,7 +39,7 @@
                         IsActive :
                     </div>
                     <div class="col-md-3">
-                        <input type="checkbox" name="name2" id="3" class="form-check-input" [(ngModel)]="institutioncourse.IsActive" >
+                        <input type="checkbox" name="name2" id="3" class="form-check-input" [(ngModel)]="institutioncourses.IsActive" >
                     </div>
                 </div><br>
                
@@ -96,8 +96,8 @@
                                     <td>{{item.InstitutionId}}</td>
                                     <td>{{item.CourseId}}</td>
                                     <td>{{item.IsActive}}</td>
-                                    <td><button class="btn btn-primary" (click)="GetInstitutionCourseById(item.Id)"> EDIT </button></td>
-                                    <td><button class="btn btn-danger" (click)="DeleteInstitutionCourse(item.Id)">  DELETE </button></td>
+                                    <td><button class="btn btn-primary" (click)="GetInstitutionCoursesById(item.Id)"> EDIT </button></td>
+                                    <td><button class="btn btn-danger" (click)="DeleteInstitutionCourses(item.Id)">  DELETE </button></td>
                                 </tr>
                             </tbody>
                         </table>

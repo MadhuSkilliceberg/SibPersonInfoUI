@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Institutions } from 'src/app/Models/Institutions';
 import { InstitutionsService } from './../../services/institutions/institutions.service'
+import {QulificationType} from './../../Models/QulificationType'
+import {QulificationTypeService} from './../../services/qulificationtype/qulificationtype.service'
+import { Medium } from 'src/app/Models/Medium';
+import { MediumService } from 'src/app/services/medium/medium.service';
 
 
 @Component({
@@ -23,8 +27,18 @@ export class InstitutionsComponent implements OnInit {
   institutionsData: Institutions[] = []
   institutionsId: number = 0;
 
+  
+  qulificationtypeData: QulificationType[] = []
+
+
+  mediumData: Medium[] = []
+
+
   constructor(
     private institutionsService: InstitutionsService,
+    private qualificationservices:QulificationTypeService,
+    private mediumService: MediumService,
+
 
   ) { }
 
@@ -75,6 +89,22 @@ export class InstitutionsComponent implements OnInit {
         this.institutions = new Institutions();
       })
     }
+  }
+
+//this Method is from qualificationtype component
+  GetQulificationType(): any {
+    this.qualificationservices.GetQulificationType().subscribe((res: any) => {
+      this.qulificationtypeData = res;
+
+    })
+  }
+
+   // By using this method we will get the Medium 
+   GetMedium(): any {
+    this.mediumService.GetMedium().subscribe((res: any) => {
+      this.mediumData = res;
+
+    })
   }
 
   // By this methods pagination events

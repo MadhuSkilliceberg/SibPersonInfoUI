@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { InstitutionCourses } from 'src/app/Models/InstitutionCourses';
 import { InstitutionCoursesService } from './../../services/institutioncourses/institutioncourses.service'
+import { Courses } from 'src/app/Models/Courses';
+import { CoursesService } from 'src/app/services/courses/courses.service';
+import { Institutions } from 'src/app/Models/Institutions';
+import { InstitutionsService } from 'src/app/services/institutions/institutions.service';
 
 
 @Component({
@@ -23,13 +27,23 @@ export class InstitutionCoursesComponent implements OnInit {
   institutioncoursesData: InstitutionCourses[] = []
   institutioncoursesId: number = 0;
 
+  institutionsData: Institutions[] = []
+
+  coursesData: Courses[] = []
+
+
   constructor(
     private institutioncoursesService: InstitutionCoursesService,
+    private coursesService: CoursesService,
+    private institutionsService: InstitutionsService,
+
+
 
   ) { }
 
   ngOnInit(): any {
     this.GetInstitutionCourses();
+    this. GetCourses();
   }
 
   // By using this method we will get the InstitutionCourses 
@@ -75,6 +89,22 @@ export class InstitutionCoursesComponent implements OnInit {
         this.institutioncourses = new InstitutionCourses();
       })
     }
+  }
+
+    // By using this method we will get the Courses 
+    GetCourses(): any {
+      this.coursesService.GetCourses().subscribe((res: any) => {
+        this.coursesData = res;
+  
+      })
+    }
+
+    // By using this method we will get the Institutions 
+  GetInstitutions(): any {
+    this.institutionsService.GetInstitutions().subscribe((res: any) => {
+      this.institutionsData = res;
+
+    })
   }
 
   // By this methods pagination events

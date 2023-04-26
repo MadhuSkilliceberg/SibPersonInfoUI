@@ -17,10 +17,7 @@
                         Description :
                     </div>
                     <div class="col-md-3">
-                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
-                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
-                        </select> -->
-                        <input type="text" name="txtcode" class="form-control" id="txtcode"
+                        <input type="text" name="txtDescription" class="form-control" id="txtcode"
                             [(ngModel)]="reviews.Description" placeholder="Description" />
                     </div>
 
@@ -29,8 +26,33 @@
                         Rating :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="reviews.MediumId" placeholder="MediumId" />
+                        <input type="number" name="txtRating" id="txtRating" class="form-control"
+                            [(ngModel)]="reviews.Rating" placeholder="Rating" />
+                    </div>
+
+                    <div class="col-md-3">
+                        IsActive :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="txtIsActive" id="txtIsActive" class="form-control"
+                            [(ngModel)]="reviews.IsActive" placeholder="IsActive" />
+                    </div>
+                    <br><br>
+
+                    <div class="col-md-3">
+                        IsPublic :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="txtIsPublic" id="txtIsPublic" class="form-control"
+                            [(ngModel)]="reviews.IsPublic" placeholder="IsPublic" />
+                    </div>
+
+                    <div class="col-md-3">
+                        AccessLevel :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtAccessLevel" id="txtAccessLevel" class="form-control"
+                            [(ngModel)]="reviews.AccessLevel" placeholder="AccessLevel" />
                     </div>
                 </div>
 
@@ -59,6 +81,9 @@
                                         <th>Heading_</th>
                                         <th>Description</th>
                                         <th>Rating</th>
+                                        <th>IsActive</th>
+                                        <th>IsPublic</th>
+                                        <th>AccessLevel</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -74,6 +99,9 @@
                                         <td>{{item.Heading_}}</td>
                                         <td>{{item.Description}}</td>
                                         <td>{{item.Rating}}</td>
+                                        <td>{{item.IsActive}}</td>
+                                        <td>{{item.IsPublic}}</td>
+                                        <td>{{item.AccessLevel}}</td>
                                         <td><button class="btn btn-info" (click)="GetReviewsById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteReviews(item.Id)"> Delete

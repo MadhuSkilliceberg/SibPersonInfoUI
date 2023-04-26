@@ -7,30 +7,30 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        InstitutionName :
+                        M_P_ID :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="menu_list.InstitutionName" placeholder="InstitutionName">
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="menu_list.M_P_ID" placeholder="M_P_ID">
                     </div>
                     <div class="col-md-3">
-                        QualificationtypeId :
+                        M_NAME :
                     </div>
                     <div class="col-md-3">
                         <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
                             <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
                         </select> -->
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="menu_list.QulificationTypeId" placeholder="QualificationtypeId" />
+                        <input type="text" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="menu_list.M_NAME" placeholder="M_NAME" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        MediumId :
+                        CONTROLLER_NAME :
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="menu_list.MediumId" placeholder="MediumId" />
+                            [(ngModel)]="menu_list.CONTROLLER_NAME" placeholder="CONTROLLER_NAME" />
                     </div>
                 </div>
 
@@ -56,9 +56,10 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>InstitutionName</th>
-                                        <th>QualificationtypeId</th>
-                                        <th>MediumId</th>
+                                        <th>M_P_ID</th>
+                                        <th>M_NAME</th>
+                                        <th>CONTROLLER_NAME</th>
+                                        <th>ACTION_NAME</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -71,12 +72,13 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.InstitutionName}}</td>
-                                        <td>{{item.QulificationTypeId}}</td>
-                                        <td>{{item.MediumId}}</td>
-                                        <td><button class="btn btn-info" (click)="GetMenu_ListById(item.Id)"> Edit
+                                        <td>{{item.M_P_ID}}</td>
+                                        <td>{{item.M_NAME}}</td>
+                                        <td>{{item.CONTROLLER_NAME}}</td>
+                                        <td>{{item.ACTION_NAME}}</td>
+                                        <td><button class="btn btn-info" (click)="GetMenu_ListById(item.M_ID)"> Edit
                                             </button></td>
-                                        <td><button class="btn btn-danger" (click)="DeleteMenu_List(item.Id)"> Delete
+                                        <td><button class="btn btn-danger" (click)="DeleteMenu_List(item.M_ID)"> Delete
                                             </button></td>
                                     </tr>
                                 </tbody>
