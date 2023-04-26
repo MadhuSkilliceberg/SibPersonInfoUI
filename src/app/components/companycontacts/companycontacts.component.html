@@ -7,19 +7,20 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        CompanyAddressId :
+                        CompanyAddress :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="companycontacts.CompanyAddressId" placeholder="CompanyAddressId">
+                        <select name="" id="" [(ngModel)]="companycontacts.CompanyAddressId" class="form-control"> 
+                            <option  *ngFor="let item of companyaddressData" value="{{item.Id}}">{{item.Address1}}</option>
+                        </select>
+
+                        <!-- <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="companycontacts.CompanyAddressId" placeholder="CompanyAddressId"> -->
                     </div>
                     <div class="col-md-3">
                         MobileNumber :
                     </div>
                     <div class="col-md-3">
-                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
-                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
-                        </select> -->
                         <input type="number" name="txtcode" class="form-control" id="txtcode"
                             [(ngModel)]="companycontacts.MobileNumber" placeholder="MobileNumber" />
                     </div>

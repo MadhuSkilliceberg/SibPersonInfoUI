@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyReviews } from 'src/app/Models/CompanyReviews';
 import { CompanyReviewsService } from './../../services/companyreviews/companyreviews.service'
+import { Company } from 'src/app/Models/Company';
+import { CompanyService } from 'src/app/services/company/company.service';
+import { Reviews } from 'src/app/Models/Reviews';
+import { ReviewsService } from 'src/app/services/reviews/reviews.service';
 
 
 @Component({
@@ -23,13 +27,25 @@ export class CompanyReviewsComponent implements OnInit {
   companyreviewsData: CompanyReviews[] = []
   companyreviewsId: number = 0;
 
+  companyData: Company[] = []
+
+  reviewsData: Reviews[] = []
+
+
+
+
   constructor(
     private companyreviewsService: CompanyReviewsService,
+    private companyService: CompanyService,
+    private reviewsService: ReviewsService,
+
 
   ) { }
 
   ngOnInit(): any {
     this.GetCompanyReviews();
+    this.GetReviews();
+    this.GetCompany();
   }
 
   // By using this method we will get the CompanyReviews 
@@ -87,5 +103,23 @@ export class CompanyReviewsComponent implements OnInit {
     this.page = 1;
     this.GetCompanyReviews();
   }
+
+
+    // By using this method we will get the Company 
+    GetCompany(): any {
+      this.companyService.GetCompany().subscribe((res: any) => {
+        this.companyData = res;
+  
+      })
+    }
+
+      // By using this method we will get the Reviews 
+  GetReviews(): any {
+    this.reviewsService.GetReviews().subscribe((res: any) => {
+      this.reviewsData = res;
+
+    })
+  }
+  
 }
 

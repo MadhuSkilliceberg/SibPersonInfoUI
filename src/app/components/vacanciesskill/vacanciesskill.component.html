@@ -11,20 +11,20 @@
                        <b>Id :</b> 
                     </div>
                     <div class="col-md-3">
-                      <input type="number" id="txtskill" Name="txtskill"  class="form-control" [(ngModel)]="vacanciesSkill.Id" placeholder="Id">
+                      <input type="number" id="txtskill" Name="txtskill"  class="form-control" [(ngModel)]="vacanciesskill.Id" placeholder="Id">
                     </div>
                     <div class="col-md-3">
                        <b>VacancyId :</b> 
                     </div>
                     <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancyId.Id" placeholder="VacancyId"/>
+                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacanciesskill.VacancyId" placeholder="VacancyId"/>
                     </div>
                     <br><br>
                     <div class="col-md-3">
                        <b> SkillId :</b>
                     </div>
                     <div class="col-md-3">
-                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacanciesSkill.SkillId" placeholder="SkillId"/>
+                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacanciesskill.SkillId" placeholder="SkillId"/>
                     </div>
                     
                     <br><br>
@@ -32,7 +32,7 @@
                        <b> IsActive :</b>
                     </div>
                     <div class="col-md-3">
-                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacanciesSkill.IsActive" placeholder="IsActive"/>
+                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacanciesskill.IsActive" placeholder="IsActive"/>
                     </div>
                     
                 
@@ -77,7 +77,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of VacanciesSkilldata | paginate
+                                    <tr *ngFor="let item of vacanciesskillData | paginate
                                     : {
                                         itemsPerPage: tableSize,
                                         currentPage: page,
@@ -91,7 +91,7 @@
                                        
   
                                         <td><button class="btn btn-primary" (click)="GetVacanciesSkillById(item.Id)"> EDIT </button></td>
-                                        <td><button class="btn btn-danger" (click)="VacanciesSkillAddress(item.Id)"> DELETE </button></td>
+                                        <td><button class="btn btn-danger" (click)="DeleteVacanciesSkill(item.Id)"> DELETE </button></td>
                                     </tr>
                                 </tbody>
                             </table>

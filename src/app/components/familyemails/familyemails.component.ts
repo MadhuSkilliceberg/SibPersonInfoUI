@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FamilyEmails } from 'src/app/Models/FamilyEmails';
 import { FamilyEmailsService } from './../../services/familyemails/familyemails.service'
+import { CompanyAddress } from 'src/app/Models/CompanyAddress';
+import { CompanyAddressService } from 'src/app/services/companyaddress/companyaddress.service';
+import { InstitutionAddress } from 'src/app/Models/InstitutionAddress';
+import { InstitutionAddressService } from 'src/app/services/institutionaddress/institutionaddress.service';
 
 
 @Component({
@@ -22,14 +26,19 @@ export class FamilyEmailsComponent implements OnInit {
   familyemails: FamilyEmails = new FamilyEmails();
   familyemailsData: FamilyEmails[] = []
   familyemailsId: number = 0;
+  institutionaddressData: InstitutionAddress[] = []
+
 
   constructor(
     private familyemailsService: FamilyEmailsService,
+    private institutionaddressService: InstitutionAddressService,
 
   ) { }
 
   ngOnInit(): any {
     this.GetFamilyEmails();
+    this.GetInstitutionAddress();
+
   }
 
   // By using this method we will get the FamilyEmails 
@@ -86,6 +95,15 @@ export class FamilyEmailsComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.GetFamilyEmails();
+  }
+
+
+     // By using this method we will get the InstitutionAddress 
+  GetInstitutionAddress(): any {
+    this.institutionaddressService.GetInstitutionAddress().subscribe((res: any) => {
+      this.institutionaddressData = res;
+
+    })
   }
 }
 

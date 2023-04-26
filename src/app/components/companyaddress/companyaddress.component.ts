@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyAddress } from 'src/app/Models/CompanyAddress';
 import { CompanyAddressService } from './../../services/companyaddress/companyaddress.service'
+import { Company } from 'src/app/Models/Company';
+import { Countries } from 'src/app/Models/Countries';
+import { States } from 'src/app/Models/States';
+import { CompanyService } from 'src/app/services/company/company.service';
+import { StatesService } from 'src/app/services/states/states.service';
+import { CountriesService } from 'src/app/services/countries/countries.service';
+import { tick } from '@angular/core/testing';
 
 
 @Component({
@@ -23,13 +30,26 @@ export class CompanyAddressComponent implements OnInit {
   companyaddressData: CompanyAddress[] = []
   companyaddressId: number = 0;
 
+  companyData: Company[] = [];
+  
+  statesData: States[] = [];
+
+  countriesData: Countries[] = [];
+
   constructor(
     private companyaddressService: CompanyAddressService,
+    private companyService: CompanyService, 
+    private statesService: StatesService,
+    private countriesService: CountriesService
 
   ) { }
 
   ngOnInit(): any {
     this.GetCompanyAddress();
+    this.GetCompany();
+    this. GetStates();
+    this. GetCountries();
+
   }
 
   // By using this method we will get the CompanyAddress 
@@ -86,6 +106,34 @@ export class CompanyAddressComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.GetCompanyAddress();
+  }
+
+
+
+  
+   // By using this method we will get the Company 
+   GetCompany(): any {
+    this.companyService.GetCompany().subscribe((res: any) => {
+      this.companyData = res;
+
+    })
+  }
+
+    // By using this method we will get the States 
+    GetStates(): any {
+      this.statesService.GetStates().subscribe((res: any) => {
+        this.statesData = res;
+  
+      })
+    }
+
+
+      // By using this method we will get the Countries 
+  GetCountries(): any {
+    this.countriesService.GetCountries().subscribe((res: any) => {
+      this.countriesData = res;
+
+    })
   }
 }
 

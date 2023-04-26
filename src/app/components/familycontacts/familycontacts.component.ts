@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FamilyContacts } from 'src/app/Models/FamilyContacts';
 import { FamilyContactsService } from './../../services/familycontacts/familycontacts.service'
+import { FamilyService } from 'src/app/services/family/family.service';
+import { Family } from 'src/app/Models/Family';
 
 
 @Component({
@@ -23,13 +25,19 @@ export class FamilyContactsComponent implements OnInit {
   familycontactsData: FamilyContacts[] = []
   familycontactsId: number = 0;
 
+  familyData: Family[] = []
+
+
   constructor(
     private familycontactsService: FamilyContactsService,
+    private familyService: FamilyService,
+
 
   ) { }
 
   ngOnInit(): any {
     this.GetFamilyContacts();
+    this.GetFamily();
   }
 
   // By using this method we will get the FamilyContacts 
@@ -86,6 +94,15 @@ export class FamilyContactsComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.GetFamilyContacts();
+  }
+
+
+   // By using this method we will get the Family 
+   GetFamily(): any {
+    this.familyService.GetFamily().subscribe((res: any) => {
+      this.familyData = res;
+
+    })
   }
 }
 

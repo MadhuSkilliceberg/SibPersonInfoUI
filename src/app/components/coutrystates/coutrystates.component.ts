@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CoutryStates } from 'src/app/Models/CoutryStates';
 import { CoutryStatesService } from './../../services/coutrystates/coutrystates.service'
+import { Countries } from 'src/app/Models/Countries';
+import { CountriesService } from 'src/app/services/countries/countries.service';
+import { StatesService } from 'src/app/services/states/states.service';
+import { States } from 'src/app/Models/States';
 
 
 @Component({
@@ -23,13 +27,24 @@ export class CoutryStatesComponent implements OnInit {
   coutrystatesData: CoutryStates[] = []
   coutrystatesId: number = 0;
 
+  countriesData: Countries[] = []
+
+  statesData: States[] = []
+
+
   constructor(
     private coutrystatesService: CoutryStatesService,
+    private countriesService: CountriesService,
+    private statesService: StatesService,
+
+
 
   ) { }
 
   ngOnInit(): any {
     this.GetCoutryStates();
+    this. GetCountries();
+    this.GetStates();
   }
 
   // By using this method we will get the CoutryStates 
@@ -87,5 +102,24 @@ export class CoutryStatesComponent implements OnInit {
     this.page = 1;
     this.GetCoutryStates();
   }
+
+
+  
+  // By using this method we will get the Countries 
+  GetCountries(): any {
+    this.countriesService.GetCountries().subscribe((res: any) => {
+      this.countriesData = res;
+
+    })
+  }
+
+    // By using this method we will get the States 
+    GetStates(): any {
+      this.statesService.GetStates().subscribe((res: any) => {
+        this.statesData = res;
+  
+      })
+    }
+  
 }
 

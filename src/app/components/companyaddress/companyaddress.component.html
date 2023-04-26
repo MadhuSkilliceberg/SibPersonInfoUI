@@ -7,11 +7,15 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        CompanyId :
+                        Company :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="companyaddress.CompanyId" placeholder="InstitutionName">
+                        <select name="" id="" [(ngModel)]="companyaddress.CompanyId" class="form-control"> 
+                            <option  *ngFor="let item of companyData" value="{{item.Id}}">{{item.CompanyName}}</option>
+                        </select>
+                        
+                        <!-- <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="companyaddress.CompanyId" placeholder="InstitutionName"> -->
                     </div>
                     <div class="col-md-3">
                         FlotNo :
@@ -44,17 +48,23 @@
 
                     <br><br>
                     <div class="col-md-3">
-                        StateId :
+                        State :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="companyaddress.StateId" placeholder="InstitutionName">
+                        <select name="" id="" [(ngModel)]="companyaddress.StateId" class="form-control"> 
+                            <option  *ngFor="let item of statesData" value="{{item.Id}}">{{item.StateName}}</option>
+                        </select>
+                        <!-- <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="companyaddress.StateId" placeholder="InstitutionName"> -->
                     </div>
                     <div class="col-md-3">
-                        CountryId :
+                        Country :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" class="form-control" id="txtcode" [(ngModel)]="companyaddress.CountryId" placeholder="QualificationtypeId" />
+                        <select name="" id="" [(ngModel)]="companyaddress.CountryId" class="form-control"> 
+                            <option  *ngFor="let item of countriesData" value="{{item.Id}}">{{item.CountryName}}</option>
+                        </select>
+                        <!-- <input type="number" name="txtcode" class="form-control" id="txtcode" [(ngModel)]="companyaddress.CountryId" placeholder="QualificationtypeId" /> -->
                     </div>
 
                     <br><br>

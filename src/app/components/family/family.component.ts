@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Family } from 'src/app/Models/Family';
 import { FamilyService } from './../../services/family/family.service'
+import { Users } from 'src/app/Models/Users';
+import { UsersService } from 'src/app/services/users/users.service';
+import { RelationTypes } from 'src/app/Models/RelationTypes';
+import { RelationTypesService } from 'src/app/services/relationtypes/relationtypes.service';
 
 
 @Component({
@@ -23,13 +27,25 @@ export class FamilyComponent implements OnInit {
   familyData: Family[] = []
   familyId: number = 0;
 
+  usersData: Users[] = []
+
+  relationtypesData: RelationTypes[] = []
+
+
+
   constructor(
     private familyService: FamilyService,
+    private usersService: UsersService,
+    private relationtypesService: RelationTypesService,
+
+
 
   ) { }
 
   ngOnInit(): any {
     this.GetFamily();
+    this.GetUsers();
+    this. GetRelationTypes();
   }
 
   // By using this method we will get the Family 
@@ -87,5 +103,22 @@ export class FamilyComponent implements OnInit {
     this.page = 1;
     this.GetFamily();
   }
+
+  
+  // By using this method we will get the Users 
+  GetUsers(): any {
+    this.usersService.GetUsers().subscribe((res: any) => {
+      this.usersData = res;
+
+    })
+  }
+
+    // By using this method we will get the RelationTypes 
+    GetRelationTypes(): any {
+      this.relationtypesService.GetRelationTypes().subscribe((res: any) => {
+        this.relationtypesData = res;
+  
+      })
+    }
 }
 

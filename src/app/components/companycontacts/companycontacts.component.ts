@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyContacts } from 'src/app/Models/CompanyContacts';
 import { CompanyContactsService } from './../../services/companycontacts/companycontacts.service'
+import { CompanyAddress } from 'src/app/Models/CompanyAddress';
+import { CompanyAddressService } from 'src/app/services/companyaddress/companyaddress.service';
 
 
 @Component({
@@ -23,13 +25,17 @@ export class CompanyContactsComponent implements OnInit {
   companycontactsData: CompanyContacts[] = []
   companycontactsId: number = 0;
 
+  companyaddressData: CompanyAddress[] = [];
+
   constructor(
     private companycontactsService: CompanyContactsService,
+    private companyaddressService: CompanyAddressService
 
   ) { }
 
   ngOnInit(): any {
     this.GetCompanyContacts();
+    this.GetCompanyAddress();
   }
 
   // By using this method we will get the CompanyContacts 
@@ -86,6 +92,15 @@ export class CompanyContactsComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.GetCompanyContacts();
+  }
+
+  
+  // By using this method we will get the CompanyAddress 
+  GetCompanyAddress(): any {
+    this.companyaddressService.GetCompanyAddress().subscribe((res: any) => {
+      this.companyaddressData = res;
+
+    })
   }
 }
 

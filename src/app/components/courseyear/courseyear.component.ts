@@ -43,6 +43,9 @@ export class CourseYearComponent implements OnInit {
 
   ngOnInit(): any {
     this.GetCourseYear();
+    this.GetCourse();
+    this .GetCyear();
+
   }
 
   // By using this method we will get the CourseYear 
