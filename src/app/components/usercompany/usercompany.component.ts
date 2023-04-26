@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCompany } from 'src/app/Models/UserCompany';
 import { UserCompanyService } from './../../services/usercompany/usercompany.service'
+import { Company } from 'src/app/Models/Company';
+import { CompanyService } from 'src/app/services/company/company.service';
+import { UsersService } from 'src/app/services/users/users.service';
+import { Users } from 'src/app/Models/Users';
+import { DesignationService } from 'src/app/services/designation/designation.service';
+import { Designation } from 'src/app/Models/Designation';
 
 
 @Component({
@@ -22,14 +28,23 @@ export class UserCompanyComponent implements OnInit {
   usercompany: UserCompany = new UserCompany();
   usercompanyData: UserCompany[] = []
   usercompanyId: number = 0;
+  companyData: Company[] = []
+  usersData: Users[] = []
+  designationData: Designation[] = []
 
   constructor(
     private usercompanyService: UserCompanyService,
+    private companyService: CompanyService,
+    private usersService: UsersService,
+    private designationService: DesignationService,
 
   ) { }
 
   ngOnInit(): any {
     this.GetUserCompany();
+    this.GetCompanies();
+    this.GetUsers();
+    this.GetDesignation();
   }
 
   // By using this method we will get the UserCompany 
@@ -57,7 +72,7 @@ export class UserCompanyComponent implements OnInit {
     })
   }
 
-   // By uing this method we will Update the UserCompany based on UserCompany
+  // By uing this method we will Update the UserCompany based on UserCompany
   UpdateUserCompany(): any {
     this.usercompanyService.UpdateUserCompany(this.usercompany).subscribe((res: any) => {
       this.GetUserCompany();
@@ -67,7 +82,7 @@ export class UserCompanyComponent implements OnInit {
     })
   }
 
-// By using this method we will delete the UserCompany based on the Id
+  // By using this method we will delete the UserCompany based on the Id
   DeleteUserCompany(Id: number): any {
     if (confirm("Do you want delete this record?")) {
       this.usercompanyService.DeleteUserCompany(Id).subscribe((res: any) => {
@@ -87,5 +102,24 @@ export class UserCompanyComponent implements OnInit {
     this.page = 1;
     this.GetUserCompany();
   }
+
+  GetCompanies(){
+    this.companyService.GetCompany().subscribe((res: any) => {
+      this.companyData = res;
+    })
+  }
+  GetUsers(): any {
+    this.usersService.GetUsers().subscribe((res: any) => {
+      this.usersData = res;
+
+    })
+
+}
+GetDesignation(): any {
+  this.designationService.GetDesignation().subscribe((res: any) => {
+    this.designationData = res;
+
+  })
 }
 
+}

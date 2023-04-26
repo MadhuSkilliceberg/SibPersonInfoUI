@@ -11,7 +11,13 @@
                        <b>Templateid :</b> 
                     </div>
                     <div class="col-md-3">
-                      <input type="number" id="txtskill" Name="txtskill"  class="form-control" [(ngModel)]="templatetype.Templateid" placeholder="Templateid">
+
+                       <select id="Id" name="Name" [(ngModel)]="templatetype.Id">
+                            <option *ngFor="let item of templateData" value="{{item.Id}}" > {{item.Name}} </option>
+                        </select>
+
+
+                      <!-- <input type="number" id="txtskill" Name="txtskill"  class="form-control" [(ngModel)]="templatetype.Templateid" placeholder="Templateid"> -->
                     </div>
                     <div class="col-md-3">
                        <b>Name :</b> 
@@ -28,34 +34,34 @@
                     </div>
                     
   
-                
+<!--                 
                 <div class="row " style="padding-bottom: 10px;">
                   <div class="col-md-9"></div>
                   <div class="col-md-1">
-                    <button (click)=" GetTemplateType()" class="btn btn-primary"  >Search</button>
+                    <button (click)="GetInstitutionAddress()" class="btn btn-primary"  >Search</button>
                   </div>
-              </div>
+              </div> -->
   
   
-                <!-- <div class="row " style="padding-bottom: 10px;">
+                <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-1">
-                      <button (click)="InsertInstitutionAddress()" class="btn btn-primary" *ngIf="issaved">Save</button>
+                      <button (click)="AddTemplateType()" class="btn btn-primary" *ngIf="isSave">Save</button>
                     </div>
                 </div>
   
                 <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-3">
-                      <button (click)="UpdateInstitutionAddress()" class="btn btn-primary" *ngIf="isupdate">Update</button>
+                      <button (click)="UpdateTemplateType()" class="btn btn-primary" *ngIf="isUpdate">Update</button>
                     </div>
                 </div>
-   -->
+  
   
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                             <button class="btn btn-primary" style="float: right;" (click)="GetTemplatetypeById(-1)"> New </button>
+                             <!-- <button class="btn btn-primary" style="float: right;" (click)="GetTemplateType(-1)"> New </button> -->
   
                             <table class="table table-bordered">
                                 <thead>
@@ -69,7 +75,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of templatetypedata | paginate
+                                    <tr *ngFor="let item of templatetypeData | paginate
                                     : {
                                         itemsPerPage: tableSize,
                                         currentPage: page,
@@ -81,8 +87,8 @@
                                         <td>{{item.Code}}</td>
                                        
   
-                                        <td><button class="btn btn-primary" (click)="GetTemplatetypeById(item.Id)"> EDIT </button></td>
-                                        <td><button class="btn btn-danger" (click)="TemplatetypeAddress(item.Id)"> DELETE </button></td>
+                                        <td><button class="btn btn-primary" (click)="GetTemplateTypeById(item.Id)"> EDIT </button></td>
+                                        <td><button class="btn btn-danger" (click)="DeleteTemplateType(item.Id)"> DELETE </button></td>
                                     </tr>
                                 </tbody>
                             </table>

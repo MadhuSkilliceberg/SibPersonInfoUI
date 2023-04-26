@@ -15,12 +15,16 @@
                             [(ngModel)]="useremails.Id" placeholder="Id">
                     </div>
                     <div class="col-md-3">
-                        UserId :
+                        User :
                     </div>
                     <div class="col-md-3">
+
+                          <select  id="Id" name="UserName" [(ngModel)]="useremails.UserId">
+                            <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                        </select>
                       
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="useremails.UserId" placeholder="UserId" />
+                        <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="useremails.UserId" placeholder="UserId" />useremailsData -->
                     </div>
 
                     <br><br>
@@ -55,7 +59,10 @@
                         TypeId :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                        <!-- <select  id="Id" name="UserName" [(ngModel)]="useremails.UserId">
+                            <option *ngFor="let item of useremailsData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                        </select> -->
+                    <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="useremails.TypeId" placeholder="TypeId" />
                     </div>
                 </div>

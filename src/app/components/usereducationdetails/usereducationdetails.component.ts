@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserEducationDetails } from 'src/app/Models/UserEducationDetails';
 import { UserEducationDetailsService } from './../../services/usereducationdetails/usereducationdetails.service'
+import { UsersService } from 'src/app/services/users/users.service';
+import { Users } from 'src/app/Models/Users';
+import { QulificationTypeService } from 'src/app/services/qulificationtype/qulificationtype.service';
+import { QulificationType } from 'src/app/Models/QulificationType';
+import { InstitutionsService } from 'src/app/services/institutions/institutions.service';
+import { Institutions } from 'src/app/Models/Institutions';
 
 
 @Component({
@@ -22,14 +28,26 @@ export class UserEducationDetailsComponent implements OnInit {
   usereducationdetails: UserEducationDetails = new UserEducationDetails();
   usereducationdetailsData: UserEducationDetails[] = []
   usereducationdetailsId: number = 0;
+  usersData: Users[] = []
+  qulificationtypeData: QulificationType[] = []
+  institutionsData: Institutions[] = []
+
+
 
   constructor(
     private usereducationdetailsService: UserEducationDetailsService,
+    private usersService: UsersService,
+    private qulificationtypeService: QulificationTypeService,
+    private institutionsService: InstitutionsService,
+
 
   ) { }
 
   ngOnInit(): any {
     this.GetUserEducationDetails();
+    this.GetUsers();
+    this.GetQulificationType();
+    this.GetInstitutions();
   }
 
   // By using this method we will get the UserEducationDetails 
@@ -86,6 +104,26 @@ export class UserEducationDetailsComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.GetUserEducationDetails();
+  }
+  GetUsers(): any {
+    this.usersService.GetUsers().subscribe((res: any) => {
+      this.usersData = res;
+
+    })
+  }
+  GetQulificationType(): any {
+    this.qulificationtypeService.GetQulificationType().subscribe((res: any) => {
+      this.qulificationtypeData = res;
+
+    })
+  }
+
+
+  GetInstitutions(): any {
+    this.institutionsService.GetInstitutions().subscribe((res: any) => {
+      this.institutionsData = res;
+
+    })
   }
 }
 

@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAddressDetails } from 'src/app/Models/UserAddressDetails';
 import { UserAddressDetailsService } from './../../services/useraddressdetails/useraddressdetails.service'
+import { States } from 'src/app/Models/States';
+import { StatesService } from 'src/app/services/states/states.service';
+import { Countries } from 'src/app/Models/Countries';
+import { CountriesService } from 'src/app/services/countries/countries.service';
+import { UsersService } from 'src/app/services/users/users.service';
+import { Users } from 'src/app/Models/Users';
 
 
 @Component({
@@ -22,13 +28,22 @@ export class UserAddressDetailsComponent implements OnInit {
   useraddressdetails: UserAddressDetails = new UserAddressDetails();
   useraddressdetailsData: UserAddressDetails[] = []
   useraddressdetailsId: number = 0;
+  statesData: States[] = []
+  countriesData: Countries[] = []
+  usersData: Users[] = []
 
   constructor(
     private useraddressdetailsService: UserAddressDetailsService,
+    private statesService: StatesService,
+    private countriesService: CountriesService,
+    private usersService: UsersService,
 
   ) { }
 
   ngOnInit(): any {
+    this.GetUserAddressDetails();
+    this.GetStates();
+    this.GetCountries();
     this.GetUserAddressDetails();
   }
 
@@ -87,5 +102,24 @@ export class UserAddressDetailsComponent implements OnInit {
     this.page = 1;
     this.GetUserAddressDetails();
   }
+  GetStates(): any {
+    this.statesService.GetStates().subscribe((res: any) => {
+      this.statesData = res;
+
+    })
+  }
+  GetCountries(): any {
+    this.countriesService.GetCountries().subscribe((res: any) => {
+      this.countriesData = res;
+
+    })
+  }
+  GetUsers(): any {
+    this.usersService.GetUsers().subscribe((res: any) => {
+      this.usersData = res;
+
+    })
+  }
+
 }
 

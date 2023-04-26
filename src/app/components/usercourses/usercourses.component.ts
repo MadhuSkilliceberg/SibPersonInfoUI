@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCourses } from 'src/app/Models/UserCourses';
 import { UserCoursesService } from './../../services/usercourses/usercourses.service'
+import { ContactTypeService } from 'src/app/services/contacttype/contacttype.service';
+import { Courses } from 'src/app/Models/Courses';
+import { CoursesService } from 'src/app/services/courses/courses.service';
+import { UsersService } from 'src/app/services/users/users.service';
+import { Users } from 'src/app/Models/Users';
 
 
 @Component({
@@ -22,14 +27,20 @@ export class UserCoursesComponent implements OnInit {
   usercourses: UserCourses = new UserCourses();
   usercoursesData: UserCourses[] = []
   usercoursesId: number = 0;
+  coursesData: Courses[] = []
+  usersData: Users[] = []
 
   constructor(
     private usercoursesService: UserCoursesService,
+    private coursesService: CoursesService,
+    private usersService: UsersService,
 
   ) { }
 
   ngOnInit(): any {
     this.GetUserCourses();
+    this.GetCourses();
+    this.GetUsers();
   }
 
   // By using this method we will get the UserCourses 
@@ -86,6 +97,18 @@ export class UserCoursesComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.GetUserCourses();
+  }
+  GetCourses(): any {
+    this.coursesService.GetCourses().subscribe((res: any) => {
+      this.coursesData = res;
+
+    })
+  }
+  GetUsers(): any {
+    this.usersService.GetUsers().subscribe((res: any) => {
+      this.usersData = res;
+
+    })
   }
 }
 

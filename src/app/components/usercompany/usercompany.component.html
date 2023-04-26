@@ -14,21 +14,29 @@
                             [(ngModel)]="usercompany.Id" placeholder="Id">
                     </div>
                     <div class="col-md-3">
-                        UserId :
+                        User :
                     </div>
                     <div class="col-md-3">
                         
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="usercompany.UserId" placeholder="UserId" />
+                        <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="usercompany.UserId" placeholder="UserId" /> -->
+
+
+                            <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.UserId">
+                                <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                            </select>
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        CompanyId :
+                        Company :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.CompanyId" placeholder="CompanyId" />
+                        <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="usercompany.CompanyId" placeholder="CompanyId" /> -->
+                               <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.CompanyId">
+                            <option *ngFor="let item of companyData" value="{{item.Id}}" > {{item.CompanyName}} </option>
+                        </select>
                     </div>
                     <br><br>
                     <div class="col-md-3">
@@ -77,12 +85,16 @@
 
                     <br><br>
                     <div class="col-md-3">
-                        DesignationId :
+                        Designation :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.DesignationId" placeholder="DesignationId" />
+                        <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="usercompany.DesignationId" placeholder="DesignationId" /> -->
                     </div>
+
+                    <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.DesignationId">
+                        <option *ngFor="let item of designationData" value="{{item.Id}}" > {{item.DesignationName}} </option>
+                    </select>
 
                     <br><br>
                     <div class="col-md-3">

@@ -8,10 +8,10 @@
   
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                       <b>TemplateId:</b> 
+                       <b>Id:</b> 
                     </div>
                     <div class="col-md-3">
-                      <input type="number" id="txtskill" Name="txtskill"  class="form-control" [(ngModel)]="template.TemplateId" placeholder="TemplateId">
+                      <input type="number" id="txtskill" Name="txtskill"  class="form-control" [(ngModel)]="template.Id" placeholder="TemplateId">
                     </div>
                     <div class="col-md-3">
                        <b>Name:</b> 
@@ -35,7 +35,12 @@
                        <b> TypeId :</b>
                     </div>
                     <div class="col-md-3">
-                      <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="template.TypeId" placeholder="TypeId"/>
+
+                       <select name="" id="" name="Name" [(ngModel)]="template.Id">
+                            <option *ngFor="let item of templatetypeData" value="{{item.Id}}" > {{item.Name}} </option>
+                        </select>
+
+                      <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="template.TypeId" placeholder="TypeId"/> -->
                     </div>
                     
                       <br><br>
@@ -50,7 +55,7 @@
                       <b> Template :</b>
                    </div>
                    <div class="col-md-3">
-                     <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="template.Template" placeholder="Template"/>
+                     <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="template.Tempalte" placeholder="Template"/>
                    </div>
                    <br><br><br>
                      
@@ -58,38 +63,37 @@
    
 
 
-                     <div class="row " style="padding-bottom: 10px;">
+                     <!-- <div class="row " style="padding-bottom: 10px;">
                 <div class="col-md-9"></div>
                 <div class="col-md-1">
                   <button (click)="GetTemplate()" class="btn btn-primary"  >Search</button>
                 </div>
-            </div>
+            </div> -->
 
                          
-                <!-- <div class="row " style="padding-bottom: 10px;">
+                <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-1">
-                      <button (click)="InsertInstitutionAddress()" class="btn btn-primary" *ngIf="issaved">Save</button>
+                      <button (click)="AddTemplate()" class="btn btn-primary" *ngIf="isSave">Save</button>
                     </div>
                 </div>
   
                 <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-3">
-                      <button (click)="UpdateInstitutionAddress()" class="btn btn-primary" *ngIf="isupdate">Update</button>
+                      <button (click)="UpdateTemplate()" class="btn btn-primary" *ngIf="isUpdate">Update</button>
                     </div>
                 </div>
-   -->
+  
   
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                             <button class="btn btn-primary" style="float: right;" (click)="GetTemplatetypeById(-1)"> New </button>
+                             <!-- <button class="btn btn-primary" style="float: right;" (click)="GetTemplatetypeById(-1)"> New </button> -->
   
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                      <th>TemplateId</th>
                                         <th>Name</th>
                                         <th>Code</th>
                                         <th>TypeId</th>
@@ -101,22 +105,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of Templateidsdata | paginate
+                                    <tr *ngFor="let item of templateData | paginate
                                     : {
                                         itemsPerPage: tableSize,
                                         currentPage: page,
                                         totalItems: count
                                       };
                                     let i = index"> 
-                                    <td>{{item.TemplateId}}</td>
                                         <td>{{item.Name}}</td>
                                         <td>{{item.Code}}</td>
                                         <td>{{item.TypeId}}</td>
                                         <td>{{item.Description}}</td>
                                         <td>{{item.Tempalte}}</td>
                                        
-                                        <td><button class="btn btn-primary" (click)="GetTemplateTypesById(item.Id)"> EDIT </button></td>
-                                      <td><button class="btn btn-danger" (click)="DeleteTemplateTypesByIds(item.Id)"> DELETE </button></td>
+                                        <td><button class="btn btn-primary" (click)="GetTemplateById(item.Id)"> EDIT </button></td>
+                                      <td><button class="btn btn-danger" (click)="DeleteTemplate(item.Id)"> DELETE </button></td>
                                     </tr>
                                 </tbody>
                             </table>

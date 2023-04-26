@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UserContacts } from 'src/app/Models/UserContacts';
 import { UserContactsService } from './../../services/usercontacts/usercontacts.service'
+import { UsersService } from 'src/app/services/users/users.service';
+import { Users } from 'src/app/Models/Users';
+import { ContactTypeService } from 'src/app/services/contacttype/contacttype.service';
+import { ContactType } from 'src/app/Models/ContactType';
 
 
 @Component({
@@ -22,14 +26,20 @@ export class UserContactsComponent implements OnInit {
   usercontacts: UserContacts = new UserContacts();
   usercontactsData: UserContacts[] = []
   usercontactsId: number = 0;
+  usersData: Users[] = []
+  contacttypeData: ContactType[] = []
 
   constructor(
     private usercontactsService: UserContactsService,
+    private usersService: UsersService,
+    private contacttypeService: ContactTypeService,
 
   ) { }
 
   ngOnInit(): any {
     this.GetUserContacts();
+    this.GetUsers();
+    this.GetContactType();
   }
 
   // By using this method we will get the UserContacts 
@@ -87,5 +97,19 @@ export class UserContactsComponent implements OnInit {
     this.page = 1;
     this.GetUserContacts();
   }
+  GetUsers(): any {
+    this.usersService.GetUsers().subscribe((res: any) => {
+      this.usersData = res;
+
+    })
+  }
+  GetContactType(): any {
+    this.contacttypeService.GetContactType().subscribe((res: any) => {
+      this.contacttypeData = res;
+
+    })
+  }
+
+
 }
 

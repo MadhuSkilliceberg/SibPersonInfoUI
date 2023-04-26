@@ -14,22 +14,34 @@
                             [(ngModel)]="usereducationdetails.Id" placeholder="Id">
                     </div>
                     <div class="col-md-3">
-                        UserId :
+                        User:
                     </div>
                     <div class="col-md-3">
                         
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="usereducationdetails.UserId" placeholder="UserId" />
+                        <select id="id"  name="UserName" [(ngModel)]="usereducationdetails.UserId">
+                            <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                        </select>
+
+
+
+                        <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="usereducationdetails.UserId" placeholder="UserId" /> -->
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        QulificationtypeId :
+                        Qualificationtype :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+
+                    <select id="id"  name="QualificationtypeName" [(ngModel)]="usereducationdetails.Id">
+                            <option *ngFor="let item of qulificationtypeData" value="{{item.Id}}" > {{item.QulificationName}} </option>
+                        </select>
+
+
+                        <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usereducationdetails.QulificationtypeId" placeholder="QulificationtypeId" />
-                    </div>
+                    </div> -->
 
                     <br><br>
                     <div class="col-md-3">
@@ -60,11 +72,17 @@
 
                     <br><br>
                     <div class="col-md-3">
-                        InstitutionId :
+                        Institution :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usereducationdetails.InstitutionId" placeholder="InstitutionId" />
+
+                        <select id="id"  name="Institution" [(ngModel)]="usereducationdetails.Id">
+                            <option *ngFor="let item of institutionsData" value="{{item.Id}}" > {{item.InstitutionName}} </option>
+                        </select>
+
+
+                        <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="usereducationdetails.InstitutionId" placeholder="InstitutionId" /> -->
                     </div>
 
                     <br><br>
@@ -103,7 +121,7 @@
                                         <th>UserId</th>
                                         <th>QulificationtypeId</th>
                                         <th>YearOFPassout</th>
-                                        <th>QulificationtypeId</th>
+                                    
                                         <th>StartYear</th>
                                         <th>EndYear</th>
                                         <th>InstitutionId</th>

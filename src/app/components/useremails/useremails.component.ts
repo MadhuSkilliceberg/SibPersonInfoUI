@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserEmails } from 'src/app/Models/UserEmails';
 import { UserEmailsService } from './../../services/useremails/useremails.service'
+import { UsersService } from 'src/app/services/users/users.service';
+import { Users } from 'src/app/Models/Users';
 
 
 @Component({
@@ -22,13 +24,16 @@ export class UserEmailsComponent implements OnInit {
   useremails: UserEmails = new UserEmails();
   useremailsData: UserEmails[] = []
   useremailsId: number = 0;
+  usersData: Users[] = []
 
   constructor(
     private useremailsService: UserEmailsService,
+    private usersService: UsersService,
 
   ) { }
 
   ngOnInit(): any {
+    this.GetUserEmails();
     this.GetUserEmails();
   }
 
@@ -86,6 +91,12 @@ export class UserEmailsComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.GetUserEmails();
+  }
+  GetUsers(): any {
+    this.usersService.GetUsers().subscribe((res: any) => {
+      this.usersData = res;
+
+    })
   }
 }
 

@@ -14,12 +14,17 @@
                             [(ngModel)]="usercontacts.Id" placeholder="Id">
                     </div>
                     <div class="col-md-3">
-                        UserId :
+                        User :
                     </div>
                     <div class="col-md-3">
+
+                        <select  id="Id" name="UserContacts" [(ngModel)]="usercontacts.Id">
+                            <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                        </select>
+
                        
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="usercontacts.UserId" placeholder="UserId" />
+                        <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="usercontacts.UserId" placeholder="UserId" /> -->
                     </div>
 
                     <br><br>
@@ -45,17 +50,23 @@
                         OrderId :
                     </div>
                     <div class="col-md-3">
+                        
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usercontacts.OrderId" placeholder="OrderId" />
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        ContactTypeId :
+                        ContactType :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercontacts.ContactTypeId" placeholder="ContactTypeId" />
+
+                        <select  id="Id" name="UserContactType" [(ngModel)]="usercontacts.Id">
+                            <option *ngFor="let item of contacttypeData" value="{{item.Name}}" > {{item.Name}} </option>
+                        </select>
+
+                        <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="usercontacts.ContactTypeId" placeholder="ContactTypeId" /> -->
                     </div>
 
                 </div>

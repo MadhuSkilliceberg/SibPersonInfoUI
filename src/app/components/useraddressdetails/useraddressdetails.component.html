@@ -17,9 +17,7 @@
                         FlotNo :
                     </div>
                     <div class="col-md-3">
-                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
-                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
-                        </select> -->
+                        
                         <input type="text" name="txtcode" class="form-control" id="txtcode"
                             [(ngModel)]="useraddressdetails.FlotNo" placeholder="FlotNo" />
                     </div>
@@ -54,23 +52,33 @@
                     
                     <br><br>
                     <div class="col-md-3">
-                        StateId :
+                        State :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="useraddressdetails.StateId" placeholder="StateId" />
+                       <select  id="Id" name="StateName" [(ngModel)]="useraddressdetails.StateId">
+                            <option *ngFor="let item of  statesData" value="{{item.Id}}" > {{item.StateName}} </option>
+                        </select>
                     </div>
                     
                     <br><br>
                     <div class="col-md-3">
-                        CountryId :
+                        Country :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="useraddressdetails.CountryId" placeholder="CountryId" />
+                        <select  id="Id" name="Name" [(ngModel)]="useraddressdetails.CountryId">
+                            <option *ngFor="let item of  countriesData" value="{{item.Id}}" > {{item.CountryName}} </option>
+                        </select>
                     </div>
                     
                     <br><br>
+                    <div class="col-md-3">
+                        User :
+                    </div>
+                    <div class="col-md-3">
+                        <select  id="Id" name="Name" [(ngModel)]="useraddressdetails.UserId">
+                            <option *ngFor="let item of   usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                        </select>
+                    </div>
                     <div class="col-md-3">
                         IsPermanent :
                     </div>
