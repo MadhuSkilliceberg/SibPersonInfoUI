@@ -30,7 +30,7 @@ export class UsersService {
 
    // By uing this method we will Update the Users based on Users
    UpdateUsers(users: Users): any {
-    return this.http.put(this.endpointUrl+"UpdatetUsers", users)
+    return this.http.put(this.endpointUrl+"UpdateUsers", users)
   }
 
 // By using this method we will delete the Users based on the Id

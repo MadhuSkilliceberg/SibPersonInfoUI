@@ -30,7 +30,7 @@ export class CountriesService {
 
    // By uing this method we will Update the Countries based on Countries
    UpdateCountries(countries: Countries): any {
-    return this.http.put(this.endpointUrl+"UpdatetCountries", countries)
+    return this.http.put(this.endpointUrl+"UpdateCountries", countries)
   }
 
 // By using this method we will delete the Countries based on the Id

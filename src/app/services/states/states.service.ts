@@ -30,7 +30,7 @@ export class StatesService {
 
    // By uing this method we will Update the States based on States
    UpdateStates(states: States): any {
-    return this.http.put(this.endpointUrl+"UpdatetStates", states)
+    return this.http.put(this.endpointUrl+"UpdateStates", states)
   }
 
 // By using this method we will delete the States based on the Id

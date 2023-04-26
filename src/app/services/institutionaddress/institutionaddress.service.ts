@@ -30,7 +30,7 @@ export class InstitutionAddressService {
 
    // By uing this method we will Update the InstitutionAddress based on InstitutionAddress
    UpdateInstitutionAddress(institutionaddress: InstitutionAddress): any {
-    return this.http.put(this.endpointUrl+"UpdatetInstitutionAddress", institutionaddress)
+    return this.http.put(this.endpointUrl+"UpdateInstitutionAddress", institutionaddress)
   }
 
 // By using this method we will delete the InstitutionAddress based on the Id

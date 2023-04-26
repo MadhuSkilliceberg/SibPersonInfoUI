@@ -30,7 +30,7 @@ export class InstitutionContactsService {
 
    // By uing this method we will Update the InstitutionContacts based on InstitutionContacts
    UpdateInstitutionContacts(institutioncontacts: InstitutionContacts): any {
-    return this.http.put(this.endpointUrl+"UpdatetInstitutionContacts", institutioncontacts)
+    return this.http.put(this.endpointUrl+"UpdateInstitutionContacts", institutioncontacts)
   }
 
 // By using this method we will delete the InstitutionContacts based on the Id

@@ -30,7 +30,7 @@ export class UserCoursesService {
 
    // By uing this method we will Update the UserCourses based on UserCourses
    UpdateUserCourses(usercourses: UserCourses): any {
-    return this.http.put(this.endpointUrl+"UpdatetUserCourses", usercourses)
+    return this.http.put(this.endpointUrl+"UpdateUserCourses", usercourses)
   }
 
 // By using this method we will delete the UserCourses based on the Id

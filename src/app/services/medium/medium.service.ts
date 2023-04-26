@@ -30,7 +30,7 @@ export class MediumService {
 
    // By uing this method we will Update the Medium based on Medium
    UpdateMedium(medium: Medium): any {
-    return this.http.put(this.endpointUrl+"UpdatetMedium", medium)
+    return this.http.put(this.endpointUrl+"UpdateMedium", medium)
   }
 
 // By using this method we will delete the Medium based on the Id

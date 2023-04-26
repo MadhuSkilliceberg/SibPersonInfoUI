@@ -30,7 +30,7 @@ export class InstitutionCoursesService {
 
    // By uing this method we will Update the InstitutionCourses based on InstitutionCourses
    UpdateInstitutionCourses(institutioncourses: InstitutionCourses): any {
-    return this.http.put(this.endpointUrl+"UpdatetInstitutionCourses", institutioncourses)
+    return this.http.put(this.endpointUrl+"UpdateInstitutionCourses", institutioncourses)
   }
 
 // By using this method we will delete the InstitutionCourses based on the Id
