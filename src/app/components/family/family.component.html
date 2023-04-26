@@ -10,8 +10,11 @@
                         UserId :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="family.UserId" placeholder="UserId">
+                        <select  id="" name="" [(ngModel)]="family.UserId" class="form-control">
+                            <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                        </select>
+                        <!-- <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="family.UserId" placeholder="UserId"> -->
                     </div>
                     <div class="col-md-3">
                         FirstName :
@@ -36,8 +39,12 @@
                         RelationTypeId :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="family.RelationTypeId" placeholder="RelationTypeId" />
+                        <select  id="" name="" [(ngModel)]="family.RelationTypeId" class="form-control">
+                            <option *ngFor="let item of relationtypesData" value="{{item.Id}}" > {{item.RelationName}} </option>
+                        </select>
+
+                        <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="family.RelationTypeId" placeholder="RelationTypeId" /> -->
                     </div>
                     <br><br>
                     <div class="col-md-3">

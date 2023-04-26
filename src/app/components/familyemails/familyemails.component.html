@@ -10,8 +10,11 @@
                         InstitutionAddressId :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="familyemails.InstitutionAddressId" placeholder="InstitutionAddressId">
+                        <select name="" id="" name="" [(ngModel)]="familyemails.InstitutionAddressId" class="form-control">
+                            <option *ngFor="let item of institutionaddressData" value="{{item.Id}}"> {{item.Address1}} </option>
+                        </select>
+                        <!-- <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="familyemails.InstitutionAddressId" placeholder="InstitutionAddressId"> -->
                     </div>
                     <div class="col-md-3">
                         Email :

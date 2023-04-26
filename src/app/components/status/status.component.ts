@@ -24,7 +24,7 @@ export class StatusComponent implements OnInit {
   statusId: number = 0;
 
   constructor(
-    private statusService: StatusService,
+    private statusService: StatusService, 
 
   ) { }
 

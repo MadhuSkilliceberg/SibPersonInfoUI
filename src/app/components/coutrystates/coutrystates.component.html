@@ -7,21 +7,25 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        StateId :
+                        State :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="coutrystates.StateId" placeholder="StateId">
+                        <select name="" id="" name="" [(ngModel)]="coutrystates.StateId">
+                            <option *ngFor="let item of statesData" value="{{item.Id}}" > {{item.StateName}} </option>
+                        </select>
+                        
+                        <!-- <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="coutrystates.StateId" placeholder="StateId"> -->
                     </div>
                     <div class="col-md-3">
-                        CountryId :
+                        Country :
                     </div>
                     <div class="col-md-3">
-                        <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
-                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
-                        </select> -->
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="coutrystates.CountryId" placeholder="CountryId" />
+                        <select name="" id="" name="" [(ngModel)]="coutrystates.CountryId">
+                            <option *ngFor="let item of countriesData" value="{{item.Id}}" > {{item.CountryName}} </option>
+                        </select>
+                        <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="coutrystates.CountryId" placeholder="CountryId" /> -->
                     </div>
                 </div>
 

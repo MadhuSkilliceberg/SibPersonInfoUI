@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FamilyEducationDetails } from 'src/app/Models/FamilyEducationDetails';
 import { FamilyEducationDetailsService } from './../../services/familyeducationdetails/familyeducationdetails.service'
+import { Family } from 'src/app/Models/Family';
+import { FamilyService } from 'src/app/services/family/family.service';
+import { QulificationType } from 'src/app/Models/QulificationType';
+import { QulificationTypeService } from 'src/app/services/qulificationtype/qulificationtype.service';
+import { Institutions } from 'src/app/Models/Institutions';
+import { InstitutionsService } from 'src/app/services/institutions/institutions.service';
 
 
 @Component({
@@ -23,13 +29,29 @@ export class FamilyEducationDetailsComponent implements OnInit {
   familyeducationdetailsData: FamilyEducationDetails[] = []
   familyeducationdetailsId: number = 0;
 
+  familyData: Family[] = []
+
+  qulificationtypeData: QulificationType[] = []
+
+  institutionsData: Institutions[] = []
+
+
+  
+
   constructor(
     private familyeducationdetailsService: FamilyEducationDetailsService,
+    private familyService: FamilyService,
+    private qulificationtypeService: QulificationTypeService,
+    private institutionsService: InstitutionsService,
+
 
   ) { }
 
   ngOnInit(): any {
     this.GetFamilyEducationDetails();
+    this.GetFamily();
+    this.GetQulificationType();
+    this.GetInstitutions()
   }
 
   // By using this method we will get the FamilyEducationDetails 
@@ -87,5 +109,29 @@ export class FamilyEducationDetailsComponent implements OnInit {
     this.page = 1;
     this.GetFamilyEducationDetails();
   }
+
+    // By using this method we will get the Family 
+    GetFamily(): any {
+      this.familyService.GetFamily().subscribe((res: any) => {
+        this.familyData = res;
+  
+      })
+    }
+
+      // By using this method we will get the QulificationType 
+  GetQulificationType(): any {
+    this.qulificationtypeService.GetQulificationType().subscribe((res: any) => {
+      this.qulificationtypeData = res;
+
+    })
+  }
+
+    // By using this method we will get the Institutions 
+    GetInstitutions(): any {
+      this.institutionsService.GetInstitutions().subscribe((res: any) => {
+        this.institutionsData = res;
+  
+      })
+    }
 }
 

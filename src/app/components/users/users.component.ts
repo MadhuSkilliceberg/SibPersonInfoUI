@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Users } from 'src/app/Models/Users';
 import { UsersService } from './../../services/users/users.service'
+import { Gender } from 'src/app/Models/Gender';
+import { GenderService } from 'src/app/services/gender/gender.service';
+import { MarritalStatusService } from 'src/app/services/marritalstatus/marritalstatus.service';
+import { MarritalStatus } from 'src/app/Models/MarritalStatus';
+import { UserTypes } from 'src/app/Models/UserTypes';
+import { UserTypesService } from 'src/app/services/usertypes/usertypes.service';
 
 
 @Component({
@@ -20,16 +26,28 @@ export class UsersComponent implements OnInit {
   isUpdate: boolean = false;
 
   users: Users = new Users();
-  usersData: Users[] = []
+  usersData: Users[] = [];
   usersId: number = 0;
+
+  genderData: Gender[] = [];
+  marritalstatusData: MarritalStatus[] = [];
+  usertypesData: UserTypes[] = []
+
 
   constructor(
     private usersService: UsersService,
+    private genderService: GenderService,
+    private marritalstatusService: MarritalStatusService,
+    private usertypesService: UserTypesService,
 
   ) { }
 
   ngOnInit(): any {
     this.GetUsers();
+    this. GetGender();
+    this. GetMarritalStatus();
+    this. GetUserTypes();
+
   }
 
   // By using this method we will get the Users 
@@ -87,5 +105,31 @@ export class UsersComponent implements OnInit {
     this.page = 1;
     this.GetUsers();
   }
+
+   // By using this method we will get the Gender 
+   GetGender(): any {
+    this.genderService.GetGender().subscribe((res: any) => {
+      this.genderData = res;
+
+    })
+  }
+
+    // By using this method we will get the MarritalStatus 
+    GetMarritalStatus(): any {
+      this.marritalstatusService.GetMarritalStatus().subscribe((res: any) => {
+        this.marritalstatusData = res;
+  
+      })
+    }
+
+      // By using this method we will get the UserTypes 
+  GetUserTypes(): any {
+    this.usertypesService.GetUserTypes().subscribe((res: any) => {
+      this.usertypesData = res;
+
+    })
+  }
+
+
 }
 

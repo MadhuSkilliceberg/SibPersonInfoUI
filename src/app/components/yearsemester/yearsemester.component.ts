@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { YearSemester } from 'src/app/Models/YearSemester';
 import { YearSemesterService } from './../../services/yearsemester/yearsemester.service'
+import { CYearsService } from 'src/app/services/cyears/cyears.service';
+import { CYears } from 'src/app/Models/CYears';
+import { Semesters } from 'src/app/Models/Semesters';
+import { SemestersService } from 'src/app/services/semesters/semesters.service';
 
 
 @Component({
@@ -23,13 +27,25 @@ export class YearSemesterComponent implements OnInit {
   yearsemesterData: YearSemester[] = []
   yearsemesterId: number = 0;
 
+  cyearsData: CYears[] = []
+
+  semestersData: Semesters[] = []
+
+
+
   constructor(
     private yearsemesterService: YearSemesterService,
+    private cyearsService: CYearsService,
+    private semestersService: SemestersService,
+
+
 
   ) { }
 
   ngOnInit(): any {
     this.GetYearSemester();
+    this.GetCYears();
+    this. GetSemesters();
   }
 
   // By using this method we will get the YearSemester 
@@ -86,6 +102,21 @@ export class YearSemesterComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.GetYearSemester();
+  }
+
+    // By using this method we will get the CYears 
+    GetCYears(): any {
+      this.cyearsService.GetCYears().subscribe((res: any) => {
+        this.cyearsData = res;
+  
+      })
+    }
+      // By using this method we will get the Semesters 
+  GetSemesters(): any {
+    this.semestersService.GetSemesters().subscribe((res: any) => {
+      this.semestersData = res;
+
+    })
   }
 }
 
