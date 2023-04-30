@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-md-3">
                         <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="reviews.Heading_" placeholder="Heading_">
+                            [(ngModel)]="reviews.Heading" placeholder="Heading_">
                     </div>
                     <div class="col-md-3">
                         Description :
@@ -78,7 +78,7 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>Heading_</th>
+                                        <th>Heading</th>
                                         <th>Description</th>
                                         <th>Rating</th>
                                         <th>IsActive</th>
@@ -96,7 +96,7 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.Heading_}}</td>
+                                        <td>{{item.Heading}}</td>
                                         <td>{{item.Description}}</td>
                                         <td>{{item.Rating}}</td>
                                         <td>{{item.IsActive}}</td>

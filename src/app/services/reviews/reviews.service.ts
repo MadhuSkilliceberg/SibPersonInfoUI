@@ -10,7 +10,7 @@ export class ReviewsService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Reviews/';
+    this.endpointUrl = environment.baseUrl + 'Review/';
   }
 
    // By using this method we will get the Reviews 

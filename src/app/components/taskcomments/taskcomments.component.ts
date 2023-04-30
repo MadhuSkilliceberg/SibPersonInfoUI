@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskComments } from 'src/app/Models/TaskComments';
 import { TaskCommentsService } from './../../services/taskcomments/taskcomments.service'
+import { TaskService } from 'src/app/services/task/task.service';
+import { Task } from 'src/app/Models/Task';
 
 
 @Component({
@@ -21,15 +23,18 @@ export class TaskCommentsComponent implements OnInit {
 
   taskcomments: TaskComments = new TaskComments();
   taskcommentsData: TaskComments[] = []
+  taskData: Task[] = []
   taskcommentsId: number = 0;
 
   constructor(
     private taskcommentsService: TaskCommentsService,
+    private taskService: TaskService,
 
   ) { }
 
   ngOnInit(): any {
     this.GetTaskComments();
+    this.GetTasks();
   }
 
   // By using this method we will get the TaskComments 
@@ -86,6 +91,13 @@ export class TaskCommentsComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.GetTaskComments();
+  }
+
+   // By using this method we will get the GetTasks 
+   GetTasks(): any {
+    this.taskService.GetTask().subscribe((res: any) => {
+      this.taskData = res;
+    })
   }
 }
 

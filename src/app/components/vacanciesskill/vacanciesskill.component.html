@@ -38,37 +38,37 @@
                        <b> IsActive :</b>
                     </div>
                     <div class="col-md-3">
-                      <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacanciesskill.IsActive" placeholder="IsActive"/>
+                      <input type="checkbox" name="txtcode" id="txtcode"  class="form-check-input" [(ngModel)]="vacanciesskill.IsActive" placeholder="IsActive"/>
                     </div></div>
                     
                 
-                <div class="row " style="padding-bottom: 10px;">
+                <!-- <div class="row " style="padding-bottom: 10px;">
                   <div class="col-md-9"></div>
                   <div class="col-md-1">
                     <button (click)="GetVacanciesSkill()" class="btn btn-primary"  >Search</button>
                   </div>
-              </div>
+              </div> -->
   
   
-                <!-- <div class="row " style="padding-bottom: 10px;">
+                <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-1">
-                      <button (click)="InsertVacanciesSkill()" class="btn btn-primary" *ngIf="issaved">Save</button>
+                      <button (click)="AddVacanciesSkill()" class="btn btn-primary" *ngIf="isSave">Save</button>
                     </div>
                 </div>
   
                 <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-3">
-                      <button (click)="UpdateVacaciesSkill()" class="btn btn-primary" *ngIf="isupdate">Update</button>
+                      <button (click)="UpdateVacanciesSkill()" class="btn btn-primary" *ngIf="isUpdate">Update</button>
                     </div>
                 </div>
-   -->
+
   
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                             <button class="btn btn-primary" style="float: right;" (click)="GetVacanciesSkillById(-1)"> New </button>
+                             <!-- <button class="btn btn-primary" style="float: right;" (click)="GetVacanciesSkillById(-1)"> New </button> -->
   
                             <table class="table table-bordered">
                                 <thead>

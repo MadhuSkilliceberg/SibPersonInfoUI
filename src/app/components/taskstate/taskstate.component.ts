@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskState } from 'src/app/Models/TaskState';
 import { TaskStateService } from './../../services/taskstate/taskstate.service'
+import { TaskService } from 'src/app/services/task/task.service';
+import { Task } from 'src/app/Models/Task';
+import { UsersService } from 'src/app/services/users/users.service';
+import { Users } from 'src/app/Models/Users';
 
 
 @Component({
@@ -21,15 +25,21 @@ export class TaskStateComponent implements OnInit {
 
   taskstate: TaskState = new TaskState();
   taskstateData: TaskState[] = []
+  taskData: Task[] = []
   taskstateId: number = 0;
+  usersData: Users[] = []
 
   constructor(
     private taskstateService: TaskStateService,
+    private taskService: TaskService,
+    private usersService: UsersService,
 
   ) { }
 
   ngOnInit(): any {
     this.GetTaskState();
+    this.GetTasks();
+    this.GetUsers();
   }
 
   // By using this method we will get the TaskState 
@@ -86,6 +96,20 @@ export class TaskStateComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.GetTaskState();
+  }
+    // By using this method we will get the GetTasks 
+    GetTasks(): any {
+      this.taskService.GetTask().subscribe((res: any) => {
+        this.taskData = res;
+      })
+    }
+       
+    // By using this method we will get the GetUsers 
+    GetUsers(): any {
+    this.usersService.GetUsers().subscribe((res: any) => {
+      this.usersData = res;
+
+    })
   }
 }
 

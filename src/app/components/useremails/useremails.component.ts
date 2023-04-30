@@ -100,6 +100,7 @@ export class UserEmailsComponent implements OnInit {
     this.page = 1;
     this.GetUserEmails();
   }
+  
   GetUsers(): any {
     this.usersService.GetUsers().subscribe((res: any) => {
       this.usersData = res;

@@ -1,6 +1,6 @@
 export class YearSemester
 { public Id! :number; 
- public CYearsId! :number; 
+ public CyearsId! :number; 
  public SemesterId! :number; 
  public OrderId! :number; 
  public CreatedOn! :Date; 

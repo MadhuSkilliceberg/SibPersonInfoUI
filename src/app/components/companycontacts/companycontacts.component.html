@@ -10,7 +10,7 @@
                         CompanyAddress :
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" [(ngModel)]="companycontacts.CompanyAddressId" class="form-control"> 
+                        <select name="companyaddress" id="companyaddress" [(ngModel)]="companycontacts.CompanyAddressId" class="form-control"> 
                             <option  *ngFor="let item of companyaddressData" value="{{item.Id}}">{{item.Address1}}</option>
                         </select>
 
@@ -30,7 +30,7 @@
                         IsPrimary :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                        <input type="checkbox" name="txtcode" id="txtcode" class="form-check-input"
                             [(ngModel)]="companycontacts.IsPrimary" placeholder="IsPrimary" />
                     </div>
 
@@ -38,7 +38,7 @@
                         OrderId :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="companycontacts.OrderId" placeholder="OrderId" />
                     </div>
                     <br><br>
@@ -47,7 +47,7 @@
                         ContactTypeId :
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" [(ngModel)]="companycontacts.ContactTypeId" class="form-control"> 
+                        <select name="ddlcompanyContacts" id="ddlcompanyContacts" [(ngModel)]="companycontacts.ContactTypeId" class="form-control"> 
                             <option  *ngFor="let item of contacttypeData" value="{{item.Id}}">{{item.Name}}</option>
                         </select>
                     </div>

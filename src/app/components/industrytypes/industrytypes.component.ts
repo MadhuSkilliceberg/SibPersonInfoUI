@@ -51,6 +51,7 @@ export class IndustryTypesComponent implements OnInit {
 
   // By uing this method we will Add the IndustryTypes based on IndustryTypes
   AddIndustryTypes(): any {
+    
     this.industrytypesService.AddIndustryTypes(this.industrytypes).subscribe((res: any) => {
       this.GetIndustryTypes();
       this.industrytypes = new IndustryTypes();

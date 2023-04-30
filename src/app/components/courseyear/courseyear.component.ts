@@ -42,7 +42,8 @@ export class CourseYearComponent implements OnInit {
   ) { }
 
   ngOnInit(): any {
-    this.GetCourseYear();
+    //this.GetCourseYear();
+    this.GetcouresYearLists();
     this.GetCourse();
     this .GetCyear();
 
@@ -68,7 +69,7 @@ export class CourseYearComponent implements OnInit {
   // By uing this method we will Add the CourseYear based on CourseYear
   AddCourseYear(): any {
     this.courseyearService.AddCourseYear(this.courseyear).subscribe((res: any) => {
-      this.GetCourseYear();
+      this.GetcouresYearLists();
       this.courseyear = new CourseYear();
     })
   }
@@ -76,7 +77,8 @@ export class CourseYearComponent implements OnInit {
   // By uing this method we will Update the CourseYear based on CourseYear
   UpdateCourseYear(): any {
     this.courseyearService.UpdateCourseYear(this.courseyear).subscribe((res: any) => {
-      this.GetCourseYear();
+      //this.GetCourseYear();
+      this.GetcouresYearLists();
       this.courseyear = new CourseYear();
       this.isSave = true;
       this.isUpdate = false;
@@ -87,7 +89,7 @@ export class CourseYearComponent implements OnInit {
   DeleteCourseYear(Id: number): any {
     if (confirm("Do you want delete this record?")) {
       this.courseyearService.DeleteCourseYear(Id).subscribe((res: any) => {
-        this.GetCourseYear();
+        this.GetcouresYearLists();
         this.courseyear = new CourseYear();
       })
     }
@@ -96,12 +98,12 @@ export class CourseYearComponent implements OnInit {
   // By this methods pagination events
   onTableDataChange(event: any) {
     this.page = event;
-    this.GetCourseYear();
+    this.GetcouresYearLists();
   }
   onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
     this.page = 1;
-    this.GetCourseYear();
+    this.GetcouresYearLists();
   }
 
 
@@ -114,6 +116,14 @@ export class CourseYearComponent implements OnInit {
   GetCyear(): any {
     this.cYearsService.GetCYears().subscribe((resp: any) => {
       this.cYearsData = resp;
+    })
+  }
+
+  
+  //By using this method we will get the GetcouresYearLists
+  GetcouresYearLists(): any {
+    return this.courseyearService.GetcouresYearLists().subscribe((resp: any) => {
+      this.courseyearData = resp;
     })
   }
 

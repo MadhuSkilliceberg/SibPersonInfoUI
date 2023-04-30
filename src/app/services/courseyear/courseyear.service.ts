@@ -37,4 +37,9 @@ export class CourseYearService {
 DeleteCourseYear(id: number): any {
     return this.http.delete(this.endpointUrl+"DeleteCourseYear/" + id);
   }
+
+  //By using this method we will get the GetcouresYearLists
+  GetcouresYearLists(): any {
+    return this.http.get(this.endpointUrl+"GetcouresYearLists");
+  }
 }

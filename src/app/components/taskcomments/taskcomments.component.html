@@ -6,20 +6,24 @@
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
-                    <div class="col-md-3">
+                    <!-- <div class="col-md-3">
                         Id :
                     </div>
                     <div class="col-md-3">
                         <input type="number" id="txtskill" class="form-control" Name="txtskill"
                             [(ngModel)]="taskcomments.Id" placeholder="Id">
-                    </div>
+                    </div> -->
                     <div class="col-md-3">
-                        TaskId :
+                        Task :
                     </div>
                     <div class="col-md-3">
                         
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="taskcomments.TaskId" placeholder="TaskId" />
+                        <select  id="DDLTaskId" name="DDLTaskId" class="form-control"  [(ngModel)]="taskcomments.TaskId" >
+                            <option *ngFor="let item of taskData" value="{{item.Id}}" > {{item.Name}} </option>
+                        </select>
+
+                        <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="taskcomments.TaskId" placeholder="TaskId" /> -->
                     </div>
 
                     <br><br>
@@ -27,7 +31,7 @@
                         Comments :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                        <input type="text" name="txtcode1" id="txtcode1" class="form-control"
                             [(ngModel)]="taskcomments.Comments" placeholder="Comments" />
                     </div>
                 </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskDocuments } from 'src/app/Models/TaskDocuments';
 import { TaskDocumentsService } from './../../services/taskdocuments/taskdocuments.service'
+import { TaskService } from 'src/app/services/task/task.service';
+import { Task } from 'src/app/Models/Task';
 
 
 @Component({
@@ -21,15 +23,18 @@ export class TaskDocumentsComponent implements OnInit {
 
   taskdocuments: TaskDocuments = new TaskDocuments();
   taskdocumentsData: TaskDocuments[] = []
+  taskData: Task[] = []
   taskdocumentsId: number = 0;
 
   constructor(
     private taskdocumentsService: TaskDocumentsService,
+    private taskService: TaskService,
 
   ) { }
 
   ngOnInit(): any {
     this.GetTaskDocuments();
+    this.GetTasks();
   }
 
   // By using this method we will get the TaskDocuments 
@@ -86,6 +91,13 @@ export class TaskDocumentsComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.GetTaskDocuments();
+  }
+
+   // By using this method we will get the GetTasks 
+   GetTasks(): any {
+    this.taskService.GetTask().subscribe((res: any) => {
+      this.taskData = res;
+    })
   }
 }
 

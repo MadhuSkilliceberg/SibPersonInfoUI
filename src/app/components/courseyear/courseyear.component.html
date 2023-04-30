@@ -17,7 +17,7 @@
                         Course :
                     </div>
                     <div class="col-md-3">
-                      <select name="courses" id="coursesId" [(ngModel)]="courseyear.CourseID" class="form-control">
+                      <select name="courses" id="coursesId" [(ngModel)]="courseyear.CourseId" class="form-control">
                         <option *ngFor="let item of courses " value="{{item.Id}}">{{item.Name}}</option>
                       </select>
                     </div>
@@ -25,7 +25,7 @@
                         Cyears:
                     </div>
                     <div class="col-md-3">
-                     <select name="" id="" [(ngModel)]="courseyear.CYearsId" class="form-control">
+                     <select name="" id="" [(ngModel)]="courseyear.CyearsId" class="form-control">
                         <option *ngFor="let item of cYearsData" value="{{item.Id}}">{{item.Name}}</option>
                      </select>
                     </div><br><br>
@@ -51,7 +51,7 @@
                 <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-1">
-                      <button (click)="AddCourseYear()" class="btn btn-primary" *ngIf="courseyear.Id==0">Submit</button>
+                      <button (click)="AddCourseYear()" class="btn btn-primary" *ngIf="courseyear.Id==0 || courseyear.Id==undefined">Submit</button>
                     </div>
                 </div>
   

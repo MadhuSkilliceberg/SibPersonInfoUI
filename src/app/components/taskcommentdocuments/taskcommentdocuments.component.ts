@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskCommentDocuments } from 'src/app/Models/TaskCommentDocuments';
 import { TaskCommentDocumentsService } from './../../services/taskcommentdocuments/taskcommentdocuments.service'
+import { TaskCommentsService } from 'src/app/services/taskcomments/taskcomments.service';
+import { TaskComments } from 'src/app/Models/TaskComments';
 
 
 @Component({
@@ -21,15 +23,17 @@ export class TaskCommentDocumentsComponent implements OnInit {
 
   taskcommentdocuments: TaskCommentDocuments = new TaskCommentDocuments();
   taskcommentdocumentsData: TaskCommentDocuments[] = []
+  taskCommentsData: TaskComments[] = []
   taskcommentdocumentsId: number = 0;
 
   constructor(
     private taskcommentdocumentsService: TaskCommentDocumentsService,
-
+    private taskCommentsService: TaskCommentsService
   ) { }
 
   ngOnInit(): any {
     this.GetTaskCommentDocuments();
+    this.GetTaskComments();
   }
 
   // By using this method we will get the TaskCommentDocuments 
@@ -57,7 +61,7 @@ export class TaskCommentDocumentsComponent implements OnInit {
     })
   }
 
-   // By uing this method we will Update the TaskCommentDocuments based on TaskCommentDocuments
+  // By uing this method we will Update the TaskCommentDocuments based on TaskCommentDocuments
   UpdateTaskCommentDocuments(): any {
     this.taskcommentdocumentsService.UpdateTaskCommentDocuments(this.taskcommentdocuments).subscribe((res: any) => {
       this.GetTaskCommentDocuments();
@@ -67,7 +71,7 @@ export class TaskCommentDocumentsComponent implements OnInit {
     })
   }
 
-// By using this method we will delete the TaskCommentDocuments based on the Id
+  // By using this method we will delete the TaskCommentDocuments based on the Id
   DeleteTaskCommentDocuments(Id: number): any {
     if (confirm("Do you want delete this record?")) {
       this.taskcommentdocumentsService.DeleteTaskCommentDocuments(Id).subscribe((res: any) => {
@@ -87,5 +91,13 @@ export class TaskCommentDocumentsComponent implements OnInit {
     this.page = 1;
     this.GetTaskCommentDocuments();
   }
+
+// By using this method we will get the GetTaskComments 
+GetTaskComments(): any {
+  this.taskCommentsService.GetTaskComments().subscribe((res: any) => {
+    this.taskCommentsData = res;
+  })
+}
+
 }
 

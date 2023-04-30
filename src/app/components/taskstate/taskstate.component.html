@@ -6,29 +6,34 @@
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
-                    <div class="col-md-3">
+                    <!-- <div class="col-md-3">
                         Id :
                     </div>
                     <div class="col-md-3">
                         <input type="number" id="txtskill" class="form-control" Name="txtskill"
                             [(ngModel)]="taskstate.Id" placeholder="Id">
+                    </div> -->
+                    <div class="col-md-3">
+                        Task :
                     </div>
                     <div class="col-md-3">
-                        TaskId :
-                    </div>
-                    <div class="col-md-3">
-                      
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="taskstate.TaskId" placeholder="TaskId" />
+                        <select  id="DDLTaskId" name="DDLTaskId" class="form-control"  [(ngModel)]="taskstate.TaskId" >
+                            <option *ngFor="let item of taskData" value="{{item.Id}}" > {{item.Name}} </option>
+                        </select>
+                        <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="taskstate.TaskId" placeholder="TaskId" /> -->
                     </div>
 
                     <br><br>
                     <div class="col-md-3">
-                        Assigned :
+                        Assigned User:
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="taskstate.Assigned" placeholder="Assigned" />
+                        <select  id="Id" name="UserName" [(ngModel)]="taskstate.Assigned" class="form-control">
+                            <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                        </select>
+                        <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="taskstate.Assigned" placeholder="Assigned" /> -->
                     </div>
 
                     <br><br>
@@ -36,7 +41,7 @@
                         Description :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                        <input type="text" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="taskstate.Description" placeholder="Description" />
                     </div>
                 </div>

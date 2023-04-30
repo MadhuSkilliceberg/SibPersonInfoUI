@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Template } from 'src/app/Models/Template';
 import { TemplateService } from './../../services/template/template.service'
 import { TemplateType } from 'src/app/Models/TemplateType';
+import { TemplateTypeService } from 'src/app/services/templatetype/templatetype.service';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class TemplateComponent implements OnInit {
 
   constructor(
     private templateService: TemplateService,
-    private templatetypeService: TemplateService,
+    private templatetypeService: TemplateTypeService,
 
   ) { }
 
@@ -92,7 +93,7 @@ export class TemplateComponent implements OnInit {
     this.GetTemplate();
   }
   GetTemplateType(): any {
-    this.templatetypeService.GetTemplate().subscribe((res: any) => {
+    this.templatetypeService.GetTemplateType().subscribe((res: any) => {
       this.templatetypeData = res;
 
     })

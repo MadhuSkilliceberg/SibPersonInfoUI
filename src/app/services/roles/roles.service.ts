@@ -10,7 +10,7 @@ export class RolesService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Roles/';
+    this.endpointUrl = environment.baseUrl + 'Role/';
   }
 
    // By using this method we will get the Roles 

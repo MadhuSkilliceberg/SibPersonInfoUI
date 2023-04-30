@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskLog } from 'src/app/Models/TaskLog';
 import { TaskLogService } from './../../services/tasklog/tasklog.service'
+import { TaskService } from 'src/app/services/task/task.service';
+import { Task } from 'src/app/Models/Task';
+import { UsersService } from 'src/app/services/users/users.service';
+import { Users } from 'src/app/Models/Users';
 
 
 @Component({
@@ -21,15 +25,21 @@ export class TaskLogComponent implements OnInit {
 
   tasklog: TaskLog = new TaskLog();
   tasklogData: TaskLog[] = []
+  taskData: Task[] = []
+  usersData: Users[] = []
   tasklogId: number = 0;
 
   constructor(
     private tasklogService: TaskLogService,
+    private taskService: TaskService,
+    private usersService: UsersService,
 
   ) { }
 
   ngOnInit(): any {
     this.GetTaskLog();
+    this.GetTasks();
+   this.GetUsers();
   }
 
   // By using this method we will get the TaskLog 
@@ -86,6 +96,21 @@ export class TaskLogComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.GetTaskLog();
+  }
+
+    // By using this method we will get the GetTasks 
+    GetTasks(): any {
+      this.taskService.GetTask().subscribe((res: any) => {
+        this.taskData = res;
+      })
+    }
+
+     
+  GetUsers(): any {
+    this.usersService.GetUsers().subscribe((res: any) => {
+      this.usersData = res;
+
+    })
   }
 }
 

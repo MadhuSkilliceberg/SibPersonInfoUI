@@ -15,7 +15,7 @@ export class RoleCategoryService {
 
    // By using this method we will get the RoleCategory 
   GetRoleCategory(): any {
-    return this.http.get(this.endpointUrl+"GetRoleCategory");
+    return this.http.get(this.endpointUrl+"GetRoleCategorys");
   }
   
   // By using this method we will get the RoleCategory based on the Id

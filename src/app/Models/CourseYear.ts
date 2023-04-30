@@ -1,8 +1,8 @@
 export class CourseYear
 { public Id! :number; 
- public CourseID! :number; 
- public CYearsId! :number; 
- public IsActive! :boolean; 
+ public CourseId! :number; 
+ public CyearsId! :number; 
+ public IsActive :boolean=false; 
  public OrderId! :number; 
  public CreatedOn! :Date; 
  public CreatedBy! :number; 

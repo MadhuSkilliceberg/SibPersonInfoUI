@@ -64,6 +64,8 @@ export class CompanyContactsComponent implements OnInit {
 
   // By uing this method we will Add the CompanyContacts based on CompanyContacts
   AddCompanyContacts(): any {
+    this.companycontacts.CompanyAddressId=Number(this.companycontacts.CompanyAddressId);
+    this.companycontacts.ContactTypeId=Number(this.companycontacts.ContactTypeId);
     this.companycontactsService.AddCompanyContacts(this.companycontacts).subscribe((res: any) => {
       this.GetCompanyContacts();
       this.companycontacts = new CompanyContacts();

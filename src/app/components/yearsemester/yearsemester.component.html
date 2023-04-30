@@ -17,12 +17,12 @@
                         CYears :
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" [(ngModel)]="yearsemester.CYearsId" class="form-control"> 
+                        <select name="" id="" [(ngModel)]="yearsemester.CyearsId" class="form-control"> 
                             <option  *ngFor="let item of cyearsData" value="{{item.Id}}">{{item.Name}}</option>
                         </select>
                       
                         <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
-                            [(ngModel)]="yearsemester.CYearsId" placeholder="CYearsId" /> -->
+                            [(ngModel)]="yearsemester.CyearsId" placeholder="CyearsId" /> -->
                     </div>
 
                     <br><br>
@@ -70,7 +70,7 @@
                                 <thead>	
                                     <tr style="background-color: #007bff;color: white">
                                         <th>Id</th>
-                                        <th>CYearsId</th>
+                                        <th>CyearsId</th>
                                         <th>SemesterId</th>
                                         <th>OrderId</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
@@ -86,7 +86,7 @@
                                       };
                                     let i = index">
                                         <td>{{item.Id}}</td>
-                                        <td>{{item.CYearsId}}</td>
+                                        <td>{{item.CyearsId}}</td>
                                         <td>{{item.SemesterId}}</td>
                                         <td>{{item.OrderId}}</td>
                                         <td><button class="btn btn-info" (click)="GetYearSemesterById(item.Id)"> Edit

@@ -2,7 +2,7 @@ export class Vacancies
 { public Id! :number; 
  public Name! :string; 
  public Code! :string; 
- public IsActive! :boolean; 
+ public IsActive :boolean=false; 
  public CompanyId! :number; 
  public Count! :number; 
  public ExperienceFrom! :number; 

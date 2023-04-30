@@ -10,7 +10,7 @@ export class DepartmentsService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Departments/';
+    this.endpointUrl = environment.baseUrl + 'Department/';
   }
 
    // By using this method we will get the Departments 

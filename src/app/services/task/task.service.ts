@@ -10,7 +10,7 @@ export class TaskService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'Task/';
+    this.endpointUrl = environment.baseUrl + 'Story/';
   }
 
    // By using this method we will get the Task 

@@ -10,7 +10,7 @@ export class CoutryStatesService {
 
   endpointUrl!: string;
   constructor(private http: HttpClient) {
-    this.endpointUrl = environment.baseUrl + 'CoutryStates/';
+    this.endpointUrl = environment.baseUrl + 'CoutryState/';
   }
 
    // By using this method we will get the CoutryStates 

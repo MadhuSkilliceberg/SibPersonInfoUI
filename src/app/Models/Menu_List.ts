@@ -1,8 +1,8 @@
 export class Menu_List
-{ public M_ID! :number; 
- public M_P_ID! :number; 
- public M_NAME! :string; 
- public CONTROLLER_NAME! :string; 
- public ACTION_NAME! :string; 
+{ public MId! :number; 
+ public MPId! :number; 
+ public MName! :string; 
+ public ControllerName! :string; 
+ public ActionName! :string; 
 
 }
