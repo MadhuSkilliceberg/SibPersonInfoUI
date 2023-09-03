@@ -18,7 +18,8 @@
                     </div>
                     <div class="col-md-3">
                         <select  id="DDLTaskId" name="DDLTaskId" class="form-control"  [(ngModel)]="tasklog.TaskId" >
-                            <option *ngFor="let item of taskData" value="{{item.Id}}" > {{item.Name}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of taskData" value="{{item.Id}}" > {{item.Name}} </option>
                         </select>
                         <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
                             [(ngModel)]="tasklog.TaskId" placeholder="TaskId" /> -->

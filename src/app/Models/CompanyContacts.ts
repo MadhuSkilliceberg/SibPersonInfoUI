@@ -1,13 +1,13 @@
 export class CompanyContacts
-{ public Id! :number; 
- public CompanyAddressId! :number; 
- public MobileNumber! :number; 
+{ public Id   :number = 0; 
+ public CompanyAddressId   :number = 0; 
+ public MobileNumber   :number = 0; 
  public IsPrimary! :boolean; 
- public OrderId! :number; 
- public ContactTypeId! :number; 
+ public OrderId   :number = 0; 
+ public ContactTypeId   :number = 0; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

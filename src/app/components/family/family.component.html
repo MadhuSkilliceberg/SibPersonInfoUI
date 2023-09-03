@@ -11,7 +11,8 @@
                     </div>
                     <div class="col-md-3">
                         <select  id="" name="" [(ngModel)]="family.UserId" class="form-control">
-                            <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
                         </select>
                         <!-- <input type="number" id="txtskill" class="form-control" Name="txtskill"
                             [(ngModel)]="family.UserId" placeholder="UserId"> -->
@@ -21,7 +22,8 @@
                     </div>
                     <div class="col-md-3">
                         <!-- <select name="" id="" name="QualificationName" [(ngModel)]="institution.QualificationtypeId">
-                            <option *ngFor="let item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of qualificationdata" value="{{item.QualificationName}}" > {{item.QualificationName}} </option>
                         </select> -->
                         <input type="text" name="txtcode" class="form-control" id="txtcode"
                             [(ngModel)]="family.FirstName" placeholder="FirstName" />
@@ -40,7 +42,8 @@
                     </div>
                     <div class="col-md-3">
                         <select  id="" name="" [(ngModel)]="family.RelationTypeId" class="form-control">
-                            <option *ngFor="let item of relationtypesData" value="{{item.Id}}" > {{item.RelationName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of relationtypesData" value="{{item.Id}}" > {{item.RelationName}} </option>
                         </select>
 
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"

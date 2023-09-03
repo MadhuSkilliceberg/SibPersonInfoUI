@@ -1,11 +1,11 @@
 export class YearSemester
-{ public Id! :number; 
- public CyearsId! :number; 
- public SemesterId! :number; 
- public OrderId! :number; 
+{ public Id   :number = 0; 
+ public CyearsId   :number = 0; 
+ public SemesterId   :number = 0; 
+ public OrderId   :number = 0; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

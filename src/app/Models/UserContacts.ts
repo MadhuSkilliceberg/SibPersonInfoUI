@@ -1,13 +1,13 @@
-export class UserContacts
-{ public Id! :number; 
- public UserId! :number; 
- public MobileNumber! :number; 
- public IsPrimary! :boolean; 
- public OrderId! :number; 
- public ContactTypeId! :number; 
- public CreatedOn! :Date; 
- public CreatedBy! :number; 
- public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+export class UserContacts {
+        public Id: number = 0;
+    public UserId: number = 0;
+    public MobileNumber!: number;
+    public IsPrimary!: boolean;
+    public OrderId!: number;
+    public ContactTypeId: number = 0;
+    public CreatedOn!: Date;
+    public CreatedBy: number = 0;
+    public UpdatedOn!: Date;
+    public UpdatedBy: number = 0;
 
 }

@@ -1,10 +1,10 @@
 export class CoutryStates
-{ public Id! :number; 
- public StateId! :number; 
- public CountryId! :number; 
+{ public Id   :number = 0; 
+ public StateId   :number = 0; 
+ public CountryId   :number = 0; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

@@ -11,7 +11,8 @@
                     </div>
                     <div class="col-md-3">
                         <select name="" id="" name="SprintId" [(ngModel)]="sprinttasks.SprintId" class="form-control">
-                            <option *ngFor="let item of sprintData" value="{{item.Id}}" > {{item.Name}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of sprintData" value="{{item.Id}}" > {{item.Name}} </option>
                            </select>
                         <!-- <input type="number" id="txtskill" class="form-control" Name="txtskill"
                             [(ngModel)]="sprinttasks.SprintId" placeholder="SprintId"> -->
@@ -22,7 +23,8 @@
                     <div class="col-md-3">
 
                         <select name="" id="" name="TaskId" [(ngModel)]="sprinttasks.TaskId" class="form-control">
-                            <option *ngFor="let item of taskData" value="{{item.Id}}" > {{item.Name}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of taskData" value="{{item.Id}}" > {{item.Name}} </option>
                            </select>
                         <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
                             [(ngModel)]="sprinttasks.TaskId" placeholder="TaskId" /> -->
@@ -34,7 +36,8 @@
                     </div>
                     <div class="col-md-3">
                         <select name="" id="" name="StatusId" [(ngModel)]="sprinttasks.StatusId" class="form-control">
-                            <option *ngFor="let item of statusData" value="{{item.Id}}" > {{item.Name}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of statusData" value="{{item.Id}}" > {{item.Name}} </option>
                            </select>
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="sprinttasks.StatusId" placeholder="StatusId" /> -->

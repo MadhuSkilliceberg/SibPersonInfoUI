@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
+import {DndModule} from 'ngx-drag-drop';
 
 import { TaskComponent } from './components/task/task.component'; 
 import { TaskCommentDocumentsComponent } from './components/taskcommentdocuments/taskcommentdocuments.component'; 
@@ -69,9 +70,12 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { SprintComponent } from './components/sprint/sprint.component'; 
 import { SprintTasksComponent } from './components/sprinttasks/sprinttasks.component'; 
 import { StatesComponent } from './components/states/states.component'; 
-import { StatusComponent } from './components/status/status.component'; 
-
-
+import { StatusComponent } from './components/status/status.component';
+import { UserSkillEditComponent } from './components/userskills/user-skill-edit/user-skill-edit.component'; 
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { UseRegistrationComponent } from './components/use-registration/use-registration.component';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 
 
 @NgModule({
@@ -137,14 +141,20 @@ SkillsComponent ,
 SprintComponent ,  
 SprintTasksComponent ,  
 StatesComponent ,  
-StatusComponent ,  
+StatusComponent,
+UserSkillEditComponent,
+LoginComponent,
+UseRegistrationComponent,
+UserRegistrationComponent ,  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    DndModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,7 +13,8 @@
                     <div class="col-md-3">
 
                          <select id="id"  name="QualificationName" [(ngModel)]="usercourses.CourseId" class="form-control">
-                            <option *ngFor="let item of coursesData" value="{{item.Id}}" > {{item.Name}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of coursesData" value="{{item.Id}}" > {{item.Name}} </option>
                         </select>
 
                         <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
@@ -36,7 +37,8 @@
                     <div class="col-md-3">
 
                         <select id="id"  name="UserCourses" [(ngModel)]="usercourses.UserId" class="form-control">
-                            <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
                         </select>
 
 

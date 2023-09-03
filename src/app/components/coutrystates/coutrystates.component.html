@@ -11,7 +11,8 @@
                     </div>
                     <div class="col-md-3">
                         <select name="" id="" name="" [(ngModel)]="coutrystates.StateId" class="form-control">
-                            <option *ngFor="let item of statesData" value="{{item.Id}}" > {{item.StateName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of statesData" value="{{item.Id}}" > {{item.StateName}} </option>
                         </select>
                         
                         <!-- <input type="number" id="txtskill" class="form-control" Name="txtskill"
@@ -22,7 +23,8 @@
                     </div>
                     <div class="col-md-3">
                         <select name="" id="" name="" [(ngModel)]="coutrystates.CountryId" class="form-control">
-                            <option *ngFor="let item of countriesData" value="{{item.Id}}" > {{item.CountryName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of countriesData" value="{{item.Id}}" > {{item.CountryName}} </option>
                         </select>
                         <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
                             [(ngModel)]="coutrystates.CountryId" placeholder="CountryId" /> -->

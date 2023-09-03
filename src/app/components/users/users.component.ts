@@ -7,6 +7,8 @@ import { MarritalStatusService } from 'src/app/services/marritalstatus/marritals
 import { MarritalStatus } from 'src/app/Models/MarritalStatus';
 import { UserTypes } from 'src/app/Models/UserTypes';
 import { UserTypesService } from 'src/app/services/usertypes/usertypes.service';
+import { Router } from '@angular/router';
+//import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @Component({
@@ -39,14 +41,15 @@ export class UsersComponent implements OnInit {
     private genderService: GenderService,
     private marritalstatusService: MarritalStatusService,
     private usertypesService: UserTypesService,
-
+    private router: Router,
+    // private jwtHelper: JwtHelperService,
   ) { }
 
   ngOnInit(): any {
     this.GetUsers();
-    this. GetGender();
-    this. GetMarritalStatus();
-    this. GetUserTypes();
+    this.GetGender();
+    this.GetMarritalStatus();
+    this.GetUserTypes();
 
   }
 
@@ -75,7 +78,7 @@ export class UsersComponent implements OnInit {
     })
   }
 
-   // By uing this method we will Update the Users based on Users
+  // By uing this method we will Update the Users based on Users
   UpdateUsers(): any {
     this.usersService.UpdateUsers(this.users).subscribe((res: any) => {
       this.GetUsers();
@@ -85,7 +88,7 @@ export class UsersComponent implements OnInit {
     })
   }
 
-// By using this method we will delete the Users based on the Id
+  // By using this method we will delete the Users based on the Id
   DeleteUsers(Id: number): any {
     if (confirm("Do you want delete this record?")) {
       this.usersService.DeleteUsers(Id).subscribe((res: any) => {
@@ -106,23 +109,23 @@ export class UsersComponent implements OnInit {
     this.GetUsers();
   }
 
-   // By using this method we will get the Gender 
-   GetGender(): any {
+  // By using this method we will get the Gender 
+  GetGender(): any {
     this.genderService.GetGender().subscribe((res: any) => {
       this.genderData = res;
 
     })
   }
 
-    // By using this method we will get the MarritalStatus 
-    GetMarritalStatus(): any {
-      this.marritalstatusService.GetMarritalStatus().subscribe((res: any) => {
-        this.marritalstatusData = res;
-  
-      })
-    }
+  // By using this method we will get the MarritalStatus 
+  GetMarritalStatus(): any {
+    this.marritalstatusService.GetMarritalStatus().subscribe((res: any) => {
+      this.marritalstatusData = res;
 
-      // By using this method we will get the UserTypes 
+    })
+  }
+
+  // By using this method we will get the UserTypes 
   GetUserTypes(): any {
     this.usertypesService.GetUserTypes().subscribe((res: any) => {
       this.usertypesData = res;
@@ -131,5 +134,24 @@ export class UsersComponent implements OnInit {
   }
 
 
+  isUserAuthenticated() {
+    const token = localStorage.getItem("jwt");
+    // if (token && !this.jwtHelper.isTokenExpired(token)) {
+    //   return true;
+    // }
+    // else {
+    //   return false;
+    // }
+  }
+
+  public logOut = () => {
+    localStorage.removeItem("jwt");
+  }
+
+
+  GoToNavigationUrl(url: string, id: number = 0) {
+    if (id == -1)
+      this.router.navigate(['/' + url]);
+  }
 }
 

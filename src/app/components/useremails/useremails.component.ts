@@ -5,6 +5,7 @@ import { UsersService } from 'src/app/services/users/users.service';
 import { Users } from 'src/app/Models/Users';
 import { ContactTypeService } from 'src/app/services/contacttype/contacttype.service';
 import { ContactType } from 'src/app/Models/ContactType';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { ContactType } from 'src/app/Models/ContactType';
 })
 export class UserEmailsComponent implements OnInit {
 
-
+  isNavigated: boolean = false;
+  from!: string;
   page: number = 1;
   count: number = 0;
   tableSize: number = 3;
@@ -34,15 +36,29 @@ export class UserEmailsComponent implements OnInit {
     private useremailsService: UserEmailsService,
     private usersService: UsersService,
     private contacttypeService: ContactTypeService,
-
+    private activatedRoute: ActivatedRoute,
+    private route: Router
 
   ) { }
 
   ngOnInit(): any {
+    // this.activatedRoute.queryParams.subscribe(params => {
+    //   const userId = params['userId'];
+    //   console.log(userId);
+    // });
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.useremails.UserId = +params['id'];
+      this.from = params['from'];
+      debugger
+      if (this.useremails.UserId > 0)
+        this.isNavigated = true;
+
+      //console.log(`${id},${guid}`);
+    })
     this.GetUserEmails();
-    this.  GetUsers();
-    this. GetContactType()
-   
+    this.GetUsers();
+    this.GetContactType()
+
   }
 
   // By using this method we will get the UserEmails 
@@ -70,7 +86,7 @@ export class UserEmailsComponent implements OnInit {
     })
   }
 
-   // By uing this method we will Update the UserEmails based on UserEmails
+  // By uing this method we will Update the UserEmails based on UserEmails
   UpdateUserEmails(): any {
     this.useremailsService.UpdateUserEmails(this.useremails).subscribe((res: any) => {
       this.GetUserEmails();
@@ -80,7 +96,7 @@ export class UserEmailsComponent implements OnInit {
     })
   }
 
-// By using this method we will delete the UserEmails based on the Id
+  // By using this method we will delete the UserEmails based on the Id
   DeleteUserEmails(Id: number): any {
     if (confirm("Do you want delete this record?")) {
       this.useremailsService.DeleteUserEmails(Id).subscribe((res: any) => {
@@ -100,7 +116,7 @@ export class UserEmailsComponent implements OnInit {
     this.page = 1;
     this.GetUserEmails();
   }
-  
+
   GetUsers(): any {
     this.usersService.GetUsers().subscribe((res: any) => {
       this.usersData = res;
@@ -113,6 +129,10 @@ export class UserEmailsComponent implements OnInit {
       this.contacttypeData = res;
 
     })
+  }
+
+  OnBack() {
+    this.route.navigate([this.from]);
   }
 }
 

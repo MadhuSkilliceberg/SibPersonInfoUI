@@ -1,23 +1,23 @@
 export class Vacancies
-{ public Id! :number; 
+{ public Id   :number = 0; 
  public Name! :string; 
  public Code! :string; 
  public IsActive :boolean=false; 
- public CompanyId! :number; 
- public Count! :number; 
- public ExperienceFrom! :number; 
- public ExperienceTo! :number; 
- public StatusId! :number; 
- public AppliedCount! :number; 
- public RoleId! :number; 
- public IndustryTypeId! :number; 
- public DepartmentId! :number; 
- public EmploymentTypeId! :number; 
- public RoleCategoryId! :number; 
- public EducationTypeId! :number; 
+ public CompanyId   :number = 0; 
+ public Count   :number = 0; 
+ public ExperienceFrom   :number = 0; 
+ public ExperienceTo   :number = 0; 
+ public StatusId   :number = 0; 
+ public AppliedCount   :number = 0; 
+ public RoleId   :number = 0; 
+ public IndustryTypeId   :number = 0; 
+ public DepartmentId   :number = 0; 
+ public EmploymentTypeId   :number = 0; 
+ public RoleCategoryId   :number = 0; 
+ public EducationTypeId   :number = 0; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

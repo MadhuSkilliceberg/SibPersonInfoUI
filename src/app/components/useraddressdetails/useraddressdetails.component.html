@@ -50,7 +50,8 @@
                     </div>
                     <div class="col-md-3">
                        <select  id="Id" name="StateName" [(ngModel)]="useraddressdetails.StateId" class="form-control">
-                            <option *ngFor="let item of  statesData" value="{{item.Id}}" > {{item.StateName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of  statesData" value="{{item.Id}}" > {{item.StateName}} </option>
                         </select>
                     </div>
                     
@@ -60,7 +61,8 @@
                     </div>
                     <div class="col-md-3">
                         <select  id="Id" name="Name" [(ngModel)]="useraddressdetails.CountryId" class="form-control">
-                            <option *ngFor="let item of  countriesData" value="{{item.Id}}" > {{item.CountryName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of  countriesData" value="{{item.Id}}" > {{item.CountryName}} </option>
                         </select>
                     </div>
                     
@@ -70,7 +72,8 @@
                     </div>
                     <div class="col-md-3">
                         <select  id="Id" name="Name" [(ngModel)]="useraddressdetails.UserId" class="form-control">
-                            <option *ngFor="let item of   usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of   usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
                         </select>
                     </div>
                     <div class="col-md-3">

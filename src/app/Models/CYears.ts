@@ -1,11 +1,11 @@
 export class CYears
-{ public Id! :number; 
+{ public Id   :number = 0; 
  public Name! :string; 
- public Code! :number; 
- public OrderId! :number; 
+ public Code   :number = 0; 
+ public OrderId   :number = 0; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

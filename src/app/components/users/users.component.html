@@ -10,7 +10,7 @@
                         FirstName :
                     </div>
                     <div class="col-md-3">
-                       
+
                         <input type="text" name="txtcode" class="form-control" id="txtcode"
                             [(ngModel)]="users.FirstName" placeholder="FirstName" />
                     </div>
@@ -20,47 +20,51 @@
                         LastName :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.LastName" placeholder="LastName" />
+                        <input type="text" name="txtcode" id="txtcode" class="form-control" [(ngModel)]="users.LastName"
+                            placeholder="LastName" />
                     </div>
 
-                    
+
                     <br><br>
                     <div class="col-md-3">
                         Dob :
                     </div>
                     <div class="col-md-3">
-                        <input type="date" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.Dob" placeholder="Dob" />
+                        <input type="date" name="txtcode" id="txtcode" class="form-control" [(ngModel)]="users.Dob"
+                            placeholder="Dob" />
                     </div>
 
-                    
+
                     <br><br>
                     <div class="col-md-3">
                         Gender :
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" [(ngModel)]="users.GenderId" class="form-control"> 
-                            <option  *ngFor="let item of genderData" value="{{item.Id}}">{{item.GenderName}}</option>
+                        <select name="" id="" [(ngModel)]="users.GenderId" class="form-control"
+                            (change)="GoToNavigationUrl('gender', users.GenderId)">
+                            <option value="-1"> Add(option) </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of genderData" value="{{item.Id}}">{{item.GenderName}}</option>
                         </select>
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="users.GenderId" placeholder="GenderId" /> -->
                     </div>
 
-                    
                     <br><br>
                     <div class="col-md-3">
                         MarritalStatusId :
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" [(ngModel)]="users.MarritalStatusId" class="form-control"> 
-                            <option  *ngFor="let item of marritalstatusData" value="{{item.Id}}">{{item.StatusName}}</option>
+                        <select name="" id="" [(ngModel)]="users.MarritalStatusId" class="form-control">
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of marritalstatusData" value="{{item.Id}}">{{item.StatusName}}
+                            </option>
                         </select>
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="users.MarritalStatusId" placeholder="MarritalStatusId" /> -->
                     </div>
 
-                    
+
                     <br><br>
                     <div class="col-md-3">
                         MobileNumber :
@@ -70,7 +74,7 @@
                             [(ngModel)]="users.MobileNumber" placeholder="MobileNumber" />
                     </div>
 
-                    
+
                     <br><br>
                     <div class="col-md-3">
                         AadharNumber :
@@ -80,17 +84,17 @@
                             [(ngModel)]="users.AadharNumber" placeholder="AadharNumber" />
                     </div>
 
-                    
+
                     <br><br>
                     <div class="col-md-3">
                         VoterId :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="users.VoterId" placeholder="VoterId" />
+                        <input type="text" name="txtcode" id="txtcode" class="form-control" [(ngModel)]="users.VoterId"
+                            placeholder="VoterId" />
                     </div>
 
-                    
+
                     <br><br>
                     <div class="col-md-3">
                         PanCardNumber :
@@ -100,14 +104,15 @@
                             [(ngModel)]="users.PanCardNumber" placeholder="PanCardNumber" />
                     </div>
 
-                     
+
                     <br><br>
                     <div class="col-md-3">
                         UserType :
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" [(ngModel)]="users.UserTypeId" class="form-control"> 
-                            <option  *ngFor="let item of usertypesData" value="{{item.Id}}">{{item.Name}}</option>
+                        <select name="" id="" [(ngModel)]="users.UserTypeId" class="form-control">
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of usertypesData" value="{{item.Id}}">{{item.Name}}</option>
                         </select>
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="users.UserTypeId" placeholder="UserTypeId" /> -->
@@ -115,10 +120,12 @@
                 </div>
 
                 <div class="row " style="padding-bottom: 10px;">
-                    <div class="col-md-9"></div>
-                    <div class="col-md-1">
-                        <button (click)="AddUsers()" class="btn btn-primary" *ngIf="isSave">Submit</button>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">
+                        <button (click)="AddUsers()" class="btn btn-primary" *ngIf="isSave"
+                            style="margin-left:30px;">Submit</button>
                     </div>
+                    <div class="col-md-5"></div>
                 </div>
 
                 <div class="row " style="padding-bottom: 10px;">
@@ -128,65 +135,117 @@
                     </div>
                 </div>
 
-                <div class="row" style="padding-bottom: 10px;">
-                    <div class="col-md-12">
-                        <div class="container mt-3">
-                            <h2>Users Data</h2>
+            </div>
 
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr style="background-color: #007bff;color: white">
-                                        <th>Id</th>
-                                        <th>FirstName</th>
-                                        <th>LastName</th>
-                                        <th>Dob</th>
-                                        <th>GenderId</th>
-                                        <th>MarritalStatusId</th>
-                                        <th>VoterId</th>
-                                        <th>AadharNumber</th>
-                                        <th>PanCardNumber</th>
-                                        <th>UserTypeId</th>
+            <div class="row" style="padding-bottom: 10px;">
+                <div class="col-md-12">
+                    <div class="container mt-3">
+                        <h2>Users Data</h2>
 
-                                        <th style="text-align: center;" colspan="2">Action</th>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr style="background-color: #007bff;color: white">
+                                    <th>Id</th>
+                                    <th>FirstName</th>
+                                    <th>LastName</th>
+                                    <th>Dob</th>
+                                    <th>GenderId</th>
+                                    <th>MarritalStatusId</th>
+                                    <th>MobileNumber</th>
+                                    <th>VoterId</th>
+                                    <th>AadharNumber</th>
+                                    <th>PanCardNumber</th>
+                                    <th>UserTypeId</th>
+                                    <th> </th>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let item of usersData | paginate
-                                    : {
-                                        itemsPerPage: tableSize,
-                                        currentPage: page,
-                                        totalItems: count
-                                      };
-                                    let i = index">
-                                        <td>{{item.Id}}</td>
-                                        <td>{{item.FirstName}}</td>
-                                        <td>{{item.LastName}}</td>
-                                        <td>{{item.Dob}}</td>
-                                        <td>{{item.GenderId}}</td>
-                                        <td>{{item.MarritalStatusId}}</td>
-                                        <td>{{item.MobileNumber}}</td>
-                                        <td>{{item.AadharNumber}}</td>
-                                        <td>{{item.VoterId}}</td>
-                                        <td>{{item.PanCardNumber}}</td>
-                                        <td>{{item.UserTypeId}}</td>
-                                        <td><button class="btn btn-info" (click)="GetUsersById(item.Id)"> Edit
-                                            </button></td>
-                                        <td><button class="btn btn-danger" (click)="DeleteUsers(item.Id)"> Delete
-                                            </button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                    <th style="text-align: center;" colspan="2">Action</th>
 
-                            <div class="d-flex justify-content-center">
-                                <pagination-controls previousLabel="Prev" nextLabel="Next"
-                                    (pageChange)="onTableDataChange($event)">
-                                </pagination-controls>
-                            </div>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of usersData | paginate
+                                : {
+                                    itemsPerPage: tableSize,
+                                    currentPage: page,
+                                    totalItems: count
+                                  };
+                                let i = index">
+                                    <td>{{item.Id}}</td>
+                                    <td>{{item.FirstName}}</td>
+                                    <td>{{item.LastName}}</td>
+                                    <td>{{item.Dob}}</td>
+                                    <td>{{item.GenderId}}</td>
+                                    <td>{{item.MarritalStatusId}}</td>
+                                    <td>{{item.MobileNumber}}</td>
+                                    <td>{{item.VoterId}}</td>
+                                    <td>{{item.AadharNumber}}</td>
+                                    <td>{{item.PanCardNumber}}</td>
+                                    <td>{{item.UserTypeId}}</td>
+                                    <td>
+                                        <!-- <a [routerLink]="['/useremails', item.Id]"> </a> -->
+                                        <a [routerLink]="['/useremails']" [queryParams]="{id: item.Id,from:'users'}">
+                                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                        </a>
+                                        <a [routerLink]="['/usercontacts']" [queryParams]="{id: item.Id,from:'users'}">
+                                            <i class="fa fa-address-book" aria-hidden="true"></i>
+                                        </a>
+                                        <a [routerLink]="['/useremails']" [queryParams]="{id: item.Id,from:'users'}">
+                                            <i class="fa fa-compress" aria-hidden="true"></i>
+                                        </a>
+                                        <a [routerLink]="['/useremails']" [queryParams]="{id: item.Id,from:'users'}">
+                                            <i class="fa fa-building" aria-hidden="true"></i>
+                                        </a>
+
+                                    </td>
+                                    <td><button class="btn btn-info" (click)="GetUsersById(item.Id)"> Edit
+                                        </button>
+                                        <button class="btn btn-danger" (click)="DeleteUsers(item.Id)"> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="d-flex justify-content-center">
+                            <pagination-controls previousLabel="Prev" nextLabel="Next"
+                                (pageChange)="onTableDataChange($event)">
+                            </pagination-controls>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
+
+
 </div>
+
+
+
+
+<!-- 
+ <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Product Application</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li *ngIf="isUserAuthenticated()" class="nav-item">
+          <a class="nav-link" routerLink="/product">Products</a>
+        </li>
+        <li *ngIf="isUserAuthenticated()" class="nav-item">
+          <a class="nav-link" (click)="logOut()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div *ngIf="!isUserAuthenticated()">
+    <login></login>
+  </div>
+  <div *ngIf="isUserAuthenticated()" style="color:green;">
+    <h2>
+      Welcome to the Product Application
+    </h2>
+  </div> -->

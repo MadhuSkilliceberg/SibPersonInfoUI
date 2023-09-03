@@ -1,11 +1,11 @@
 export class Institutions
-{ public Id! :number; 
+{ public Id   :number = 0; 
  public InstitutionName! :string; 
- public QulificationTypeId! :number; 
- public MediumId! :number; 
+ public QulificationTypeId   :number = 0; 
+ public MediumId   :number = 0; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

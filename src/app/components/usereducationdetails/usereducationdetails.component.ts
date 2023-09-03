@@ -125,5 +125,7 @@ export class UserEducationDetailsComponent implements OnInit {
 
     })
   }
+
+  
 }
 

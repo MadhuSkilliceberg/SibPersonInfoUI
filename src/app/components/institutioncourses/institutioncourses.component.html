@@ -22,7 +22,8 @@
                     </div>
                     <div class="col-md-3">
                         <select name="" id="" [(ngModel)]="institutioncourses.InstitutionId" class="form-control">
-                            <option *ngFor="let item of institutionsData" value="{{item.Id}}">{{item.InstitutionName}}</option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of institutionsData" value="{{item.Id}}">{{item.InstitutionName}}</option>
                         </select> 
                             
                     </div><br><br>
@@ -31,7 +32,8 @@
                     </div>
                     <div class="col-md-3">
                         <select name="" id=""  [(ngModel)]="institutioncourses.CourseId" class="form-control" >
-                            <option *ngFor="let item of coursesData" value="{{item.Id}}">{{item.Name}}</option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of coursesData" value="{{item.Id}}">{{item.Name}}</option>
                         </select>
                             
                     </div>
