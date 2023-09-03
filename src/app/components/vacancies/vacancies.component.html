@@ -36,7 +36,8 @@
           </div>
           <div class="col-md-3">
             <select name="" id="" [(ngModel)]="vacancies.CompanyId" class="form-control">
-              <option *ngFor="let item of companyData" value="{{item.Id}}">{{item.CompanyName}}</option>
+              <option value="0">Select</option>
+                            <option *ngFor="let  item of companyData" value="{{item.Id}}">{{item.CompanyName}}</option>
             </select>
             <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.CompanyId" placeholder="CompanyId"/> -->
           </div>
@@ -68,7 +69,8 @@
           </div>
           <div class="col-md-3">
             <select name="" id="" [(ngModel)]="vacancies.StatusId" class="form-control">
-              <option *ngFor="let item of statusData" value="{{item.Id}}">{{item.Name}}</option>
+              <option value="0">Select</option>
+                            <option *ngFor="let  item of statusData" value="{{item.Id}}">{{item.Name}}</option>
             </select>
             <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.StatusId" placeholder="StatusId"/> -->
           </div> <br><br>
@@ -85,7 +87,8 @@
           </div>
           <div class="col-md-3">
             <select name="" id="" [(ngModel)]="vacancies.RoleId" class="form-control">
-              <option *ngFor="let item of rolesData" value="{{item.Id}}">{{item.Name}}</option>
+              <option value="0">Select</option>
+                            <option *ngFor="let  item of rolesData" value="{{item.Id}}">{{item.Name}}</option>
             </select>
             <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.RoledId" placeholder="RoledId"/> -->
           </div>
@@ -97,7 +100,8 @@
           </div>
           <div class="col-md-3">
             <select name="" id="" [(ngModel)]="vacancies.IndustryTypeId" class="form-control">
-              <option *ngFor="let item of industrytypesData" value="{{item.Id}}">{{item.Name}}</option>
+              <option value="0">Select</option>
+                            <option *ngFor="let  item of industrytypesData" value="{{item.Id}}">{{item.Name}}</option>
             </select>
 
             <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.IndustryTypeId" placeholder="IndustryTypeId"/> -->
@@ -107,7 +111,8 @@
           </div>
           <div class="col-md-3">
             <select name="" id="" [(ngModel)]="vacancies.DepartmentId" class="form-control">
-              <option *ngFor="let item of departmentsData" value="{{item.Id}}">{{item.Name}}</option>
+              <option value="0">Select</option>
+                            <option *ngFor="let  item of departmentsData" value="{{item.Id}}">{{item.Name}}</option>
             </select>
 
             <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.DepartmentId" placeholder="DepartmentId"/> -->
@@ -117,7 +122,8 @@
           </div>
           <div class="col-md-3">
             <select name="" id="" [(ngModel)]="vacancies.EmploymentTypeId" class="form-control">
-              <option *ngFor="let item of employmenttypesData" value="{{item.Id}}">{{item.Name}}</option>
+              <option value="0">Select</option>
+                            <option *ngFor="let  item of employmenttypesData" value="{{item.Id}}">{{item.Name}}</option>
             </select>
             <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control"  [(ngModel)]="vacancies.EmploymentTypeId" placeholder="EmploymentTypeId"/> -->
           </div>
@@ -126,7 +132,8 @@
           </div>
           <div class="col-md-3">
             <select name="" id="" [(ngModel)]="vacancies.RoleCategoryId" class="form-control">
-              <option *ngFor="let item of rolecategoryData" value="{{item.Id}}">{{item.Name}}</option>
+              <option value="0">Select</option>
+                            <option *ngFor="let  item of rolecategoryData" value="{{item.Id}}">{{item.Name}}</option>
             </select>
             <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.RoleCategoryId" placeholder="RoleCategoryId"/> -->
           </div> <br><br>
@@ -138,10 +145,12 @@
           <div class="col-md-3">
 
             <select name="" id="" [(ngModel)]="vacancies.EducationTypeId" class="form-control">
-              <option *ngFor="let item of employmenttypesData" value="{{item.Id}}">{{item.Name}}</option>
+              <option value="0">Select</option>
+                            <option *ngFor="let  item of employmenttypesData" value="{{item.Id}}">{{item.Name}}</option>
             </select>
             <!-- <select name="" id="" [(ngModel)]="vacancies.EducationTypeId" class="form-control">
-              <option *ngFor="let item of rolecategoryData" value="{{item.Id}}">{{item.Name}}</option>
+              <option value="0">Select</option>
+                            <option *ngFor="let  item of rolecategoryData" value="{{item.Id}}">{{item.Name}}</option>
             </select> -->
             <!-- <input type="text" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="vacancies.EducationTypeId" placeholder="EducationTypeId"/>  -->
           </div> <br><br>

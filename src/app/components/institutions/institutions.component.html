@@ -19,7 +19,8 @@
                     <div class="col-md-3">
 
                         <select name="" id="" name="Qualificationtype" [(ngModel)]="institutions.QulificationTypeId" class="form-control">
-                            <option *ngFor="let item of qulificationtypeData" value="{{item.Id}}" > {{item.QulificationName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of qulificationtypeData" value="{{item.Id}}" > {{item.QulificationName}} </option>
                         </select>
                         <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
                             [(ngModel)]="institutions.QulificationTypeId" placeholder="QualificationtypeId" /> -->
@@ -32,7 +33,8 @@
                     <div class="col-md-3">
 
                         <select name="" id="" name="MediumId" [(ngModel)]="institutions.MediumId" class="form-control">
-                            <option *ngFor="let item of mediumData" value="{{item.Id}}" > {{item.Medium1}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of mediumData" value="{{item.Id}}" > {{item.Medium1}} </option>
                         </select>
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="institutions.MediumId" placeholder="MediumId" /> -->

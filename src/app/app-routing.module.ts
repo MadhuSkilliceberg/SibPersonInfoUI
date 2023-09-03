@@ -62,12 +62,18 @@ import { SprintComponent } from './components/sprint/sprint.component';
 import { SprintTasksComponent } from './components/sprinttasks/sprinttasks.component';
 import { StatesComponent } from './components/states/states.component';
 import { StatusComponent } from './components/status/status.component';
-
-
+import { UserSkillEditComponent } from './components/userskills/user-skill-edit/user-skill-edit.component'; 
+import { LoginComponent } from './login/login.component';
+import { UseRegistrationComponent } from './components/use-registration/use-registration.component';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 
 
 const routes: Routes = [
 
+  { path: 'reg', component: UseRegistrationComponent },
+  { path: 'reg/:id', component: UseRegistrationComponent },
+  { path: 'user-reg', component: UserRegistrationComponent },
+  { path: 'ueser-reg/:id', component: UserRegistrationComponent },
   { path: 'task', component: TaskComponent },
   { path: 'taskcommentdocuments', component: TaskCommentDocumentsComponent },
   { path: 'taskcomments', component: TaskCommentsComponent },
@@ -81,6 +87,7 @@ const routes: Routes = [
   { path: 'usercontacts', component: UserContactsComponent },
   { path: 'usercourses', component: UserCoursesComponent },
   { path: 'usereducationdetails', component: UserEducationDetailsComponent },
+  { path: 'useremails/:id', component: UserEmailsComponent },
   { path: 'useremails', component: UserEmailsComponent },
   { path: 'users', component: UsersComponent },
   { path: 'userskills', component: UserSkillsComponent },
@@ -129,7 +136,8 @@ const routes: Routes = [
   { path: 'states', component: StatesComponent },
   { path: 'status', component: StatusComponent },
 
-
+  { path: 'userskilladd', component: UserSkillEditComponent },
+  { path: 'login', component: LoginComponent },
 
 
 ];

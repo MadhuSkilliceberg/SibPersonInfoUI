@@ -1,12 +1,12 @@
 export class InstitutionEmails
 { public Id:number=0; 
- public InstitutionAddressId! :number; 
+ public InstitutionAddressId   :number = 0; 
  public Email! :string; 
  public IsPrimary! :boolean; 
- public OrderId! :number; 
+ public OrderId   :number = 0; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

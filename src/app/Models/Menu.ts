@@ -1,6 +1,6 @@
 export class Menu
-{ public Id! :number; 
- public ParentId! :number; 
+{ public Id   :number = 0; 
+ public ParentId   :number = 0; 
  public Name! :string; 
  public TargetName! :string; 
 

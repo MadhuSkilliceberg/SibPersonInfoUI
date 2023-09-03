@@ -6,14 +6,15 @@
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
-                    
+
                     <div class="col-md-3">
                         User:
                     </div>
                     <div class="col-md-3">
-                        
-                        <select id="id"  name="UserName" [(ngModel)]="usereducationdetails.UserId" class="form-control">
-                            <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+
+                        <select id="id" name="UserName" [(ngModel)]="usereducationdetails.UserId" class="form-control">
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of usersData" value="{{item.Id}}"> {{item.FirstName}} </option>
                         </select>
 
 
@@ -28,17 +29,20 @@
                     </div>
                     <div class="col-md-3">
 
-                    <select id="id"  name="QualificationtypeName" [(ngModel)]="usereducationdetails.QulificationtypeId" class="form-control">
-                            <option *ngFor="let item of qulificationtypeData" value="{{item.Id}}" > {{item.QulificationName}} </option>
+                        <select id="id" name="QualificationtypeName"
+                            [(ngModel)]="usereducationdetails.QulificationtypeId" class="form-control">
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of qulificationtypeData" value="{{item.Id}}">
+                                {{item.QulificationName}} </option>
                         </select>
 
 
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usereducationdetails.QulificationtypeId" placeholder="QulificationtypeId" /> -->
-                           
-                    </div> 
 
-                    
+                    </div>
+
+
                     <div class="col-md-3">
                         YearOFPassout :
                     </div>
@@ -56,7 +60,7 @@
                             [(ngModel)]="usereducationdetails.StartYear" placeholder="StartYear" />
                     </div>
 
-                    
+
                     <div class="col-md-3">
                         EndYear :
                     </div>
@@ -71,8 +75,11 @@
                     </div>
                     <div class="col-md-3">
 
-                        <select id="id"  name="Institution" [(ngModel)]="usereducationdetails.InstitutionId" class="form-control">
-                            <option *ngFor="let item of institutionsData" value="{{item.Id}}" > {{item.InstitutionName}} </option>
+                        <select id="id" name="Institution" [(ngModel)]="usereducationdetails.InstitutionId"
+                            class="form-control">
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of institutionsData" value="{{item.Id}}"> {{item.InstitutionName}}
+                            </option>
                         </select>
 
 
@@ -80,7 +87,7 @@
                             [(ngModel)]="usereducationdetails.InstitutionId" placeholder="InstitutionId" /> -->
                     </div>
 
-                    
+
                     <div class="col-md-3">
                         Percentage :
                     </div>
@@ -93,14 +100,16 @@
                 <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-1">
-                        <button (click)="AddUserEducationDetails()" class="btn btn-primary" *ngIf="isSave">Submit</button>
+                        <button (click)="AddUserEducationDetails()" class="btn btn-primary"
+                            *ngIf="isSave">Submit</button>
                     </div>
                 </div>
 
                 <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-3">
-                        <button (click)="UpdateUserEducationDetails()" class="btn btn-primary" *ngIf="isUpdate">Update</button>
+                        <button (click)="UpdateUserEducationDetails()" class="btn btn-primary"
+                            *ngIf="isUpdate">Update</button>
                     </div>
                 </div>
 
@@ -138,9 +147,11 @@
                                         <td>{{item.EndYear}}</td>
                                         <td>{{item.InstitutionId}}</td>
                                         <td>{{item.Percentage}}</td>
-                                        <td><button class="btn btn-info" (click)="GetUserEducationDetailsById(item.Id)"> Edit
+                                        <td><button class="btn btn-info" (click)="GetUserEducationDetailsById(item.Id)">
+                                                Edit
                                             </button></td>
-                                        <td><button class="btn btn-danger" (click)="DeleteUserEducationDetails(item.Id)"> Delete
+                                        <td><button class="btn btn-danger"
+                                                (click)="DeleteUserEducationDetails(item.Id)"> Delete
                                             </button></td>
                                     </tr>
                                 </tbody>

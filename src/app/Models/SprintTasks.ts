@@ -1,12 +1,12 @@
 export class SprintTasks
-{ public Id! :number; 
- public SprintId! :number; 
- public TaskId! :number; 
- public StatusId! :number; 
+{ public Id   :number = 0; 
+ public SprintId   :number = 0; 
+ public TaskId   :number = 0; 
+ public StatusId   :number = 0; 
  public Description! :string; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

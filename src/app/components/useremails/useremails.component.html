@@ -14,7 +14,8 @@
                     <div class="col-md-3">
 
                           <select  id="Id" name="UserName" [(ngModel)]="useremails.UserId" class="form-control">
-                            <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
                         </select>
                       
                         <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
@@ -54,7 +55,8 @@
                     </div>
                     <div class="col-md-3">
                         <select  id="Id" name="UserName"  [(ngModel)]="useremails.TypeId" class="form-control">
-                            <option *ngFor="let item of contacttypeData" value="{{item.Id}}" > {{item.Name}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of contacttypeData" value="{{item.Id}}" > {{item.Name}} </option>
                         </select>
                     <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="useremails.TypeId" placeholder="TypeId" /> -->
@@ -78,7 +80,7 @@
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-12">
                         <div class="container mt-3">
-                            <h2>UserEmails Data</h2>
+                            <h2>UserEmails Data</h2> <button (click)="OnBack()" class="btn btn-primary"  >Back</button>
 
                             <table class="table table-bordered">
                                 <thead>

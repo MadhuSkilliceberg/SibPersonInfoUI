@@ -1,11 +1,11 @@
 export class VacanciesSkill
-{ public Id! :number; 
- public VacancyId! :number; 
- public SkillId! :number; 
+{ public Id   :number = 0; 
+ public VacancyId   :number = 0; 
+ public SkillId   :number = 0; 
  public IsActive :boolean=false; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

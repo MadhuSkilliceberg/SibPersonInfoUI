@@ -19,7 +19,8 @@
                     <div class="col-md-3">
                         <select id="DDLTaskCommentId" name="DDLTaskCommentId" class="form-control"
                             [(ngModel)]="taskcommentdocuments.TaskCommentId">
-                            <option *ngFor="let item of taskCommentsData" value="{{item.Id}}"> {{item.Comments}}
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of taskCommentsData" value="{{item.Id}}"> {{item.Comments}}
                             </option>
                         </select>
                         <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"

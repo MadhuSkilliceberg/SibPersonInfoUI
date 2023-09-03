@@ -1,13 +1,13 @@
 export class TaskCommentDocuments
-{ public Id! :number; 
- public TaskCommentId! :number; 
+{ public Id   :number = 0; 
+ public TaskCommentId   :number = 0; 
  public FileType! :string; 
  public FileName! :string; 
  public File! :string; 
  public Description! :string; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

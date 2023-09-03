@@ -1,13 +1,13 @@
 export class TaskDocuments
-{ public Id! :number; 
- public TaskId! :number; 
+{ public Id   :number = 0; 
+ public TaskId   :number = 0; 
  public FileType! :string; 
  public FileName! :string; 
  public File! :string; 
  public Description! :string; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

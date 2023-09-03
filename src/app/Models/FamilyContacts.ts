@@ -1,12 +1,12 @@
 export class FamilyContacts
-{ public Id! :number; 
- public FamilyId! :number; 
- public MobileNumber! :number; 
+{ public Id   :number = 0; 
+ public FamilyId   :number = 0; 
+ public MobileNumber   :number = 0; 
  public IsPrimary! :boolean; 
- public OrderId! :number; 
+ public OrderId   :number = 0; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

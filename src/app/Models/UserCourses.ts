@@ -1,12 +1,12 @@
 export class UserCourses
-{ public Id! :number; 
- public CourseId! :number; 
+{ public Id   :number = 0; 
+ public CourseId   :number = 0; 
  public IsPrimary :boolean=false; 
- public UserId! :number; 
- public OrderId! :number; 
+ public UserId   :number = 0; 
+ public OrderId  ! :number; 
  public CreatedOn! :Date; 
- public CreatedBy! :number; 
+ public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
- public UpdatedBy! :number; 
+ public UpdatedBy   :number = 0; 
 
 }

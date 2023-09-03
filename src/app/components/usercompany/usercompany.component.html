@@ -17,7 +17,8 @@
 
 
                             <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.UserId" class="form-control">
-                                <option *ngFor="let item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
+                                <option value="0">Select</option>
+                            <option *ngFor="let  item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
                             </select>
                     </div>
 
@@ -29,7 +30,8 @@
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usercompany.CompanyId" placeholder="CompanyId" /> -->
                                <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.CompanyId" class="form-control">
-                            <option *ngFor="let item of companyData" value="{{item.Id}}" > {{item.CompanyName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of companyData" value="{{item.Id}}" > {{item.CompanyName}} </option>
                         </select>
                     </div>
                     <br><br>
@@ -84,7 +86,8 @@
                     <div class="col-md-3">
 
                         <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.DesignationId" class="form-control">
-                            <option *ngFor="let item of designationData" value="{{item.Id}}" > {{item.DesignationName}} </option>
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of designationData" value="{{item.Id}}" > {{item.DesignationName}} </option>
                         </select>
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usercompany.DesignationId" placeholder="DesignationId" /> -->

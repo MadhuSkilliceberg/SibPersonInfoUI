@@ -39,7 +39,8 @@
           <div class="col-md-3">
 
             <select name="ddlTemplate" id="" name="ddlTemplate" class="form-control" [(ngModel)]="template.TypeId">
-              <option *ngFor="let item of templatetypeData" value="{{item.Id}}"> {{item.Name}} </option>
+              <option value="0">Select</option>
+                            <option *ngFor="let  item of templatetypeData" value="{{item.Id}}"> {{item.Name}} </option>
             </select>
 
             <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="template.TypeId" placeholder="TypeId"/> -->
