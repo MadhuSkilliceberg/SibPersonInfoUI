@@ -35,9 +35,9 @@ export class CompanyReviewsComponent implements OnInit {
 
 
   constructor(
-    private companyreviewsService: CompanyReviewsService,
-    private companyService: CompanyService,
-    private reviewsService: ReviewsService,
+      private companyreviewsService: CompanyReviewsService,
+      private companyService: CompanyService,
+      private reviewsService: ReviewsService,
 
 
   ) { }

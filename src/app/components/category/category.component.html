@@ -1,0 +1,247 @@
+<!-- <H1>test</H1>
+<H1>test</H1>
+<H1>test</H1>
+<H1>test</H1>
+
+<ul>
+    <li *ngFor="let item of TreeData">
+        <input type="radio">{{item.name}}
+        <div *ngIf="item.children.length">
+            <div *ngFor="let child of item.children">
+                <input type="radio">{{child.name}}
+                <ul>
+                    <li *ngFor="let c of child.children">
+                        <input type="radio">{{c.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>
+
+
+=================================
+
+<table>
+    <thead>
+        <tr>
+            <th class="string">name</th>
+            <th class="number">title</th>
+            <th class="array">children</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="string">TypeScript</td>
+            <td class="number">12</td>
+            <td class="array">
+                <table>
+                    <tbody></tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="string">C#</td>
+            <td class="number">13</td>
+            <td class="array">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="string">name</th>
+                            <th class="number">title</th>
+                            <th class="array">children</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="string">DataTypes</td>
+                            <td class="number">1</td>
+                            <td class="array">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="string">name</th>
+                                            <th class="number">title</th>
+                                            <th class="array">children</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="string">valueTypes</td>
+                                            <td class="number">2</td>
+                                            <td class="array">
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="string">name</th>
+                                                            <th class="number">title</th>
+                                                            <th class="array">children</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="string">fraction</td>
+                                                            <td class="number">4</td>
+                                                            <td class="array">
+                                                                <table>
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th class="string">name</th>
+                                                                            <th class="number">title</th>
+                                                                            <th class="array">children</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="string">decimal</td>
+                                                                            <td class="number">8</td>
+                                                                            <td class="array">
+                                                                                <table>
+                                                                                    <tbody></tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="string">double</td>
+                                                                            <td class="number">9</td>
+                                                                            <td class="array">
+                                                                                <table>
+                                                                                    <tbody></tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="string">numbers</td>
+                                                            <td class="number">5</td>
+                                                            <td class="array">
+                                                                <table>
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th class="string">name</th>
+                                                                            <th class="number">title</th>
+                                                                            <th class="array">children</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="string">int</td>
+                                                                            <td class="number">6</td>
+                                                                            <td class="array">
+                                                                                <table>
+                                                                                    <tbody></tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="string">long</td>
+                                                                            <td class="number">7</td>
+                                                                            <td class="array">
+                                                                                <table>
+                                                                                    <tbody></tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="string">referanceType</td>
+                                            <td class="number">3</td>
+                                            <td class="array">
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="string">name</th>
+                                                            <th class="number">title</th>
+                                                            <th class="array">children</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="string">string</td>
+                                                            <td class="number">10</td>
+                                                            <td class="array">
+                                                                <table>
+                                                                    <tbody></tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="string">char</td>
+                                                            <td class="number">11</td>
+                                                            <td class="array">
+                                                                <table>
+                                                                    <tbody></tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table> -->
+
+
+<!-- 
+<div id="tree">
+    <div class="branch" *ngFor="let item of TreeData">
+        <div class="entry" *ngIf="item.name!=null ;else other_content"><span>Father</span>
+            
+<ng-template #other_content>other content here...</ng-template>
+            <div class="branch">
+                <div class="entry"><span>Grandfather</span>
+                    <div class="branch">
+                        <div class="entry"><span>Great Grandfather</span></div>
+                        <div class="entry"><span>Great Grandmother</span></div>
+                    </div>
+                </div>
+                <div class="entry"><span>Grandmother</span>
+                    <div class="branch">
+                        <div class="entry"><span>Great Grandfather</span></div>
+                        <div class="entry"><span>Great Grandmother</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+<app-treenode   [TreeData]="TreeData"></app-treenode>
+<!-- <div id="tree">
+    <ng-container *ngTemplateOutlet="treeViewList; 
+                                 context:{$implicit:TreeData}">
+    </ng-container>
+</div>
+
+<ng-template #treeViewList let-list>
+    <div class="branch">
+        <div class="entry" *ngFor="let item of list;let i=index">
+            <span> {{item.name}}</span>
+            <ng-container *ngTemplateOutlet="treeViewList;
+                        context:{$implicit: item.children}">
+            </ng-container>
+        </div>
+    </div>
+</ng-template> -->
