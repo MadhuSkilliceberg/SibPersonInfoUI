@@ -76,6 +76,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { UseRegistrationComponent } from './components/use-registration/use-registration.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { CompanyRegistrationComponent } from './components/company-registration/company-registration.component';
+import { CategoryComponent } from './components/category/category.component';
+import { TreenodeComponent } from './utilities/treenode/treenode.component';
 
 
 @NgModule({
@@ -145,7 +148,10 @@ StatusComponent,
 UserSkillEditComponent,
 LoginComponent,
 UseRegistrationComponent,
-UserRegistrationComponent ,  
+UserRegistrationComponent,
+CompanyRegistrationComponent,
+CategoryComponent,
+TreenodeComponent ,  
   ],
   imports: [
     BrowserModule,

@@ -62,10 +62,12 @@ import { SprintComponent } from './components/sprint/sprint.component';
 import { SprintTasksComponent } from './components/sprinttasks/sprinttasks.component';
 import { StatesComponent } from './components/states/states.component';
 import { StatusComponent } from './components/status/status.component';
-import { UserSkillEditComponent } from './components/userskills/user-skill-edit/user-skill-edit.component'; 
+import { UserSkillEditComponent } from './components/userskills/user-skill-edit/user-skill-edit.component';
 import { LoginComponent } from './login/login.component';
 import { UseRegistrationComponent } from './components/use-registration/use-registration.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { CompanyRegistrationComponent } from './components/company-registration/company-registration.component';
+import { CategoryComponent } from './components/category/category.component';
 
 
 const routes: Routes = [
@@ -138,6 +140,8 @@ const routes: Routes = [
 
   { path: 'userskilladd', component: UserSkillEditComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'companyRegistration', component: CompanyRegistrationComponent },
+  { path: 'Category', component: CategoryComponent }
 
 
 ];

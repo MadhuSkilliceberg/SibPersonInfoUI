@@ -1,0 +1,321 @@
+<div class='dashboard-content'>
+    <div class='container'>
+        <div class='card'>
+            <div class='card-header'>
+                <h1>COMPANY</h1>
+            </div>
+            <div class='card-body'>
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-3">
+                        CompanyName :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="company.CompanyName" placeholder="CompanyName">
+                    </div>
+
+                    <div class="col-md-3">
+                        Code :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" class="form-control" id="txtcode" [(ngModel)]="company.Code"
+                            placeholder="Code" />
+                    </div>
+
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class='container'>
+        <div class='card'>
+            <div class='card-header'>
+                <h1>COMPANY ADDRESS</h1>
+            </div>
+            <div class='card-body' *ngFor="let companyaddress of companyaddressData; let i=index; let l=count">
+                <div class="row" style="padding-bottom: 10px;">
+                    <!-- <div class="col-md-3">
+                        Company :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="companyaddress.CompanyId" class="form-control">
+                            <option *ngFor="let item of companyData" value="{{item.Id}}">{{item.CompanyName}}</option>
+                        </select>
+
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="companyaddress.CompanyId" placeholder="InstitutionName">
+                    </div> -->
+                    <div class="col-md-3">
+                        FlotNo :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" class="form-control" id="txtcode1"
+                            [(ngModel)]="companyaddress.FlotNo" placeholder="FlotNo" />
+                    </div>
+
+                    <br><br>
+                    <div class="col-md-3">
+                        Address1 :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" id="txtcode2" class="form-control"
+                            [(ngModel)]="companyaddress.Address1" placeholder="Address1" />
+                    </div>
+                    <div class="col-md-3">
+                        Address2 :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="companyaddress.Address2" placeholder="Address2">
+                    </div>
+                    <br><br>
+                    <div class="col-md-3">
+                        City :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="companyaddress.City" placeholder="City" />
+                    </div>
+
+                    <br><br>
+                    <div class="col-md-3">
+                        State :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="companyaddress.StateId" class="form-control">
+                            <option *ngFor="let item of statesData" value="{{item.Id}}">{{item.StateName}}</option>
+                        </select>
+                        <!-- <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="companyaddress.StateId" placeholder="InstitutionName"> -->
+                    </div>
+                    <div class="col-md-3">
+                        Country :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="companyaddress.CountryId" class="form-control">
+                            <option *ngFor="let item of countriesData" value="{{item.Id}}">{{item.CountryName}}</option>
+                        </select>
+                        <!-- <input type="number" name="txtcode" class="form-control" id="txtcode" [(ngModel)]="companyaddress.CountryId" placeholder="QualificationtypeId" /> -->
+                    </div>
+
+                    <br><br>
+                    
+                </div>
+                <div class="row ">
+                    <div class="col-md-9"></div>
+
+                    <div class="col-md-3 float-right">
+
+                        <a (click)="CompanyObjectPush('CompanyAddress')"><img src="assets/Plus Button.png" alt="Not Found"
+                                height="40" width="40" srcset="" *ngIf="i==l-1"></a>
+
+                        <a (click)="ArrayObjectRemoveAt(companyaddressData, i)" *ngIf="l==1?false:true"><img
+                                src="assets/Minus Button.png" alt="Not Found" height="35" width="35" srcset=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+
+    <div class='container'>
+        <div class='card'>
+            <div class='card-header'>
+                <h1>COMPANY CONTACTS</h1>
+            </div>
+            <div class='card-body' *ngFor="let Contact of companycontactsData; let i=index; let l=count">
+                <div class="row" style="padding-bottom: 10px;">
+                    <!-- <div class="col-md-3">
+                        CompanyAddress :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="companyaddress" id="companyaddress" [(ngModel)]="companycontacts.CompanyAddressId"
+                            class="form-control">
+                            <option *ngFor="let item of companyaddressData" value="{{item.Id}}">{{item.Address1}}
+                            </option>
+                        </select>
+
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                        [(ngModel)]="companycontacts.CompanyAddressId" placeholder="CompanyAddressId">
+                    </div> -->
+                    <div class="col-md-3">
+                        MobileNumber :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="companycontacts.MobileNumber" placeholder="MobileNumber" />
+                    </div>
+
+                    <br><br>
+                    <div class="col-md-3">
+                        IsPrimary :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="txtcode" id="txtcode" class="form-check-input"
+                            [(ngModel)]="companycontacts.IsPrimary" placeholder="IsPrimary" />
+                    </div>
+
+                    <div class="col-md-3">
+                        OrderId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="companycontacts.OrderId" placeholder="OrderId" />
+                    </div>
+                    <br><br>
+
+                    <div class="col-md-3">
+                        ContactTypeId :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="ddlcompanyContacts" id="ddlcompanyContacts"
+                            [(ngModel)]="companycontacts.ContactTypeId" class="form-control">
+                            <option *ngFor="let item of contacttypeData" value="{{item.Id}}">{{item.Name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-9"></div>
+
+                    <div class="col-md-3 float-right">
+
+                        <a (click)="CompanyObjectPush('CompanyContacts')"><img src="assets/Plus Button.png" alt="Not Found"
+                                height="40" width="40" srcset="" *ngIf="i==l-1"></a>
+
+                        <a (click)="ArrayObjectRemoveAt(companycontactsData, i)" *ngIf="l==1?false:true"><img
+                                src="assets/Minus Button.png" alt="Not Found" height="35" width="35" srcset=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+
+    <div class='container'>
+        <div class='card'>
+            <div class='card-header'>
+                <h1>COMPANY EMAILS</h1>
+            </div>
+            <div class='card-body' >
+                <div class="row" style="padding-bottom: 10px;">
+                    <!-- <div class="col-md-3">
+                        CompanyAddress :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="companyemails.CompanyAddressId" class="form-control">
+                            <option *ngFor="let item of companyaddressData" value="{{item.Id}}">{{item.Address1}}
+                            </option>
+                        </select>
+                        <input type="number" id="txtskill" class="form-control" Name="txtskill"
+                            [(ngModel)]="companyemails.CompanyAddressId" placeholder="CompanyAddressId">
+                    </div> -->
+                    <div class="col-md-3">
+                        Email :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtcode" class="form-control" id="txtcode"
+                            [(ngModel)]="companyemails.Email" placeholder="Email" />
+                    </div>
+
+                    <br><br>
+                    <div class="col-md-3">
+                        IsPrimary :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="txtcode" id="txtcode" class="form-check-input"
+                            [(ngModel)]="companyemails.IsPrimary" placeholder="IsPrimary" />
+                    </div>
+                    <div class="col-md-3">
+                        OrderId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtcode" id="txtcode" class="form-control"
+                            [(ngModel)]="companyemails.OrderId" placeholder="OrderId" />
+                    </div>
+                    <br><br>
+
+                    <div class="col-md-3">
+                        ContactType :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="companyemails.ContactTypeId" class="form-control">
+                            <option *ngFor="let item of contacttypeData" value="{{item.Id}}">{{item.Name}}</option>
+                        </select>
+                    </div>
+                </div>
+               <!-- <div class="row ">
+                    <div class="col-md-9"></div>
+
+                    <div class="col-md-3 float-right">
+
+                        <a (click)="CompanyObjectPush('CompanyEmails')"><img src="assets/Plus Button.png" alt="Not Found"
+                                height="40" width="40" srcset="" *ngIf="i==l-1"></a>
+
+                        <a (click)="ArrayObjectRemoveAt(companyemailsData, i)" *ngIf="l==1?false:true"><img
+                                src="assets/Minus Button.png" alt="Not Found" height="35" width="35" srcset=""></a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <br>    
+
+
+
+
+      <div class='container'>
+        <div class='card'>
+            <div class='card-header'>
+                <h1>COMPANY REVIEWS</h1>
+            </div>
+            <div class='card-body' *ngFor="let companyreviews of companyreviewsData; let i=index; let l=count">
+                <div class="row" style="padding-bottom: 10px;">
+                  
+                    <div class="col-md-3">
+                        Review :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="companyreviews.ReviewId" class="form-control">
+                            <option *ngFor="let item of reviewsData" value="{{item.Id}}">{{item.Heading}}</option>
+                        </select>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-9"></div>
+
+                <div class="col-md-3 float-right">
+
+                    <!-- <a (click)="CompanyObjectPush('CompanyReviews')"><img src="assets/Plus Button.png" alt="Not Found"
+                            height="40" width="40" srcset="" ></a>
+
+                    <a (click)="ArrayObjectRemoveAt(companyreviewsData, i)" *ngIf="l==1?false:true"><img
+                            src="assets/Minus Button.png" alt="Not Found" height="35" width="35" srcset=""></a> -->
+                </div>
+            </div>
+
+            <div class="row ">
+             
+                <div class="col-md-3"></div>
+                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    <button (click)="OnSaveCompanyDetail()" class="btn btn-primary" 
+                        style="margin-left:30px;">Submit</button>
+                </div>
+                <div class="col-md-5"></div>
+            </div>
+            <br>
+        </div>
+        
+
+        <br><br>
+    </div>
+</div>
