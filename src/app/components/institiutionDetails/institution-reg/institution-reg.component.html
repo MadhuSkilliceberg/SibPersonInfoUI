@@ -1,0 +1,494 @@
+<div class='dashboard-content'>
+    <div class='container'>
+
+        <!-- For Institution Registration -->
+        <div class='card'>
+            <div class='card-header'>
+                <h3>INSTITUTION</h3>
+            </div>
+            <div class='card-body'>
+                <div class='card-body'>
+                    <div class="row" style="padding-bottom: 10px;">
+                        <div class="col-md-3">
+                            InstitutionName :
+                        </div>
+                        <div class="col-md-3">
+
+                            <input type="text" name="txtInstitutionName" class="form-control" id="txtInstitutionName"
+                                [(ngModel)]="institutionsDetails.institutions.InstitutionName" placeholder="InstitutionName" />
+                        </div>
+
+                        <br><br>
+                        <div class="col-md-3">
+                            Qualificationtype :
+                        </div>
+                        <div class="col-md-3">
+                            <select name="Qualificationtype" id="Qualificationtype" name="Qualificationtype"
+                                [(ngModel)]="institutionsDetails.institutions.QulificationTypeId" class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of lookUpQulificationtypeData" value="{{item.Id}}">
+                                    {{item.QulificationName}} </option>
+                            </select>
+                        </div>
+
+
+                        <br><br>
+                        <div class="col-md-3">
+                            Medium :
+                        </div>
+                        <div class="col-md-3">
+                            <select name="" id="" name="Qualificationtype" [(ngModel)]="institutionsDetails.institutions.MediumId"
+                                class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of LookUpMedium" value="{{item.Id}}"> {{item.Medium1}} </option>
+                            </select>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <!-- Institution Address Table  -->
+        <div class='card'>
+            <div class='card-header'>
+                <h3>INSTITUTION ADDRESS </h3>
+            </div>
+            <div class='card-body'
+                *ngFor="let institutionaddressitem of institutionsDetails.institutionaddress ; let i=index; let l=count">
+                <div class='card-body'>
+                    <div class="row" style="padding-bottom: 10px;">
+                        <div class="col-md-3">
+                            Flot Number :  
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtFlot" id="txtFlot" class="form-control"
+                                [(ngModel)]="institutionaddressitem.FlotNo" placeholder="Flot Number" />
+                        </div>
+                        <div class="col-md-3">
+                           Is Main :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" name="txtFlot" id="txtFlot"   class="form-check-input" 
+                                [(ngModel)]="institutionaddressitem.IsMain"  />
+                                {{institutionaddressitem.IsMain}}
+                        </div>
+                        
+                        <div class="col-md-3">
+                            Address 1 :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtAddress" id="txtAddress" class="form-control"
+                                [(ngModel)]="institutionaddressitem.Address1" placeholder="Address 1" />
+                        </div>
+
+                        <br><br>
+                        <div class="col-md-3">
+                            Address 2 :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtAddress2" id="txtAddress2" class="form-control"
+                                [(ngModel)]="institutionaddressitem.Address2" placeholder="Address2" />
+                        </div>
+
+                        <br><br>
+                        <div class="col-md-3">
+                            City :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtCity" id="txtCity" class="form-control"
+                                [(ngModel)]="institutionaddressitem.City" placeholder="City" />
+                        </div>
+
+                        <br><br>
+                        <div class="col-md-3">
+                            State :
+                        </div>
+                        <div class="col-md-3">
+
+                            <select name="State" id="StateId" [(ngModel)]="institutionaddressitem.StateId"
+                                class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of lookUpstates" value="{{item.Id}}" class="form-control">
+                                    {{item.StateName}}</option>
+                            </select>
+                        </div>
+
+                        <br><br>
+                        <div class="col-md-3">
+                            Country :
+                        </div>
+                        <div class="col-md-3">
+                            <select name="Country" id="Country" [(ngModel)]="institutionaddressitem.CountryId"
+                                class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of lookUpCountries" value="{{item.Id}}" class="form-control">
+                                    {{item.CountryName}}</option>
+                            </select>
+                        </div>
+
+                        <br><br>
+
+                        <div class="col-md-3">
+                            Meduim :
+                        </div>
+                        <div class="col-md-3">
+                            <select name="Meduim" id="Meduim" [(ngModel)]="institutionaddressitem.MeduimId"
+                                class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of LookUpMedium" value="{{item.Id}}" class="form-control">
+                                    {{item.Medium1}}</option>
+                            </select>
+                        </div>
+                        <br><br><br>
+                        <div class="container">
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <h4> EMAILS </h4>
+                                </div>
+                                <div class='card-body'
+                                    *ngFor="let eitem of institutionaddressitem.institutionemails ; let i=index; let l=count">
+                                    <div class="row" *ngIf="eitem.IsDeleted==false"  style="padding-bottom: 10px;"> 
+                                        <!-- *ngIf="eitem.IsDeleted==false" -->
+                                        <!--  <div class="col-md-3">
+                                        Institution Address :
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select name="" id="" [(ngModel)]="item.InstitutionAddressId" class="form-control">
+                                            <option value="0">--Select--</option>
+                                            <option *ngFor="let  ia of institutionaddressData" value="{{ia.Id}}">{{ia.Address1}}
+                                            </option>
+                                        </select>
+                                    </div> -->
+
+                                        <br><br>
+
+                                        <div class="col-md-3">
+                                            Institution Email :
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" name="txtEmail{{i}}" id="txtEmail{{i}}" class="form-control"
+                                                [(ngModel)]="eitem.Email" placeholder="Email" />
+
+                                        </div>
+                                        <br><br>
+
+
+                                        <div class="col-md-3">
+                                            IsPrimary :
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="txtIsPrimary" id="txtIsPrimary"
+                                                class="form-check-input" [(ngModel)]="eitem.IsPrimary"
+                                                placeholder="IsPrimary" />{{eitem.IsPrimary}}
+
+                                        </div>
+                                        <br><br>
+                                        <div class="col-md-3">
+                                            OrderId :
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="number" name="txtv" id="txtOrderId" class="form-control"
+                                                [(ngModel)]="eitem.OrderId" placeholder="OrderId" />
+                                        </div>
+                                        <br><br>
+                                    </div>
+
+                                    <div class="row ">
+                                        <div class="col-md-9"></div>
+                                        <div class="col-md-3">
+                                            <a (click)="AddressEmailPush1(institutionaddressitem)"><img
+                                                    src="assets/Plus Button.png" alt="Not Found" height="40" width="40"
+                                                    srcset="" *ngIf="i==l-1"></a>
+
+                                            <a (click)="ArrayObjectRemoveAt(institutionaddressitem.institutionemails, i)"
+                                                *ngIf="l==1?false:true"><img src="assets/Minus Button.png"
+                                                    alt="Not Found" height="35" width="35" srcset=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+
+                        <!--Institution Contacts -->
+                        <div class="container">
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <h4> CONTACTS </h4>
+                                </div>
+                                <div class='card-body'
+                                    *ngFor="let item of institutionaddressitem.institutioncontacts; let i=index; let l=count">
+                                    <div class="row" style="padding-bottom: 10px;">
+                                        <!-- <div class="col-md-3">
+                                            Institution Address :
+                                        </div>
+                                        <div class="col-md-3">
+
+                                            <select name="" id="" [(ngModel)]="item.InstitutionAddressId"
+                                                class="form-control">
+                                                <option value="0">--Select--</option>
+                                                <option *ngFor="let  item of institutionaddressData"
+                                                    value="{{item.Id}}">{{item.Address1}}
+                                                </option>
+                                            </select>
+                                        </div> -->
+
+                                        <br><br>
+
+                                        <div class="col-md-3">
+                                            MobileNumber :
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="number" name="txtEmail{{i}}" id="txtEmail{{i}}" class="form-control"
+                                                [(ngModel)]="item.MobileNumber" placeholder="Email" />
+                                        </div>
+                                        <br><br>
+
+                                        <div class="col-md-3">
+                                            IsPrimary :
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="txtIsPrimary" id="txtIsPrimary"
+                                                class="form-check-input" [(ngModel)]="item.IsPrimary"
+                                                placeholder="IsPrimary" />{{item.IsPrimary}}
+
+                                        </div>
+                                        <br><br>
+                                        <div class="col-md-3">
+                                            OrderId :
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="number" name="txtOrderId" id="txtOrderId" class="form-control"
+                                                [(ngModel)]="item.OrderId" placeholder="OrderId" />
+                                        </div>
+
+                                        <br><br>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-md-9"></div>
+                                        <div class="col-md-3">
+                                            <a (click)="AddressContactPush1(institutionaddressitem)"><img
+                                                    src="assets/Plus Button.png" alt="Not Found" height="40" width="40"
+                                                    srcset="" *ngIf="i==l-1"></a>
+
+                                            <a (click)="ArrayObjectRemoveAt(institutionaddressitem.institutioncontacts, i)"
+                                                *ngIf="l==1?false:true"><img src="assets/Minus Button.png"
+                                                    alt="Not Found" height="35" width="35" srcset=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <a (click)="UserObjectPush('InstitutionAddress')"><img src="assets/Plus Button.png"
+                                alt="Not Found" height="40" width="40" srcset="" *ngIf="i==l-1"></a>
+
+                        <a (click)="ArrayObjectRemoveAt(institutionsDetails.institutionaddress, i)" *ngIf="l==1?false:true"><img
+                                src="assets/Minus Button.png" alt="Not Found" height="35" width="35" srcset=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+
+
+        <!-- Institution  Emails -->
+        <!-- <div class='card'>
+            <div class='card-header'>
+                <h3>MAIN EMAILS </h3>
+            </div>
+            <div class='card-body' *ngFor="let item of lookupinstitutionemails; let i=index; let l=count">
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-3">
+                        Institution Address :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="item.InstitutionAddressId" class="form-control">
+                            <option value="0">--Select--</option>
+                            <option *ngFor="let  ia of institutionaddressData" value="{{ia.Id}}">{{ia.Address1}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <br><br>
+
+                    <div class="col-md-3">
+                        Institution Email :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtEmail" id="txtEmail" class="form-control" [(ngModel)]="item.Email"
+                            placeholder="Email" />
+
+                    </div>
+                    <br><br>
+
+
+                    <div class="col-md-3">
+                        IsPrimary :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="txtIsPrimary" id="txtIsPrimary" class="form-check-input"
+                            [(ngModel)]="item.IsPrimary" placeholder="IsPrimary" />
+
+                    </div>
+                    <br><br>
+                    <div class="col-md-3">
+                        OrderId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtv" id="txtOrderId" class="form-control" [(ngModel)]="item.OrderId"
+                            placeholder="OrderId" />
+                    </div>
+                    <br><br>
+                </div>
+                <div class="row ">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <a (click)="UserObjectPush('InstitutionEmails')"><img src="assets/Plus Button.png"
+                                alt="Not Found" height="40" width="40" srcset="" *ngIf="i==l-1"></a>
+
+                        <a (click)="ArrayObjectRemoveAt(lookupinstitutionemails, i)" *ngIf="l==1?false:true"><img
+                                src="assets/Minus Button.png" alt="Not Found" height="35" width="35" srcset=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br> -->
+
+        <!-- Institution Contacts -->
+        <!-- <div class='card'>
+            <div class='card-header'>
+                <h3>MAIN CONTACTS </h3>
+            </div>
+            <div class='card-body' *ngFor="let item of institutionsDetails.xco let i=index; let l=count">
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-3">
+                        Institution Address :
+                    </div>
+                    <div class="col-md-3">
+
+                        <select name="" id="" [(ngModel)]="item.InstitutionAddressId" class="form-control">
+                            <option value="0">--Select--</option>
+                            <option *ngFor="let  item of institutionsDetails.institutionaddress" value="{{item.Id}}">{{item.Address1}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <br><br>
+
+                    <div class="col-md-3">
+                        MobileNumber :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtEmail" id="txtEmail" class="form-control"
+                            [(ngModel)]="item.MobileNumber" placeholder="Email" />
+                    </div>
+                    <br><br>
+
+                    <div class="col-md-3">
+                        IsPrimary :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="txtIsPrimary" id="txtIsPrimary" class="form-check-input"
+                            [(ngModel)]="item.IsPrimary" placeholder="IsPrimary" />
+
+                    </div>
+                    <br><br>
+                    <div class="col-md-3">
+                        OrderId :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="txtOrderId" id="txtOrderId" class="form-control"
+                            [(ngModel)]="item.OrderId" placeholder="OrderId" />
+                    </div>
+
+                    <br><br>
+                </div>
+                <div class="row ">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <a (click)="UserObjectPush('InstitutionContacts')"><img src="assets/Plus Button.png"
+                                alt="Not Found" height="40" width="40" srcset="" *ngIf="i==l-1"></a>
+
+                        <a (click)="ArrayObjectRemoveAt(LoopUpinstitutioncontacts, i)" *ngIf="l==1?false:true"><img
+                                src="assets/Minus Button.png" alt="Not Found" height="35" width="35" srcset=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br> -->
+
+
+        <!-- Institution Course -->
+
+        <div class='card'>
+            <div class='card-header'>
+                <h3>MAIN COURSES </h3>
+            </div>
+            <div class='card-body' *ngFor="let item of institutionsDetails.institutionCourses; let i=index; let l=count">
+                <div class="row" style="padding-bottom: 10px;">
+                    <div class="col-md-3">
+                        Name :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="txtName" id="txtName" class="form-control" [(ngModel)]="item.Name"
+                            placeholder="Name " />
+
+                    </div>
+
+                    <br><br>
+
+                    <div class="col-md-3">
+                        Course :
+                    </div>
+                    <div class="col-md-3">
+                        <select name="" id="" [(ngModel)]="item.CourseId" class="form-control">
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of lookUpCourses" value="{{item.Id}}">{{item.Name}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <br><br>
+
+                    <div class="col-md-3">
+                        IsActive :
+                    </div>
+                    <div class="col-md-3">
+                        <input type="checkbox" name="txtIsActive" id="txtIsActive" class="form-check-input"
+                            [(ngModel)]="item.IsActive" placeholder="IsActive" />{{item.IsActive}}
+                    </div>
+
+                    <br><br>
+
+                </div>
+                <div class="row ">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <a (click)="UserObjectPush('InstitutionCourses')"><img src="assets/Plus Button.png"
+                                alt="Not Found" height="40" width="40" srcset="" *ngIf="i==l-1"></a>
+
+                        <a (click)="ArrayObjectRemoveAt( institutionsDetails.institutionCourses, i)" *ngIf="l==1?false:true"><img
+                                src="assets/Minus Button.png" alt="Not Found" height="35" width="35" srcset=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+
+        <div class="row " style="padding-bottom: 10px;">
+            <div class="col-md-9"></div>
+            <div class="col-md-3">
+                <button (click)="OnSaveinstitutionDetail()" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>  

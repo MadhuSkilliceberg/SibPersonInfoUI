@@ -8,5 +8,5 @@ export class InstitutionEmails
  public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
  public UpdatedBy   :number = 0; 
-
+ public IsDeleted   :boolean = false; 
 }

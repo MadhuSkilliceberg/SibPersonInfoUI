@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Institutions } from '../../Models/Institutions';
+import { Institutions,InstitutionsDetails } from '../../Models/Institutions';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class InstitutionsService {
   
   // By using this method we will get the Institutions based on the Id
   GetInstitutionsById(id: number): any {
-    return this.http.get(this.endpointUrl+"GeInstitutionsById/" + id);
+    return this.http.get(this.endpointUrl+"GetInstitutionsById/" + id);
   }
 
   // By uing this method we will Add the Institutions based on Institutions
@@ -36,5 +36,16 @@ export class InstitutionsService {
 // By using this method we will delete the Institutions based on the Id
 DeleteInstitutions(id: number): any {
     return this.http.delete(this.endpointUrl+"DeleteInstitutions/" + id);
+  }
+
+
+    // By uing this method we will Add the Institutions based on Institutions
+    // AddInstitutionsModel(institutionsmodels: InstitutionsModelss): any {
+    //   return this.http.post(this.endpointUrl+"AddInstitutionModel", institutionsmodels)
+    // }
+    
+      // By uing this method we will Add the Institutions based on Institutions
+  AddInstitutionsDetails(institutionsdetails: InstitutionsDetails): any {
+    return this.http.post(this.endpointUrl+"AddInstitutionDetails", institutionsdetails)
   }
 }

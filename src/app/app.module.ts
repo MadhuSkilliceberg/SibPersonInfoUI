@@ -79,7 +79,7 @@ import { UserRegistrationComponent } from './components/user-registration/user-r
 import { CompanyRegistrationComponent } from './components/company-registration/company-registration.component';
 import { CategoryComponent } from './components/category/category.component';
 import { TreenodeComponent } from './utilities/treenode/treenode.component';
-
+import { InstitutionRegComponent } from './components/institiutionDetails/institution-reg/institution-reg.component';
 
 @NgModule({
   declarations: [
@@ -151,7 +151,8 @@ UseRegistrationComponent,
 UserRegistrationComponent,
 CompanyRegistrationComponent,
 CategoryComponent,
-TreenodeComponent ,  
+TreenodeComponent,
+InstitutionRegComponent,
   ],
   imports: [
     BrowserModule,

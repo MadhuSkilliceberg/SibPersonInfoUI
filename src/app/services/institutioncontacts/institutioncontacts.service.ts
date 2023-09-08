@@ -23,6 +23,14 @@ export class InstitutionContactsService {
     return this.http.get(this.endpointUrl+"GetInstitutionContactsById/" + id);
   }
 
+  // By using this method we will get the Address based on the AddressId
+  GetInstitutionContactsByAddressId(addressId: number): any {
+    return this.http.get(
+      this.endpointUrl + 'GetInstitutionContactsByAddressId/' + addressId
+    );
+  }
+
+
   // By uing this method we will Add the InstitutionContacts based on InstitutionContacts
   AddInstitutionContacts(institutioncontacts: InstitutionContacts): any {
     return this.http.post(this.endpointUrl+"AddInstitutionContacts", institutioncontacts)

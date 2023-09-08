@@ -68,7 +68,7 @@ import { UseRegistrationComponent } from './components/use-registration/use-regi
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { CompanyRegistrationComponent } from './components/company-registration/company-registration.component';
 import { CategoryComponent } from './components/category/category.component';
-
+import { InstitutionRegComponent } from './components/institiutionDetails/institution-reg/institution-reg.component';
 
 const routes: Routes = [
 
@@ -141,8 +141,9 @@ const routes: Routes = [
   { path: 'userskilladd', component: UserSkillEditComponent },
   { path: 'login', component: LoginComponent },
   { path: 'companyRegistration', component: CompanyRegistrationComponent },
-  { path: 'Category', component: CategoryComponent }
-
+  { path: 'Category', component: CategoryComponent },
+  {path :'institution-reg',component:InstitutionRegComponent},
+  {path :'institution-reg/:id',component:InstitutionRegComponent},
 
 ];
 

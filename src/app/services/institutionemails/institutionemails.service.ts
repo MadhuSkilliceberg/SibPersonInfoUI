@@ -23,6 +23,13 @@ export class InstitutionEmailsService {
     return this.http.get(this.endpointUrl+"GetInstitutionEmailsById/" + id);
   }
 
+   // By using this method we will get the Address based on the AddressId
+   GetInstitutionEmailsByAddressId(addressId: number): any {
+    return this.http.get(
+      this.endpointUrl + 'GetInstitutionEmailsByAddressId/' + addressId
+    );
+  }
+
   // By uing this method we will Add the InstitutionEmails based on InstitutionEmails
   AddInstitutionEmails(institutionemails: InstitutionEmails): any {
     return this.http.post(this.endpointUrl+"AddInstitutionEmails", institutionemails)
