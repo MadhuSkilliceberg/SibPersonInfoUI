@@ -13,28 +13,38 @@ export class CompanyReviewsService {
     this.endpointUrl = environment.baseUrl + 'CompanyReview/';
   }
 
-   // By using this method we will get the CompanyReviews 
+  // By using this method we will get the CompanyReviews 
   GetCompanyReviews(): any {
-    return this.http.get(this.endpointUrl+"GetCompanyReviews");
+    return this.http.get(this.endpointUrl + "GetCompanyReviews");
   }
-  
+
   // By using this method we will get the CompanyReviews based on the Id
   GetCompanyReviewsById(id: number): any {
-    return this.http.get(this.endpointUrl+"GetCompanyReviewsById/" + id);
+    return this.http.get(this.endpointUrl + "GetCompanyReviewsById/" + id);
   }
+
+  // By using this method we will get the CompanyReviews based on the ComapanyId
+  GetByCompanyReviewComapanyId(id: number): any {
+    return this.http.get(this.endpointUrl + "GetByCompanyReviewComapanyId/" + id);
+  }
+
 
   // By uing this method we will Add the CompanyReviews based on CompanyReviews
   AddCompanyReviews(companyreviews: CompanyReviews): any {
-    return this.http.post(this.endpointUrl+"AddCompanyReviews", companyreviews)
+    return this.http.post(this.endpointUrl + "AddCompanyReviews", companyreviews)
   }
 
-   // By uing this method we will Update the CompanyReviews based on CompanyReviews
-   UpdateCompanyReviews(companyreviews: CompanyReviews): any {
-    return this.http.put(this.endpointUrl+"UpdateCompanyReviews", companyreviews)
+  // By uing this method we will Update the CompanyReviews based on CompanyReviews
+  UpdateCompanyReviews(companyreviews: CompanyReviews): any {
+    return this.http.put(this.endpointUrl + "UpdateCompanyReviews", companyreviews)
   }
 
-// By using this method we will delete the CompanyReviews based on the Id
-DeleteCompanyReviews(id: number): any {
-    return this.http.delete(this.endpointUrl+"DeleteCompanyReviews/" + id);
+  // By using this method we will delete the CompanyReviews based on the Id
+  DeleteCompanyReviews(id: number): any {
+    return this.http.delete(this.endpointUrl + "DeleteCompanyReviews/" + id);
   }
+
+  
+ 
+
 }

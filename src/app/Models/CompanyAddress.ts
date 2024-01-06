@@ -1,3 +1,6 @@
+import { CompanyContacts } from "./CompanyContacts";
+import { CompanyEmails } from "./CompanyEmails";
+
 export class CompanyAddress
 { public Id   :number = 0; 
  public CompanyId   :number = 0; 
@@ -11,5 +14,9 @@ export class CompanyAddress
  public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
  public UpdatedBy   :number = 0; 
+
+
+ companycontactsData: CompanyContacts[] = [];
+ companyemailsData: CompanyEmails[] = [];
 
 }

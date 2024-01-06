@@ -33,8 +33,15 @@ export class CompanyAddressService {
     return this.http.put(this.endpointUrl+"UpdateCompanyAddress", companyaddress)
   }
 
-// By using this method we will delete the CompanyAddress based on the Id
-DeleteCompanyAddress(id: number): any {
-    return this.http.delete(this.endpointUrl+"DeleteCompanyAddress/" + id);
+  // By using this method we will delete the CompanyAddress based on the Id
+  DeleteCompanyAddress(id: number): any {
+    return this.http.delete(this.endpointUrl + "DeleteCompanyAddress/" + id);
   }
+
+  // By using this method we will get the CompanyAddress based on the CompanyId
+  GetCompanyAddressIdByCompanyId(companyid: number): any {
+    return this.http.get(this.endpointUrl + "GetCompanyAddressIdByCompanyId/" + companyid);
+  }
+
+  
 }

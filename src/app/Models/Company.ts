@@ -7,4 +7,5 @@ export class Company
  public UpdatedOn! :Date; 
  public UpdatedBy   :number = 0; 
 
+
 }

@@ -57,7 +57,7 @@ export class CompanyEmailsComponent implements OnInit {
 
   // By using this method we will get the CompanyEmails based on the Id
   GetCompanyEmailsById(Id: number): any {
-    this.companyemailsService.GetCompanyEmailsById(Id).subscribe((res: any) => {
+    this.companyemailsService.GetByCompanyEmailComapnyId(Id).subscribe((res: any) => {
       this.companyemails = res;
       this.isSave = false;
       this.isUpdate = true;

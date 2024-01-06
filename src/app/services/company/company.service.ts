@@ -21,7 +21,7 @@ export class CompanyService {
 
   // By using this method we will get the Company based on the Id
   GetCompanyById(id: number): any {
-    return this.http.get(this.endpointUrl + "GetCompanyById/" + id);
+    return this.http.get(this.endpointUrl + "GetByCompanyId/" + id);
   }
 
   // By uing this method we will Add the Company based on Company
@@ -48,6 +48,9 @@ export class CompanyService {
 
   //By using this method we will add the CompanyDetail 
   AddCompanyDetail(CompanyDetail: CompanyDetail): any {
-    return this.http.post(this.endpointUrl + "CompanyDetail", CompanyDetail);
+    return this.http.post(this.endpointUrl + "AddCompanyDetail", CompanyDetail);
   }
+
+
+
 }

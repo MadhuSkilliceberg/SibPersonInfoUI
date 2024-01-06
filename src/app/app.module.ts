@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 import {DndModule} from 'ngx-drag-drop';
 
@@ -159,7 +159,7 @@ InstitutionRegComponent,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule,
+    NgxPaginationModule,NgxStarRatingModule,
     DndModule,
     ReactiveFormsModule,
   ],

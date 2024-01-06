@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Company } from 'src/app/Models/Company';
-import { CompanyModel,CompanyDetail } from './../../Models/Company-reg';
+import { CompanyModel, CompanyDetail } from './../../Models/Company-reg';
 import { CompanyService } from './../../services/company/company.service'
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
@@ -20,6 +20,9 @@ import { CompanyReviews } from 'src/app/Models/CompanyReviews';
 import { CompanyReviewsService } from './../../services/companyreviews/companyreviews.service'
 import { Reviews } from 'src/app/Models/Reviews';
 import { ReviewsService } from 'src/app/services/reviews/reviews.service';
+import { ActivatedRoute } from '@angular/router';
+
+
 @Component({
   selector: 'app-company-registration',
   templateUrl: './company-registration.component.html',
@@ -28,45 +31,48 @@ import { ReviewsService } from 'src/app/services/reviews/reviews.service';
 export class CompanyRegistrationComponent implements OnInit {
 
 
-
+  isSave: Boolean = true;
+  isUpdate: Boolean = false;
 
   company: Company = new Company();
-  companyData: Company[] = []
+  // companyData: Company[] = []
   companyaddress: CompanyAddress = new CompanyAddress();
   companyaddressData: CompanyAddress[] = []
-  companyaddressId: number = 0;
+  companyaddressId: number = 10;
 
 
   statesData: States[] = [];
 
   countriesData: Countries[] = [];
   companycontacts: CompanyContacts = new CompanyContacts();
-  companycontactsData: CompanyContacts[] = []
-  contacttypeData: ContactType[] = []
+
+  contacttypeData: ContactType[] = [];
+
   companyemails: CompanyEmails = new CompanyEmails();
-  companyemailsData: CompanyEmails[] = [];
+
   companyreviews: CompanyReviews = new CompanyReviews();
-  companyreviewsData: CompanyReviews[] = []
+
+  companyreviewsData: Reviews[] = [];
 
 
+  reviews: Reviews = new Reviews();
   reviewsData: Reviews[] = []
 
-  companymodel:CompanyModel =new  CompanyModel();
-  companydetail:CompanyDetail=new CompanyDetail();
-
+  companymodel: CompanyModel = new CompanyModel();
+  companydetail: CompanyDetail = new CompanyDetail();
+  companyId: number = 0;
   ngOnInit(): any {
-    this.GetCompany();
+    this.InitialLoad();
     this.GetCompanyAddress();
     this.GetStates();
     this.GetCountries();
-    this.GetCompanyContacts();
+    this.GetCompanyById(this.companyaddressId);
     this.GetContactType();
-    this.GetCompanyReviews();
-    this.GetReviews();
   }
+
+
   endpointUrl!: string;
   constructor(
-    private http: HttpClient,
     private companyaddressService: CompanyAddressService,
     private companyService: CompanyService,
     private statesService: StatesService,
@@ -76,53 +82,138 @@ export class CompanyRegistrationComponent implements OnInit {
     private companyemailsService: CompanyEmailsService,
     private companyreviewsService: CompanyReviewsService,
     private reviewsService: ReviewsService,
+    private route: ActivatedRoute
   ) {
     this.endpointUrl = environment.baseUrl + 'Company/';
-
+    this.route.paramMap.subscribe((params) => {
+    this.companyaddressId = Number(params.get('id'));
+    });
   }
 
-  // By using this method we will get the Company 
-  GetCompany(): any {
-    return this.http.get(this.endpointUrl + "GetCompany");
+
+  //initial data getting start
+  InitialLoad() {
+
+    this.companydetail.company = new Company();
+    this.companydetail.companyaddress =[];
+    this.companydetail.companycontacts  =[];
+    this.companydetail.companyemails  =[];
+    this.companyaddressData.push(new CompanyAddress());
+
+    this.companyaddress.companycontactsData.push(new CompanyContacts());
+
+    this.companyaddress.companyemailsData.push(new CompanyEmails());
+
+    this.companyreviewsData.push(new Reviews());
   }
+
 
   // By using this method we will get the Company based on the Id
   GetCompanyById(id: number): any {
-    return this.http.get(this.endpointUrl + "GetCompanyById/" + id);
+    debugger
+    this.companyService.GetCompanyById(id).subscribe((res: any) => {
+      this.companydetail.company = res;
+      debugger
+      if (this.companydetail.company == null) {
+        this.companydetail.company = new Company();
+      }
+      this.isSave = false;
+      this.isUpdate = true;
+    });
   }
 
-  // By uing this method we will Add the Company based on Company
-  AddCompany(company: Company): any {
-    return this.http.post(this.endpointUrl + "AddCompany", company)
+
+
+  
+
+  //By using this method we will get the CompanyAddress
+  GetCompanyAddressIdByCompanyId(id: any): any {
+    this.companyaddressService
+      .GetCompanyAddressIdByCompanyId(id)
+      .subscribe((res: any) => {
+        this.companydetail.companyaddress = res;
+        if (!(
+          this.companydetail.companyaddress &&
+          this.companydetail.companyaddress.length !== 0
+        )) {
+          this.companydetail.companyaddress = [];
+          this.companydetail.companyaddress.push(
+            new CompanyAddress()
+          );
+          this.CompanyAddressPush(this.companydetail.companyaddress[0]);
+          this.CompanyAddressPush(
+            this.companydetail.companyaddress[0]
+          );
+        }
+        else {
+          this.companydetail.companyaddress.forEach((element) => {
+            this.GetCompanyContactsByCompanyAddressId(element);
+            this.GetCompanyEmailByCompanyAddressId(element);
+          });
+        }
+      });
   }
 
-  // By uing this method we will Update the Company based on Company
-  UpdateCompany(company: Company): any {
-    return this.http.put(this.endpointUrl + "UpdateCompany", company)
+
+
+   CompanyAddressPush(companyaddress: CompanyAddress) {
+    if (companyaddress.companycontactsData.length < 1) {
+      companyaddress.companycontactsData.push(new CompanyContacts());
+    }
   }
 
-  // By using this method we will delete the Company based on the Id
-  DeleteCompany(id: number): any {
-    return this.http.delete(this.endpointUrl + "DeleteCompany/" + id);
+  //this method is for the pluse button 
+  CompanyAddressPushButton(companyaddress: CompanyAddress) {
+
+   companyaddress.companycontactsData.push(new CompanyContacts());
+ }
+
+
+
+
+
+  // By Using This method We Will Get The CompanyContacts Data By CompanyAddressId
+  GetCompanyContactsByCompanyAddressId(element: CompanyAddress): any {
+    this.companycontactsService
+      .GetCompanyContactsByCompanyAddressId(element.Id)
+      .subscribe((res: any) => {
+        // if (element.institutioncontactsData.length === 0) {
+        element.companycontactsData = res;
+
+        this.CompanyAddressPush(element);
+        // }
+      });
   }
 
+
+  
+
+  //By Using This method We Will Get The CompanyEmail Data By Address CompanyAddressId
+  GetCompanyEmailByCompanyAddressId(element: CompanyAddress): any {
+    this.companyemailsService
+      .GetCompanyEmailByCompanyAddressId(element.Id)
+      .subscribe((res: any) => {
+        element.companyemailsData = res;
+        element.companyemailsData.forEach((element1) => {
+          // element1.IsDeleted = false;
+        });
+        this.CompanyAddressPushButton(element);
+      });
+  }
 
 
   // By using this method we will get the CompanyAddress 
   GetCompanyAddress(): any {
-    this.companyaddressService.GetCompanyAddress().subscribe((res: any) => {
+    this.companyaddressService.GetCompanyAddressById(this.companyId).subscribe((res: any) => {
       this.companyaddressData = res;
+      if (this.companyaddressData == null) {
+        this.companyaddressData = [];
+        this.companyaddressData.push(new CompanyAddress());
+      }
 
     })
   }
 
-  // By using this method we will get the CompanyAddress based on the Id
-  GetCompanyAddressById(Id: number): any {
-    this.companyaddressService.GetCompanyAddressById(Id).subscribe((res: any) => {
-      this.companyaddress = res;
-
-    })
-  }
 
   // By uing this method we will Add the CompanyAddress based on CompanyAddress
   AddCompanyAddress(): any {
@@ -131,8 +222,6 @@ export class CompanyRegistrationComponent implements OnInit {
       this.companyaddress = new CompanyAddress();
     })
   }
-
- 
 
   // By using this method we will get the States 
   GetStates(): any {
@@ -153,27 +242,12 @@ export class CompanyRegistrationComponent implements OnInit {
 
 
   GetCompanyContacts(): any {
-    this.companycontactsService.GetCompanyContacts().subscribe((res: any) => {
-      this.companycontactsData = res;
-
-    })
-  }
-
-  // By using this method we will get the CompanyContacts based on the Id
-  GetCompanyContactsById(Id: number): any {
-    this.companycontactsService.GetCompanyContactsById(Id).subscribe((res: any) => {
-      this.companycontacts = res;
-
-    })
-  }
-
-  // By uing this method we will Add the CompanyContacts based on CompanyContacts
-  AddCompanyContacts(): any {
-    this.companycontacts.CompanyAddressId = Number(this.companycontacts.CompanyAddressId);
-    this.companycontacts.ContactTypeId = Number(this.companycontacts.ContactTypeId);
-    this.companycontactsService.AddCompanyContacts(this.companycontacts).subscribe((res: any) => {
-      this.GetCompanyContacts();
-      this.companycontacts = new CompanyContacts();
+    this.companycontactsService.GetCompanyContactsByCompanyId(this.companyId).subscribe((res: any) => {
+      this.companyaddress.companycontactsData = res;
+      if (this.companyaddress.companycontactsData == null) {
+        this.companyaddress.companycontactsData = [];
+        this.companyaddress.companycontactsData.push(new CompanyContacts());
+      }
     })
   }
 
@@ -186,60 +260,15 @@ export class CompanyRegistrationComponent implements OnInit {
     })
   }
 
-
-
   // By using this method we will get the CompanyEmails 
   GetCompanyEmails(): any {
-    this.companyemailsService.GetCompanyEmails().subscribe((res: any) => {
-      this.companyemailsData = res;
+    this.companyemailsService.GetByCompanyEmailComapnyId(this.companyId).subscribe((res: any) => {
+      this.companyaddress.companyemailsData = res;
+      if (this.companyaddress.companyemailsData == null) {
+        this.companyaddress.companyemailsData = [];
+        this.companyaddress.companyemailsData.push(new CompanyEmails());
 
-    })
-  }
-
-  // By using this method we will get the CompanyEmails based on the Id
-  GetCompanyEmailsById(Id: number): any {
-    this.companyemailsService.GetCompanyEmailsById(Id).subscribe((res: any) => {
-      this.companyemails = res;
-
-    })
-  }
-
-  // By uing this method we will Add the CompanyEmails based on CompanyEmails
-  AddCompanyEmails(): any {
-    this.companyemailsService.AddCompanyEmails(this.companyemails).subscribe((res: any) => {
-      this.GetCompanyEmails();
-      this.companyemails = new CompanyEmails();
-    })
-  }
-
-  GetCompanyReviews(): any {
-    this.companyreviewsService.GetCompanyReviews().subscribe((res: any) => {
-      this.companyreviewsData = res;
-
-    })
-  }
-
-  // By using this method we will get the CompanyReviews based on the Id
-  GetCompanyReviewsById(Id: number): any {
-    this.companyreviewsService.GetCompanyReviewsById(Id).subscribe((res: any) => {
-      this.companyreviews = res;
-
-    })
-  }
-
-  // By uing this method we will Add the CompanyReviews based on CompanyReviews
-  AddCompanyReviews(): any {
-    this.companyreviewsService.AddCompanyReviews(this.companyreviews).subscribe((res: any) => {
-      this.GetCompanyReviews();
-      this.companyreviews = new CompanyReviews();
-    })
-  }
-
-
-  // By using this method we will get the Reviews 
-  GetReviews(): any {
-    this.reviewsService.GetReviews().subscribe((res: any) => {
-      this.reviewsData = res;
+      }
 
     })
   }
@@ -249,20 +278,20 @@ export class CompanyRegistrationComponent implements OnInit {
 
     if (objectTypeName != null && objectTypeName != undefined && objectTypeName.length != 0) {
       switch (objectTypeName) {
-        case 'Company':
-          this.companyData.push(new Company());
-          break;
+        // case 'Company':
+        //   this.companyData.push(new Company());
+        //   break;
         case 'CompanyAddress':
           this.companyaddressData.push(new CompanyAddress());
           break;
         case 'CompanyContacts':
-          this.companycontactsData.push(new CompanyContacts());
+          this.companyaddress.companycontactsData.push(new CompanyContacts());
           break;
         case 'CompanyEmails':
-          this.companyemailsData.push(new CompanyEmails());
+          this.companyaddress.companyemailsData.push(new CompanyEmails());
           break;
-        case 'CompanyReviews':
-          this.companyreviewsData.push(new CompanyReviews());
+        case 'Reviews':
+          this.companyreviewsData.push(new Reviews());
           break;
         default:
           console.log("No such object exists!");
@@ -279,41 +308,45 @@ export class CompanyRegistrationComponent implements OnInit {
 
 
 
- //By using this method add Company model 
- OnSaveCompanyModel() {
-  debugger
-  this.companymodel.companys = this.company;
-  this.companymodel.companyaddress = this.companyaddress;
-  this.companymodel.companycontacts = this.companycontacts;
-  this.companymodel.companyemails = this.companyemails;
-  this.companymodel.companyreviews = this.companyreviews;
-  debugger
+  // //By using this method add Company model 
+  // OnSaveCompanyModel() {
 
-  this.companyService.AddCompanyModel(this.companymodel).subscribe((res: any) => {
-    if (res)
-      alert('data saved successfully');
-    else
-      alert('data not saved');
-  })
-}
+  //   this.companymodel.companys = this.company;
+  //   this.companymodel.companyaddress = this.companyaddressData;
+  //   this.companymodel.companycontacts = this.companycontactsData;
+  //   this.companymodel.companyemails = this.companyemailsData;
+  //   this.companymodel.companyreviews = this.companyreviewsData;
 
 
-//By using this method add Company Detail 
+  //   this.companyService.AddCompanyModel(this.companymodel).subscribe((res: any) => {
+  //     if (res)
+  //       alert('data saved successfully');
+  //     else
+  //       alert('data not saved');
+  //   })
+  //   this.companydetail = new CompanyDetail();
+  // }
+
+
+  //By using this method add Company Detail 
   OnSaveCompanyDetail() {
     debugger
-    this.companydetail.company = this.company;
-    this.companydetail.companyaddress=this.companyaddressData;
-    this.companydetail.companycontacts = this.companycontactsData;
-    this.companydetail.companyemail = this.companyemailsData;
+    // this.companydetail.company = this.company;
+    this.companydetail.companyaddress = this.companyaddressData;
+    this.companydetail.companycontacts = this.companyaddress.companycontactsData;
+    this.companydetail.companyemails = this.companyaddress.companyemailsData;
     this.companydetail.companyreviews = this.companyreviewsData;
+    // this.companydetail.companyreviews[0] = this.reviews;
+
     debugger
 
     this.companyService.AddCompanyDetail(this.companydetail).subscribe((res: any) => {
-      if (res)
+      if (res == true)
         alert('data saved successfully');
       else
         alert('data not saved');
     })
+    // this.companydetail = new CompanyDetail();
   }
 
 }

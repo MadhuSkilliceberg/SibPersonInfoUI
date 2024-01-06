@@ -140,10 +140,13 @@ const routes: Routes = [
 
   { path: 'userskilladd', component: UserSkillEditComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'companyRegistration', component: CompanyRegistrationComponent },
+ // { path: 'companyRegistration', component: CompanyRegistrationComponent },
   { path: 'Category', component: CategoryComponent },
   {path :'institution-reg',component:InstitutionRegComponent},
   {path :'institution-reg/:id',component:InstitutionRegComponent},
+  { path: 'company_reg', component: CompanyRegistrationComponent },
+  { path: 'company_reg/:id', component: CompanyRegistrationComponent },
+  //{ path: 'Category', component: CategoryComponent }
 
 ];
 

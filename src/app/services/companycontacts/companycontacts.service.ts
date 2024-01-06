@@ -23,6 +23,11 @@ export class CompanyContactsService {
     return this.http.get(this.endpointUrl+"GetCompanyContactsById/" + id);
   }
 
+  // By using this method we will get the CompanyContacts based on the Id
+  GetCompanyContactsByCompanyId(id: number): any {
+    return this.http.get(this.endpointUrl+"GetCompanyContactsByCompanyId/" + id);
+  }
+  
   // By uing this method we will Add the CompanyContacts based on CompanyContacts
   AddCompanyContacts(companycontacts: CompanyContacts): any {
     return this.http.post(this.endpointUrl+"AddCompanyContacts", companycontacts)
@@ -33,8 +38,13 @@ export class CompanyContactsService {
     return this.http.put(this.endpointUrl+"UpdateCompanyContacts", companycontacts)
   }
 
-// By using this method we will delete the CompanyContacts based on the Id
-DeleteCompanyContacts(id: number): any {
-    return this.http.delete(this.endpointUrl+"DeleteCompanyContacts/" + id);
+  // By using this method we will delete the CompanyContacts based on the Id
+  DeleteCompanyContacts(id: number): any {
+    return this.http.delete(this.endpointUrl + "DeleteCompanyContacts/" + id);
   }
+
+    // By using this method we will get the CompanyContacts based on the CompanyAddressId
+    GetCompanyContactsByCompanyAddressId(companyaddressId: number): any {
+      return this.http.get(this.endpointUrl+"GetCompanyContactsByCompanyAddressId/" + companyaddressId);
+    }
 }
