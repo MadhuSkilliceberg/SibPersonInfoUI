@@ -69,9 +69,11 @@ import { UserRegistrationComponent } from './components/user-registration/user-r
 import { CompanyRegistrationComponent } from './components/company-registration/company-registration.component';
 import { CategoryComponent } from './components/category/category.component';
 import { InstitutionRegComponent } from './components/institiutionDetails/institution-reg/institution-reg.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
-
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'reg', component: UseRegistrationComponent },
   { path: 'reg/:id', component: UseRegistrationComponent },
   { path: 'user-reg', component: UserRegistrationComponent },
@@ -137,16 +139,14 @@ const routes: Routes = [
   { path: 'sprinttasks', component: SprintTasksComponent },
   { path: 'states', component: StatesComponent },
   { path: 'status', component: StatusComponent },
-
   { path: 'userskilladd', component: UserSkillEditComponent },
-  { path: 'login', component: LoginComponent },
  // { path: 'companyRegistration', component: CompanyRegistrationComponent },
   { path: 'Category', component: CategoryComponent },
   {path :'institution-reg',component:InstitutionRegComponent},
   {path :'institution-reg/:id',component:InstitutionRegComponent},
   { path: 'company_reg', component: CompanyRegistrationComponent },
   { path: 'company_reg/:id', component: CompanyRegistrationComponent },
-  //{ path: 'Category', component: CategoryComponent }
+  { path: 'dashboard', component: DashboardComponent }
 
 ];
 

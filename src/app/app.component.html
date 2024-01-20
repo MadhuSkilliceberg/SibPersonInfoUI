@@ -1,17 +1,23 @@
-<div class='dashboard'>
-    <div class="dashboard-nav">
-      <header><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a><a [routerLink]="['somepath']"
-          class="brand-logo"><i class="fas fa-anchor"></i> <span>SKILL ICEBERG</span></a></header>
-  
-      <nav class="dashboard-nav-list">
-        <a [routerLink]="['somepath']" class="dashboard-nav-item"><i class="fas fa-home"></i> Home </a>
-          <a [routerLink]="['somepath']" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i>dashboard</a>
-          
-        
-        <a [routerLink]="['somepath']" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Upload </a>
-  
-  
-        <!-- <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
+<div class="container" *ngIf="!isUserAuthenticated()">
+  <app-login></app-login>
+</div>
+
+
+<div class='dashboard' *ngIf="isUserAuthenticated()">
+  <div class="dashboard-nav">
+    <header><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a><a [routerLink]="['somepath']"
+        class="brand-logo"><i class="fas fa-anchor"></i> <span>SKILL ICEBERG</span></a></header>
+
+    <nav class="dashboard-nav-list">
+      <a [routerLink]="['somepath']" class="dashboard-nav-item"><i class="fas fa-home"></i> Home </a>
+      <a [routerLink]="['dashboard']" class="dashboard-nav-item active"><i
+          class="fas fa-tachometer-alt"></i>dashboard</a>
+
+
+      <a [routerLink]="['somepath']" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Upload </a>
+
+
+      <!-- <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
               class="fas fa-photo-video"></i> Media </a>
           <div class='dashboard-nav-dropdown-menu'><a [routerLink]="['somepath']"
               class="dashboard-nav-dropdown-item">All</a><a [routerLink]="['somepath']"
@@ -19,56 +25,56 @@
               class="dashboard-nav-dropdown-item">Images</a><a [routerLink]="['somepath']"
               class="dashboard-nav-dropdown-item">Video</a></div>
         </div> -->
-  
-  
-  
-        <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-              class="fa fa-address-book"></i> INSTITUTION </a>
-          <div class='dashboard-nav-dropdown-menu'>
-            <a [routerLink]="['institutions']" class="dashboard-nav-dropdown-item">Institutions</a>
-            <a [routerLink]="['institutionemails']" class="dashboard-nav-dropdown-item">Email</a>
-            <a [routerLink]="['institutioncontacts']" class="dashboard-nav-dropdown-item">Contacts</a>
-            <a [routerLink]="['institutionaddress']" class="dashboard-nav-dropdown-item"> Address</a>
-            <a [routerLink]="['institutioncourses']" class="dashboard-nav-dropdown-item"> institutioncourses</a>
-          </div>
-        </div>
-  
-  
-  
-  
-  
-        <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-              class="fas fa-users"></i> USER </a>
-          <div class='dashboard-nav-dropdown-menu'>
-            <a [routerLink]="['users']" class="dashboard-nav-dropdown-item">Users</a>
-            <a [routerLink]="['useremails']" class="dashboard-nav-dropdown-item">Emails</a>
-            <a [routerLink]="['usercontacts']" class="dashboard-nav-dropdown-item">Contacts</a>
-  
-            <a [routerLink]="['useraddressdetails']" class="dashboard-nav-dropdown-item">Address Details</a>  
-            <a [routerLink]="['userskills']" class="dashboard-nav-dropdown-item">Skills</a>
-            <a [routerLink]="['usercompany']" class="dashboard-nav-dropdown-item">Company</a>
-            <a [routerLink]="['usercourses']" class="dashboard-nav-dropdown-item">Courses</a>
-            <a [routerLink]="['usereducationdetails']" class="dashboard-nav-dropdown-item">Education Details</a>   
-            <a [routerLink]="['usertypes']" class="dashboard-nav-dropdown-item">Types</a>   
-          </div>
-        </div>
-  
-  
-  
-  
-        <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-              class="fas fa-users"></i> FAMILY </a>
-          <div class='dashboard-nav-dropdown-menu'>
-            <a [routerLink]="['family']" class="dashboard-nav-dropdown-item">Families</a>
-            <a [routerLink]="['familyemails']" class="dashboard-nav-dropdown-item">Email</a>
-            <a [routerLink]="['familycontacts']" class="dashboard-nav-dropdown-item">Contacts</a>
-            <a [routerLink]="['familyeducationdetails']" class="dashboard-nav-dropdown-item">Education</a>
-          </div>
-        </div>
 
 
 
-        <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
+      <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
+            class="fa fa-address-book"></i> INSTITUTION </a>
+        <div class='dashboard-nav-dropdown-menu'>
+          <a [routerLink]="['institutions']" class="dashboard-nav-dropdown-item">Institutions</a>
+          <a [routerLink]="['institutionemails']" class="dashboard-nav-dropdown-item">Email</a>
+          <a [routerLink]="['institutioncontacts']" class="dashboard-nav-dropdown-item">Contacts</a>
+          <a [routerLink]="['institutionaddress']" class="dashboard-nav-dropdown-item"> Address</a>
+          <a [routerLink]="['institutioncourses']" class="dashboard-nav-dropdown-item"> institutioncourses</a>
+        </div>
+      </div>
+
+
+
+
+
+      <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
+            class="fas fa-users"></i> USER </a>
+        <div class='dashboard-nav-dropdown-menu'>
+          <a [routerLink]="['users']" class="dashboard-nav-dropdown-item">Users</a>
+          <a [routerLink]="['useremails']" class="dashboard-nav-dropdown-item">Emails</a>
+          <a [routerLink]="['usercontacts']" class="dashboard-nav-dropdown-item">Contacts</a>
+
+          <a [routerLink]="['useraddressdetails']" class="dashboard-nav-dropdown-item">Address Details</a>
+          <a [routerLink]="['userskills']" class="dashboard-nav-dropdown-item">Skills</a>
+          <a [routerLink]="['usercompany']" class="dashboard-nav-dropdown-item">Company</a>
+          <a [routerLink]="['usercourses']" class="dashboard-nav-dropdown-item">Courses</a>
+          <a [routerLink]="['usereducationdetails']" class="dashboard-nav-dropdown-item">Education Details</a>
+          <a [routerLink]="['usertypes']" class="dashboard-nav-dropdown-item">Types</a>
+        </div>
+      </div>
+
+
+
+
+      <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
+            class="fas fa-users"></i> FAMILY </a>
+        <div class='dashboard-nav-dropdown-menu'>
+          <a [routerLink]="['family']" class="dashboard-nav-dropdown-item">Families</a>
+          <a [routerLink]="['familyemails']" class="dashboard-nav-dropdown-item">Email</a>
+          <a [routerLink]="['familycontacts']" class="dashboard-nav-dropdown-item">Contacts</a>
+          <a [routerLink]="['familyeducationdetails']" class="dashboard-nav-dropdown-item">Education</a>
+        </div>
+      </div>
+
+
+
+      <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
             class="fas fa-users"></i> TASK </a>
         <div class='dashboard-nav-dropdown-menu'>
           <a [routerLink]="['task']" class="dashboard-nav-dropdown-item">Task</a>
@@ -79,83 +85,83 @@
           <a [routerLink]="['taskstate']" class="dashboard-nav-dropdown-item">Task State</a>
         </div>
       </div>
-  
-  
-  
-        <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-              class="fas fa-users"></i> COMPANY </a>
-          <div class='dashboard-nav-dropdown-menu'>
-            <a [routerLink]="['company']" class="dashboard-nav-dropdown-item">Company</a>
-            <a [routerLink]="['companyemails']" class="dashboard-nav-dropdown-item">Email</a>
-            <a [routerLink]="['companycontacts']" class="dashboard-nav-dropdown-item">Contacts</a>
-            <a [routerLink]="['companyaddress']" class="dashboard-nav-dropdown-item">Address</a>
-            <a [routerLink]="['companyreviews']" class="dashboard-nav-dropdown-item">Company Reviews</a>
-          </div>
+
+
+
+      <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
+            class="fas fa-users"></i> COMPANY </a>
+        <div class='dashboard-nav-dropdown-menu'>
+          <a [routerLink]="['company']" class="dashboard-nav-dropdown-item">Company</a>
+          <a [routerLink]="['companyemails']" class="dashboard-nav-dropdown-item">Email</a>
+          <a [routerLink]="['companycontacts']" class="dashboard-nav-dropdown-item">Contacts</a>
+          <a [routerLink]="['companyaddress']" class="dashboard-nav-dropdown-item">Address</a>
+          <a [routerLink]="['companyreviews']" class="dashboard-nav-dropdown-item">Company Reviews</a>
         </div>
-  
-  
-  
-  
-        <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-              class="fas fa-money-check-alt"></i> OTHERS </a>
-          <div class='dashboard-nav-dropdown-menu'>
-            <a [routerLink]="['relationtypes']" class="dashboard-nav-dropdown-item">Relation Type</a>
-            <!-- <a [routerLink]="['States']" class="dashboard-nav-dropdown-item">States</a> -->
-            <a [routerLink]="['gender']" class="dashboard-nav-dropdown-item">Gender</a>
-  
-            <a [routerLink]="['marritalstatus']" class="dashboard-nav-dropdown-item">Marrital Status</a>
-            <a [routerLink]="['medium']" class="dashboard-nav-dropdown-item">Medium</a>
+      </div>
 
-            <a [routerLink]="['designation']" class="dashboard-nav-dropdown-item">Designation</a>
 
-            <a [routerLink]="['states']" class="dashboard-nav-dropdown-item">State</a>
-            <a [routerLink]="['status']" class="dashboard-nav-dropdown-item">Status</a>
-            <a [routerLink]="['skills']" class="dashboard-nav-dropdown-item">Skill</a>
-            <a [routerLink]="['sprint']" class="dashboard-nav-dropdown-item">Sprint</a>
-            <a [routerLink]="['sprinttasks']" class="dashboard-nav-dropdown-item">Sprint Tasks</a>
 
-            <a [routerLink]="['countries']" class="dashboard-nav-dropdown-item">Countries</a>
-            <a [routerLink]="['coutrystates']" class="dashboard-nav-dropdown-item">Country State</a>
-            <a [routerLink]="['qulificationtype']" class="dashboard-nav-dropdown-item">Qualification Type</a>
-  
-  
-            <a [routerLink]="['courses']" class="dashboard-nav-dropdown-item">Course</a>
-            <a [routerLink]="['courseyear']" class="dashboard-nav-dropdown-item">CourseYear</a>
-            <a [routerLink]="['cyears']" class="dashboard-nav-dropdown-item">Cyear</a>
-            
-            <a [routerLink]="['semesters']" class="dashboard-nav-dropdown-item">Semester</a>
-            <a [routerLink]="['usercourses']" class="dashboard-nav-dropdown-item">usercourses</a>
-            <a [routerLink]="['yearsemester']" class="dashboard-nav-dropdown-item">Year Semester</a>
-            <a [routerLink]="['template']" class="dashboard-nav-dropdown-item">Template</a>
-            <a [routerLink]="['templatetype']" class="dashboard-nav-dropdown-item">Template Type</a>
-            <a [routerLink]="['vacancies']" class="dashboard-nav-dropdown-item">Vacancies</a>
-            <a [routerLink]="['vacanciesskill']" class="dashboard-nav-dropdown-item">Vacancies Skill</a>
-            <a [routerLink]="['contacttype']" class="dashboard-nav-dropdown-item">Contact Type</a>
-            <a [routerLink]="['departments']" class="dashboard-nav-dropdown-item">Departments</a>
-            <a [routerLink]="['employmenttypes']" class="dashboard-nav-dropdown-item">Employment Types</a>
-            <a [routerLink]="['industrytypes']" class="dashboard-nav-dropdown-item">Industry Types</a>
-            <a [routerLink]="['menu']" class="dashboard-nav-dropdown-item">Menu</a>
-            <a [routerLink]="['menu_list']" class="dashboard-nav-dropdown-item">Menu List</a>
-            <a [routerLink]="['reviews']" class="dashboard-nav-dropdown-item">Reviews</a>
-            <a [routerLink]="['rolecategory']" class="dashboard-nav-dropdown-item">Role Category</a>
-            <a [routerLink]="['roles']" class="dashboard-nav-dropdown-item">Roles</a>
-            <a [routerLink]="['companyRegistration']" class="dashboard-nav-dropdown-item">CompanyRegistration</a>
-          </div>
+
+      <div class='dashboard-nav-dropdown'><a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
+            class="fas fa-money-check-alt"></i> OTHERS </a>
+        <div class='dashboard-nav-dropdown-menu'>
+          <a [routerLink]="['relationtypes']" class="dashboard-nav-dropdown-item">Relation Type</a>
+          <!-- <a [routerLink]="['States']" class="dashboard-nav-dropdown-item">States</a> -->
+          <a [routerLink]="['gender']" class="dashboard-nav-dropdown-item">Gender</a>
+
+          <a [routerLink]="['marritalstatus']" class="dashboard-nav-dropdown-item">Marrital Status</a>
+          <a [routerLink]="['medium']" class="dashboard-nav-dropdown-item">Medium</a>
+
+          <a [routerLink]="['designation']" class="dashboard-nav-dropdown-item">Designation</a>
+
+          <a [routerLink]="['states']" class="dashboard-nav-dropdown-item">State</a>
+          <a [routerLink]="['status']" class="dashboard-nav-dropdown-item">Status</a>
+          <a [routerLink]="['skills']" class="dashboard-nav-dropdown-item">Skill</a>
+          <a [routerLink]="['sprint']" class="dashboard-nav-dropdown-item">Sprint</a>
+          <a [routerLink]="['sprinttasks']" class="dashboard-nav-dropdown-item">Sprint Tasks</a>
+
+          <a [routerLink]="['countries']" class="dashboard-nav-dropdown-item">Countries</a>
+          <a [routerLink]="['coutrystates']" class="dashboard-nav-dropdown-item">Country State</a>
+          <a [routerLink]="['qulificationtype']" class="dashboard-nav-dropdown-item">Qualification Type</a>
+
+
+          <a [routerLink]="['courses']" class="dashboard-nav-dropdown-item">Course</a>
+          <a [routerLink]="['courseyear']" class="dashboard-nav-dropdown-item">CourseYear</a>
+          <a [routerLink]="['cyears']" class="dashboard-nav-dropdown-item">Cyear</a>
+
+          <a [routerLink]="['semesters']" class="dashboard-nav-dropdown-item">Semester</a>
+          <a [routerLink]="['usercourses']" class="dashboard-nav-dropdown-item">usercourses</a>
+          <a [routerLink]="['yearsemester']" class="dashboard-nav-dropdown-item">Year Semester</a>
+          <a [routerLink]="['template']" class="dashboard-nav-dropdown-item">Template</a>
+          <a [routerLink]="['templatetype']" class="dashboard-nav-dropdown-item">Template Type</a>
+          <a [routerLink]="['vacancies']" class="dashboard-nav-dropdown-item">Vacancies</a>
+          <a [routerLink]="['vacanciesskill']" class="dashboard-nav-dropdown-item">Vacancies Skill</a>
+          <a [routerLink]="['contacttype']" class="dashboard-nav-dropdown-item">Contact Type</a>
+          <a [routerLink]="['departments']" class="dashboard-nav-dropdown-item">Departments</a>
+          <a [routerLink]="['employmenttypes']" class="dashboard-nav-dropdown-item">Employment Types</a>
+          <a [routerLink]="['industrytypes']" class="dashboard-nav-dropdown-item">Industry Types</a>
+          <a [routerLink]="['menu']" class="dashboard-nav-dropdown-item">Menu</a>
+          <a [routerLink]="['menu_list']" class="dashboard-nav-dropdown-item">Menu List</a>
+          <a [routerLink]="['reviews']" class="dashboard-nav-dropdown-item">Reviews</a>
+          <a [routerLink]="['rolecategory']" class="dashboard-nav-dropdown-item">Role Category</a>
+          <a [routerLink]="['roles']" class="dashboard-nav-dropdown-item">Roles</a>
+          <a [routerLink]="['company_reg']" class="dashboard-nav-dropdown-item">CompanyRegistration</a>
         </div>
-  
-  
-  
-        <a [routerLink]="['test']" class="dashboard-nav-item"><i class="fas fa-cogs"></i> test </a><a
-          [routerLink]="['test']" class="dashboard-nav-item"><i class="fas fa-user"></i> Profile </a>
-        <div class="nav-item-divider"></div>
-        <a [routerLink]="['test']" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
-      </nav>
-    </div>
-    <div class='dashboard-app'>
-      <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a></header>
-      <div class='dashboard-content'>
-        <div class='container'>
-          <!-- <div class='card'>
+      </div>
+
+
+
+      <a [routerLink]="['test']" class="dashboard-nav-item"><i class="fas fa-cogs"></i> test </a><a
+        [routerLink]="['test']" class="dashboard-nav-item"><i class="fas fa-user"></i> Profile </a>
+      <div class="nav-item-divider"></div>
+      <a (click)="logOut()" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
+    </nav>
+  </div>
+  <div class='dashboard-app'>
+    <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a></header>
+    <div class='dashboard-content'>
+      <div class='container'>
+        <!-- <div class='card'>
             <div class='card-header'>
               <h1>Welcome back Jim</h1>
             </div>
@@ -163,15 +169,14 @@
               <p>Your account type is: Administrator</p>
             </div>
           </div> -->
-  
-  
-  
-         
-        </div>
+
+
+
+
       </div>
     </div>
   </div>
+</div>
+<div  *ngIf="isUserAuthenticated()">
   <router-outlet></router-outlet>
-  
-  
-  
+</div>

@@ -137,82 +137,92 @@
 
             </div>
 
-            <div class="row" style="padding-bottom: 10px;">
-                <div class="col-md-12">
-                    <div class="container mt-3">
-                        <h2>Users Data</h2>
+            
+        </div>
 
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr style="background-color: #007bff;color: white">
-                                    <th>Id</th>
-                                    <th>FirstName</th>
-                                    <th>LastName</th>
-                                    <th>Dob</th>
-                                    <th>GenderId</th>
-                                    <th>MarritalStatusId</th>
-                                    <th>MobileNumber</th>
-                                    <th>VoterId</th>
-                                    <th>AadharNumber</th>
-                                    <th>PanCardNumber</th>
-                                    <th>UserTypeId</th>
-                                    <th> </th>
+        <div class="card">
 
-                                    <th style="text-align: center;" colspan="2">Action</th>
+            <div class="card-header">
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let item of usersData | paginate
-                                : {
-                                    itemsPerPage: tableSize,
-                                    currentPage: page,
-                                    totalItems: count
-                                  };
-                                let i = index">
-                                    <td>{{item.Id}}</td>
-                                    <td>{{item.FirstName}}</td>
-                                    <td>{{item.LastName}}</td>
-                                    <td>{{item.Dob}}</td>
-                                    <td>{{item.GenderId}}</td>
-                                    <td>{{item.MarritalStatusId}}</td>
-                                    <td>{{item.MobileNumber}}</td>
-                                    <td>{{item.VoterId}}</td>
-                                    <td>{{item.AadharNumber}}</td>
-                                    <td>{{item.PanCardNumber}}</td>
-                                    <td>{{item.UserTypeId}}</td>
-                                    <td>
-                                        <!-- <a [routerLink]="['/useremails', item.Id]"> </a> -->
-                                        <a [routerLink]="['/useremails']" [queryParams]="{id: item.Id,from:'users'}">
-                                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                        </a>
-                                        <a [routerLink]="['/usercontacts']" [queryParams]="{id: item.Id,from:'users'}">
-                                            <i class="fa fa-address-book" aria-hidden="true"></i>
-                                        </a>
-                                        <a [routerLink]="['/useremails']" [queryParams]="{id: item.Id,from:'users'}">
-                                            <i class="fa fa-compress" aria-hidden="true"></i>
-                                        </a>
-                                        <a [routerLink]="['/useremails']" [queryParams]="{id: item.Id,from:'users'}">
-                                            <i class="fa fa-building" aria-hidden="true"></i>
-                                        </a>
-
-                                    </td>
-                                    <td><button class="btn btn-info" (click)="GetUsersById(item.Id)"> Edit
-                                        </button>
-                                        <button class="btn btn-danger" (click)="DeleteUsers(item.Id)"> Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="d-flex justify-content-center">
-                            <pagination-controls previousLabel="Prev" nextLabel="Next"
-                                (pageChange)="onTableDataChange($event)">
-                            </pagination-controls>
+            </div>
+            <div class="card-body">
+                <div class="row" style="padding-bottom: 1%;">
+                    <div class="col-md-12">
+                        <div class="container mt-3">
+                            <h2>Users Data</h2>
+    
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr style="background-color: #007bff;color: white">
+                                        <th>Id</th>
+                                        <th>FirstName</th>
+                                        <th>LastName</th>
+                                        <th>Dob</th>
+                                        <th>GenderId</th>
+                                        <th>MarritalStatusId</th>
+                                        <th>MobileNumber</th>
+                                        <th>VoterId</th>
+                                        <th>AadharNumber</th>
+                                        <th>PanCardNumber</th>
+                                        <th>UserTypeId</th>
+                                        <th> </th>
+    
+                                        <th style="text-align: center;" colspan="2">Action</th>
+    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of usersData | paginate
+                                    : {
+                                        itemsPerPage: tableSize,
+                                        currentPage: page,
+                                        totalItems: count
+                                      };
+                                    let i = index">
+                                        <td>{{item.Id}}</td>
+                                        <td>{{item.FirstName}}</td>
+                                        <td>{{item.LastName}}</td>
+                                        <td>{{item.Dob}}</td>
+                                        <td>{{item.GenderId}}</td>
+                                        <td>{{item.MarritalStatusId}}</td>
+                                        <td>{{item.MobileNumber}}</td>
+                                        <td>{{item.VoterId}}</td>
+                                        <td>{{item.AadharNumber}}</td>
+                                        <td>{{item.PanCardNumber}}</td>
+                                        <td>{{item.UserTypeId}}</td>
+                                        <td>
+                                            <!-- <a [routerLink]="['/useremails', item.Id]"> </a> -->
+                                            <a [routerLink]="['/useremails']" [queryParams]="{id: item.Id,from:'users'}">
+                                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                            </a>
+                                            <a [routerLink]="['/usercontacts']" [queryParams]="{id: item.Id,from:'users'}">
+                                                <i class="fa fa-address-book" aria-hidden="true"></i>
+                                            </a>
+                                            <a [routerLink]="['/useremails']" [queryParams]="{id: item.Id,from:'users'}">
+                                                <i class="fa fa-compress" aria-hidden="true"></i>
+                                            </a>
+                                            <a [routerLink]="['/useremails']" [queryParams]="{id: item.Id,from:'users'}">
+                                                <i class="fa fa-building" aria-hidden="true"></i>
+                                            </a>
+    
+                                        </td>
+                                        <td><button class="btn btn-info" (click)="GetUsersById(item.Id)"> Edit
+                                            </button>
+                                            <button class="btn btn-danger" (click)="DeleteUsers(item.Id)"> Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+    
+                            <div class="d-flex justify-content-center">
+                                <pagination-controls previousLabel="Prev" nextLabel="Next"
+                                    (pageChange)="onTableDataChange($event)">
+                                </pagination-controls>
+                            </div>
                         </div>
                     </div>
-                </div>
+                 </div>
             </div>
         </div>
 

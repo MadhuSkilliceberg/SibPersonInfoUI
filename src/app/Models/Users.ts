@@ -49,3 +49,8 @@ export class UserDetail {
     public userEmails: UserEmails[] = [];
     public userSkills: UserSkills[] = [];
 }
+
+export class UserCredential {
+    public UserName!: string;
+    public Password!: string;
+}

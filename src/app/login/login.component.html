@@ -1,13 +1,14 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">Login</div>
                 <div class="card-body">
-                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                        <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
                         <div class="form-group">
                             <label>Username</label>
-                            <input type="username" formControlName="username" class="form-control" required>
+                            <input type="username" class="form-control"  [(ngModel)]="credentials.username"  required>
                             <div
                                 *ngIf="loginForm.get('username').invalid && (loginForm.get('username').dirty || loginForm.get('username').touched)">
                                 <div *ngIf="loginForm.get('username').errors.required">Username is required</div>
@@ -16,19 +17,46 @@
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" formControlName="password" class="form-control" required>
+                            <input type="password"  class="form-control"  [(ngModel)]="credentials.password"  placeholder="Password" required>
                             <div
                                 *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
                                 <div *ngIf="loginForm.get('password').errors.required">Password is required</div>
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+                            <button type="submit" class="btn btn-lg btn-primary" [disabled]="!loginForm.invalid">Login</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Login</div>
+                <div class="card-body">
+                    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                        <h2 class="form-signin-heading">Login</h2>
+                        <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
+                        <br />
+                        <label for="username" class="sr-only">Email address</label>
+                        <input type="email" id="username" name="username" [(ngModel)]="credentials.UserName"
+                            class="form-control" placeholder="User Name" required>
+                        <br />
+                        <label for="password" class="sr-only">Password</label>
+                        <input type="password" id="password" name="password" [(ngModel)]="credentials.Password"
+                            class="form-control" placeholder="Password" required>
+                        <br />
+                        <button class="btn btn-lg btn-primary" type="submit" [disabled]="!loginForm.valid">Log
+                            in</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
