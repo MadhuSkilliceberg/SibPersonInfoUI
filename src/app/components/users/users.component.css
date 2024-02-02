@@ -1,3 +1,10 @@
 .mrg-rgt{
     margin-right: 10px;
 }
+
+.scrolls {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    
+    white-space: nowrap;
+}

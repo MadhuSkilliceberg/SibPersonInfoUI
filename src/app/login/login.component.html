@@ -37,9 +37,9 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Login</div>
+        <div class="col-md-6" *ngIf="showLogin">
+            <div class="card shadow-lg p-4 mb-4 bg-white'">
+                <div class="card-header " style="background-color: #007BFF;color:#fff;">Login</div>
                 <div class="card-body">
                     <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
                         <h2 class="form-signin-heading">Login</h2>
@@ -53,8 +53,40 @@
                         <input type="password" id="password" name="password" [(ngModel)]="credentials.Password"
                             class="form-control" placeholder="Password" required>
                         <br />
-                        <button class="btn btn-lg btn-primary" type="submit" [disabled]="!loginForm.valid">Log
+                        <button class="btn btn-lg btn-primary mr-1" type="submit" [disabled]="!loginForm.valid">Log
                             in</button>
+                        <button class="btn btn-lg btn-primary" (click)="showLogin=!showLogin" type="button">
+                            SignUp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" *ngIf="!showLogin">
+            <div class="card shadow-lg p-4 mb-4 bg-white'">
+                <div class="card-header " style="background-color: #007BFF;color:#fff;">SignUp</div>
+                <div class="card-body">
+                    <form #signUpForm="ngForm" (ngSubmit)="SignUp(signUpForm)">
+                        <h2 class="form-signin-heading">SignUp</h2>
+                        <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
+                        <br />
+                        <label for="username" class="sr-only">Email address</label>
+                        <input type="email" id="username" name="username" [(ngModel)]="credentials.UserName"
+                            class="form-control" placeholder="User Name" required>
+                        <br />
+                        <label for="txtnumber" class="sr-only">Phone Number</label>
+                        <input type="email" id="txtnumber" name="txtnumber" [(ngModel)]="credentials.UserName"
+                            class="form-control" placeholder="User Name" required>
+                        <br />
+                        <label for="password" class="sr-only">Password</label>
+                        <input type="password" id="password" name="password" [(ngModel)]="credentials.Password"
+                            class="form-control" placeholder="Password" required>
+                        <br />
+                        <button class="btn btn-lg btn-primary  mr-1" type="submit" [disabled]="!signUpForm.valid">Log
+                            in</button>
+                        <button class="btn btn-lg btn-primary" (click)="showLogin=!showLogin" type="button">
+                            SignUp
+                        </button>
                     </form>
                 </div>
             </div>

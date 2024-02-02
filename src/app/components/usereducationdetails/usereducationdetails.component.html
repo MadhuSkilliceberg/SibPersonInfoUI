@@ -33,7 +33,7 @@
                             [(ngModel)]="usereducationdetails.QulificationtypeId" class="form-control">
                             <option value="0">Select</option>
                             <option *ngFor="let  item of qulificationtypeData" value="{{item.Id}}">
-                                {{item.QulificationName}} </option>
+                                {{item.Name}} </option>
                         </select>
 
 
@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usereducationdetails.StartYear" placeholder="StartYear" />
+                            [(ngModel)]="usereducationdetails.StartDate" placeholder="StartYear" />
                     </div>
 
 
@@ -66,7 +66,7 @@
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usereducationdetails.EndYear" placeholder="EndYear" />
+                            [(ngModel)]="usereducationdetails.EndDate" placeholder="EndYear" />
                     </div>
 
                     <br><br>
@@ -124,8 +124,8 @@
                                         <th>UserId</th>
                                         <th>QulificationtypeId</th>
                                         <th>YearOFPassout</th>
-                                        <th>StartYear</th>
-                                        <th>EndYear</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
                                         <th>InstitutionId</th>
                                         <th>Percentage</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
@@ -143,8 +143,8 @@
                                         <td>{{item.UserId}}</td>
                                         <td>{{item.QulificationtypeId}}</td>
                                         <td>{{item.YearOfpassout}}</td>
-                                        <td>{{item.StartYear}}</td>
-                                        <td>{{item.EndYear}}</td>
+                                        <td>{{item.StartDate}}</td>
+                                        <td>{{item.EndDate}}</td>
                                         <td>{{item.InstitutionId}}</td>
                                         <td>{{item.Percentage}}</td>
                                         <td><button class="btn btn-info" (click)="GetUserEducationDetailsById(item.Id)">

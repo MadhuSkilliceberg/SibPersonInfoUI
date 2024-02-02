@@ -33,6 +33,13 @@ export class UserAddressDetailsService {
     return this.http.put(this.endpointUrl+"UpdateUserAddressDetails", useraddressdetails)
   }
 
+  
+  // By uing this method we will Update the UserEducationDetails based on UserEducationDetails
+  AddOrUpdateUserAddressDetails(useraddressdetails: UserAddressDetails[]): any {
+    return this.http.put(this.endpointUrl + "AddOrUpdateUserAddressDetails", useraddressdetails)
+  }
+
+
 // By using this method we will delete the UserAddressDetails based on the Id
 DeleteUserAddressDetails(id: number): any {
     return this.http.delete(this.endpointUrl+"DeleteUserAddressDetails/" + id);

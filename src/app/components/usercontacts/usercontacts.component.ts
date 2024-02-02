@@ -5,12 +5,14 @@ import { UsersService } from 'src/app/services/users/users.service';
 import { Users } from 'src/app/Models/Users';
 import { ContactTypeService } from 'src/app/services/contacttype/contacttype.service';
 import { ContactType } from 'src/app/Models/ContactType';
+import { SharingService } from 'src/app/utilities/services/sharing.service';
 
 
 @Component({
   selector: 'app-UserContacts',
   templateUrl: './UserContacts.component.html',
-  styleUrls: ['./UserContacts.component.css']
+  styleUrls: ['./UserContacts.component.css'],
+  providers:[SharingService]
 })
 export class UserContactsComponent implements OnInit {
 
@@ -28,15 +30,25 @@ export class UserContactsComponent implements OnInit {
   usercontactsId: number = 0;
   usersData: Users[] = []
   contacttypeData: ContactType[] = []
+  UserId:number=0;
 
   constructor(
     private usercontactsService: UserContactsService,
     private usersService: UsersService,
     private contacttypeService: ContactTypeService,
-
+private sharing:SharingService
   ) { }
 
   ngOnInit(): any {
+    this.UserId = this.sharing.sharingValue;
+   
+    debugger
+    // this.sharing.share$.subscribe(
+    //   res=>{
+    //     debugger
+    //         console.log(res)//you will get the data
+    //     }
+    //  )
     this.GetUserContacts();
     this.GetUsers();
     this.GetContactType();

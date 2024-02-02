@@ -18,10 +18,25 @@ export class UsersService {
     return this.http.get(this.endpointUrl + "GetUsers");
   }
 
+   // By using this method we will get the Users 
+   GetUserData(): any {
+    return this.http.get(this.endpointUrl + "GetUserData");
+  }
+
+  
+
+  
   // By using this method we will get the Users based on the Id
   GetUsersById(id: number): any {
     return this.http.get(this.endpointUrl + "GetUsersById/" + id);
   }
+
+  
+  // By using this method we will get the Users based on the Id
+  GetUserAllData(id: number): any {
+    return this.http.get(this.endpointUrl + "GetUserAllData/" + id);
+  }
+  
 
   // By uing this method we will Add the Users based on Users
   AddUsers(users: Users): any {
@@ -29,12 +44,12 @@ export class UsersService {
   }
 
   // By uing this method we will Update the Users based on Users
-  UpdateUsers(users: Users): any {
+  UpdateUser(users: Users): any {
     return this.http.put(this.endpointUrl + "UpdateUsers", users)
   }
 
   // By using this method we will delete the Users based on the Id
-  DeleteUsers(id: number): any {
+  DeleteUser(id: number): any {
     return this.http.delete(this.endpointUrl + "DeleteUsers/" + id);
   }
 

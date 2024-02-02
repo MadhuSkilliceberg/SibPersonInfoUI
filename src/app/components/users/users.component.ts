@@ -8,13 +8,16 @@ import { MarritalStatus } from 'src/app/Models/MarritalStatus';
 import { UserTypes } from 'src/app/Models/UserTypes';
 import { UserTypesService } from 'src/app/services/usertypes/usertypes.service';
 import { Router } from '@angular/router';
+
+import { SharingService } from 'src/app/utilities/services/sharing.service';
 //import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @Component({
   selector: 'app-Users',
   templateUrl: './Users.component.html',
-  styleUrls: ['./Users.component.css']
+  styleUrls: ['./Users.component.css'],
+  providers: [SharingService]
 })
 export class UsersComponent implements OnInit {
 
@@ -42,6 +45,7 @@ export class UsersComponent implements OnInit {
     private marritalstatusService: MarritalStatusService,
     private usertypesService: UserTypesService,
     private router: Router,
+    private sharing: SharingService
     // private jwtHelper: JwtHelperService,
   ) { }
 
@@ -79,8 +83,8 @@ export class UsersComponent implements OnInit {
   }
 
   // By uing this method we will Update the Users based on Users
-  UpdateUsers(): any {
-    this.usersService.UpdateUsers(this.users).subscribe((res: any) => {
+  UpdateUser(): any {
+    this.usersService.UpdateUser(this.users).subscribe((res: any) => {
       this.GetUsers();
       this.users = new Users();
       this.isSave = true;
@@ -89,9 +93,9 @@ export class UsersComponent implements OnInit {
   }
 
   // By using this method we will delete the Users based on the Id
-  DeleteUsers(Id: number): any {
+  DeleteUser(Id: number): any {
     if (confirm("Do you want delete this record?")) {
-      this.usersService.DeleteUsers(Id).subscribe((res: any) => {
+      this.usersService.DeleteUser(Id).subscribe((res: any) => {
         this.GetUsers();
         this.users = new Users();
       })
@@ -150,6 +154,9 @@ export class UsersComponent implements OnInit {
 
 
   GoToNavigationUrl(url: string, id: number = 0) {
+    debugger
+  //  this.sharing.shareDate({ "data": JSON.stringify(id) })
+    this.sharing.sharingValue = id;
     if (id == -1)
       this.router.navigate(['/' + url]);
   }

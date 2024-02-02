@@ -6,20 +6,21 @@
             </div>
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
-                    
+
                     <div class="col-md-3">
                         User :
                     </div>
                     <div class="col-md-3">
-                        
+
                         <!-- <input type="number" name="txtcode" class="form-control" id="txtcode"
                             [(ngModel)]="usercompany.UserId" placeholder="UserId" /> -->
 
 
-                            <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.UserId" class="form-control">
-                                <option value="0">Select</option>
-                            <option *ngFor="let  item of usersData" value="{{item.Id}}" > {{item.FirstName}} </option>
-                            </select>
+                        <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.UserId"
+                            class="form-control">
+                            <option value="0">Select</option>
+                            <option *ngFor="let  item of usersData" value="{{item.Id}}"> {{item.FirstName}} </option>
+                        </select>
                     </div>
 
                     <br><br>
@@ -29,38 +30,37 @@
                     <div class="col-md-3">
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usercompany.CompanyId" placeholder="CompanyId" /> -->
-                               <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.CompanyId" class="form-control">
+                        <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.CompanyId"
+                            class="form-control">
                             <option value="0">Select</option>
-                            <option *ngFor="let  item of companyData" value="{{item.Id}}" > {{item.CompanyName}} </option>
+                            <option *ngFor="let  item of companyData" value="{{item.Id}}"> {{item.Name}} </option>
                         </select>
                     </div>
                     <br><br>
                     <div class="col-md-3">
-                        YearOfPassout :
+                        Offer Date :
                     </div>
                     <div class="col-md-3">
                         <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.YearOfPassout" placeholder="YearOfPassout" />
+                            [(ngModel)]="usercompany.OfferDate" placeholder="Offer Date" />
                     </div>
-
                     <br><br>
                     <div class="col-md-3">
                         StartYear :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.StartYear" placeholder="StartYear" />
+                        <input type="date" name="txtstartdate" id="txtstartdate" class="form-control"
+                            [(ngModel)]="usercompany.StartDate" placeholder="Start Date" />
                     </div>
 
-                    <br><br>
+
                     <div class="col-md-3">
                         EndYear :
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" id="txtcode" class="form-control"
-                            [(ngModel)]="usercompany.EndYear" placeholder="EndYear" />
+                        <input type="date" name="txtenddate" id="txtenddate" class="form-control"
+                            [(ngModel)]="usercompany.EndDate" placeholder="End Date" />
                     </div>
-
                     <br><br>
                     <div class="col-md-3">
                         Salary :
@@ -85,15 +85,16 @@
                     </div>
                     <div class="col-md-3">
 
-                        <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.DesignationId" class="form-control">
+                        <select name="ddlUsercompany" id="ddlUsercompany" [(ngModel)]="usercompany.DesignationId"
+                            class="form-control">
                             <option value="0">Select</option>
-                            <option *ngFor="let  item of designationData" value="{{item.Id}}" > {{item.DesignationName}} </option>
+                            <option *ngFor="let  item of designationData" value="{{item.Id}}"> {{item.Name}} </option>
                         </select>
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="usercompany.DesignationId" placeholder="DesignationId" /> -->
                     </div>
 
-                  
+
 
                     <br><br>
                     <div class="col-md-3">
@@ -147,7 +148,7 @@
                                         <th>DesignationId</th>
                                         <th>Email</th>
                                         <th>IsActive</th>
-                                       
+
 
                                         <th style="text-align: center;" colspan="2">Action</th>
 
@@ -163,15 +164,15 @@
                                     let i = index">
                                         <td>{{item.UserId}}</td>
                                         <td>{{item.CompanyId}}</td>
-                                        <td>{{item.YearOfPassout}}</td>
-                                        <td>{{item.StartYear}}</td>
-                                        <td>{{item.EndYear}}</td>
+                                        <td>{{item.OfferDate}}</td>
+                                        <td>{{item.StartDate}}</td>
+                                        <td>{{item.EndDate}}</td>
                                         <td>{{item.Salary}}</td>
                                         <td>{{item.Percentage}}</td>
                                         <td>{{item.DesignationId}}</td>
                                         <td>{{item.Email}}</td>
                                         <td>{{item.IsActive}}</td>
-                                       
+
                                         <td><button class="btn btn-info" (click)="GetUserCompanyById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteUserCompany(item.Id)"> Delete

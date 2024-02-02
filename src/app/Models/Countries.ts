@@ -1,6 +1,6 @@
 export class Countries
 { public Id   :number = 0; 
- public CountryName! :string; 
+ public Name! :string; 
  public Code! :string; 
  public CreatedOn! :Date; 
  public CreatedBy   :number = 0; 

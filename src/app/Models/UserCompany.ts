@@ -1,10 +1,10 @@
 export class UserCompany {
-        public Id: number = 0;
+    public Id: number = 0;
     public UserId: number = 0;
     public CompanyId: number = 0;
-    public YearOfPassout   !: number;
-    public StartYear   !: number;
-    public EndYear   !: number;
+    public OfferDate   !: Date;
+    public StartDate   !: Date;
+    public EndDate   !: Date;
     public Salary   !: number;
     public Percentage   !: number;
     public DesignationId: number = 0;

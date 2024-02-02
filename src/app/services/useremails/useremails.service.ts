@@ -24,12 +24,22 @@ export class UserEmailsService {
   }
 
   // By uing this method we will Add the UserEmails based on UserEmails
-  AddUserEmails(useremails: UserEmails): any {
+  AddUserEmail(useremails: UserEmails): any {
+    return this.http.post(this.endpointUrl+"AddUserEmail", useremails)
+  }
+
+  // By uing this method we will Add the UserEmails based on UserEmails
+  AddUserEmails(useremails: UserEmails[]): any {
     return this.http.post(this.endpointUrl+"AddUserEmails", useremails)
   }
 
+  // By uing this method we will Update the UserEmails based on UserEmails
+  UpdateUserEmail(useremails: UserEmails): any {
+    return this.http.put(this.endpointUrl+"UpdateUserEmail", useremails)
+  }
+
    // By uing this method we will Update the UserEmails based on UserEmails
-   UpdateUserEmails(useremails: UserEmails): any {
+   UpdateUserEmails(useremails: UserEmails[]): any {
     return this.http.put(this.endpointUrl+"UpdateUserEmails", useremails)
   }
 

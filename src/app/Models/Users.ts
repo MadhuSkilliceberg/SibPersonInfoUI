@@ -40,14 +40,14 @@ export class UserModel {
 
 
 export class UserDetail {
-    public user!: Users;
-    public userAddressDetails: UserAddressDetails[] = [];
-    public userCompanies: UserCompany[] = [];
-    public userContacts: UserContacts[] = [];
-    public userCourses: UserCourses[] = [];
-    public userEducationDetails: UserEducationDetails[] = [];
-    public userEmails: UserEmails[] = [];
-    public userSkills: UserSkills[] = [];
+    public User!: Users;
+    public UserAddressDetails: UserAddressDetails[] = [];
+    public UserCompanies: UserCompany[] = [];
+    public UserContacts: UserContacts[] = [];
+    public UserCourses: UserCourses[] = [];
+    public UserEducationDetails: UserEducationDetails[] = [];
+    public UserEmails: UserEmails[] = [];
+    public UserSkills: UserSkills[] = [];
 }
 
 export class UserCredential {

@@ -17,36 +17,118 @@ export class CategoryComponent implements OnInit {
   categoryData: Category[] = [];
 
 
-  TreeData:any[]=[
+  // TreeData:any[]=[
+  //   {
+  //     "name": "TypeScript",
+  //     "title": 12,
+  //     "children": []
+  //   },
+  //   {
+  //     "name": "C#",
+  //     "title": 13,
+  //     "children": [
+  //       {
+  //         "name": "DataTypes",
+  //         "title": 1,
+  //         "children": [
+  //           {
+  //             "name": "valueTypes",
+  //             "title": 2,
+  //             "children": [
+  //               {
+  //                 "name": "fraction",
+  //                 "title": 4,
+  //                 "children": [
+  //                   {
+  //                     "name": "decimal",
+  //                     "title": 8,
+  //                     "children": []
+  //                   },
+  //                   {
+  //                     "name": "double",
+  //                     "title": 9,
+  //                     "children": []
+  //                   }
+  //                 ]
+  //               },
+  //               {
+  //                 "name": "numbers",
+  //                 "title": 5,
+  //                 "children": [
+  //                   {
+  //                     "name": "int",
+  //                     "title": 6,
+  //                     "children": []
+  //                   },
+  //                   {
+  //                     "name": "long",
+  //                     "title": 7,
+  //                     "children": []
+  //                   }
+  //                 ]
+  //               }
+  //             ]
+  //           },
+  //           {
+  //             "name": "referanceType",
+  //             "title": 3,
+  //             "children": [
+  //               {
+  //                 "name": "string",
+  //                 "title": 10,
+  //                 "children": []
+  //               },
+  //               {
+  //                 "name": "char",
+  //                 "title": 11,
+  //                 "children": []
+  //               }
+  //             ]
+  //           }
+  //         ]
+  //       }
+  //     ]
+  //   }
+  // ]
+
+
+  TreeData: any[] = [
     {
       "name": "TypeScript",
       "title": 12,
+      "expanded": false,
       "children": []
     },
     {
       "name": "C#",
       "title": 13,
+      "expanded": false,
       "children": [
         {
           "name": "DataTypes",
           "title": 1,
+          "expanded": false,
           "children": [
             {
               "name": "valueTypes",
               "title": 2,
+              "expanded": false,
               "children": [
                 {
                   "name": "fraction",
                   "title": 4,
+                  "expanded": false,
                   "children": [
                     {
                       "name": "decimal",
                       "title": 8,
+                      "expanded": false,
                       "children": []
                     },
                     {
                       "name": "double",
                       "title": 9,
+                      "expanded": false,
                       "children": []
                     }
                   ]
@@ -54,15 +136,18 @@ export class CategoryComponent implements OnInit {
                 {
                   "name": "numbers",
                   "title": 5,
+                  "expanded": false,
                   "children": [
                     {
                       "name": "int",
                       "title": 6,
+                      "expanded": false,
                       "children": []
                     },
                     {
                       "name": "long",
                       "title": 7,
+                      "expanded": false,
                       "children": []
                     }
                   ]
@@ -72,15 +157,18 @@ export class CategoryComponent implements OnInit {
             {
               "name": "referanceType",
               "title": 3,
+              "expanded": false,
               "children": [
                 {
                   "name": "string",
                   "title": 10,
+                  "expanded": false,
                   "children": []
                 },
                 {
                   "name": "char",
                   "title": 11,
+                  "expanded": false,
                   "children": []
                 }
               ]
@@ -89,7 +177,7 @@ export class CategoryComponent implements OnInit {
         }
       ]
     }
-  ]
+  ];
 
   ngOnInit(): void {
     //debugger

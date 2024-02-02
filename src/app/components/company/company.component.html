@@ -10,7 +10,7 @@
                         CompanyName :
                     </div>
                     <div class="col-md-3">
-                        <input type="text" id="txtskill" class="form-control" Name="txtskill"[(ngModel)]="company.CompanyName" placeholder="CompanyName">
+                        <input type="text" id="txtskill" class="form-control" Name="txtskill"[(ngModel)]="company.Name" placeholder="CompanyName">
                     </div>
 
                     <div class="col-md-3">
@@ -58,7 +58,7 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.CompanyName}}</td>
+                                        <td>{{item.Name}}</td>
                                         <td>{{item.Code}}</td>
                                         <td><button class="btn btn-info" (click)="GetCompanyById(item.Id)"> Edit
                                             </button></td>

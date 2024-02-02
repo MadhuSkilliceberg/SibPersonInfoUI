@@ -69,7 +69,7 @@ export class UserEducationDetailsComponent implements OnInit {
 
   // By uing this method we will Add the UserEducationDetails based on UserEducationDetails
   AddUserEducationDetails(): any {
-    this.usereducationdetailsService.AddUserEducationDetails(this.usereducationdetails).subscribe((res: any) => {
+    this.usereducationdetailsService.AddUserEducationDetail(this.usereducationdetails).subscribe((res: any) => {
       this.GetUserEducationDetails();
       this.usereducationdetails = new UserEducationDetails();
     })
@@ -77,7 +77,7 @@ export class UserEducationDetailsComponent implements OnInit {
 
    // By uing this method we will Update the UserEducationDetails based on UserEducationDetails
   UpdateUserEducationDetails(): any {
-    this.usereducationdetailsService.UpdateUserEducationDetails(this.usereducationdetails).subscribe((res: any) => {
+    this.usereducationdetailsService.UpdateUserEducationDetail(this.usereducationdetails).subscribe((res: any) => {
       this.GetUserEducationDetails();
       this.usereducationdetails = new UserEducationDetails();
       this.isSave = true;

@@ -6,7 +6,7 @@ import { Reviews } from './Reviews';
 
 export class Company {
         public Id: number = 0;
-    public CompanyName!: string;
+    public Name!: string;
     public Code!: string;
     public CreatedOn!: Date;
     public CreatedBy: number = 0;

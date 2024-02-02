@@ -1,4 +1,4 @@
-export class MarritalStatus
+export class LookUp
 { public Id   :number = 0; 
  public Name! :string; 
  public Code! :string; 
@@ -6,5 +6,5 @@ export class MarritalStatus
  public CreatedBy   :number = 0; 
  public UpdatedOn! :Date; 
  public UpdatedBy   :number = 0; 
-
+ Value:LookUp[]=[];
 }

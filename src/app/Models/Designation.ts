@@ -1,6 +1,6 @@
 export class Designation
 { public Id   :number = 0; 
- public DesignationName! :string; 
+ public Name! :string; 
  public Code! :string; 
  public CreatedOn! :Date; 
  public CreatedBy   :number = 0; 

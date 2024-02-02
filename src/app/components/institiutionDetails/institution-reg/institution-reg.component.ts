@@ -63,7 +63,7 @@ export class InstitutionRegComponent implements OnInit {
     private institutioncoursesService: InstitutionCoursesService,
     private route: ActivatedRoute
   ) {
-   
+
     this.route.paramMap.subscribe((params) => {
       this.institutionId = Number(params.get('id'));
     });
@@ -108,26 +108,19 @@ export class InstitutionRegComponent implements OnInit {
 
   // By using this method we will get the InstitutionAddress
   GetInstitutionAddressByInstituteId(id: any): any {
-
+    debugger
     this.institutionaddressService
       .GetInstitutionAddressByInstituteId(id)
       .subscribe((res: any) => {
-       
+
         this.institutionsDetails.institutionaddress = res;
-       
-        if (
-          !(
-            this.institutionsDetails.institutionaddress &&
-            this.institutionsDetails.institutionaddress.length !== 0
-          )
-        ) {
+
+        if (!(this.institutionsDetails.institutionaddress && this.institutionsDetails.institutionaddress.length !== 0)) {
           this.institutionsDetails.institutionaddress = [];
-          this.institutionsDetails.institutionaddress.push(
-            new InstitutionAddress()
-          );
+          this.institutionsDetails.institutionaddress.push(new InstitutionAddress());
           this.AddressEmailPush(this.institutionsDetails.institutionaddress[0]);
-          this.AddressContactPush(
-            this.institutionsDetails.institutionaddress[0]
+          debugger
+          this.AddressContactPush(this.institutionsDetails.institutionaddress[0]
           );
         } else {
           this.institutionsDetails.institutionaddress.forEach((element) => {
@@ -146,7 +139,7 @@ export class InstitutionRegComponent implements OnInit {
       .subscribe((res: any) => {
         // if (element.institutioncontactsData.length === 0) {
         element.institutioncontacts = res;
-     
+
         this.AddressContactPush(element);
         // }
       });
@@ -154,15 +147,15 @@ export class InstitutionRegComponent implements OnInit {
 
   //By Using This method We Will Get The InstitutionEmail Data By Address Id
   GetInstitutionEmailsByAddressId(element: InstitutionAddress): any {
-   
+
     this.institutionemailsService
       .GetInstitutionEmailsByAddressId(element.Id)
       .subscribe((res: any) => {
         element.institutionemails = res;
         element.institutionemails.forEach(element1 => {
-          element1.IsDeleted=false;
+          element1.IsDeleted = false;
         });
-       
+
         this.AddressEmailPush(element);
       });
   }
@@ -191,14 +184,14 @@ export class InstitutionRegComponent implements OnInit {
   //initial data getting end
 
   AddressEmailPush(institutionAddress: InstitutionAddress) {
-  
+    debugger
     if (institutionAddress.institutionemails.length < 1) {
       institutionAddress.institutionemails.push(new InstitutionEmails());
     }
   }
 
   AddressContactPush(institutionAddress: InstitutionAddress) {
-    
+    debugger
     if (institutionAddress.institutioncontacts.length < 1) {
       institutionAddress.institutioncontacts.push(new InstitutionContacts());
     }
@@ -208,7 +201,7 @@ export class InstitutionRegComponent implements OnInit {
 
 
   AddressEmailPush1(institutionAddress: InstitutionAddress) {
-   
+
     // if (institutionAddress.institutionemails.length < 1) {
     var data = new InstitutionEmails();
     data.IsDeleted = false;
@@ -218,42 +211,32 @@ export class InstitutionRegComponent implements OnInit {
 
 
   AddressContactPush1(institutionAddress: InstitutionAddress) {
-   
+
     // if (institutionAddress.institutioncontacts.length < 1) {
     institutionAddress.institutioncontacts.push(new InstitutionContacts());
     //  }
   }
 
   UserObjectPush(objectTypeName: string) {
-    if (
-      objectTypeName != null &&
-      objectTypeName != undefined &&
-      objectTypeName.length != 0
-    ) {
-    
+    if (objectTypeName != null && objectTypeName != undefined && objectTypeName.length != 0) {
       switch (objectTypeName) {
         case 'Institutions':
           this.LookUpinstitutions.push(new Institutions());
           break;
         case 'InstitutionEmails':
-          this.institutionsDetails.institutionemail.push(
-            new InstitutionEmails()
-          );
+          this.institutionsDetails.institutionemail.push(new InstitutionEmails());
           break;
         case 'InstitutionContacts':
-          this.institutionsDetails.institutioncontacts.push(
-            new InstitutionContacts()
-          );
+          this.institutionsDetails.institutioncontacts.push(new InstitutionContacts());
           break;
         case 'InstitutionCourses':
-          this.institutionsDetails.institutionCourses.push(
-            new InstitutionCourses()
-          );
+          this.institutionsDetails.institutionCourses.push(new InstitutionCourses());
           break;
         case 'InstitutionAddress':
-          this.institutionsDetails.institutionaddress.push(
-            new InstitutionAddress()
-          );
+          var address = new InstitutionAddress();
+          address.institutioncontacts.push(new InstitutionContacts());
+          address.institutionemails.push(new InstitutionEmails());
+          this.institutionsDetails.institutionaddress.push(address);
           break;
         default:
           console.log('No such object exists!');
@@ -264,12 +247,12 @@ export class InstitutionRegComponent implements OnInit {
 
   ArrayObjectRemoveAt(arraydata: any, index: number) {
     debugger;
-   // var valueAtIndex1 = arraydata.at(1);
-   // valueAtIndex1.IsDeleted = true;
+    // var valueAtIndex1 = arraydata.at(1);
+    // valueAtIndex1.IsDeleted = true;
     arraydata.splice(index, 1);
 
 
-   
+
   }
 
   OnSaveinstitutionDetail() {
@@ -315,7 +298,7 @@ export class InstitutionRegComponent implements OnInit {
   GetCourses(): any {
     this.coursesService.GetCourses().subscribe((res: any) => {
       this.lookUpCourses = res;
-      
+
     });
   }
 
@@ -324,7 +307,7 @@ export class InstitutionRegComponent implements OnInit {
 
 
 
-  
+
   // By using this method we will delete the InstitutionEmails based on the Id
   // DeleteInstitutionEmails(Id: number ,arraydata: any, index: number): any {
   //   //  if (confirm("Do you want delete this record?")) {
@@ -335,5 +318,5 @@ export class InstitutionRegComponent implements OnInit {
   //    // }
   //   }
 
- 
+
 }

@@ -1,6 +1,6 @@
 export class Skills
 { public Id   :number = 0; 
- public SkillName! :string; 
+ public Name! :string; 
  public Code! :string; 
  public CreatedOn! :Date; 
  public CreatedBy   :number = 0; 

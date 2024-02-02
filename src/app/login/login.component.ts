@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   credentials:UserCredential=new UserCredential();
   endpointUrl: string;
+  showLogin:boolean=true;
 
   // constructor(private formBuilder: FormBuilder) { }
 
@@ -62,6 +63,20 @@ export class LoginComponent implements OnInit {
           const token = response.Token;
           localStorage.setItem("jwt", token); 
           this.invalidLogin = false; 
+          this.router.navigate(["/dashboard"]);
+        },
+        error: (err: HttpErrorResponse) => this.invalidLogin = true
+      })
+    }
+  }
+
+  SignUp( form: NgForm){
+    if (form.valid) {
+      this.http.post<AuthenticatedResponse>( this.endpointUrl+"signup", this.credentials, {
+        headers: new HttpHeaders({ "Content-Type": "application/json"})
+      })
+      .subscribe({
+        next: (response: AuthenticatedResponse) => {
           this.router.navigate(["/dashboard"]);
         },
         error: (err: HttpErrorResponse) => this.invalidLogin = true

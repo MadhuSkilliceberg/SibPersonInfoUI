@@ -5,15 +5,16 @@
                 <h1>INSTITUTION CONTACTS</h1>
             </div>
             <div class='card-body'>
-
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
                         <b class="padding-bottom">InstitutionAddress :</b>
                     </div>
                     <div class="col-md-3">
-                        <select name="" id="" [(ngModel)]="institutioncontacts.InstitutionAddressId" class="form-control">
+                        <select name="" id="" [(ngModel)]="institutioncontacts.InstitutionAddressId"
+                            class="form-control">
                             <option value="0">Select</option>
-                            <option *ngFor="let  item of institutionaddressData" value="{{item.Id}}"> {{item.Address1}} </option>
+                            <option *ngFor="let  item of institutionaddressData" value="{{item.Id}}"> {{item.Address1}}
+                            </option>
                         </select>
                         <!-- <input type="number" class="form-control" id="InstitutionAddressId" Name="InstitutionAddressId"[(ngModel)]="institutioncontact.InstitutionAddressId" placeholder="InstitutionAddressId"> -->
                     </div>
@@ -21,26 +22,24 @@
                         <b>MobileNumber :</b>
                     </div>
                     <div class="col-md-3">
-                        <input type="tell" class="form-control" name="MobileNumber" id="MobileNumber"
-                            [(ngModel)]="institutioncontacts.MobileNumber" placeholder="MobileNumber" />
+                        <input type="tel" class="form-control" name="txttelmobilenumber" id="txttelmobilenumber"
+                            [(ngModel)]="institutioncontacts.MobileNumber" placeholder="Mobile Number" />
                     </div>
                     <br><br>
                     <div class="col-md-3">
                         <b> IsPrimary :</b>
                     </div>
                     <div class="col-md-3">
-                        <!-- <input type="text" name="txtcode" id="txtcode" [(ngModel)]="institutioncontacts.IsPrimary" placeholder="IsPrimary"/> -->
-                        <input type="checkbox" class="form-check-input" name="cdkIsPrimary" id="cdkIsPrimary"
+                        <input type="checkbox" class="form-check-input" name="cdkisprimary" id="cdkisprimary"
                             [(ngModel)]="institutioncontacts.IsPrimary" />
                     </div>
                     <div class="col-md-3">
                         <b> OrderId :</b>
                     </div>
                     <div class="col-md-3">
-                        <input type="number" name="txtcode" class="form-control" id="txtcode"
+                        <input type="number" name="txtorderid" class="form-control" id="txtorderid"
                             [(ngModel)]="institutioncontacts.OrderId" placeholder="OrderId" />
                     </div>
-
                 </div>
 
 
@@ -50,7 +49,8 @@
                 <div class="row " style="padding-bottom: 10px;">
                     <div class="col-md-9"></div>
                     <div class="col-md-1">
-                        <button (click)="AddInstitutionContacts()" class="btn btn-primary" *ngIf="isSave">Submit</button>
+                        <button (click)="AddInstitutionContacts()" class="btn btn-primary"
+                            *ngIf="isSave">Submit</button>
                     </div>
                 </div>
 

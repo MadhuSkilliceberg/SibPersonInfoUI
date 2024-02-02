@@ -49,7 +49,7 @@ export class UserCompanyComponent implements OnInit {
 
   // By using this method we will get the UserCompany 
   GetUserCompany(): any {
-    this.usercompanyService.GetUserCompany().subscribe((res: any) => {
+    this.usercompanyService.GetUserCompanies().subscribe((res: any) => {
       this.usercompanyData = res;
 
     })

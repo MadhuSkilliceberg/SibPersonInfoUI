@@ -3,8 +3,8 @@ export class UserEducationDetails {
     public UserId: number = 0;
     public QulificationtypeId: number = 0;
     public YearOfpassout   !: number;
-    public StartYear   !: number;
-    public EndYear   !: number;
+    public StartDate   !: number;
+    public EndDate   !: number;
     public InstitutionId: number = 0;
     public Percentage   !: number;
     public CreatedOn!: Date;

@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-md-3">
                         <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="qulificationtype.QulificationName" placeholder="QulificationName">
+                            [(ngModel)]="qulificationtype.Name" placeholder="QulificationName">
                     </div>
                     <div class="col-md-3">
                         Code :
@@ -59,7 +59,7 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.QulificationName}}</td>
+                                        <td>{{item.Name}}</td>
                                         <td>{{item.Code}}</td>
                                         <td><button class="btn btn-info" (click)="GetQulificationTypeById(item.Id)"> Edit
                                             </button></td>

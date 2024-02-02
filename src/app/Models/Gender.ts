@@ -1,6 +1,6 @@
 export class Gender
 { public Id   :number = 0; 
- public GenderName! :string; 
+ public Name! :string; 
  public Code! :string; 
  public CreatedOn! :Date; 
  public CreatedBy   :number = 0; 

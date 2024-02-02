@@ -12,5 +12,10 @@ export class UserAddressDetails {
     public CreatedBy: number = 0;
     public UpdatedOn!: Date;
     public UpdatedBy: number = 0;
-
+    public TypeId!: number;
+    public TypeValue!: string;
+    public StateName!: string;
+    public CountryName!: string;
+    
+    
 }

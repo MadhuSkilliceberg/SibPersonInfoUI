@@ -80,7 +80,7 @@ export class UserEmailsComponent implements OnInit {
 
   // By uing this method we will Add the UserEmails based on UserEmails
   AddUserEmails(): any {
-    this.useremailsService.AddUserEmails(this.useremails).subscribe((res: any) => {
+    this.useremailsService.AddUserEmail(this.useremails).subscribe((res: any) => {
       this.GetUserEmails();
       this.useremails = new UserEmails();
     })
@@ -88,7 +88,7 @@ export class UserEmailsComponent implements OnInit {
 
   // By uing this method we will Update the UserEmails based on UserEmails
   UpdateUserEmails(): any {
-    this.useremailsService.UpdateUserEmails(this.useremails).subscribe((res: any) => {
+    this.useremailsService.UpdateUserEmail(this.useremails).subscribe((res: any) => {
       this.GetUserEmails();
       this.useremails = new UserEmails();
       this.isSave = true;

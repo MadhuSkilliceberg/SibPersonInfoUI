@@ -1,6 +1,6 @@
 export class QulificationType
 { public Id   :number = 0; 
- public QulificationName! :string; 
+ public Name! :string; 
  public Code! :string; 
  public CreatedOn! :Date; 
  public CreatedBy   :number = 0; 

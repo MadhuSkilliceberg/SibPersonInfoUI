@@ -228,7 +228,7 @@
 
 
 
-<app-treenode   [TreeData]="TreeData"></app-treenode>
+<app-treenode [TreeData]="TreeData"></app-treenode>
 <!-- <div id="tree">
     <ng-container *ngTemplateOutlet="treeViewList; 
                                  context:{$implicit:TreeData}">
@@ -245,3 +245,9 @@
         </div>
     </div>
 </ng-template> -->
+
+<div class='dashboard'>
+    <div class="dashboard-nav">
+        <app-side-menu [menuItems]="TreeData"></app-side-menu>
+    </div>
+</div>

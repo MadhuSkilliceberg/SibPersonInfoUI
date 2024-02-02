@@ -1,6 +1,6 @@
 export class States
 { public Id   :number = 0; 
- public StateName! :string; 
+ public Name! :string; 
  public Code! :string; 
  public CreatedOn! :Date; 
  public CreatedBy   :number = 0; 
