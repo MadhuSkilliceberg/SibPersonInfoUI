@@ -33,6 +33,20 @@ export class CompanyReviewsService {
     return this.http.get(this.endpointUrl + "GetCompanyReviewTreeHierarchical/" + id);
   }
 
+  // By using this method we will get the CompanyReviews based on the ComapanyId
+  GetCommentsTreeHierarchical(id: number[]): any {
+    
+    return this.http.post(this.endpointUrl + "GetCommentsTreeHierarchical/" ,id);
+  }
+
+
+ 
+  
+  // By using this method we will get the CompanyReviews based on the ComapanyId
+  GetByCompanyReviewComments(id: number): any {
+    return this.http.get(this.endpointUrl + "GetByCompanyReviewComments/" + id);
+  }
+  
 
   // By uing this method we will Add the CompanyReviews based on CompanyReviews
   AddCompanyReviews(companyreviews: CompanyReviews): any {

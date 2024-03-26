@@ -38,8 +38,11 @@ export class CategoryService {
     return this.http.delete(this.endpointUrl + "DeleteCategory/" + id);
   }
 
-// By using this method we will the Categories Tree Hierarchical
+  // By using this method we will the Categories Tree Hierarchical
   GetTreeHierarchical(): any {
     return this.http.get(this.endpointUrl + "TreeHierarchical");
+  }
+  GetTreeHierarchical1(ids: number[]): any {
+    return this.http.post(this.endpointUrl + "TreeHierarchical1", ids);
   }
 }

@@ -7,14 +7,14 @@
             <div class='card-body'>
                 <div class="row" style="padding-bottom: 10px;">
                     <div class="col-md-3">
-                        InstitutionName :
+                        Institution Name :
                     </div>
                     <div class="col-md-3">
                         <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="institutions.InstitutionName" placeholder="InstitutionName">
+                            [(ngModel)]="institutions.InstitutionName" placeholder="Institution Name">
                     </div>
                     <div class="col-md-3">
-                        Qualificationtype :
+                        Qualification Type :
                     </div>
                     <div class="col-md-3">
 
@@ -34,7 +34,7 @@
 
                         <select name="" id="" name="MediumId" [(ngModel)]="institutions.MediumId" class="form-control">
                             <option value="0">Select</option>
-                            <option *ngFor="let  item of mediumData" value="{{item.Id}}" > {{item.Medium1}} </option>
+                            <option *ngFor="let  item of mediumData" value="{{item.Id}}" > {{item.Name}} </option>
                         </select>
                         <!-- <input type="number" name="txtcode" id="txtcode" class="form-control"
                             [(ngModel)]="institutions.MediumId" placeholder="MediumId" /> -->
@@ -63,9 +63,9 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr style="background-color: #007bff;color: white">
-                                        <th>InstitutionName</th>
-                                        <th>QualificationtypeId</th>
-                                        <th>MediumId</th>
+                                        <th>Name</th>
+                                        <th>Qualification Type</th>
+                                        <th>Medium</th>
                                         <th style="text-align: center;" colspan="2">Action</th>
 
                                     </tr>
@@ -79,8 +79,8 @@
                                       };
                                     let i = index">
                                         <td>{{item.InstitutionName}}</td>
-                                        <td>{{item.QulificationTypeId}}</td>
-                                        <td>{{item.MediumId}}</td>
+                                        <td>{{item.QulificationTypeName}}</td>
+                                        <td>{{item.MediumName}}</td>
                                         <td><button class="btn btn-info" (click)="GetInstitutionsById(item.Id)"> Edit
                                             </button></td>
                                         <td><button class="btn btn-danger" (click)="DeleteInstitutions(item.Id)"> Delete

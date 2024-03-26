@@ -6,7 +6,8 @@ export class CompanyReviews {
     public CreatedBy: number = 0;
     public UpdatedOn!: Date;
     public UpdatedBy: number = 0;
-
+    public UpdatedByName!: string ;
+    
 
     public Heading!: string;
     public Description!: string;

@@ -14,6 +14,10 @@ export class Institutions
  public CreatedBy   :number = 0;
  public UpdatedOn! :Date; 
  public UpdatedBy   :number = 0; 
+ public InstitutionTypeId   :number = 0; 
+ public ParentId   :number = 0; 
+ public QulificationTypeName! :string; 
+ public MediumName! :string; 
 
 }
 

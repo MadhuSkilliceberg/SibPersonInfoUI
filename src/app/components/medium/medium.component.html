@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-md-3">
                         <input type="text" id="txtskill" class="form-control" Name="txtskill"
-                            [(ngModel)]="medium.Medium1" placeholder="Medium">
+                            [(ngModel)]="medium.Name" placeholder="Medium">
                     </div>
                     <div class="col-md-3">
                         Code :
@@ -59,7 +59,7 @@
                                         totalItems: count
                                       };
                                     let i = index">
-                                        <td>{{item.Medium1}}</td>
+                                        <td>{{item.Name}}</td>
                                         <td>{{item.Code}}</td>
                                         <td><button class="btn btn-info" (click)="GetMediumById(item.Id)"> Edit
                                             </button></td>

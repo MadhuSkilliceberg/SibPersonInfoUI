@@ -2,7 +2,7 @@
     public Id!: number;
     public UserId!: number;
     public Heading!: string;
-    public description!:string ;
+    public Description!:string ;
     public Rating!: number;
     public IsActive!: boolean;
     public IsPublic!: boolean;

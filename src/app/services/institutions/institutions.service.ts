@@ -23,6 +23,11 @@ export class InstitutionsService {
     return this.http.get(this.endpointUrl+"GetInstitutionsById/" + id);
   }
 
+  // By using this method we will get the Institutions based on the Id
+  GetUniversities(id: number): any {
+    return this.http.get(this.endpointUrl+"GetUniversities/" + id);
+  }
+
   // By uing this method we will Add the Institutions based on Institutions
   AddInstitutions(institutions: Institutions): any {
     return this.http.post(this.endpointUrl+"AddInstitutions", institutions)

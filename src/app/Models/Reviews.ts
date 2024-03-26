@@ -10,6 +10,7 @@ export class Reviews {
   public AccessLevel: number = 0;
   public CreatedOn!: Date;
   public CreatedBy: number = 0;
+  public CreatedByName!: string;
   public UpdatedOn!: Date;
   public UpdatedBy: number = 0;
   public CompanyId: number = 0;

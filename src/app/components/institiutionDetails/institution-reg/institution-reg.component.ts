@@ -20,6 +20,9 @@ import { InstitutionsService } from 'src/app/services/institutions/institutions.
 import { MediumService } from 'src/app/services/medium/medium.service';
 import { QulificationTypeService } from 'src/app/services/qulificationtype/qulificationtype.service';
 import { StatesService } from 'src/app/services/states/states.service';
+import { LookUpValueservice } from 'src/app/services/lookup/look-up-values.service';
+import { LookUpValue } from 'src/app/Models/LookUpValues';
+import {  LookUpUtilitiesService } from 'src/app/utilities/lookup';
 
 @Component({
   selector: 'app-institution-reg',
@@ -38,11 +41,16 @@ export class InstitutionRegComponent implements OnInit {
   LookUpinstitutions: Institutions[] = [];
   institutionsId: number = 0;
 
-  lookUpQulificationtypeData: QulificationType[] = [];
-  LookUpMedium: Medium[] = [];
+  lookUpEducationProgramType: LookUpValue[] = [];
+  lookUpMedium: Medium[] = [];
+  lookUpValues: LookUpValue[] = [];
+  InstitutionTypes: LookUpValue[] = [];
+  
   lookUpstates: States[] = [];
   lookUpCountries: Countries[] = [];
   lookUpCourses: Courses[] = [];
+  
+  lookUniversities: Institutions[] = [];
 
   institutionId: number = 10;
   institutionaddressId: number = 10;
@@ -61,7 +69,11 @@ export class InstitutionRegComponent implements OnInit {
     private countriesService: CountriesService,
     private institutionaddressService: InstitutionAddressService,
     private institutioncoursesService: InstitutionCoursesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private lookUpValueservice: LookUpValueservice,
+    private lookUpUtilitiesService: LookUpUtilitiesService,
+    
+    
   ) {
 
     this.route.paramMap.subscribe((params) => {
@@ -76,21 +88,33 @@ export class InstitutionRegComponent implements OnInit {
     this.LookUpinstitutions.push(new Institutions());
     this.institutionsDetails.institutionCourses.push(new InstitutionCourses());
     this.institutionsDetails.institutionaddress.push(new InstitutionAddress());
+    this.AddressEmailPush();
+    this.AddressContactPush();
+    this.GetlookUpValue();
   }
 
   // First Call When Page Was Loaded
   ngOnInit(): any {
     this.GetInstitutionsById(this.institutionId);
     this.GetInstitutionAddressByInstituteId(this.institutionId);
+    this.GetInstitutionContactsById(this.institutionId);
+    this.GetInstitutionEmailsById(this.institutionId);
     this.GetInstitutionCourses();
     this.initialsetting();
     //this.GetInstitutionContactsByAddressId(this.institutionaddressId);
     //Look Up List
     this.GetMedium();
-    this.GetQulificationType();
+    //this.GetQulificationType();
     this.GetCourses();
     this.GetCountries();
     this.GetStates();
+    this.GetUniversities(0);
+  }
+
+  GetUniversities(Id: number): any {
+    this.institutionsService.GetUniversities(Id).subscribe((res: any) => {
+      this.lookUniversities = res;       
+    });
   }
 
   //initial data getting start
@@ -108,60 +132,85 @@ export class InstitutionRegComponent implements OnInit {
 
   // By using this method we will get the InstitutionAddress
   GetInstitutionAddressByInstituteId(id: any): any {
-    debugger
     this.institutionaddressService
       .GetInstitutionAddressByInstituteId(id)
       .subscribe((res: any) => {
-
         this.institutionsDetails.institutionaddress = res;
-
         if (!(this.institutionsDetails.institutionaddress && this.institutionsDetails.institutionaddress.length !== 0)) {
           this.institutionsDetails.institutionaddress = [];
           this.institutionsDetails.institutionaddress.push(new InstitutionAddress());
-          this.AddressEmailPush(this.institutionsDetails.institutionaddress[0]);
-          debugger
-          this.AddressContactPush(this.institutionsDetails.institutionaddress[0]
-          );
+          //  this.AddressEmailPush();
+          
+          // this.AddressContactPush(this.institutionsDetails.institutionaddress[0]
+          //);
         } else {
-          this.institutionsDetails.institutionaddress.forEach((element) => {
-            this.GetInstitutionContactsByAddressId(element);
-            this.GetInstitutionEmailsByAddressId(element);
-          });
+          // this.institutionsDetails.institutionaddress.forEach((element) => {
+          //   this.GetInstitutionContactsByAddressId(element);
+          //   this.GetInstitutionEmailsByAddressId(element);
+          // });
         }
       });
   }
 
+
+
   // By Using This method We Will Get The InstitutionContact Data By Address Id
-  GetInstitutionContactsByAddressId(element: InstitutionAddress): any {
-
+  GetInstitutionContactsById(id: number): any {
     this.institutioncontactsService
-      .GetInstitutionContactsByAddressId(element.Id)
+      .GetInstitutionContactsById(id)
       .subscribe((res: any) => {
-        // if (element.institutioncontactsData.length === 0) {
-        element.institutioncontacts = res;
-
-        this.AddressContactPush(element);
+        this.institutionsDetails.institutioncontacts = res;
+        this.AddressContactPush();
         // }
       });
+   
+    
   }
 
   //By Using This method We Will Get The InstitutionEmail Data By Address Id
-  GetInstitutionEmailsByAddressId(element: InstitutionAddress): any {
-
+  GetInstitutionEmailsById(id: number): any {
     this.institutionemailsService
-      .GetInstitutionEmailsByAddressId(element.Id)
+      .GetInstitutionEmailsById(id)
       .subscribe((res: any) => {
-        element.institutionemails = res;
-        element.institutionemails.forEach(element1 => {
-          element1.IsDeleted = false;
-        });
-
-        this.AddressEmailPush(element);
+        this.institutionsDetails.institutionemail = res;
+        this.AddressEmailPush();
       });
+    
   }
 
+
+
+  // // By Using This method We Will Get The InstitutionContact Data By Address Id
+  // GetInstitutionContactsByAddressId(element: InstitutionAddress): any {
+
+  //   this.institutioncontactsService
+  //     .GetInstitutionContactsByAddressId(element.Id)
+  //     .subscribe((res: any) => {
+  //       // if (element.institutioncontactsData.length === 0) {
+  //       element.institutioncontacts = res;
+
+  //       this.AddressContactPush(res);
+  //       // }
+  //     });
+  // }
+
+  //By Using This method We Will Get The InstitutionEmail Data By Address Id
+  // GetInstitutionEmailsByAddressId(element: InstitutionAddress): any {
+
+  //   this.institutionemailsService
+  //     .GetInstitutionEmailsByAddressId(element.Id)
+  //     .subscribe((res: any) => {
+  //       element.institutionemails = res;
+  //       element.institutionemails.forEach(element1 => {
+  //         element1.IsDeleted = false;
+  //       });
+
+  //      this.AddressEmailPush(res);
+  //     });
+  // }
+
   // GetInstitutionContactsByAddressId(id:any): any {
-  //   debugger;
+  //   
   //       this.institutioncontactsService .GetInstitutionContactsByAddressId(id)  .subscribe((res: any) => {
   //         this.institutionsDetails.institutioncontacts = res;
 
@@ -183,37 +232,34 @@ export class InstitutionRegComponent implements OnInit {
   }
   //initial data getting end
 
-  AddressEmailPush(institutionAddress: InstitutionAddress) {
-    debugger
-    if (institutionAddress.institutionemails.length < 1) {
-      institutionAddress.institutionemails.push(new InstitutionEmails());
-    }
-  }
+  // AddressEmailPush(institutionAddress: InstitutionAddress) {
+  //   
+  //   if (institutionAddress.institutionemails.length < 1) {
+  //     institutionAddress.institutionemails.push(new InstitutionEmails());
+  //   }
+  // }
 
-  AddressContactPush(institutionAddress: InstitutionAddress) {
-    debugger
-    if (institutionAddress.institutioncontacts.length < 1) {
-      institutionAddress.institutioncontacts.push(new InstitutionContacts());
-    }
-  }
+  // AddressContactPush(institutionAddress: InstitutionAddress) {
+  //   
+  //   if (institutionAddress.institutioncontacts.length < 1) {
+  //     institutionAddress.institutioncontacts.push(new InstitutionContacts());
+  //   }
+  // }
 
-
-
-
-  AddressEmailPush1(institutionAddress: InstitutionAddress) {
-
+  AddressEmailPush() {
     // if (institutionAddress.institutionemails.length < 1) {
     var data = new InstitutionEmails();
     data.IsDeleted = false;
-    institutionAddress.institutionemails.push(new InstitutionEmails());
+    this.institutionsDetails.institutionemail.push(new InstitutionEmails());
     // }
   }
 
-
-  AddressContactPush1(institutionAddress: InstitutionAddress) {
-
+  AddressContactPush() {
     // if (institutionAddress.institutioncontacts.length < 1) {
-    institutionAddress.institutioncontacts.push(new InstitutionContacts());
+    var data = new InstitutionContacts();
+    //data.IsDeleted = false;
+    this.institutionsDetails.institutioncontacts.push(new InstitutionContacts());
+    
     //  }
   }
 
@@ -234,8 +280,8 @@ export class InstitutionRegComponent implements OnInit {
           break;
         case 'InstitutionAddress':
           var address = new InstitutionAddress();
-          address.institutioncontacts.push(new InstitutionContacts());
-          address.institutionemails.push(new InstitutionEmails());
+          // address.institutioncontacts.push(new InstitutionContacts());
+          // address.institutionemails.push(new InstitutionEmails());
           this.institutionsDetails.institutionaddress.push(address);
           break;
         default:
@@ -246,7 +292,7 @@ export class InstitutionRegComponent implements OnInit {
   }
 
   ArrayObjectRemoveAt(arraydata: any, index: number) {
-    debugger;
+    
     // var valueAtIndex1 = arraydata.at(1);
     // valueAtIndex1.IsDeleted = true;
     arraydata.splice(index, 1);
@@ -267,16 +313,28 @@ export class InstitutionRegComponent implements OnInit {
   //Look up get Starting
 
   //this Method is from qualificationtype component
-  GetQulificationType(): any {
-    this.qualificationservices.GetQulificationType().subscribe((res: any) => {
-      this.lookUpQulificationtypeData = res;
+  // GetQulificationType(): any {
+  //   this.qualificationservices.GetQulificationType().subscribe((res: any) => {
+  //     this.lookUpQulificationtypeData = res;
+  //   });
+  // }
+
+  // By using this method we will get the Medium
+  GetlookUpValue(): any {
+    this.lookUpValueservice.GetLookUpValueByCode(['Institution_Type','EDUCATION PROGRAM TYPE']).subscribe((res: any) => {
+      this.lookUpValues = res;
+    this.InstitutionTypes= this.lookUpUtilitiesService.GetLookUpValues(res,'INSTITUTION_TYPE',true);
+    this.lookUpEducationProgramType= this.lookUpUtilitiesService.GetLookUpValues(res,'EDUCATION PROGRAM TYPE',true);
+    
     });
   }
 
+  
   // By using this method we will get the Medium
   GetMedium(): any {
     this.mediumService.GetMedium().subscribe((res: any) => {
-      this.LookUpMedium = res;
+      debugger
+      this.lookUpMedium = res;
     });
   }
 
@@ -318,5 +376,7 @@ export class InstitutionRegComponent implements OnInit {
   //    // }
   //   }
 
+
+  
 
 }

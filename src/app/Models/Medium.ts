@@ -1,6 +1,6 @@
 export class Medium
 { public Id   :number = 0; 
- public Medium1! :string; 
+ public Name! :string; 
  public Code! :string; 
  public CreatedOn! :Date; 
  public CreatedBy   :number = 0; 
