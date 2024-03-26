@@ -1,0 +1,322 @@
+<!--
+Live Example: https://play.studiokonkon.com/playground/pens/2022/220212-comments-ui/
+//-->
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="google-thumb_up" viewBox="0 -960 960 960">
+       <path d="M716-120H272v-512l278-288 39 31q6 5 9 14t3 22v10l-45 211h299q24 0 42 18t18 42v81.839q0 7.161 1.5 14.661T915-461L789-171q-8.878 21.25-29.595 36.125Q738.689-120 716-120Zm-384-60h397l126-299v-93H482l53-249-203 214v427Zm0-427v427-427Zm-60-25v60H139v392h133v60H79v-512h193Z"></path>
+    </symbol>
+    <symbol id="google-thumb_up-fill" viewBox="0 -960 960 960">
+       <path d="M721-120H254v-512l278-288 33 26q11 8 14.5 18t3.5 23v10l-45 211h322q23 0 41.5 18.5T920-572v82q0 11-2.5 25.5T910-439L794-171q-9 21-29.5 36T721-120ZM194-632v512H80v-512h114Z"></path>
+    </symbol>
+    <symbol id="google-thumb_down" viewBox="0 -960 960 960">
+       <path d="M242-840h444v512L408-40l-39-31q-6-5-9-14t-3-22v-10l45-211H103q-24 0-42-18t-18-42v-81.839Q43-477 41.5-484.5T43-499l126-290q8.878-21.25 29.595-36.125Q219.311-840 242-840Zm384 60H229L103-481v93h373l-53 249 203-214v-427Zm0 427v-427 427Zm60 25v-60h133v-392H686v-60h193v512H686Z"></path>
+    </symbol>
+    <symbol id="google-thumb_down-fill" viewBox="0 -960 960 960">
+       <path d="M239-840h467v512L428-40l-33-26q-11-8-14.5-18t-3.5-23v-10l45-211H100q-23 0-41.5-18.5T40-388v-82q0-11 2.5-25.5T50-521l116-268q9-21 29.5-36t43.5-15Zm527 512v-512h114v512H766Z"></path>
+    </symbol>
+ </svg>
+ 
+ <div class="app container py-5">
+    <div class="col-md-10 col-lg-8 m-auto">
+       <h1 class="h2">Theme KonKon: Comments Layout</h1>
+       <p class="lead mb-3">A comments template for our bootstrap theme</p>
+       <hr>
+       <div class="pt-1 mb-5">
+ 
+          <div class="mb-5 hstack gap-3 align-items-center">
+             <div class="fs-5">8 Comments</div>
+             <div class="dropdown">
+                <button class="sort-btn btn btn-secondary hstack align-items-center gap-2 py-1 px-2 fw-normal" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                   <span class="ski" style="font-size:1.5em;"><svg aria-hidden="true" class="svg-icon mdi-outlined mdi-sort" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 -960 960 960"><path d="M120-240v-60h240v60H120Zm0-210v-60h480v60H120Zm0-210v-60h720v60H120Z"></path></svg></span>
+                   <span>Sort by</span>
+                </button>
+                <div class="dropdown-menu mt-1">
+                   <div><a class="dropdown-item" href="#">Top comments</a></div>
+                   <div><a class="dropdown-item" href="#">Newest first</a></div>
+                </div>
+             </div>
+          </div>
+ 
+          <!-- Comment #1 //-->
+          <div class="vstack gap-4" style="--sk-icon-btn-size:1.25em;--sk-icon-btn-padding:.25rem;">
+ 
+             <!-- Comment #0 //-->
+             <div class="comment-box">
+ 
+                <div class="d-flex comment">
+                   <img class="rounded-circle comment-img" src="https://via.placeholder.com/128/fe669e/ffcbde.png?text=S" width="128" height="128">
+                   <div class="flex-grow-1 ms-3">
+                      <div class="form-floating comment-compose mb-2">
+                         <textarea class="form-control w-100" placeholder="Leave a comment here" id="my-comment-reply" style="height:2rem;"></textarea>
+                         <label for="my-comment-reply">Leave a comment here</label>
+                      </div>
+                      <div class="hstack justify-content-end gap-1">
+                         <button class="btn btn-sm btn-secondary rounded-pill">Cancel</button>
+                         <button class="btn btn-sm btn-primary rounded-pill">Comment</button>
+                      </div>
+                   </div>
+                </div>
+ 
+             </div>
+ 
+             <!-- Comment #1 //-->
+             <div class="comment-box">
+                <div class="d-flex comment">
+                   <img class="rounded-circle comment-img" src="https://via.placeholder.com/128/fe669e/ffcbde.png?text=S" width="128" height="128">
+                   <div class="flex-grow-1 ms-3">
+                      <div class="mb-1"><a href="#" class="fw-bold link-body-emphasis me-1">Studio KonKon</a> <i class="zmdi zmdi-check me-1 fw-bold" title="verified"></i> <span class="text-body-secondary text-nowrap">2 days ago</span></div>
+                      <div class="mb-1">Lorem ipsum dolor sit amet, ut qui commodo sensibus, id utinam inermis constituto vim. In nam dolorum interesset, per fierent ponderum ea. Eos aperiri feugiat democritum ne.</div>
+                      <div class="hstack align-items-center mb-0" style="margin-left:-.25rem;">
+                         <button class="icon-btn me-1" href="#"><svg class="svg-icon material-symbols-filled material-symbols-thumb_up" width="48" height="48"><use xlink:href="#google-thumb_up-fill"></use></svg></button>
+                         <span class="me-3 small">55</span>
+                         <button class="icon-btn me-4"><svg class="svg-icon material-symbols-outlined material-symbols-thumb_down" width="48" height="48"><use xlink:href="#google-thumb_down"></use></svg></button>
+                         <button class="btn btn-sm btn-secondary rounded-pill small">Reply</button>
+                         <button class="btn btn-sm btn-danger rounded-pill small">Delete</button>
+                      </div>
+                      <div style="margin-left:-.769rem;">
+                         <button class="btn btn-primary rounded-pill d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-comment001" aria-expanded="true" aria-controls="collapse-comment001">
+                            <i class="chevron-down zmdi zmdi-chevron-down fs-4 me-2"></i>
+                            <i class="chevron-up zmdi zmdi-chevron-up fs-4 me-2"></i>
+                            <span>3 replies</span>
+                         </button>
+                      </div>
+                   </div>
+                </div>
+ 
+                <!-- Comment #1 Replies //-->
+                <div class="collapse show" id="collapse-comment001" style="">
+                   <div class="comment-replies vstack gap-3 mt-1 bg-body-tertiary p-3 rounded-3">
+ 
+                      <!-- Comment #1 Replies #1.1 //-->
+                      <div class="d-flex">
+                         <img class="rounded-circle comment-img" src="https://via.placeholder.com/128/cc99ff/7f00ff.png?text=S" width="128" height="128">
+                         <div class="flex-grow-1 ms-3">
+                            <div class="mb-1"><a href="#" class="fw-bold link-body-emphasis pe-1">Shinobu KonKon</a> <span class="text-body-secondary text-nowrap">1 day ago</span></div>
+                            <div class="mb-2">Disputando voluptatibus ei sit. Et veri deserunt theophrastus pri, at mutat choro eum.</div>
+                            <div class="hstack align-items-center" style="margin-left:-.25rem;">
+                               <button class="icon-btn me-1" href="#"><svg class="svg-icon material-symbols-outlined material-symbols-thumb_up" width="48" height="48"><use xlink:href="#google-thumb_up"></use></svg></button>
+                               <span class="me-3 small">1</span>
+                               <button class="icon-btn me-4" href="#"><svg class="svg-icon material-symbols-outlined material-symbols-thumb_down" width="48" height="48"><use xlink:href="#google-thumb_down"></use></svg></button>
+                               <button class="btn btn-sm btn-secondary rounded-pill small">Reply</button>
+                            </div>
+                         </div>
+                      </div>
+ 
+                      <!-- Comment #1 Replies #1.2 //-->
+                      <div class="d-flex">
+                         <img class="rounded-circle comment-img" src="https://via.placeholder.com/128/ffcc99/ff8000.png?text=O" width="128" height="128">
+                         <div class="flex-grow-1 ms-3">
+                            <div class="mb-1"><a href="#" class="fw-bold link-body-emphasis pe-1">Yuki Uki</a> <span class="text-body-secondary text-nowrap">1 minute ago</span></div>
+                            <div class="mb-1">Oremlo ipsumay olay orsumday itamay oremay oxfay imdray onsecteturcay adipiscingay elitay, eday osay eiusmoday emporecay incididuntay utay aborecay etay oloredcay agnay aliquaay.</div>
+                            <div class="hstack align-items-center" style="margin-left:-.25rem;">
+                               <button class="icon-btn me-1" href="#"><svg class="svg-icon material-symbols-outlined material-symbols-thumb_up" width="48" height="48"><use xlink:href="#google-thumb_up"></use></svg></button>
+                               <span class="me-3 small" hidden="">0</span>
+                               <button class="icon-btn me-4" href="#"><svg class="svg-icon material-symbols-filled material-symbols-thumb_down-fill" width="48" height="48"><use xlink:href="#google-thumb_down-fill"></use></svg></button>
+                               <button class="btn btn-sm btn-secondary rounded-pill small">Reply</button>
+                            </div>
+                         </div>
+                      </div>
+ 
+                      <!-- Comment #1 Replies #1.3 //-->
+                      <div class="d-flex">
+                         <img class="rounded-circle comment-img" src="https://via.placeholder.com/128/ff99cc/fe669e.png?text=K" width="128" height="128">
+                         <div class="flex-grow-1 ms-3">
+                            <div class="mb-1"><a href="#" class="fw-bold text-bg-secondary py-1 px-2 rounded-pill me-1">Kamisato Mugi</a> <span class="text-body-secondary text-nowrap">just now</span></div>
+                            <div class="mb-1"><a href="#">@Shinobu_KonKon</a> Vivamus ac varius augue. Curabitur luctus convallis lorem, vitae convallis dui volutpat nec.</div>
+                            <div class="hstack align-items-center" style="margin-left:-.25rem;">
+                               <button class="icon-btn me-1" href="#"><svg class="svg-icon material-symbols-filled material-symbols-thumb_up-fill" width="48" height="48"><use xlink:href="#google-thumb_up-fill"></use></svg></button>
+                               <span class="me-3 small">2</span>
+                               <button class="icon-btn me-4" href="#"><svg class="svg-icon material-symbols-outlined material-symbols-thumb_down" width="48" height="48"><use xlink:href="#google-thumb_down"></use></svg></button>
+                               <button class="btn btn-sm btn-secondary rounded-pill small">Reply</button>
+                            </div>
+                         </div>
+                      </div>
+ 
+                   </div>
+                </div>
+             </div>
+ 
+             <!-- Comment #2 //-->
+             <div class="comment-box">
+                <div class="d-flex comment">
+                   <img class="rounded-circle comment-img" src="https://via.placeholder.com/128/99ccff/0073e6.png?text=A" width="128" height="128">
+                   <div class="flex-grow-1 ms-3">
+                      <div class="mb-1"><a href="#" class="fw-bold link-body-emphasis pe-1">Asai Kazuma</a> <span class="text-body-secondary text-nowrap">8 hours ago</span></div>
+                      <div class="mb-2">Ei saepe abhorreant temporibus cum, hinc praesent voluptatum ea has.<br><br>Vis nihil tacimates senserit ut, quo posse labores honestatis te. Ex duo nullam posidonium deterruisset, altera aeterno duo.</div>
+                      <div class="hstack align-items-center" style="margin-left:-.25rem;">
+                         <button class="icon-btn me-1" href="#"><svg class="svg-icon material-symbols-outlined material-symbols-thumb_up" width="48" height="48"><use xlink:href="#google-thumb_up"></use></svg></button>
+                         <span class="me-3 small">26</span>
+                         <button class="icon-btn me-4" href="#"><svg class="svg-icon material-symbols-outlined material-symbols-thumb_down" width="48" height="48"><use xlink:href="#google-thumb_down"></use></svg></button>
+                         <button class="btn btn-sm btn-secondary rounded-pill small">Reply</button>
+                      </div>
+                   </div>
+                </div>
+             </div>
+ 
+             <!-- Comment #3 //-->
+             <div class="comment-box">
+ 
+                <div class="d-flex comment">
+                   <img class="rounded-circle comment-img" src="https://via.placeholder.com/128/ffcc99/ff8000.png?text=A" width="128" height="128">
+                   <div class="flex-grow-1 ms-3">
+                      <div class="mb-1"><a href="#" class="fw-bold link-body-emphasis pe-1">Kondo Arisu</a> <span class="text-body-secondary text-nowrap">5 hours ago</span></div>
+                      <div class="mb-2">私は十一月始めて漠然たる…σ(∵`)？発展顔というの<br>断然将来でーー♪妨害院もまあその脱却ないたm(__)m✨✨<br>毎日よりどうしてもたですたwwww</div>
+                      <div class="hstack align-items-center" style="margin-left:-.25rem;">
+                         <button class="icon-btn me-1" href="#"><svg class="svg-icon material-symbols-outlined material-symbols-thumb_up" width="48" height="48"><use xlink:href="#google-thumb_up"></use></svg></button>
+                         <span class="me-3 small">3</span>
+                         <button class="icon-btn me-4" href="#"><svg class="svg-icon material-symbols-outlined material-symbols-thumb_down" width="48" height="48"><use xlink:href="#google-thumb_down"></use></svg></button>
+                         <button class="btn btn-sm btn-secondary rounded-pill small">Reply</button>
+                      </div>
+                   </div>
+                </div>
+             </div>
+ 
+             <!-- Comment #4 //-->
+             <div class="comment-box">
+                <div class="d-flex comment">
+                   <img class="rounded-circle comment-img" src="https://via.placeholder.com/128/ff99cc/fe669e.png?text=K" width="128" height="128">
+                   <div class="flex-grow-1 ms-3">
+                      <div class="mb-1"><a href="#" class="fw-bold text-bg-secondary py-1 px-2 rounded-pill me-1">Kamisato Mugi</a> <span class="text-body-secondary text-nowrap">10 hours ago</span></div>
+                      <div class="mb-2">Aenean non tellus sed erat ultrices rutrum. Sed ac dolor tempus, efficitur diam vitae, sagittis nisi. Morbi bibendum congue nisl eu congue. Mauris eu eros bibendum, pretium ex ac, aliquam lorem.</div>
+                      <div class="hstack align-items-center" style="margin-left:-.25rem;">
+                         <button class="icon-btn me-1" href="#"><svg class="svg-icon material-symbols-filled material-symbols-thumb_up-fill" width="48" height="48"><use xlink:href="#google-thumb_up-fill"></use></svg></button>
+                         <span class="me-3 small">8</span>
+                         <button class="icon-btn me-4" href="#"><svg class="svg-icon material-symbols-outlined material-symbols-thumb_down" width="48" height="48"><use xlink:href="#google-thumb_down"></use></svg></button>
+                         <button class="btn btn-sm btn-secondary rounded-pill small">Reply</button>
+                      </div>
+                      <div style="margin-left:-.769rem;">
+                         <button class="btn btn-primary rounded-pill d-inline-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#collapse-comment002" aria-expanded="true" aria-controls="collapse-comment002">
+                            <i class="chevron-up zmdi zmdi-chevron-up fs-4 me-2"></i>
+                            <i class="chevron-down zmdi zmdi-chevron-down fs-4 me-2"></i>
+                            <span>1 reply</span>
+                         </button>
+                      </div>
+                   </div>
+                </div>
+ 
+                <!-- Comment #3 Replies //-->
+                <div class="collapse show" id="collapse-comment002" style="">
+                   <div class="comment-replies vstack gap-3 mt-1 bg-body-tertiary p-3 rounded-3">
+ 
+                      <!-- Comment #3 Replies #0 //-->
+                      <div class="d-flex">
+                         <img class="rounded-circle comment-img" src="https://via.placeholder.com/128/fe669e/ffcbde.png?text=S" width="128" height="128">
+                         <div class="flex-grow-1 ms-3">
+                            <div class="mb-2">
+                               <div class="text-body-secondary small">Replying to @Kamisato_Mugi</div>
+                            </div>
+                            <div class="form-floating comment-compose mb-2">
+                               <textarea class="form-control w-100" placeholder="Leave a comment here" id="my-comment-reply" style="height:2rem;"></textarea>
+                               <label for="my-comment-reply">Leave a comment here</label>
+                            </div>
+                            <div class="hstack justify-content-end gap-1">
+                               <button class="btn btn-sm btn-secondary rounded-pill">Cancel</button>
+                               <button class="btn btn-sm btn-primary rounded-pill">Comment</button>
+                            </div>
+                         </div>
+                      </div>
+ 
+                      <!-- Comment #3 Replies #1.1 //-->
+                      <div class="d-flex">
+                         <img class="rounded-circle comment-img" src="https://via.placeholder.com/128/ffcc99/ff8000.png?text=O" width="128" height="128">
+                         <div class="flex-grow-1 ms-3">
+                            <div class="mb-1"><a href="#" class="fw-bold link-body-emphasis pe-1">Yuki Uki</a> <span class="text-body-secondary text-nowrap">5 mintues ago</span></div>
+                            <div class="mb-2">국회는 국민의 보통·평등·직접·비밀선거에 의하여 선출된 국회의원으로 구성한다. 국가는 주택개발정책등을 통하여 모든 국민이 쾌적한 주거생활을 할 수 있도록 노력하여야 한다.</div>
+                            <div class="hstack align-items-center" style="margin-left:-.25rem;">
+                               <button class="icon-btn me-1" href="#"><svg class="svg-icon material-symbols-outlined material-symbols-thumb_up" width="48" height="48"><use xlink:href="#google-thumb_up"></use></svg></button>
+                               <span class="me-3 small" hidden="">0</span>
+                               <button class="icon-btn me-4" href="#"><svg class="svg-icon material-symbols-outlined material-symbols-thumb_down" width="48" height="48"><use xlink:href="#google-thumb_down"></use></svg></button>
+                               <button class="btn btn-sm btn-secondary rounded-pill small">Reply</button>
+                            </div>
+                         </div>
+                      </div>
+ 
+                   </div>
+                </div>
+             </div>
+ 
+          </div>
+ 
+       </div>
+       <div class="border-top pt-2">
+          <p class="mb-4 small"><b>Disclaimer:</b> <i>The use of "Bootstrap" in our content is unofficial and not approved or endorsed by "Bootstrap" nor is it associated or connected to "Bootstrap" in any way.</i></p>
+       </div>
+    </div>
+ </div>
+ 
+ <!-- Testing //-->
+ <style>
+    .bi {
+       vertical-align: -.125em;
+       fill: currentColor;
+    }
+    .btn-bd-primary {
+       --bd-violet-bg: #712cf9;
+       --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+ 
+       --bs-btn-font-weight: 600;
+       --bs-btn-color: var(--bs-white);
+       --bs-btn-bg: var(--bd-violet-bg);
+       --bs-btn-border-color: var(--bd-violet-bg);
+       --bs-btn-hover-color: var(--bs-white);
+       --bs-btn-hover-bg: #6528e0;
+       --bs-btn-hover-border-color: #6528e0;
+       --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+       --bs-btn-active-color: var(--bs-btn-hover-color);
+       --bs-btn-active-bg: #5a23c8;
+       --bs-btn-active-border-color: #5a23c8;
+    }
+    .bd-mode-toggle {
+       z-index: 1500;
+    }
+ </style>
+ <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+       <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+       <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+       <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+       <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+       <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+    </symbol>
+ </svg>
+ <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+            id="bd-theme"
+            type="button"
+            aria-expanded="false"
+            data-bs-toggle="dropdown"
+            aria-label="Toggle theme (auto)">
+       <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+       <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+       <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+             <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+             Light
+             <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+       </li>
+       <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+             <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+             Dark
+             <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+       </li>
+       <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+             <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+             Auto
+             <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+       </li>
+    </ul>
+ </div>
+ 

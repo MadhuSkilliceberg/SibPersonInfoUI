@@ -1,0 +1,192 @@
+/* Prefix */
+:root {
+    --bs-font-sans-serif: Roboto, Arial, sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 0.875rem;
+  }
+  
+  /* Variables */
+  :root {
+    --prefix: bs-;
+    --sk-variable-prefix: sk-;
+    --comment-img-size: 3rem;
+    --comment-img-size-sm: 1.75rem;
+  }
+  
+  /* Body Styles */
+  body {
+    font-size: 0.875rem;
+    --bs-font-sans-serif: Roboto, Arial, sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  
+  /* Comment Styles */
+  .comment-img {
+    display: inline-block;
+    width: var(--comment-img-size);
+    height: var(--comment-img-size);
+    background-color: var(--bs-secondary-bg);
+  }
+  
+  .comment-replies .comment-img {
+    width: var(--comment-img-size-sm);
+    height: var(--comment-img-size-sm);
+  }
+  
+  .comment a,
+  .comment-replies a {
+    text-decoration: none !important;
+  }
+  
+  /* Button Styles */
+  .sort-btn.btn-secondary,
+  .comment .btn-secondary,
+  .comment-replies .btn-secondary {
+    --bs-btn-box-shadow: none;
+    --bs-btn-focus-box-shadow: none;
+    --bs-btn-hover-shadow: none;
+    --bs-btn-active-shadow: none;
+    --bs-btn-border-color: transparent;
+    --bs-btn-focus-border-color: transparent;
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-active-border-color: transparent;
+    --bs-btn-color: var(--bs-body);
+    --bs-btn-hover-color: var(--bs-body);
+    --bs-btn-active-color: var(--bs-body);
+    --bs-btn-bg: transparent;
+    --bs-btn-hover-bg: rgba(var(--bs-secondary-rgb), 0.075);
+    --bs-btn-active-bg: rgba(var(--bs-secondary-rgb), 0.15);
+  }
+  
+  .comment .btn-primary,
+  .comment-replies .btn-primary {
+    --bs-btn-box-shadow: none;
+    --bs-btn-focus-box-shadow: none;
+    --bs-btn-hover-shadow: none;
+    --bs-btn-active-shadow: none;
+    --bs-btn-border-color: transparent;
+    --bs-btn-focus-border-color: transparent;
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-active-border-color: transparent;
+    --bs-btn-color: var(--bs-primary);
+    --bs-btn-hover-color: var(--bs-primary);
+    --bs-btn-active-color: var(--bs-primary);
+    --bs-btn-bg: transparent;
+    --bs-btn-hover-bg: rgba(var(--bs-primary-rgb), 0.075);
+    --bs-btn-active-bg: rgba(var(--bs-primary-rgb), 0.15);
+  }
+  
+  .comment .btn-danger,
+  .comment-replies .btn-danger {
+    --bs-btn-box-shadow: none;
+    --bs-btn-focus-box-shadow: none;
+    --bs-btn-hover-shadow: none;
+    --bs-btn-active-shadow: none;
+    --bs-btn-border-color: transparent;
+    --bs-btn-focus-border-color: transparent;
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-active-border-color: transparent;
+    --bs-btn-color: var(--bs-danger);
+    --bs-btn-hover-color: var(--bs-danger);
+    --bs-btn-active-color: var(--bs-danger);
+    --bs-btn-bg: transparent;
+    --bs-btn-hover-bg: rgba(var(--bs-danger-rgb), 0.075);
+    --bs-btn-active-bg: rgba(var(--bs-danger-rgb), 0.15);
+  }
+  
+  /* Form Styles */
+  .form-floating.comment-compose > .form-control,
+  .form-floating.comment-compose > .form-control:focus {
+    border: 0;
+    box-shadow: none;
+    background-color: transparent;
+    border-bottom: 2px var(--bs-border-style) var(--bs-body-color);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 1rem 0.15rem 0.5rem;
+  }
+  
+  .form-floating.comment-compose > label,
+  .form-floating.comment-compose > .form-control:focus ~ label::after,
+  .form-floating.comment-compose > .form-control:not(:placeholder-shown) ~ label::after {
+    color: var(--bs-secondary-color);
+    background-color: transparent;
+    padding: 0;
+    line-height: 1;
+  }
+  
+  .comment .btn[data-bs-toggle="collapse"][aria-expanded="true"] .chevron-down,
+  .comment .btn[data-bs-toggle="collapse"][aria-expanded="false"] .chevron-up {
+    display: none;
+  }
+  
+  /* Testing Styles */
+  :root,
+  [data-bs-theme="light"] {
+    --sk-icon-size: 1em;
+    --sk-icon-btn-color: inherit;
+    --sk-icon-btn-size: 1.5rem;
+    --sk-icon-btn-padding: 0.5rem;
+    --sk-icon-btn-hover-color: inherit;
+    --sk-icon-btn-hover-bg: currentcolor;
+    --sk-icon-btn-active-color: inherit;
+    --sk-icon-btn-active-bg: var(--sk-icon-btn-hover-bg);
+  }
+  
+  .base-svg-icon {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width:1em;
+    height: 1em;
+    fill: currentcolor;
+  }
+  
+  .base-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 1.5rem;
+    height:1.5rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 0.5rem;
+    box-sizing: content-box;
+    aspect-ratio: 1 / 1;
+  }
+  
+  .svg-icon {
+    extend: .base-svg-icon;
+  }
+  
+  .ski {
+    extend: .base-svg-icon;
+    &::before {
+      font-size: var(--sk-icon-size);
+    }
+  }
+  
+  .icon-btn-base {
+    extend: .base-icon-btn;
+  }
+  
+  .icon-btn {
+    extend: .base-icon-btn;
+    color: var(--sk-icon-btn-color);
+    background-color: transparent;
+    border-radius: 50%;
+    border: 0;
+    outline: solid 1px transparent;
+  }
+  
+  .icon-btn:hover {
+    color: var(--sk-icon-btn-hover-color);
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon-btn:active {
+    color: var(--sk-icon-btn-active-color);
+    background-color: rgba(0, 0, 0, 0.2);
+    outline-color: rgba(0, 0, 0, 0.4);
+  }
+  

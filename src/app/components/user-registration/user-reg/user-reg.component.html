@@ -1,0 +1,1439 @@
+<div id="stepper1" class="bs-stepper">
+    <div class="bs-stepper-header">
+        <div class="step" data-target="#test-l-1">
+            <button class="step-trigger">
+                <span class="bs-stepper-circle"><span class="fas fa-user"></span> </span>
+                <span class="bs-stepper-label">Personal Info</span>
+            </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#test-l-2">
+            <button class="step-trigger">
+                <span class="bs-stepper-circle"><span class="fas fa-map-marked" aria-hidden="true"></span></span>
+                <span class="bs-stepper-label">Education</span>
+            </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#test-l-3">
+            <button class="step-trigger">
+                <span class="bs-stepper-circle">3</span>
+                <span class="bs-stepper-label">Skill</span>
+            </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#test-l-4">
+            <button class="step-trigger">
+                <span class="bs-stepper-circle">4</span>
+                <span class="bs-stepper-label">Course</span>
+            </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#test-l-5">
+            <button class="step-trigger">
+                <span class="bs-stepper-circle">5</span>
+                <span class="bs-stepper-label">Company</span>
+            </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#test-l-6">
+            <button class="step-trigger">
+                <span class="bs-stepper-circle">6</span>
+                <span class="bs-stepper-label">Preview</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="bs-stepper-content">
+        <!-- For User Registration -->
+        <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div id="test-l-1" class="content">
+
+                <div class='card shadow-lg p-4 mb-4 bg-white'>
+                    <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                        <h5>USERS</h5>
+                    </div>
+                    <div class='card-body'>
+                        <div class="row">
+                            <div class="col-md-3">
+                                First Name :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtfirstname" class="form-control" id="txtfirstname"
+                                    #firstname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstname.errors }"
+                                    [(ngModel)]="userDetail.User.FirstName" placeholder="FirstName" />
+                                {{f.submitted }}
+                                123
+                                {{ firstname.errors}}
+                                <!-- {{firstname.errors['required']}} -->
+                                <div *ngIf="f.submitted && firstname.errors" class="invalid-feedback">
+                                    <div *ngIf="firstname.errors['required']">Fullname is required</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                Last Name :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtlastname" id="txtlastname" class="form-control"
+                                    [(ngModel)]="userDetail.User.LastName" placeholder="LastName" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Dob :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" name="txtdob" id="txtdob" class="form-control"
+                                    [(ngModel)]="userDetail.User.Dob" placeholder="Dob" />
+                            </div>
+                            <div class="col-md-3">
+                                Gender :
+                            </div>
+                            <div class="col-md-3">
+                                <select name="ddlgender" id="ddlgender" [(ngModel)]="user.GenderId"
+                                    class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of genderData" value="{{item.Id}}">{{item.Name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                Marrital Status :
+                            </div>
+                            <div class="col-md-3">
+                                <select name="ddlmarritalstatusId" id="ddlmarritalstatusId"
+                                    [(ngModel)]="user.MarritalStatusId" class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of marritalstatusData" value="{{item.Id}}">{{item.Name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                Mobile No :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="tel" name="txtmobile" id="txtmobile" class="form-control"
+                                    [(ngModel)]="user.MobileNumber" placeholder="Mobile Number" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Aadhar Number :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" name="txtaadhar" id="txtaadhar" class="form-control"
+                                    [(ngModel)]="user.AadharNumber" placeholder="Aadhar Number" />
+                            </div>
+                            <div class="col-md-3">
+                                VoterId :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtvoterid" id="txtvoterid" class="form-control"
+                                    [(ngModel)]="user.VoterId" placeholder="VoterId" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                PanCard Number :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtpancard" id="txtpancard" class="form-control"
+                                    [(ngModel)]="user.PanCardNumber" placeholder="PanCard Number" />
+                            </div>
+                            <div class="col-md-3">
+                                User Type :
+                            </div>
+                            <div class="col-md-3">
+                                {{userTypes.length}}
+                                <!-- <ul>
+                                    <li *ngFor="let  item of userTypes">{{item.Name}}</li>
+                                </ul> -->
+                                <!-- <select name="txtusertypeid" id="txtusertypeid" [(ngModel)]="user.UserTypeId"
+                                    class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of userTypes" value="{{item.Id}}">{{item.Name}}
+                                    </option>
+                                </select> -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- For User Contacts -->
+                <div class='card shadow-lg p-4 mb-4 bg-white'>
+                    <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                        <h5>CONTACTS {{userDetail.UserContacts.length}}</h5>
+                    </div>
+                    <div class='card-body' *ngFor="let uContact of userDetail.UserContacts; let i=index; let l=count">
+                        <div class="row">
+                            <div class="col-md-3">
+                                Mobile Number :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" name="txtmobile{{i}}" id="txtmobile{{i}}" class="form-control"
+                                    [(ngModel)]="uContact.MobileNumber" placeholder="Mobile Number" />
+                            </div>
+                            <div class="col-md-3">
+                                Primary :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="chkprimary{{i}}" id="chkprimary{{i}}"
+                                    class="form-check-input" [(ngModel)]="uContact.IsPrimary" placeholder="Primary" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                OrderId :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" name="txtorderid{{i}}" id="txtorderid{{i}}" class="form-control"
+                                    [(ngModel)]="uContact.OrderId" placeholder="OrderId" />
+                            </div>
+                            <div class="col-md-3">
+                                Contact Type :
+                            </div>
+                            <div class="col-md-3">
+                                <select id="ddlcontacttype{{i}}" name="ddlcontacttype{{i}}"
+                                    [(ngModel)]="uContact.ContactTypeId" class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of contacttypeData" value="{{item.Id}}"> {{item.Name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="row " >
+                        <div class="col-md-9"></div>
+                        <div class="col-md-1">
+                            <button (click)="AddUserContacts()" class="btn btn-primary" *ngIf="isSave">Save</button>
+                        </div>
+                    </div> -->
+                        <!-- <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button (click)="UpdateUserContacts()" class="btn btn-primary"
+                                    *ngIf="isUpdate">Update</button>
+                            </div>
+                        </div> -->
+                        <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3 float-right">
+                                <button id="add" name="add" (click)="UserObjectPush('UserContacts')"
+                                    class="btn btn-primary mr-1" *ngIf="i==l-1"><i class="fa fa-plus"
+                                        aria-hidden="true"></i> Add </button>
+
+                                <button id="add" name="add" (click)="ArrayObjectRemoveAt(userContactsData, i)"
+                                    class="btn btn-danger" *ngIf="l==1?false:true"><i class="fa fa-trash"
+                                        aria-hidden="true"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- For User Emails -->
+                <div class='card shadow-lg p-4 mb-4 bg-white'>
+                    <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                        <h5>EMAILS</h5>
+                    </div>
+                    <div class='card-body' *ngFor="let uEmails of userDetail.UserEmails; let i=index; let l=count">
+                        <div class="row">
+                            <div class="col-md-3">
+                                Email :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtemail{{i}}" id="txtemail{{i}}" class="form-control"
+                                    [(ngModel)]="uEmails.Email" placeholder="Email" />
+                            </div>
+                            <div class="col-md-3">
+                                IsPrimary :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="chkprimary{{i}}" id="chkprimary{{i}}"
+                                    class="form-check-input" [(ngModel)]="uEmails.IsPrimary" placeholder="IsPrimary" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                OrderId :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" name="txtorderid{{i}}" id="txtorderid{{i}}" class="form-control"
+                                    [(ngModel)]="uEmails.OrderId" placeholder="OrderId" />
+                            </div>
+                            <div class="col-md-3">
+                                Type :
+                            </div>
+                            <div class="col-md-3">
+                                <select id="txtemail{{i}}" name="txtemail{{i}}" [(ngModel)]="uEmails.TypeId"
+                                    class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of contacttypeData" value="{{item.Id}}"> {{item.Name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-1">
+                                <button (click)="AddUserEmails()" class="btn btn-primary" *ngIf="isSave">Save</button>
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button (click)="UserObjectPush('UserEmails')" class="btn btn-primary mr-1"
+                                    *ngIf="i==l-1"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
+                                <button (click)="ArrayObjectRemoveAt(userEmailsData, i)" class="btn btn-danger"
+                                    *ngIf="l==1?false:true"><i class="fa fa-trash" aria-hidden="true"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- For User Address -->
+                <div class='card shadow-lg p-4 mb-4 bg-white'>
+                    <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                        <h5>ADDRESS DETAILS</h5>
+                    </div>
+                    <div class='card-body' *ngFor="let uad of userDetail.UserAddressDetails; let i=index; let l=count">
+                        <div class="row">
+                            <div class="col-md-3">
+                                FlotNo :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtflotno{{i}}" class="form-control" id="txtflotno{{i}}"
+                                    [(ngModel)]="uad.FlotNo" placeholder="FlotNo" />
+                            </div>
+                            <div class="col-md-3">
+                                Address1 :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtaddress1{{i}}" id="txtaddress1{{i}}" class="form-control"
+                                    [(ngModel)]="uad.Address1" placeholder="Address1" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Address2 :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtaddress2{{i}}" id="txtaddress2{{i}}" class="form-control"
+                                    [(ngModel)]="uad.Address2" placeholder="Address2" />
+                            </div>
+                            <div class="col-md-3">
+                                City :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtcity{{i}}" id="txtcity{{i}}" class="form-control"
+                                    [(ngModel)]="uad.City" placeholder="City" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                State :
+                            </div>
+                            <div class="col-md-3">
+                                <select id="ddlstate{{i}}" name="ddlstate{{i}}" [(ngModel)]="uad.StateId"
+                                    class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of  statesData" value="{{item.Id}}"> {{item.Name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                Country :
+                            </div>
+                            <div class="col-md-3">
+                                <select id="ddlcountry{{i}}" name="ddlcountry{{i}}" [(ngModel)]="uad.CountryId"
+                                    class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of  countriesData" value="{{item.Id}}"> {{item.Name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Permanent :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="chkispermanent" id="chkispermanent"
+                                    class="form-check-input" [(ngModel)]="uad.IsPermanent" placeholder="IsPermanent" />
+                            </div>
+                        </div>
+                        <!-- <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-1">
+                                <button (click)="AddUserAddressDetails()" class="btn btn-primary"
+                                    *ngIf="isSave">Save</button>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button (click)="UpdateUserAddressDetails()" class="btn btn-primary"
+                                    *ngIf="isUpdate">Update</button>
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button (click)="UserObjectPush('UserAddressDetails')" class="btn btn-primary mr-1"
+                                    *ngIf="i==l-1"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
+                                <button (click)="ArrayObjectRemoveAt(userAddressDetailsData, i)" class="btn btn-danger"
+                                    *ngIf="l==1?false:true"><i class="fa fa-trash" aria-hidden="true"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="submit" (click)="OnSaveUserDetail()"
+                            class="btn btn-primary mr-2">{{this.userId>0?"Update":"Save"}} 111111</button>
+                        <button class="btn btn-primary" (click)="next()">Save&&Next</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form (ngSubmit)="onSubmit()">
+            <div id="test-l-2" class="content">
+                <!-- For User Education -->
+                <div class='card shadow-lg p-4 mb-4 bg-white'>
+                    <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                        <h5>EDUCATION DETAILS</h5>
+                    </div>
+                    <div class='card-body'
+                        *ngFor="let ued of userDetail.UserEducationDetails; let i=index; let l=count">
+                        <div class="row">
+                            <div class="col-md-3">
+                                Qualification Type :
+                            </div>
+                            <div class="col-md-3">
+                                <select id="ddlualification{{i}}" name="ddlualification{{i}}"
+                                    [(ngModel)]="ued.QulificationtypeId" class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of qulificationtypeData" value="{{item.Id}}">
+                                        {{item.Name}} </option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                Institution :
+                            </div>
+                            <div class="col-md-3">
+                                <select id="ddlinstitution{{i}}" name="ddlinstitution{{i}}"
+                                    [(ngModel)]="ued.InstitutionId" class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of institutionsData" value="{{item.Id}}">
+                                        {{item.InstitutionName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Start Date :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" name="txtStartDate{{i}}" id="txtStartDate{{i}}" class="form-control"
+                                    [(ngModel)]="ued.StartDate" placeholder="StartDate" />
+                            </div>
+                            <div class="col-md-3">
+                                End Date :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" name="txtEndDate{{i}}" id="txtEndDate{{i}}" class="form-control"
+                                    [(ngModel)]="ued.EndDate" placeholder="EndDate" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Year Of Passout :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" name="txtyearofpassout{{i}}" id="txtyearofpassout{{i}}"
+                                    class="form-control" [(ngModel)]="ued.YearOfpassout"
+                                    placeholder="Year Of Passout" />
+                            </div>
+                            <div class="col-md-3">
+                                Percentage :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" name="txtpercentage{{i}}" id="txtpercentage{{i}}"
+                                    class="form-control" [(ngModel)]="ued.Percentage" placeholder="Percentage" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button (click)="UserObjectPush('UserEducationDetails')" class="btn btn-primary mr-1"
+                                    *ngIf="i==l-1"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
+                                <button (click)="ArrayObjectRemoveAt(userDetail.UserEducationDetails,i)"
+                                    class="btn btn-danger" *ngIf="l==1?false:true"><i class="fa fa-trash"
+                                        aria-hidden="true"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <button (click)="AddUserEducationDetails()" class="btn btn-primary mr-2"
+                            *ngIf="this.user.Id<1">Save</button>
+                        <button (click)="UpdateUserEducationDetails()" class="btn btn-primary" *ngIf="this.user.Id>0">
+                            Update</button>
+                        <button class="btn btn-primary" (click)="next()">Save&&Next</button>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <button (click)="OnSaveUserDetail()"
+                            class="btn btn-primary mr-2">{{this.userId>0?"Update":"Save"}} 111111</button>
+                        <button class="btn btn-primary" (click)="next()">Save&&Next</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form (ngSubmit)="onSubmit()">
+            <div id="test-l-3" class="content">
+                <!-- For User Skills -->
+                <div class='card shadow-lg p-4 mb-4 bg-white'>
+                    <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                        <h5>SKILLS</h5>
+                    </div>
+                    <div class='card-body' *ngFor="let us of userDetail.UserSkills; let i=index; let l=count">
+                        <div class="row">
+                            <div class="col-md-3">
+                                Skill :
+                            </div>
+                            <div class="col-md-3">
+                                <select name="ddlskills{{i}}" id="ddlskills{{i}}" [(ngModel)]="us.SkillId"
+                                    class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let item of skillsData" value="{{item.Id}}">{{item.Name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                Primary :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="chkprimary{{i}}" id="chkprimary{{i}}"
+                                    class="form-check-input checkbox-primary" [(ngModel)]="us.IsPrimary"
+                                    placeholder="IsPrimary" />
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-3">
+                                OrderId :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" name="txtorderid{{i}}" id="txtorderid{{i}}" class="form-control"
+                                    [(ngModel)]="us.OrderId" placeholder="OrderId" />
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button (click)="UserObjectPush('UserSkills')" class="btn btn-primary mr-1"
+                                    *ngIf="i==l-1"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
+                                <button (click)="ArrayObjectRemoveAt(userDetail.UserSkills, i)" class="btn btn-danger"
+                                    *ngIf="l==1?false:true"><i class="fa fa-trash" aria-hidden="true"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <button (click)="AddUserSkills()" class="btn btn-primary mr-2"
+                            *ngIf="this.user.Id<1">Save</button>
+                        <button (click)="UpdateUserSkills()" class="btn btn-primary mr-2"
+                            *ngIf="this.user.Id>0">Update</button>
+                        <button class="btn btn-primary" (click)="next()">Save&&Next</button>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <button (click)="OnSaveUserDetail()"
+                            class="btn btn-primary mr-2">{{this.userId>0?"Update":"Save"}} 111111</button>
+                        <button class="btn btn-primary" (click)="next()">Save&&Next</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form (ngSubmit)="onSubmit()">
+            <div id="test-l-4" class="content">
+                <!-- For User Course -->
+                <div class='card shadow-lg p-4 mb-4 bg-white'>
+                    <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                        <h5>COURSES</h5>
+                    </div>
+                    <div class='card-body' *ngFor="let uCourse of userDetail.UserCourses; let i=index; let l=count">
+                        <div class="row">
+                            <div class="col-md-3">
+                                Course :
+                            </div>
+                            <div class="col-md-3">
+                                <select id="ddlcourse{{i}}" name="ddlcourse{{i}}" [(ngModel)]="uCourse.CourseId"
+                                    class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of coursesData" value="{{item.Id}}"> {{item.Name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                IsPrimary :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" id="txtprimary{{i}}" name="txtprimary{{i}}"
+                                    class="form-check-input" [(ngModel)]="uCourse.IsPrimary" placeholder="IsPrimary" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                OrderId :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" name="txtorderid{{i}}" id="txtorderid{{i}}" class="form-control"
+                                    [(ngModel)]="uCourse.OrderId" placeholder="Order Id" />
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button (click)="UserObjectPush('UserCourses')" class="btn btn-primary mr-1"
+                                    *ngIf="i==l-1"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
+                                <button (click)="ArrayObjectRemoveAt(userDetail.UserCourses, i)" class="btn btn-danger"
+                                    *ngIf="l==1?false:true"><i class="fa fa-trash" aria-hidden="true"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row ">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-1">
+                            <button (click)="AddUserCourses()" class="btn btn-primary" *ngIf="user.Id>0">Update</button>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-1">
+                            <button (click)="AddUserCourses()" class="btn btn-primary" *ngIf="user.Id<1">Save</button>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <button (click)="OnSaveUserDetail()"
+                            class="btn btn-primary mr-2">{{this.userId>0?"Update":"Save"}} 111111</button>
+                        <button class="btn btn-primary" (click)="next()">Save&&Next</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form (ngSubmit)="onSubmit()">
+            <div id="test-l-5" class="content">
+                <!-- For User Company -->
+                <div class='card shadow-lg p-4 mb-4 bg-white'>
+                    <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                        <h5>COMPANY</h5>
+                    </div>
+                    <div class='card-body'
+                        *ngFor="let userCompany of userDetail.UserCompanies; let i=index; let l=count">
+                        <div class="row">
+                            <div class="col-md-3">
+                                Company :
+                            </div>
+                            <div class="col-md-3">
+                                <select name="ddlusercompany{{i}}" id="ddlusercompany{{i}}"
+                                    [(ngModel)]="userCompany.CompanyId" class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of companyData" value="{{item.Id}}"> {{item.Name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                Offer Date :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" name="txtofferdate{{i}}" id="xtofferdate{{i}}" class="form-control"
+                                    [(ngModel)]="userCompany.OfferDate" placeholder="Offer Date" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Start Year :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" name="txtstartdate{{i}}" id="txtstartdate{{i}}" class="form-control"
+                                    [(ngModel)]="userCompany.StartDate" placeholder="Start Date" />
+                            </div>
+                            <div class="col-md-3">
+                                End Year :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" name="txtenddate{{i}}" id="txtenddate{{i}}" class="form-control"
+                                    [(ngModel)]="userCompany.EndDate" placeholder="End Date" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Salary :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" name="txtsalary{{i}}" id="txtsalary{{i}}" class="form-control"
+                                    [(ngModel)]="userCompany.Salary" placeholder="Salary" />
+                            </div>
+                            <div class="col-md-3">
+                                Percentage :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="number" name="txtpercentage{{i}}" id="txtpercentage{{i}}"
+                                    class="form-control" [(ngModel)]="userCompany.Percentage"
+                                    placeholder="Percentage" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Designation :
+                            </div>
+                            <div class="col-md-3">
+                                <select name="ddldesignationId{{i}}" id="ddldesignationId{{i}}"
+                                    [(ngModel)]="userCompany.DesignationId" class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of designationData" value="{{item.Id}}">
+                                        {{item.Name}} </option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                Email :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtemail{{i}}" id="txtemail{{i}}" class="form-control"
+                                    [(ngModel)]="userCompany.Email" placeholder="Email" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                IsActive :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="txtcode" id="txtcode" class="form-check-input"
+                                    [(ngModel)]="userCompany.IsActive" placeholder="IsActive" />
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button (click)="UserObjectPush('UserCompany')" class="btn btn-primary mr-1"
+                                    *ngIf="i==l-1"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
+                                <button (click)="ArrayObjectRemoveAt(userDetail.UserCompanies,i)" class="btn btn-danger"
+                                    *ngIf="l==1?false:true"><i class="fa fa-trash" aria-hidden="true"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                        <!-- <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-1">
+                                <button (click)="UpdateUserCompany()" class="btn btn-primary"
+                                    *ngIf="user.Id>0">Update</button>
+                                    <button (click)="UpdateUserCompany()" class="btn btn-primary"
+                                    *ngIf="user.Id>0">Update</button>                                  
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <button (click)="OnSaveUserDetail()"
+                            class="btn btn-primary mr-2">{{this.userId>0?"Update":"Save"}} 111111</button>
+                        <button class="btn btn-primary" (click)="next()">Save&&Next</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+
+
+
+
+
+
+        <!-- Review start -->
+
+
+
+
+
+
+
+
+        <div id="test-l-6" class="content">
+
+
+
+
+            <div class='card shadow-lg p-4 mb-4 bg-white'>
+                <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                    <h5>USERS <a (click)="nextTo(1)"><i class="fa fa-pencil" style="float: right;"></i></a> </h5>
+                </div>
+                <div class='card-body'>
+                    <div class="row">
+                        <div class="col-md-3">
+                            First Name :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtfirstname" class="form-control" id="txtfirstname"
+                                [(ngModel)]="userDetail.User.FirstName" placeholder="FirstName" />
+                        </div>
+                        <div class="col-md-3">
+                            Last Name :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtlastname" id="txtlastname" class="form-control"
+                                [(ngModel)]="userDetail.User.LastName" placeholder="LastName" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            Dob :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" name="txtdob" id="txtdob" class="form-control"
+                                [(ngModel)]="userDetail.User.Dob" placeholder="Dob" />
+                        </div>
+                        <div class="col-md-3">
+                            Gender :
+                        </div>
+                        <div class="col-md-3">
+                            <select name="ddlgender" id="ddlgender" [(ngModel)]="user.GenderId" class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of genderData" value="{{item.Id}}">{{item.Name}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            Marrital Status :
+                        </div>
+                        <div class="col-md-3">
+                            <select name="ddlmarritalstatusId" id="ddlmarritalstatusId"
+                                [(ngModel)]="user.MarritalStatusId" class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of marritalstatusData" value="{{item.Id}}">{{item.Name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            Mobile No :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="tel" name="txtmobile" id="txtmobile" class="form-control"
+                                [(ngModel)]="user.MobileNumber" placeholder="Mobile Number" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            Aadhar Number :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" name="txtaadhar" id="txtaadhar" class="form-control"
+                                [(ngModel)]="user.AadharNumber" placeholder="Aadhar Number" />
+                        </div>
+                        <div class="col-md-3">
+                            VoterId :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtvoterid" id="txtvoterid" class="form-control"
+                                [(ngModel)]="user.VoterId" placeholder="VoterId" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            PanCard Number :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtpancard" id="txtpancard" class="form-control"
+                                [(ngModel)]="user.PanCardNumber" placeholder="PanCard Number" />
+                        </div>
+                        <div class="col-md-3">
+                            User Type :
+                        </div>
+                        <div class="col-md-3">
+                            {{userTypes.length}}
+                            <!-- <ul>
+                                    <li *ngFor="let  item of userTypes">{{item.Name}}</li>
+                                </ul> -->
+                            <!-- <select name="txtusertypeid" id="txtusertypeid" [(ngModel)]="user.UserTypeId"
+                                    class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let  item of userTypes" value="{{item.Id}}">{{item.Name}}
+                                    </option>
+                                </select> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- For User Contacts -->
+            <div class='card shadow-lg p-4 mb-4 bg-white'>
+                <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                    <h5>CONTACTS</h5>
+                </div>
+                <div class='card-body' *ngFor="let uContact of userDetail.UserContacts; let i=index; let l=count">
+                    <div class="row">
+                        <div class="col-md-3">
+                            Mobile Number :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" name="txtmobile{{i}}" id="txtmobile{{i}}" class="form-control"
+                                [(ngModel)]="uContact.MobileNumber" placeholder="Mobile Number" />
+                        </div>
+                        <div class="col-md-3">
+                            Primary :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" name="chkprimary{{i}}" id="chkprimary{{i}}" class="form-check-input"
+                                [(ngModel)]="uContact.IsPrimary" placeholder="Primary" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            OrderId :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" name="txtorderid{{i}}" id="txtorderid{{i}}" class="form-control"
+                                [(ngModel)]="uContact.OrderId" placeholder="OrderId" />
+                        </div>
+                        <div class="col-md-3">
+                            Contact Type :
+                        </div>
+                        <div class="col-md-3">
+                            <select id="ddlcontacttype{{i}}" name="ddlcontacttype{{i}}"
+                                [(ngModel)]="uContact.ContactTypeId" class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of contacttypeData" value="{{item.Id}}"> {{item.Name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="row " >
+                        <div class="col-md-9"></div>
+                        <div class="col-md-1">
+                            <button (click)="AddUserContacts()" class="btn btn-primary" *ngIf="isSave">Save</button>
+                        </div>
+                    </div> -->
+                    <!-- <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button (click)="UpdateUserContacts()" class="btn btn-primary"
+                                    *ngIf="isUpdate">Update</button>
+                            </div>
+                        </div> -->
+                    <div class="row ">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-3 float-right">
+                            <button id="add" name="add" (click)="UserObjectPush('UserContacts')"
+                                class="btn btn-primary mr-1" *ngIf="i==l-1"><i class="fa fa-plus"
+                                    aria-hidden="true"></i> Add </button>
+
+                            <button id="add" name="add" (click)="ArrayObjectRemoveAt(userDetail.UserContacts, i)"
+                                class="btn btn-danger" *ngIf="l==1?false:true"><i class="fa fa-trash"
+                                    aria-hidden="true"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- For User Emails -->
+            <div class='card shadow-lg p-4 mb-4 bg-white'>
+                <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                    <h5>EMAILS</h5>
+                </div>
+                <div class='card-body' *ngFor="let uEmails of userDetail.UserEmails; let i=index; let l=count">
+                    <div class="row">
+                        <div class="col-md-3">
+                            Email :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtemail{{i}}" id="txtemail{{i}}" class="form-control"
+                                [(ngModel)]="uEmails.Email" placeholder="Email" />
+                        </div>
+                        <div class="col-md-3">
+                            IsPrimary :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" name="chkprimary{{i}}" id="chkprimary{{i}}" class="form-check-input"
+                                [(ngModel)]="uEmails.IsPrimary" placeholder="IsPrimary" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            OrderId :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" name="txtorderid{{i}}" id="txtorderid{{i}}" class="form-control"
+                                [(ngModel)]="uEmails.OrderId" placeholder="OrderId" />
+                        </div>
+                        <div class="col-md-3">
+                            Type :
+                        </div>
+                        <div class="col-md-3">
+                            <select id="txtemail{{i}}" name="txtemail{{i}}" [(ngModel)]="uEmails.TypeId"
+                                class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of contacttypeData" value="{{item.Id}}"> {{item.Name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-1">
+                                <button (click)="AddUserEmails()" class="btn btn-primary" *ngIf="isSave">Save</button>
+                            </div>
+                        </div> -->
+                    <div class="row">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-3">
+                            <button (click)="UserObjectPush('UserEmails')" class="btn btn-primary mr-1"
+                                *ngIf="i==l-1"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
+                            <button (click)="ArrayObjectRemoveAt(userDetail.UserEmails, i)" class="btn btn-danger"
+                                *ngIf="l==1?false:true"><i class="fa fa-trash" aria-hidden="true"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- For User Address -->
+            <div class='card shadow-lg p-4 mb-4 bg-white'>
+                <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                    <h5>ADDRESS DETAILS </h5>
+                </div>
+                <div class='card-body' *ngFor="let uad of userDetail.UserAddressDetails; let i=index; let l=count">
+                    <div class="row">
+                        <div class="col-md-3">
+                            FlotNo :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtflotno{{i}}" class="form-control" id="txtflotno{{i}}"
+                                [(ngModel)]="uad.FlotNo" placeholder="FlotNo" />
+                        </div>
+                        <div class="col-md-3">
+                            Address1 :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtaddress1{{i}}" id="txtaddress1{{i}}" class="form-control"
+                                [(ngModel)]="uad.Address1" placeholder="Address1" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            Address2 :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtaddress2{{i}}" id="txtaddress2{{i}}" class="form-control"
+                                [(ngModel)]="uad.Address2" placeholder="Address2" />
+                        </div>
+                        <div class="col-md-3">
+                            City :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtcity{{i}}" id="txtcity{{i}}" class="form-control"
+                                [(ngModel)]="uad.City" placeholder="City" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            State :
+                        </div>
+                        <div class="col-md-3">
+                            <select id="ddlstate{{i}}" name="ddlstate{{i}}" [(ngModel)]="uad.StateId"
+                                class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of  statesData" value="{{item.Id}}"> {{item.Name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            Country :
+                        </div>
+                        <div class="col-md-3">
+                            <select id="ddlcountry{{i}}" name="ddlcountry{{i}}" [(ngModel)]="uad.CountryId"
+                                class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of  countriesData" value="{{item.Id}}"> {{item.Name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            Permanent :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" name="chkispermanent" id="chkispermanent" class="form-check-input"
+                                [(ngModel)]="uad.IsPermanent" placeholder="IsPermanent" />
+                        </div>
+                    </div>
+                    <!-- <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-1">
+                                <button (click)="AddUserAddressDetails()" class="btn btn-primary"
+                                    *ngIf="isSave">Save</button>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-3">
+                                <button (click)="UpdateUserAddressDetails()" class="btn btn-primary"
+                                    *ngIf="isUpdate">Update</button>
+                            </div>
+                        </div> -->
+                    <div class="row">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-3">
+                            <!-- <button (click)="UserObjectPush('UserAddressDetails')" class="btn btn-primary mr-1"
+                                    *ngIf="i==l-1"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
+                                <button (click)="ArrayObjectRemoveAt(userAddressDetailsData, i)" class="btn btn-danger"
+                                    *ngIf="l==1?false:true"><i class="fa fa-trash" aria-hidden="true"></i> Delete
+                                </button> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12" style="text-align: center;">
+                    <button (click)="OnSaveUserDetail()" class="btn btn-primary mr-2">{{this.userId>0?"Update":"Save"}}
+                        111111</button>
+                    <button class="btn btn-primary" (click)="next()">Save&&Next</button>
+                </div>
+            </div>
+
+
+
+            <!-- For User Education -->
+            <div class='card shadow-lg p-4 mb-4 bg-white'>
+                <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                    <h5>EDUCATION DETAILS <a (click)="nextTo(2)"><i class="fa fa-pencil" style="float: right;"></i></a>
+                    </h5>
+                </div>
+                <div class='card-body' *ngFor="let ued of userDetail.UserEducationDetails; let i=index; let l=count">
+                    <div class="row">
+                        <div class="col-md-3">
+                            Qualification Type :
+                        </div>
+                        <div class="col-md-3">
+                            <select id="ddlualification{{i}}" name="ddlualification{{i}}"
+                                [(ngModel)]="ued.QulificationtypeId" class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of qulificationtypeData" value="{{item.Id}}">
+                                    {{item.Name}} </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            Year Of Passout :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" name="txtyearofpassout{{i}}" id="txtyearofpassout{{i}}"
+                                class="form-control" [(ngModel)]="ued.YearOfpassout" placeholder="Year Of Passout" />
+                        </div>
+                        <div class="col-md-3">
+                            Start Date :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" name="txtStartDate{{i}}" id="txtStartDate{{i}}" class="form-control"
+                                [(ngModel)]="ued.StartDate" placeholder="StartDate" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            End Date :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" name="txtEndDate{{i}}" id="txtEndDate{{i}}" class="form-control"
+                                [(ngModel)]="ued.EndDate" placeholder="EndDate" />
+                        </div>
+                        <div class="col-md-3">
+                            Institution :
+                        </div>
+                        <div class="col-md-3">
+                            <select id="ddlinstitution{{i}}" name="ddlinstitution{{i}}" [(ngModel)]="ued.InstitutionId"
+                                class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of institutionsData" value="{{item.Id}}">
+                                    {{item.InstitutionName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            Percentage :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" name="txtpercentage{{i}}" id="txtpercentage{{i}}" class="form-control"
+                                [(ngModel)]="ued.Percentage" placeholder="Percentage" />
+                        </div>
+                    </div>
+
+                    <!-- <div class="row">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-3">
+                            <button (click)="UserObjectPush('UserEducationDetails')" class="btn btn-primary mr-1"
+                                *ngIf="i==l-1"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
+                            <button (click)="ArrayObjectRemoveAt(userEducationDetailsData, i)" class="btn btn-danger"
+                                *ngIf="l==1?false:true"><i class="fa fa-trash" aria-hidden="true"></i> Delete
+                            </button>
+                        </div>
+                    </div> -->
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- For User Skills -->
+            <div class='card shadow-lg p-4 mb-4 bg-white'>
+                <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                    <h5>SKILLS <a (click)="nextTo(3)"><i class="fa fa-pencil" style="float: right;"></i></a> </h5>
+                </div>
+                <div class='card-body' *ngFor="let us of userDetail.UserSkills; let i=index; let l=count">
+                    <div class="row">
+                        <div class="col-md-3">
+                            Skill :
+                        </div>
+                        <div class="col-md-3">
+                            <select name="ddlskills{{i}}" id="ddlskills{{i}}" [(ngModel)]="us.SkillId"
+                                class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let item of skillsData" value="{{item.Id}}">{{item.Name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            Primary :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" name="chkprimary{{i}}" id="chkprimary{{i}}"
+                                class="form-check-input checkbox-primary" [(ngModel)]="us.IsPrimary"
+                                placeholder="IsPrimary" />
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-3">
+                            OrderId :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" name="txtorderid{{i}}" id="txtorderid{{i}}" class="form-control"
+                                [(ngModel)]="us.OrderId" placeholder="OrderId" />
+                        </div>
+                    </div>
+
+                    <div class="row ">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-3">
+                            <button (click)="UserObjectPush('UserSkills')" class="btn btn-primary mr-1"
+                                *ngIf="i==l-1"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
+                            <button (click)="ArrayObjectRemoveAt(userSkillsData, i)" class="btn btn-danger"
+                                *ngIf="l==1?false:true"><i class="fa fa-trash" aria-hidden="true"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- For User Course -->
+            <div class='card shadow-lg p-4 mb-4 bg-white'>
+                <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                    <h5>COURSES <a (click)="nextTo(4)"><i class="fa fa-pencil" style="float: right;"></i></a> </h5>
+                </div>
+                <div class='card-body' *ngFor="let uCourse of userDetail.UserCourses; let i=index; let l=count">
+                    <div class="row">
+                        <div class="col-md-3">
+                            Course :
+                        </div>
+                        <div class="col-md-3">
+                            <select id="ddlcourse{{i}}" name="ddlcourse{{i}}" [(ngModel)]="uCourse.CourseId"
+                                class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of coursesData" value="{{item.Id}}"> {{item.Name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            IsPrimary :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" id="txtprimary{{i}}" name="txtprimary{{i}}" class="form-check-input"
+                                [(ngModel)]="uCourse.IsPrimary" placeholder="IsPrimary" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            OrderId :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" name="txtorderid{{i}}" id="txtorderid{{i}}" class="form-control"
+                                [(ngModel)]="uCourse.OrderId" placeholder="Order Id" />
+                        </div>
+                    </div>
+
+                    <div class="row ">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-3">
+                            <button (click)="UserObjectPush('UserCourses')" class="btn btn-primary mr-1"
+                                *ngIf="i==l-1"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
+                            <button (click)="ArrayObjectRemoveAt(userCoursesData, i)" class="btn btn-danger"
+                                *ngIf="l==1?false:true"><i class="fa fa-trash" aria-hidden="true"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div class="row ">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-1">
+                            <button (click)="AddUserCourses()" class="btn btn-primary" *ngIf="user.Id>0">Update</button>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-1">
+                            <button (click)="AddUserCourses()" class="btn btn-primary" *ngIf="user.Id<1">Save</button>
+                        </div>
+                    </div> -->
+            </div>
+
+
+            <!-- For User Company -->
+            <div class='card shadow-lg p-4 mb-4 bg-white'>
+                <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                    <h5>COMPANY <a (click)="nextTo(5)"><i class="fa fa-pencil" style="float: right;"></i></a> </h5>
+                </div>
+                <div class='card-body' *ngFor="let userCompany of userDetail.UserCompanies; let i=index; let l=count">
+                    <div class="row">
+                        <div class="col-md-3">
+                            Company :
+                        </div>
+                        <div class="col-md-3">
+                            <select name="ddlusercompany{{i}}" id="ddlusercompany{{i}}"
+                                [(ngModel)]="userCompany.CompanyId" class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of companyData" value="{{item.Id}}"> {{item.Name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            Offer Date :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" name="txtofferdate{{i}}" id="xtofferdate{{i}}" class="form-control"
+                                [(ngModel)]="userCompany.OfferDate" placeholder="Offer Date" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            Start Date :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" name="txtstartdate{{i}}" id="txtstartdate{{i}}" class="form-control"
+                                [(ngModel)]="userCompany.StartDate" placeholder="Start Date" />
+                        </div>
+                        <div class="col-md-3">
+                            End Date :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" name="txtenddate{{i}}" id="txtenddate{{i}}" class="form-control"
+                                [(ngModel)]="userCompany.EndDate" placeholder="End Date" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            Salary :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" name="txtsalary{{i}}" id="txtsalary{{i}}" class="form-control"
+                                [(ngModel)]="userCompany.Salary" placeholder="Salary" />
+                        </div>
+                        <div class="col-md-3">
+                            Percentage :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="number" name="txtpercentage{{i}}" id="txtpercentage{{i}}" class="form-control"
+                                [(ngModel)]="userCompany.Percentage" placeholder="Percentage" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            Designation :
+                        </div>
+                        <div class="col-md-3">
+                            <select name="ddldesignationId{{i}}" id="ddldesignationId{{i}}"
+                                [(ngModel)]="userCompany.DesignationId" class="form-control">
+                                <option value="0">Select</option>
+                                <option *ngFor="let  item of designationData" value="{{item.Id}}">
+                                    {{item.Name}} </option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            Email :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="txtemail{{i}}" id="txtemail{{i}}" class="form-control"
+                                [(ngModel)]="userCompany.Email" placeholder="Email" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            IsActive :
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" name="txtcode" id="txtcode" class="form-check-input"
+                                [(ngModel)]="userCompany.IsActive" placeholder="IsActive" />
+                        </div>
+                    </div>
+                    <!-- <div class="row ">
+                        <div class="col-md-9"></div>
+                        <div class="col-md-3">
+                            <button (click)="UserObjectPush('UserCompany')" class="btn btn-primary mr-1"
+                                *ngIf="i==l-1"><i class="fa fa-plus" aria-hidden="true"></i> Add </button>
+                            <button (click)="ArrayObjectRemoveAt(userCompanies, i)" class="btn btn-danger"
+                                *ngIf="l==1?false:true"><i class="fa fa-trash" aria-hidden="true"></i> Delete
+                            </button>
+                        </div>
+                    </div> -->
+                    <!-- <div class="row ">
+                            <div class="col-md-9"></div>
+                            <div class="col-md-1">
+                                <button (click)="UpdateUserCompany()" class="btn btn-primary"
+                                    *ngIf="user.Id>0">Update</button>
+                                    <button (click)="UpdateUserCompany()" class="btn btn-primary"
+                                    *ngIf="user.Id>0">Update</button>                                  
+                            </div>
+                        </div> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12" style="text-align: center;">
+                    <button (click)="OnSaveUserDetail()" class="btn btn-primary mr-2">{{this.userId>0?"Update":"Save"}}
+                        111111</button>
+                    <button class="btn btn-primary" (click)="next()">Save&&Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

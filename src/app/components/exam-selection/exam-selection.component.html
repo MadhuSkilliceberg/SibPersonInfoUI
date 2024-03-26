@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <!-- Show button -->
+    <button id="showButton" class="btn btn-primary mb-3">Show Cards</button>
+  
+    <!-- Cards section -->
+    <div id="cardSection" >
+      <div class="row">
+        <div class="col-md-3 mb-4"  *ngFor="let item of Exams">
+            <div class="card custom-card">
+              <img src="https://via.placeholder.com/150" class="card-img-left" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{item.Name}}</h5>
+                <p class="card-text">This is the content of Card 1. You can add any text or content here.</p>
+                
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-primary" (click)="onExam(item.Id)">Start Exam</button>
+              </div>
+            </div>
+          </div>
+        
+        
+      </div>
+    </div>
+  </div>

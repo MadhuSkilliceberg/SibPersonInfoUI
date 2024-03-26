@@ -1,0 +1,144 @@
+<div id="tree">
+    <ng-container *ngTemplateOutlet="treeViewList; 
+                                 context:{$implicit:TreeData}">
+    </ng-container>
+</div>
+
+
+
+<ng-template #treeViewList let-list>
+    <ul>
+        <li *ngFor="let item of list"> {{item.name}}
+            <ng-container *ngTemplateOutlet="treeViewList;
+            context:{$implicit: item.children}">
+            </ng-container>
+        </li>
+
+    </ul>
+</ng-template>
+
+
+
+<div id="tree">
+    <ng-container *ngTemplateOutlet="treeViewList; 
+                                 context:{$implicit:TreeData}">
+    </ng-container>
+</div><!-- dashboard-menu.component.html -->
+
+
+<ng-template #treeViewList let-list>
+    <nav class="dashboard-nav-list">
+        <ng-container *ngFor="let menuItem of list">
+            <ng-container *ngIf="!menuItem.children || menuItem.children.length === 0; else dropdown">
+                <a [routerLink]="[menuItem.link]" style="color: white !important;" class="dashboard-nav-item"
+                    [class.active]="menuItem.active">
+                    <i class="fa fa-lock"></i> {{ menuItem.name }}-{{ menuItem.icon }}
+                    <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
+                </a>
+            </ng-container>
+            <ng-template #dropdown>
+                <div class='dashboard-nav-dropdown'>
+                    <a class="dashboard-nav-item dashboard-nav-dropdown-toggle" style="color: white !important;">
+                        <i class="fa fa-lock-open" aria-hidden="true"></i>
+                        <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
+                        {{ menuItem.name }}
+                    </a>
+                    <div class='dashboard-nav-dropdown-menu'>
+
+                        <ng-container *ngTemplateOutlet="treeViewList;
+                    context:{$implicit: menuItem.children}">
+                        </ng-container>
+                        <!-- <app-side-menu [menuItems]="menuItem.children"></app-side-menu> -->
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
+    </nav>
+</ng-template>
+
+
+ 
+
+<!-- dashboard-menu.component.html -->
+<!-- 
+<div class='dashboard-nav'>
+    <div class="dashboard-nav">
+        <nav class="dashboard-nav-list">
+            <ng-container *ngFor="let menuItem of menuItems">
+                <ng-container *ngIf="!menuItem.children || menuItem.children.length === 0; else dropdown">
+                    <a [routerLink]="[menuItem.link]" class="dashboard-nav-item" [class.active]="menuItem.active">
+                        <i class="{{ menuItem.icon }}"></i> {{ menuItem.name }}
+                    </a>
+                </ng-container>
+                <ng-template #dropdown>
+                    <div class='dashboard-nav-dropdown' [class.show]="menuItem.expanded">
+                        <a (click)="toggleDropdown(menuItem)" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
+                            <i class="{{ menuItem.icon }}"></i> {{ menuItem.name }}
+                        </a>
+                        <div class='dashboard-nav-dropdown-menu'>
+                            <app-side-menu [menuItems]="menuItem.children"></app-side-menu>
+                        </div>
+                    </div>
+                </ng-template>
+            </ng-container>
+        </nav>
+    </div>
+</div> -->
+
+
+<!-- category.component.html -->
+<!-- 
+<ul>
+    <ng-container *ngFor="let node of menuItems">
+        <li>
+            <div (click)="toggleNode(node)">
+                {{ node.name }}
+                <i class="fa" [ngClass]="{'fa-chevron-down': node.expanded, 'fa-chevron-right': !node.expanded}"></i>
+            </div>
+            <ul *ngIf="node.expanded">
+                <app-side-menu [menuItems]="node.children"></app-side-menu>
+            </ul>
+        </li>
+    </ng-container>
+</ul> -->
+
+
+<!-- 
+
+
+    <div class='dashboard'>
+        <div class="dashboard-nav">
+        
+                <nav class="dashboard-nav-list">
+                    <a [routerLink]="['somepath']" class="dashboard-nav-item"><i class="fa fa-home"></i> Home </a>
+                    <a [routerLink]="['somepath']" class="dashboard-nav-item active"><i
+                            class="fa fa-tachometer-alt"></i>dashboard</a>
+
+
+                    <a [routerLink]="['somepath']" class="dashboard-nav-item"><i class="fa fa-file-upload"></i> Upload </a>
+
+
+
+
+                    <div class='dashboard-nav-dropdown'><a class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
+                                class="fa fa-address-book"></i> INSTITUTION </a>
+                        <div class='dashboard-nav-dropdown-menu'>
+                            <a [routerLink]="['institutions']" class="dashboard-nav-dropdown-item">Institutions</a>
+                            <a [routerLink]="['institutionemails']" class="dashboard-nav-dropdown-item">Email</a>
+                            <a [routerLink]="['institutioncontacts']" class="dashboard-nav-dropdown-item">Contacts</a>
+                            <a [routerLink]="['institutionaddress']" class="dashboard-nav-dropdown-item"> Address</a>
+                            <a [routerLink]="['institutioncourses']" class="dashboard-nav-dropdown-item">
+                                institutioncourses</a>
+                        </div>
+                    </div>
+
+
+
+                    <a [routerLink]="['test']" class="dashboard-nav-item"><i class="fa fa-cogs"></i> test </a><a
+                        [routerLink]="['test']" class="dashboard-nav-item"><i class="fa fa-user"></i> Profile </a>
+                    <div class="nav-item-divider"></div>
+                    <a [routerLink]="['test']" class="dashboard-nav-item"><i class="fa fa-sign-out-alt"></i> Logout </a>
+                </nav>
+        
+        </div>
+    </div> -->

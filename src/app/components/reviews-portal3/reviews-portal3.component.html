@@ -1,0 +1,76 @@
+
+ 
+
+<div class="company-details">
+  <h1>TCS</h1>
+  <p>Address: 123 Company Street, Cityville</p>
+  <p>Phone: (123) 456-7890</p>
+  <p>Email: info@company.com</p>
+</div>
+
+<div class="comment-container" id="comment1">
+  <img src="user-avatar1.jpg" alt="User Avatar" class="user-avatar">
+  <div class="comment-content">
+    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor, risus vel dictum dapibus, purus mauris eleifend erat, et lacinia neque nisl at velit.</p>
+    <p class="comment-info">John Doe • 2 days ago</p>
+    <div class="button-container">
+      <span class="button" onclick="toggleReply('replyInput1', 'comment1Replies', 'comment1ExpandCollapseBtn')"><i class="fas fa-reply"></i> Reply</span>
+      <span class="button"><i class="fas fa-thumbs-up"></i> Like</span>
+      <span class="button"><i class="fas fa-thumbs-down"></i> Unlike</span>
+    </div>
+    <div class="reply-input" id="replyInput1">
+      <input type="text" placeholder="Your reply...">
+      <input type="file" class="file-input" accept="image/*,video/*">
+      <button onclick="submitReply('comment1', 'replyInput1')"><i class="fas fa-paper-plane"></i> Submit</button>
+    </div>
+    <div id="comment1Replies" style="display: none;">
+    Testing
+    </div>
+    <div class="expand-collapse-btn" id="comment1ExpandCollapseBtn" onclick="toggleReplies('comment1Replies', 'comment1ExpandCollapseBtn')"><i class="fas fa-chevron-down"></i> Expand Replies   11111</div>
+  </div>
+
+  <!-- Replies -->
+  <div class="reply-container comment-container" id="comment1Reply1">
+    <img src="user-avatar2.jpg" alt="User Avatar" class="user-avatar">
+    <div class="comment-content">
+      <p class="comment-text">Reply 1: Sed euismod turpis ac urna vestibulum, vel fringilla odio pellentesque. Fusce eleifend lectus nec justo elementum, in egestas quam varius.</p>
+      <p class="comment-info">Jane Smith • 1 day ago</p>
+      <div class="button-container">
+        <span class="button" onclick="toggleReply('replyInput1Reply1', 'comment1Reply1Replies', 'comment1Reply1ExpandCollapseBtn')"><i class="fas fa-reply"></i> Reply</span>
+        <span class="button"><i class="fas fa-thumbs-up"></i> Like</span>
+        <span class="button"><i class="fas fa-thumbs-down"></i> Unlike</span>
+      </div>
+      <div class="reply-input" id="replyInput1Reply1">
+        <input type="text" placeholder="Your reply...">
+        <input type="file" class="file-input" accept="image/*,video/*">
+        <button onclick="submitReply('comment1Reply1', 'replyInput1Reply1')"><i class="fas fa-paper-plane"></i> Submit</button>
+      </div>
+      <div id="comment1Reply1Replies" style="display: none;"></div>
+      <div class="expand-collapse-btn" id="comment1Reply1ExpandCollapseBtn" onclick="toggleReplies('comment1Reply1Replies', 'comment1Reply1ExpandCollapseBtn')"><i class="fas fa-chevron-down"></i> Expand Replies</div>
+    </div>
+  </div>
+
+  <div class="reply-container comment-container" id="comment1Reply2">
+    <img src="user-avatar3.jpg" alt="User Avatar" class="user-avatar">
+    <div class="comment-content">
+      <p class="comment-text">Reply 2: Nulla facilisi. Sed vel tincidunt justo. Aenean euismod elementum tortor, id venenatis velit mattis vel.</p>
+      <p class="comment-info">Bob Johnson • 1 day ago</p>
+      <div class="button-container">
+        <span class="button" onclick="toggleReply('replyInput1Reply2', 'comment1Reply2Replies', 'comment1Reply2ExpandCollapseBtn')"><i class="fas fa-reply"></i> Reply</span>
+        <span class="button"><i class="fas fa-thumbs-up"></i> Like</span>
+        <span class="button"><i class="fas fa-thumbs-down"></i> Unlike</span>
+      </div>
+      <div class="reply-input" id="replyInput1Reply2">
+        <input type="text" placeholder="Your reply...">
+        <input type="file" class="file-input" accept="image/*,video/*">
+        <button onclick="submitReply('comment1Reply2', 'replyInput1Reply2')"><i class="fas fa-paper-plane"></i> Submit</button>
+      </div>
+      <div id="comment1Reply2Replies" style="display: none;"></div>
+      <div class="expand-collapse-btn" id="comment1Reply2ExpandCollapseBtn" onclick="toggleReplies('comment1Reply2Replies', 'comment1Reply2ExpandCollapseBtn')"><i class="fas fa-chevron-down"></i> Expand Replies</div>
+    </div>
+  </div>
+</div>
+ 
+
+<!-- Add more comment containers as needed -->
+ 

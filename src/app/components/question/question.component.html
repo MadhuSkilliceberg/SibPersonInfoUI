@@ -1,0 +1,146 @@
+<div class='dashboard-content'>
+  <div class='container'>
+    <div class='card'>
+      <div class='card-header'>
+        <h1>Question</h1>
+      </div>
+      <div class='card-body'>
+        <div class="row" style="padding-bottom: 10px;">
+          <div class="col-md-3">
+            <b>Question :</b>
+          </div>
+          <div class="col-md-3">
+            <input type="text" name="txtQuestion" id="txtQuestion" class="form-control" [(ngModel)]="question.Question"
+              placeholder="Question" />
+          </div>
+          <br><br>
+          <div class="col-md-3">
+            <b> Code :</b>
+          </div>
+          <div class="col-md-3">
+            <input type="text" name="txtcorrectanswer" id="txtcorrectanswer" class="form-control"
+              [(ngModel)]="question.CorrectAnswer" placeholder="Correct Answer" />
+          </div>
+          <br><br>
+          <div class="col-md-3">
+            <b> Weightage :</b>
+          </div>
+          <div class="col-md-3">
+            <input type="text" name="txtWeightage" id="txtWeightage" class="form-control"
+              [(ngModel)]="question.Weightage" placeholder="Weightage" />
+          </div>
+          <br><br>
+          <div class="col-md-3">
+            <b> Weightage :</b>
+          </div>
+          <div class="col-md-3">
+            <input type="checkbox" name="txtIsPublish" id="txtIsPublish" [(ngModel)]="question.IsPublish"
+              placeholder="IsPublish" />
+          </div>
+          <div class="col-md-3">
+            <b> Skill :</b>
+          </div>
+          <div class="col-md-3">
+            <select name="" id="" [(ngModel)]="question.SkillId" class="form-control">
+              <option value="0">Select</option>
+              <option *ngFor="let  item of skillData" value="{{item.Id}}">{{item.Name}}</option>
+            </select>
+            <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="question.CompanyId" placeholder="CompanyId"/> -->
+          </div>
+          <br><br>
+          <div class="col-md-3">
+            <b> Question Type :</b>
+          </div>
+          <div class="col-md-3">
+            <select name="" id="" [(ngModel)]="question.QuestionTypeId" class="form-control">
+              <option value="0">Select</option>
+              <option *ngFor="let  item of QuestionTypeData" value="{{item.Id}}">{{item.Name}}</option>
+            </select>
+            <!-- <input type="number" name="txtcode" id="txtcode"  class="form-control" [(ngModel)]="question.RoledId" placeholder="RoledId"/> -->
+          </div>
+          <br><br>
+          <div class="col-md-3">
+            <b> Question Category :</b>
+          </div>
+          <div class="col-md-3">
+            <select name="" id="" [(ngModel)]="question.QuestionCategoryId" class="form-control">
+              <option value="0">Select</option>
+              <option *ngFor="let  item of QuestionCategoryData" value="{{item.Id}}">{{item.QuestionCategory1}}</option>
+            </select>
+          </div>
+          <br><br>
+          <div class="col-md-3">
+          </div>
+          <div class="row " style="padding-bottom: 10px;">
+            <div class="col-md-9"></div>
+            <div class="col-md-1">
+              <button class="btn btn-primary" (click)="AddQuestion()" *ngIf="isSave">Submit</button>
+            </div>
+            <div class="col-md-2">
+              <button (click)="UpdateQuestion()" class="btn btn-primary" *ngIf="isUpdate">Update</button>
+            </div>
+          </div>
+
+
+          <div class="row" style="padding-bottom: 10px;">
+            <div class="col-md-12">
+              <!-- <button class="btn btn-primary" style="float: right;" (click)="GetquestionById(-1)"> New </button> -->
+              <h2>question DATA</h2>
+              <table class="table table-bordered" style="width: 100%;">
+                <thead>
+                  <tr style="background-color: #007bff;color: white">
+                    <th>Id</th>
+                    <th>Question</th>
+                    <th>Skill</th>
+                    <th>QuestionTypeId</th>
+                    <th>QuestionCategoryId</th>
+                    <th>Correct Answer</th>
+                    <th>Weightage</th>
+
+                    <th>IsPublish</th>
+                    <th>IsDeleted</th>
+
+
+
+                    <th style="text-align: center;" colspan="2">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of questionData | paginate
+                                    : {
+                                        itemsPerPage: tableSize,
+                                        currentPage: page,
+                                        totalItems: count
+                                      };
+                                    let i = index">
+                    <td>{{item.Id}}</td>
+                    <td>{{item.Question}}</td>
+                    <td>{{item.SkillId}}</td>
+                    <td>{{item.QuestionTypeId}}</td>
+                    <td>{{item.QuestionCategoryId}}</td>
+
+                    <td>{{item.CorrectAnswer}}</td>
+                    <td>{{item.Weightage}}</td>
+                    <td>{{item.IsPublish}}</td>
+                    <td>{{item.IsDeleted}}</td>
+                    <!-- <td>{{item.CreatedDt}}</td>
+                    <td>{{item.CreatedBy}}</td>
+                    <td>{{item.ModifiedDt }}</td>
+                    <td>{{item.ModifiedBy}}</td> -->
+                    <td>{{item.ShowEditor}}</td>
+                    <td><button class="btn btn-primary" (click)="GetQuestionById(item.Id)"> EDIT </button>
+                      <button class="btn btn-danger" (click)="DeleteQuestion(item.Id)"> DELETE </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="d-flex justify-content-center">
+                <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+                </pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

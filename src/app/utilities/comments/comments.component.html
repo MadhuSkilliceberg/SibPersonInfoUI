@@ -1,0 +1,119 @@
+Hello<div></div>
+<!--
+<div id="tree">
+    <ng-container *ngTemplateOutlet="treeViewList; 
+                                 context:{$implicit:comments}">
+    </ng-container>
+</div>
+
+<ng-template #treeViewList let-list>
+
+    <div style="margin-top: 2%;border: solid 2px black;" *ngFor="let citem of list">
+        <div>{{comments.length}}</div>
+        <div> Comments: {{citem.Description}}  </div>
+        
+        <div class="timeline-footer">
+            <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i>
+                Like</a>
+            <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
+                    class="fa fa-thumbs-down fa-fw fa-lg m-r-3"></i>
+                UnLike</a>
+            <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i>
+                Comment</a>
+            <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-share fa-fw fa-lg m-r-3"></i>
+                Share</a>
+                <ng-container *ngTemplateOutlet="treeViewList;
+                context:{$implicit: citem.children}">
+                </ng-container>
+        </div>
+      
+    </div>
+  
+
+</ng-template>
+
+
+
+
+  -->
+
+
+
+<div id="tree">
+    <ng-container *ngTemplateOutlet="treeViewList; 
+                                 context:{$implicit:comments}">
+    </ng-container>
+</div>
+
+ <ng-template #treeViewList let-list>
+    <ng-container *ngFor="let citem of list;let i=index">
+        <div class="comment-container" id="{{citem.Id}}" >
+            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User Avatar" class="user-avatar" >
+            <div class="comment-content">
+                <p class="comment-text">{{i}} {{citem.Description}}</p>
+                <p class="comment-info">John Doe • 2 days ago</p>
+                <div class="button-container" style="float: left;">
+                    <span class="button" (click)="toggleCollapse(citem.Id)"
+                     ><i
+                            class="fas fa-reply"></i> Reply</span>
+                    <span class="button"><i class="fas fa-thumbs-up"></i> Like</span>
+                    <span class="button"><i class="fas fa-thumbs-down"></i> Unlike</span>
+                </div>
+                <div class="reply-input" id="replyInput1">
+                    <input type="text" placeholder="Your reply...">
+                    <input type="file" class="file-input" accept="image/*,video/*">
+                    <button onclick="submitReply('comment1', 'replyInput1')"><i class="fas fa-paper-plane"></i>
+                        Submit</button>
+                </div>
+                <div id="comment1Replies{{citem.Id}}" style="display: none;" >
+                    <ng-container *ngTemplateOutlet="treeViewList;
+                    context:{$implicit: citem.children}"></ng-container>
+                    </div>
+                </div>
+                <!-- <div class="expand-collapse-btn" id="comment1ExpandCollapseBtn"
+                    onclick="toggleReplies('comment1Replies', 'comment1ExpandCollapseBtn')"><i
+                        class="fas fa-chevron-down"></i> Expand Replies</div>
+
+                
+                <button class="btn btn-primary" aria-expanded="false" aria-controls="collapseExample" type="button" [attr.data-toggle]="'collapse'" [attr.data-target]="'#' + i">
+                    Button with data-target  </button> -->
+            </div>
+           
+    </ng-container>
+</ng-template>  
+
+
+
+<!-- <ng-template #treeViewList let-list>
+    <ng-container *ngFor="let citem of list; let i=index">
+        <input type="checkbox" id="toggle{{i}}" class="toggle-input">
+        <label for="toggle{{i}}" class="toggle-label" (click)="toggleCollapse(citem.Id)">
+            <div class="comment-container ">
+                <img src="user-avatar1.jpg" alt="User Avatar" class="user-avatar">
+                <div class="comment-content">
+                    <p class="comment-text">{{i}} {{citem.Description}}</p>
+                    <p class="comment-info">John Doe • 2 days ago</p>
+                    <div class="button-container">
+                        <span class="button"
+                            onclick="toggleReply('replyInput1', 'comment1Replies', 'comment1ExpandCollapseBtn')"><i
+                                class="fas fa-reply"></i> Reply</span>
+                        <span class="button"><i class="fas fa-thumbs-up"></i> Like</span>
+                        <span class="button"><i class="fas fa-thumbs-down"></i> Unlike</span>
+                    </div>
+                    <div class="reply-input" id="replyInput1">
+                        <input type="text" placeholder="Your reply...">
+                        <input type="file" class="file-input" accept="image/*,video/*">
+                        <button onclick="submitReply('comment1', 'replyInput1')"><i class="fas fa-paper-plane"></i>
+                            Submit</button>
+                    </div>
+                    <div id="comment1Replies" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="comment-replies toggle-input" id="{{ citem.Id}}">
+                <ng-container
+                    *ngTemplateOutlet="treeViewList; context:{$implicit: citem.children, parentId: citem.Id}"></ng-container>
+            </div>
+        </label>
+
+    </ng-container>
+</ng-template> -->
