@@ -141,6 +141,7 @@ import { InstitutionTimelineComponent } from './components/institutions/institut
 import { InstitutionTaskComponent } from './components/institutions/institution-task/institution-task.component';
 //import { UserRegComponent } from './components/user-registration/user-reg/user-reg.component';
 import { ExamSelectionComponent } from './components/exam-selection/exam-selection.component';
+import { CompanyjobComponent } from './components/company/CompantJobPost/companyjob/companyjob.component';
 
 
 const routes: Routes = [
@@ -289,6 +290,7 @@ const routes: Routes = [
   { path: 'InstitutionTask', component: InstitutionTaskComponent},
   
   { path: 'Question', component: QuestionComponent},
+  { path: 'companyJobPost', component: CompanyjobComponent},
   
 ];
 

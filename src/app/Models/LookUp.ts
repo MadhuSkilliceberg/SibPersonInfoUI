@@ -8,3 +8,11 @@ export class LookUp
  public UpdatedBy   :number = 0; 
  Value:LookUp[]=[];
 }
+
+
+
+export class DepartmentRoleCategory{
+    Id!:number;
+    Name!:string;
+    Code!:string;
+}

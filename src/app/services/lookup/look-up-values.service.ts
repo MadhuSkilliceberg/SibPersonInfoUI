@@ -43,4 +43,9 @@ export class LookUpValueservice {
 DeleteLookUpValues(id: number): any {
     return this.http.delete(this.endpointUrl+"DeleteLookUpValues/" + id);
   }
+  
+   // By using this method we will get the LookUpValues 
+   GetLocationLookUpValues(): any {
+    return this.http.get("https://localhost:44384/api/Location/GetLocations");
+  }
 }

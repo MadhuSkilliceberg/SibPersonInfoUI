@@ -37,4 +37,10 @@ export class SkillsService {
 DeleteSkills(id: number): any {
     return this.http.delete(this.endpointUrl+"DeleteSkills/" + id);
   }
+
+  
+  // By using this method we will get the Skills based on the Id
+  GetSkillsSearch(name: string): any {
+    return this.http.get(this.endpointUrl+"GetSkillsSearch/" + name);
+  }
 }

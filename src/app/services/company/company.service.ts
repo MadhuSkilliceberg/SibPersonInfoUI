@@ -16,7 +16,7 @@ export class CompanyService {
 
   // By using this method we will get the Company 
   GetCompany(): any {
-    return this.http.get(this.endpointUrl + "GetCompany");
+    return this.http.get(this.endpointUrl + "GetCompanies");
   }
 
   // By using this method we will get the Company based on the Id
