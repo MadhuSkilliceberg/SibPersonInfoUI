@@ -8,6 +8,7 @@ export class LookUpValue {
     public UpdatedBy: number = 0;
     public LookUpId: number = 0;
     public LookUpCode!: string;
+    public ParentId !:number;
     
 
     constructor() {

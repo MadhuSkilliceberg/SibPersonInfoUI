@@ -15,4 +15,5 @@ export class DepartmentRoleCategory{
     Id!:number;
     Name!:string;
     Code!:string;
+    ParentId!:number | null;
 }

@@ -1,0 +1,21 @@
+
+
+.addskills{
+    width: auto;
+    min-height: 150px;
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+
+
+.cards{
+    width: 200px;
+    height: 100px;
+}
+
+img{
+    filter: grayscale(100%);
+}
+img:hover{
+    filter: grayscale(0%);
+}

@@ -1,0 +1,557 @@
+<div id="stepper1" class="bs-stepper">
+    <div class="bs-stepper-header">
+        <div class="step" data-target="#test-l-1">
+            <button class="step-trigger">
+                <span class="bs-stepper-circle"><span class="fas fa-user"></span> </span>
+                <span class="bs-stepper-label">Company Job Post </span>
+            </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#test-l-2">
+            <button class="step-trigger">
+                <span class="bs-stepper-circle"><span class="fas fa-map-marked" aria-hidden="true"></span></span>
+                <span class="bs-stepper-label">Job Post Details</span>
+            </button>
+        </div>
+        <!-- <div class="line"></div>
+        <div class="step" data-target="#test-l-3">
+            <button class="step-trigger">
+                <span class="bs-stepper-circle">3</span>
+                <span class="bs-stepper-label">Skill</span>
+            </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#test-l-4">
+            <button class="step-trigger">
+                <span class="bs-stepper-circle">4</span>
+                <span class="bs-stepper-label">Course</span>
+            </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#test-l-5">
+            <button class="step-trigger">
+                <span class="bs-stepper-circle">5</span>
+                <span class="bs-stepper-label">Company</span>
+            </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#test-l-6">
+            <button class="step-trigger">
+                <span class="bs-stepper-circle">6</span>
+                <span class="bs-stepper-label">Preview</span>
+            </button>
+        </div> -->
+    </div>
+
+    <div class="bs-stepper-content">
+        <!-- For User Registration -->
+        <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div id="test-l-1" class="content">
+
+                <div class='card shadow-lg p-4 mb-4 bg-white'>
+                    <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                        <h5 style="text-align:center">Post a Job </h5>
+                    </div>
+                    <div class='card-body'>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Job Tittle :
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <input type="text" name="txtfirstname" class="form-control" id="txtfirstname"
+                                    #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.errors }"
+                                    [(ngModel)]="jobpost.Name" placeholder="Job Tittle" />
+                                <!-- {{f.submitted }} -->
+                            </div>
+                            <div class="col-md-3">
+                                Description :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtDescription" id="txtDescription" class="form-control"
+                                    #Description="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && Description.errors }"
+                                    [(ngModel)]="jobpost.Description" placeholder="Description " />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                Location :
+                            </div>
+                            <div class="col-md-3">
+                                <!-- <select name="ddlDepartmentId" id="ddlDepartmentId" [(ngModel)]="jobpost.LocationId"
+                                    class="form-control">
+                                    <option value="0">Select</option>
+                                    <option *ngFor="let location of LocationData" value="{{location.Name}}">
+                                        {{location.Name}}</option>
+                                </select> -->
+                                <input list="brow" class="form-control">
+                                <datalist id="brow">
+                                    <option value="Internet Explorer">
+                                    <option *ngFor="let location of LocationData" value="{{location.Name}}">
+                                        {{location.Name}}</option>
+
+                                </datalist>
+                                <!-- <input type="number" name="txtLocationId" id="txtLocationId" class="form-control"
+                                    #LocationId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && LocationId.errors }"
+                                    [(ngModel)]="jobpost.LocationId" placeholder="LocationId" /> -->
+                            </div>
+                            <div class="col-md-3">
+                                DepartmentId :
+                            </div>
+                            <div class="col-md-3">
+                                <!-- <select name="ddlDepartmentId" id="ddlDepartmentId" class="form-control">
+                                    <option value="0">Select</option>
+                                    <option></option>
+                                </select> -->
+                                <input type="number" name="txtDepartmentId" id="txtDepartmentId" class="form-control"
+                                    #DepartmentId="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && DepartmentId.errors }"
+                                    [(ngModel)]="jobpost.DepartmentId" placeholder="DepartmentId" />
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                Posted Date :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" name="txtPostedDate" id="txtPostedDate" class="form-control"
+                                    #PostedDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && PostedDate.errors }"
+                                    [(ngModel)]="jobpost.PostedDate" placeholder="PostedDate" />
+                            </div>
+                            <div class="col-md-3">
+                                Closing Date :
+                            </div>
+                            <div class="col-md-3">
+
+                                <input type="date" name="txtClosingDate" id="txtClosingDate" class="form-control"
+                                    #ClosingDate="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && ClosingDate.errors }"
+                                    [(ngModel)]="jobpost.ClosingDate" placeholder="ClosingDate" />
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                ScheduleShiftId :
+                            </div>
+                            <div class="col-md-3 ">
+                                <input type="number" name="txtScheduleShiftId" class="form-control"
+                                    id="txtScheduleShiftId" #ScheduleShiftId="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && ScheduleShiftId.errors }"
+                                    [(ngModel)]="jobpost.ScheduleShiftId" placeholder="ScheduleShiftId" />
+                                <!-- {{f.submitted }} -->
+                            </div>
+                            <div class="col-md-3">
+                                StartDate :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" name="txtStartDate" id="txtStartDate" #StartDate="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && StartDate.errors }"
+                                    [(ngModel)]="jobpost.StartDate" class="form-control" placeholder="StartDate " />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                NumberofHiring :
+                            </div>
+                            <div class="col-md-3 ">
+                                <input type="number" name="txtNumberofHiring" class="form-control"
+                                    id="txtNumberofHiring" #NumberofHiring="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && NumberofHiring.errors }"
+                                    [(ngModel)]="jobpost.NumberofHiring" placeholder="NumberofHiring" />
+                                <!-- {{f.submitted }} -->
+                            </div>
+                            <div class="col-md-3">
+                                Pay :
+                            </div>
+                            <div class="col-md-1">
+                                <input type="number" name="txtmin_Pay" id="txtmin_Pay" class="form-control"
+                                    #Pay="ngModel" [ngClass]="{ 'is-invalid': f.submitted && Pay.errors }"
+                                    [(ngModel)]="jobpost.Pay" placeholder="min_Pay " />
+                            </div>
+                            <div class="mt-1">
+                                To
+                            </div>
+                            <!-- <div class="col-md-1">
+                                <input type="number" name="txtmax_Pay" id="txtmax_Pay" class="form-control"
+                                    #max_Pay="ngModel" [ngClass]="{ 'is-invalid': f.submitted && max_Pay.errors }"
+                                    [(ngModel)]="jobpost.max_Pay" placeholder="max_Pay " />
+                            </div> -->
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                IsApplicationDeadLine :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="txtIsApplicationDeadLine" id="txtIsApplicationDeadLine"
+                                    #IsApplicationDeadLine="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && IsApplicationDeadLine.errors }"
+                                    [(ngModel)]="jobpost.IsApplicationDeadLine" placeholder="IsApplicationDeadLine" />
+                            </div>
+                            <div class="col-md-3">
+                                RequireCv :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="txtRequireCv" id="txtRequireCv" #RequireCv="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && RequireCv.errors }"
+                                    [(ngModel)]="jobpost.RequireCv" placeholder="RequireCv" />
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                PhoneNumber :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtPhoneNumber" id="txtPhoneNumber" class="form-control"
+                                    #PhoneNumber="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && PhoneNumber.errors }"
+                                    [(ngModel)]="jobpost.PhoneNumber" placeholder="PhoneNumber" />
+                            </div>
+                            <div class="col-md-3">
+                                IsWhatsAppUpdates :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="txtIsWhatsAppUpdates" id="txtIsWhatsAppUpdates"
+                                    #IsWhatsAppUpdates="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && IsWhatsAppUpdates.errors }"
+                                    [(ngModel)]="jobpost.IsWhatsAppUpdates" placeholder="IsWhatsAppUpdates" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                Code :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="txtCode" id="txtCode" class="form-control" #Code="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && Code.errors }" [(ngModel)]="jobpost.Code"
+                                    placeholder="Code" />
+                            </div>
+
+                            <div class="col-md-3">
+                                DirectContact :
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="txtDirectContact" id="txtDirectContact"
+                                    #DirectContact="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && DirectContact.errors }"
+                                    [(ngModel)]="jobpost.DirectContact" placeholder="DirectContact" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="submit" (click)="OnSaveJobDetail()"
+                            class="btn btn-primary mr-2">{{this.userId>0?"Update":"Save"}}</button>
+                        <button class="btn btn-primary" (click)="next()">Save && Next</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <form (ngSubmit)="onSubmit()">
+            <div id="test-l-2" class="content">
+                <!-- For User Education -->
+                <div class='card shadow-lg p-3 mb-4 bg-white'>
+                    <div class='card-header' style="background-color: #007BFF;color:#fff;">
+                        <h5 style="text-align:center">Post a Job </h5>
+                    </div>
+                    <div class='card-body jobpost-body'>
+                        <div class="row mb-4">
+                            <div class="col-lg-8">
+                                <Label>Job Tittle *</Label>
+                                <input type="text" name="" id="" class="form-control">
+                            </div>
+                            <div class="col-lg-4">
+                                <Label>Employment Type*</Label>
+                                <select name="" id="" class="form-control">
+                                    <option value="" *ngFor="let Employment of employmemttypes"
+                                        value="{{Employment.Id}}">{{Employment.Name}}</option>
+                                </select>
+                                <!-- <input type="text" name="" id="" class="form-control"> -->
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-lg-12">
+                                <Label>Mapped Skills</Label>
+                                <div class="addskills p-3">
+                                    <!-- <button class="btn btn-primary m-3">Add Skill</button> -->
+                                    <!-- <label class="btn btn-primary m-2" *ngFor="let item of MappedSkills;let i=index">
+                                    <input type="checkbox" name="" id="" (click)="OnRemoveSkill(item,i)"> {{item.Name}}
+                                    </label> -->
+                                    <button class="btn btn-primary mr-2 " *ngFor="let item of MappedSkills;let i=index"
+                                        (click)="OnRemoveSkill(item,i)"> <i class="fa fa-close" aria-hidden="true"></i>
+                                        {{item.Name}} </button>
+
+                                </div>
+                                <!-- <textarea name="" id="" cols="30" rows="8" class="form-control">
+                                
+                              </textarea> -->
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-lg-12">
+                                <Label>Avalible Skills</Label>
+                                <div class="addskills p-3">
+                                    <input type="text" placeholder="Search" id="Search" name="Search"
+                                        class="form-control mb-3" [(ngModel)]="skillSeach" (input)="GetSkillsSearch()">
+                                    <button class="btn btn-primary mr-2"
+                                        *ngFor="let item of AvailableSkills;let i=index" (click)="OnAddSkill(item,i)">
+                                        <i class="fa fa-window-close" aria-hidden="true"></i> {{item.Name}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-lg-7">
+                                <Label>Department & Role Category</Label>
+                                <!-- <input type="text" name="" id="" class="form-control" placeholder="DropDown"> -->
+                                <select name="dropchangeDepartmentRoleCategory" id="dropchangeDepartmentRoleCategory"
+                                    class="form-control" [(ngModel)]="DepartmentRoleCategoryId"
+                                    (change)="onDepartmentChange(DepartmentRoleCategoryId)">
+                                    <option *ngFor="let roleCategory of DepartmentRoleCategory"
+                                        value="{{roleCategory.Id}}">{{roleCategory.Name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-5">
+                                <!-- <Label>JOB TITTLE</Label>
+                                <input type="text" name="" id="" class="form-control"> -->
+                            </div>
+                        </div>
+
+                        <!-- <div class="row mb-4">
+                            <div class="col-lg-7">
+                                <Label> Role </Label>
+                                <input type="text" name="" id="" class="form-control" placeholder="DropDown">
+                            </div>
+                            <div class="col-lg-5">
+                                
+                            </div>
+                        </div> -->
+
+                        <div class="row mb-4">
+                            <div class="col-lg-12">
+                                <Label>Mapped Roles</Label>
+                                <div class="addskills p-3">
+
+                                    <button class="btn btn-primary mr-2 " *ngFor="let item of MappedRoles;let i=index"
+                                        (click)="OnRemoveRole(item,i)"> <i class="fa fa-close" aria-hidden="true"></i>
+                                        {{item.Name}} </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-lg-12">
+                                <Label>Suggested Roles</Label>
+                                <div class="addskills p-3">
+                                    <input type="text" placeholder="Search" id="Search" name="Search"
+                                        class="form-control mb-3" [(ngModel)]="skillSeach" (input)="GetSkillsSearch()">
+                                    <button class="btn btn-primary mr-2" *ngFor="let item of availbleRoles;let i=index"
+                                        (click)="OnAddRole(item,i)">
+                                        <i class="fa fa-window-close" aria-hidden="true"></i> {{item.Name}}
+                                    </button>
+                                    <label for="" *ngIf="DepartmentRoleCategoryId >0 && availbleRoles.length<1">Not
+                                        Available</label>
+
+
+                                </div>
+                                <!-- <textarea name="" id="" cols="30" rows="8" class="form-control">
+                                
+                              </textarea> -->
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-lg-6">
+                                <Label> Continent </Label>
+                                <select name="targetContinentname" id="targetContinentId" class="form-control"
+                                    [(ngModel)]="ContinentId" (change)="onContinentChange(ContinentId)">
+                                    <option *ngFor="let trgContinent of targetContinent" value="{{trgContinent.Id}}">
+                                        {{trgContinent.Name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <Label> Country </Label>
+                                <select name="targetCountryname" id="targetCountryId" class="form-control"
+                                    [(ngModel)]="CountryId" (change)="onCountryChange(CountryId)">
+                                    <option *ngFor="let trgCountry of targetCountry" value="{{trgCountry.Id}}">
+                                        {{trgCountry.Name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-lg-6">
+                                <Label> State </Label>
+                                <select name="targetStatename" id="targetStatetxt" class="form-control"
+                                    [(ngModel)]="StateId" (change)="onStateChange(StateId)">
+                                    <option *ngFor="let trgState of targetState" value="{{trgState.Id}}">
+                                        {{trgState.Name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <Label> District </Label>
+                                <select name="targetDistrictname" id="targetDistrictId" class="form-control"
+                                    [(ngModel)]="DepartmentRoleCategoryId">
+                                    <option *ngFor="let trgDistrict of targetDistrict" value="{{trgDistrict.Id}}">
+                                        {{trgDistrict.Name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="row mb-4">
+                            <div class="col-lg-8">
+                                <Label> Job Location (Maximum 3) </Label>
+                                <input type="text" name="" id="" class="form-control" placeholder=" Add more locations">
+                            </div>
+                            <div class="col-lg-5">
+
+                            </div>
+                        </div> -->
+
+
+                        <div class="row mb-4">
+                            <div class="col-lg-12">
+                                <Label>Job Location (Maximum 3)</Label>
+                                <div class="addskills p-3">
+                                    <div class="mb-3">
+                                        <button class="btn btn-primary mr-2 " *ngFor="let item of MappedLocation;let i=index"
+                                        (click)="OnRemoveLocation(item,i)"> <i class="fa fa-close" aria-hidden="true"></i>
+                                        {{item.Name}} </button>
+                                    </div>
+                                    <input type="text" placeholder="Search" id="LookUpSeachId" name="LookUpSeachnm"
+                                        class="form-control mb-3" [(ngModel)]="lookUpSearch.Name" (input)="GetLookUpSearch()">
+                                  
+                                        <button class="btn btn-primary mr-2"
+                                        *ngFor="let item of availableLocation;let i=index" (click)="OnAddLocation(item , i)">
+                                        <i class="fa fa-window-close" aria-hidden="true"></i> {{item.Name}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <div class="col-lg-8">
+                                <input type="checkbox" name="" id=""> &nbsp;
+                                <Label> Include candidates willing to relocate to above location(S) </Label>
+                            </div>
+                            <div class="col-lg-5">
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-lg-7">
+                                <Label> Locality </Label>
+                                <input type="text" name="" id="" class="form-control"
+                                    placeholder=" Search and Add locality">
+                            </div>
+                            <div class="col-lg-6">
+
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-lg-7">
+                                <Label> Work Expereince (years) </Label>
+
+                                <div class="row">
+                                    <div class="col-lg-5 ">
+                                        <select name="" id="" class="form-control">
+                                            <option value="0">years</option>
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-1 mt-1">To</div>
+                                    <div class="col-lg-5 ">
+                                        <select name="" id="" class="form-control">
+                                            <option value="0">months</option>
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-lg-7">
+                                <Label> Annual salary rang </Label>
+
+                                <div class="row">
+                                    <div class="col-lg-2 ">
+                                        <select name="" id="" class="form-control">
+                                            <option value="0">$</option>
+                                            <option value="0">Rupee</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-4 ">
+                                        <select name="" id="" class="form-control">
+                                            <option value="0">years</option>
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-1 mt-1">To</div>
+                                    <div class="col-lg-4 ">
+                                        <select name="" id="" class="form-control">
+                                            <option value="0">months</option>
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <button (click)="AddUserEducationDetails()" class="btn btn-primary mr-2"
+                            *ngIf="this.user.Id<1">Save</button>
+                        <button (click)="UpdateUserEducationDetails()" class="btn btn-primary" *ngIf="this.user.Id>0">
+                            Update</button>
+                        <button class="btn btn-primary" (click)="next()">Save&&Next</button>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <button class="btn btn-primary mr-2">{{this.userId>0?"Update":"Save"}} </button>
+                        <button class="btn btn-primary" (click)="next()">Save && Next</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <!-- <div class="container">
+            <div class="cards">
+                <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+            </div>
+        </div> -->
+    </div>

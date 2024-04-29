@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { LookUpValue } from '../../Models/LookUpValues';
 import { environment } from 'src/environments/environment';
+import { LookUpSearch } from 'src/app/Models/LookUpSearch';
 
 
 
@@ -47,5 +48,11 @@ DeleteLookUpValues(id: number): any {
    // By using this method we will get the LookUpValues 
    GetLocationLookUpValues(): any {
     return this.http.get("https://localhost:44384/api/Location/GetLocations");
+  }
+
+
+   // By using this method we will get the Skills based on the Id
+   GetLookUpSearch(lookUpSearch:LookUpSearch): any {
+    return this.http.post(this.endpointUrl + 'GetLookUpSearch',lookUpSearch);
   }
 }
