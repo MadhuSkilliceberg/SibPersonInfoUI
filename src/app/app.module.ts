@@ -166,6 +166,7 @@ import { InstitutionTimelineComponent } from './components/institutions/institut
 import { InstitutionTaskComponent } from './components/institutions/institution-task/institution-task.component';
 import { ExamSelectionComponent } from './components/exam-selection/exam-selection.component';
 import { CompanyjobComponent } from './components/company/CompantJobPost/companyjob/companyjob.component';
+import { AttendanceComponent } from './components/attendance/attendance.component';
 //import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 //import { NgxDnDModule } from '@swimlane/ngx-dnd';
 
@@ -325,7 +326,8 @@ export function tokenGetter() {
     InstitutionTimelineComponent,
     InstitutionTaskComponent,
     ExamSelectionComponent,
-    CompanyjobComponent
+    CompanyjobComponent,
+    AttendanceComponent
   ],
   imports: [
     BrowserModule,CdkStepperModule,//NgMultiSelectDropDownModule.forRoot(),

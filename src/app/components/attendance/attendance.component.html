@@ -1,0 +1,148 @@
+<!-- attendance.component.html -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Attendance Dashboard</h2>
+
+            <!-- Add Attendance Form -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4 class="card-title">Add New Attendance</h4>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="addUpdateAttendance()">
+                        <div class="form-group">
+                            <label for="user">User</label>
+                            <input type="text" class="form-control" id="user" [(ngModel)]="attendance.UserId"
+                                name="userName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" id="date" [(ngModel)]="attendanceDate"
+                                name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeIn">Time In</label>
+                            <input type="time" class="form-control" id="timeIn" [(ngModel)]="timeIn"
+                                name="timeIn" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeOut">Time Out</label>
+                            <input type="time" class="form-control" id="timeOut" [(ngModel)]="timeOut"
+                                name="timeOut" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select class="form-control" id="status" [(ngModel)]="attendance.Status" name="status"
+                                required>
+                                <option value="Present">Present</option>
+                                <option value="Absent">Absent</option>
+                                <option value="On Leave">On Leave</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" *ngIf="attendance.AttendanceId==undefined|| attendance.AttendanceId<=0">Add Attendance</button>
+                        <button  type="submit" class="btn btn-primary" *ngIf="attendance.AttendanceId!=undefined && attendance.AttendanceId > 0">Update</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6">
+            <!-- Vertical Timeline Start -->
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="d-flex align-items-center">
+                            <img src="https://via.placeholder.com/40" alt="Profile Pic" class="profile-pic">
+                            <div class="ml-3">
+                                <h5 class="mb-0">John Doe</h5>
+                                <span class="status-indicator status-active" title="Active"></span>
+                                <div class="mt-2">
+                                    <span class="status-label status-pending">Pending for Approval</span>
+                                    <div class="approval-date">Approval Date: N/A</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <div class="d-flex align-items-center">
+                                <img src="https://via.placeholder.com/40" alt="Profile Pic" class="profile-pic">
+                                <div class="ml-3">
+                                    <h6 class="mb-0">Jane Smith</h6>
+                                    <span class="status-indicator status-inactive" title="Inactive"></span>
+                                    <div class="mt-2">
+                                        <span class="status-label status-not-started">Not Yet Started</span>
+                                        <div class="approval-date">Approval Date: N/A</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-item-content">
+                        <div class="d-flex align-items-center">
+                            <img src="https://via.placeholder.com/40" alt="Profile Pic" class="profile-pic">
+                            <div class="ml-3">
+                                <h5 class="mb-0">Michael Johnson</h5>
+                                <span class="status-indicator status-active" title="Active"></span>
+                                <div class="mt-2">
+                                    <span class="status-label status-not-approved">Not Approved</span>
+                                    <div class="approval-date">Approval Date: N/A</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more timeline items as needed -->
+            </div>
+            <!-- Vertical Timeline End -->
+            <!-- Vertical Timeline End -->
+        </div>
+
+
+        <div class="col-md-12">
+            <!-- Attendance Table -->
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>User</th>
+                            <th>Date</th>
+                            <th>Time In</th>
+                            <th>Time Out</th>
+                            <th>Hours Worked</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let record of attendanceRecords; let i = index">
+                            <td>{{ record.AttendanceId }}</td>
+                            <td>{{ record.UserId }}</td>
+                            <td>{{ record.AttendanceDate | date: 'shortDate' }}</td>
+                            <td>{{ record.TimeIn | date: 'shortTime' }}</td>
+                            <td>{{ record.TimeOut | date: 'shortTime' }}</td>
+                            <td>{{ record.HoursWorked }}</td>
+                            <td>
+                                <span class="badge" [ngClass]="{
+                    'badge-success': record.Status === 'Present',
+                    'badge-danger': record.Status === 'Absent',
+                    'badge-warning': record.Status === 'On Leave'
+                  }">{{ record.Status }}</span>
+                            </td>
+                            <td>
+                                <button class="btn btn-info btn-sm" (click)="editAttendance(record.AttendanceId)">Edit</button>
+                                <button class="btn btn-danger btn-sm" (click)="deleteAttendance(record.AttendanceId)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

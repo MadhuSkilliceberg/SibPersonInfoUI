@@ -25,6 +25,7 @@
     "@types/dragula": "^3.7.4",
     "angular-ng-stepper": "^2.0.0",
     "bs-stepper": "^1.7.0",
+    "jwt-decode": "^4.0.0",
     "marked": "^8.0.1",
     "ng-multiselect-dropdown": "^1.0.0",
     "ngx-drag-drop": "^15.1.0",

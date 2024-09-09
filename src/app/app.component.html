@@ -4,6 +4,7 @@
           class="fa fa-anchor"></i> <span>SKILL ICEBERG</span></a></header>
 
     <nav class="dashboard-nav-list">
+      <a [routerLink]="['attedance']" class="dashboard-nav-item"><i class="fa fa-home"></i> Attedance </a>
       <a [routerLink]="['somepath']" class="dashboard-nav-item"><i class="fa fa-home"></i> Home </a>
       <a [routerLink]="['somepath']" class="dashboard-nav-item active"><i class="fa fa-tachometer-alt"></i>dashboard</a>
 
@@ -355,7 +356,7 @@
       <a [routerLink]="['test']" class="dashboard-nav-item"><i class="fa fa-cogs"></i> test </a><a
         [routerLink]="['test']" class="dashboard-nav-item"><i class="fa fa-user"></i> Profile </a>
       <div class="nav-item-divider"></div>
-      <a [routerLink]="['test']" class="dashboard-nav-item"><i class="fa fa-sign-out-alt"></i> Logout </a>
+      <a (click)="logOut()" class="dashboard-nav-item"><i class="fa fa-sign-out-alt"></i>  Logout </a>
     </nav>
   </div>
   <div class='dashboard-app'>
