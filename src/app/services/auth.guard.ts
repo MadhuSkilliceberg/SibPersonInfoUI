@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
 
 
     //get the jwt token which are present in the local storage
-    const token = localStorage.getItem("jwt");
+    const token = localStorage.getItem('accessToken');
 
     //Check if the token is expired or not and if token is expired then redirect to login page and return false
     if (token && !this.jwtHelper.isTokenExpired(token)){

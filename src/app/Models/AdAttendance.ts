@@ -13,6 +13,8 @@
 //     UpdatedOn!: string | null;
 // }
 
+// import { Users } from "./Users";
+
 
 export class Adattendance  {
     AttendanceId: number | undefined;
@@ -25,4 +27,5 @@ export class Adattendance  {
     Status?: string='Present'; // Optional field
     CreatedOn?: Date; // Optional field
     UpdatedOn?: Date; // Optional field
+    // User?: Users | null;
 }

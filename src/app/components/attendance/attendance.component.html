@@ -58,11 +58,11 @@
                         <div class="d-flex align-items-center">
                             <img src="https://via.placeholder.com/40" alt="Profile Pic" class="profile-pic">
                             <div class="ml-3">
-                                <h5 class="mb-0">John Doe</h5>
+                                <h5 class="mb-0">{{user.FirstName}} {{user.LastName}}</h5>
                                 <span class="status-indicator status-active" title="Active"></span>
                                 <div class="mt-2">
                                     <span class="status-label status-pending">Pending for Approval</span>
-                                    <div class="approval-date">Approval Date: N/A</div>
+                                    <div class="approval-date">Approval Date: {{today | date:"MMM dd, yyyy"}}</div>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                                     <span class="status-indicator status-inactive" title="Inactive"></span>
                                     <div class="mt-2">
                                         <span class="status-label status-not-started">Not Yet Started</span>
-                                        <div class="approval-date">Approval Date: N/A</div>
+                                        <div class="approval-date">Approval Date: {{today | date:"MMM dd, yyyy"}}</div>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                                 <span class="status-indicator status-active" title="Active"></span>
                                 <div class="mt-2">
                                     <span class="status-label status-not-approved">Not Approved</span>
-                                    <div class="approval-date">Approval Date: N/A</div>
+                                    <div class="approval-date">Approval Date: {{today | date:"MMM dd, yyyy"}}</div>
                                 </div>
                             </div>
                         </div>

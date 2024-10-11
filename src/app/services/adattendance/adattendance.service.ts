@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Adattendance } from '../../Models/AdAttendance';
 import { environment } from 'src/environments/environment';
+import { Users } from 'src/app/Models/Users';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +39,9 @@ export class AdAttendanceService {
   // By using this method we will delete an AdAttendance record based on the Id
   DeleteAdAttendance(id: number): any {
     return this.http.delete(this.endpointUrl + 'DeleteAdAttendances/' + id);
+  }
+
+  GetUserAttendanceApprovalByUserId(userId:number):Observable<Users>{
+    return this.http.get<Users>(this.endpointUrl+'GetUserAttendanceApprovalByUserId/'+userId);
   }
 }

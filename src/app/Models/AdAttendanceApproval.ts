@@ -1,3 +1,5 @@
+// import { Users } from "./Users";
+
 export class AdattendanceApproval {
     AttendanceApprovalId!: number;
     AttendanceId?: number | null;
@@ -6,6 +8,5 @@ export class AdattendanceApproval {
     Level?: number | null;
     CreatedOn?: Date | null;
     UpdatedOn?: Date | null;
-
-    // User?: User | null; // Assuming User is another interface/model
+    //  User?: Users | null; // Assuming User is another interface/model
 }

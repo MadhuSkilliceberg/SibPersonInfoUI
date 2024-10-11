@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Adattendance } from 'src/app/Models/AdAttendance';
+import { AdattendanceApproval } from 'src/app/Models/AdAttendanceApproval';
+import { LookUpValue } from 'src/app/Models/LookUpValues';
+import { Users } from 'src/app/Models/Users';
 import { AdAttendanceService } from 'src/app/services/adattendance/adattendance.service';
+import { AdattendanceApprovalService } from 'src/app/services/adattendanceapproval/adattendance-approval.service';
+import { LookUpService } from 'src/app/services/lookup/gender.service';
+import { LookUpValueservice } from 'src/app/services/lookup/look-up-values.service';
+import { UsersService } from 'src/app/services/users/users.service';
 import { DateTimeHelper } from 'src/app/utilities/helpers/date-time-helper';
 
 @Component({
@@ -14,9 +21,18 @@ export class AttendanceComponent implements OnInit {
 
   attendanceRecords: Adattendance[] = [];
   attendance: Adattendance = new Adattendance();
+  user: Users = new Users();
+
+  attendanceApproval: AdattendanceApproval = new AdattendanceApproval();
+
   timeIn!: string | null;
   timeOut!: string | null;
   attendanceDate!: string;
+  today:Date=new Date();
+  availableApprovalStatus:LookUpValue[]=[];
+
+
+  loggedUserId: number = 2;  //login userId 
 
   // attendanceRecords: any[] = [
   //   {
@@ -38,12 +54,18 @@ export class AttendanceComponent implements OnInit {
   //   status: 'Present'
   // };
 
-  constructor(private attendanceService: AdAttendanceService) { }
+  constructor(
+    private attendanceService: AdAttendanceService,
+    private attendanceApprovalService: AdattendanceApprovalService,
+    private usersService: UsersService,
+    private lookUpValueservice:LookUpValueservice
+  ) { }
 
   ngOnInit(): void {
 
     this.getAttendances();
-
+    this.GetApprovalStatusLookUps();
+    this.GetUserAttendanceApprovalByUserId(this.loggedUserId);
   }
 
   addUpdateAttendance(): void {
@@ -62,18 +84,20 @@ export class AttendanceComponent implements OnInit {
     if (this.attendance.AttendanceId != undefined && this.attendance.AttendanceId > 0) {
       this.attendanceService.UpdateAdAttendance(this.attendance).subscribe((res: any) => {
         // res ? alert("Data saved") : alert("data not saved");
+        this.getAttendances();
       })
     }
     else {
       this.attendanceService.AddAdAttendance(this.attendance).subscribe((res: any) => {
         // res > 0 ? alert("Data saved") : alert("data not saved");
+        this.getAttendances();
       })
     }
-    this.getAttendances();
-    this.attendance = new Adattendance();
-    this.timeIn = '';
-    this.timeOut = '';
-    this.attendanceDate = '';
+    
+   // this.attendance = new Adattendance();
+    // this.timeIn = '';
+    // this.timeOut = '';
+    // this.attendanceDate = '';
   }
 
   getAttendances() {
@@ -97,5 +121,22 @@ export class AttendanceComponent implements OnInit {
       this.getAttendances();
     })
   }
-  
+
+
+  GetUserAttendanceApprovalByUserId(useId: number) {
+    this.attendanceService.GetUserAttendanceApprovalByUserId(useId).subscribe((res: any) => {
+      this.user = res;
+    })
+  }
+
+  GetApprovalStatusLookUps(): any {
+    this.lookUpValueservice.GetLookUpValueByCode(['APPROVAL'])
+      .subscribe((res: LookUpValue[]) => {
+        console.log('availableApprovalStatus:', res);
+        this.availableApprovalStatus = res ;
+      });
+  }
+
+
+
 }

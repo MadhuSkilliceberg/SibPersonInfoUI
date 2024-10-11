@@ -5,6 +5,8 @@ import { AuthenticatedResponse } from '../Models/Authentication';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { IPAddressService } from '../services/integrations/ipaddress.service';
 
 @Component({
   selector: 'app-login',
@@ -45,23 +47,49 @@ export class LoginComponent implements OnInit {
   }
 
   invalidLogin!: boolean;
+  deviceInfo:any = null;
+  ipAddress!:string;
   // credentials: LoginModel = {username:'', password:''};
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(
+    private router: Router,
+     private http: HttpClient,
+     private deviceService:DeviceDetectorService,
+     private ipAddressService:IPAddressService
+    
+    ) {
 
     this.endpointUrl = environment.baseUrl + 'AuthenticationUsers/';
+    this.epicFunction();
+    // this.getIP();
    }
-  ngOnInit(): void {
+    ngOnInit(): void {
     
   }
+
+  epicFunction() {  
+    this.deviceInfo = this.deviceService.getDeviceInfo();
+    // const isMobile = this.deviceService.isMobile();
+    // const isTablet = this.deviceService.isTablet();
+    // const isDesktopDevice = this.deviceService.isDesktop();
+     console.log("DeviceInfo",JSON.stringify(this.deviceInfo));
+    // console.log("Mobile",isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
+    // console.log("Tablet",isTablet);  // returns if the device us a tablet (iPad etc)
+    // console.log("DesktopDevice",isDesktopDevice); // returns if the app is running on a Desktop browser.
+  }
+
+
   login = ( form: NgForm) => {
     if (form.valid) {
       this.http.post<AuthenticatedResponse>( this.endpointUrl+"authentication", this.credentials, {
-        headers: new HttpHeaders({ "Content-Type": "application/json"})
+        headers: new HttpHeaders({ "Content-Type": "application/json", 'Device-Info': JSON.stringify(this.deviceInfo)})
       })
       .subscribe({
         next: (response: AuthenticatedResponse) => {
           const token = response.Token;
-          localStorage.setItem("jwt", token); 
+          localStorage.setItem('accessToken', token);
+        //   // Decode the token to extract user information
+        // const decodedToken = this.decodeToken(token);
+        // localStorage.setItem('user', JSON.stringify(decodedToken)); // Optionally save user data
           this.invalidLogin = false; 
           this.router.navigate(["/dashboard"]);
         },
@@ -83,4 +111,28 @@ export class LoginComponent implements OnInit {
       })
     }
   }
+
+    // Decode the token
+    decodeToken(token: string): any {
+      try {
+        return jwt_decode(token); // This will decode the JWT and return the payload
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        return null;
+      }
+    }
+
+    getIP()  
+  {  
+    this.ipAddressService.getIPAddress().subscribe((res:any)=>{  
+      this.ipAddress=res.ip;  
+      console.log('ipdata', res);
+      console.log('ip', res.ip);
+    });  
+  }  
 }
+
+function jwt_decode(token: string): any {
+  throw new Error('Function not implemented.');
+}
+

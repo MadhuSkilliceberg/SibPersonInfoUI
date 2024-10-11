@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuthService } from './services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,10 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AppComponent {
   title = 'PersonsInfoProject';
-constructor(private router:Router,private jwtHelper:JwtHelperService){}
+constructor(private router:Router,private jwtHelper:JwtHelperService, private authService:AuthService){}
 
   isUserAuthenticated = (): boolean => {
-    const token = localStorage.getItem("jwt");
+    const token = localStorage.getItem('accessToken');
     if (token && !this.jwtHelper.isTokenExpired(token)){
       return true;
     }
@@ -20,7 +21,7 @@ constructor(private router:Router,private jwtHelper:JwtHelperService){}
   }
   
   logOut = () => {
-    localStorage.removeItem("jwt");
-    this.router.navigate(['/'])
+   this.authService.logoutFromThisDevice();
+   //this.authService.logoutFromAllDevices();
   }
 }

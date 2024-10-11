@@ -139,7 +139,7 @@ export class UsersComponent implements OnInit {
 
 
   isUserAuthenticated() {
-    const token = localStorage.getItem("jwt");
+    const token = localStorage.getItem('accessToken');
     // if (token && !this.jwtHelper.isTokenExpired(token)) {
     //   return true;
     // }
@@ -149,7 +149,7 @@ export class UsersComponent implements OnInit {
   }
 
   public logOut = () => {
-    localStorage.removeItem("jwt");
+    localStorage.removeItem('accessToken');
   }
 
 
